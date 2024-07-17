@@ -1,106 +1,26 @@
-#!/usr/bin/env make
+.PHONY: sandbox-create
+sandbox-create:
+	npx ampx sandbox  --profile amplify-alien --identifier feature1sandbox
 
-SHELL := /bin/bash
-.DEFAULT_GOAL := help
+.PHONY: sandbox-delete
+sandbox-delete:
+	npx ampx sandbox delete --name feature1sandbox
 
-###########################
-# VARIABLES
-###########################
+.PHONY: add-cognito
+add-cognito:
+	export EMAIL="john.doe@mail"
+	export USER_POOL_ID="blablabla"
+	aws cognito-idp admin-create-user --user-pool-id $USER_POOL_ID --username $EMAIL
+	aws cognito-idp admin-add-user-to-group --user-pool-id $USER_POOL_ID --username $EMAIL --group-name Admin
 
-ifeq ($(OS),Windows_NT) # set Python , depending if user is in windows or linux
-    PYTHON = python
-else
-    PYTHON = python3
-endif
+.PHONY: setup-form
+add-cognito:
+	export STACK_NAME="amplify-retailstore-feature1sandbox-sandbox-ba7774de28"
+	cd src
+	npx ampx generate forms --stack $STACK_NAME --models Category
+	npx ampx generate forms --stack $STACK_NAME --models Product
+	npx ampx generate graphql-client-code --stack $STACK_NAME --out graphql
 
-MARKER_CHOICES := placeholder1 placeholder2
-MARKER := $(shell cat placeholder_value.txt 2>/dev/null || echo "Nothing")
-
-mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
-mkfile_dir := $(dir $(mkfile_path))
-
-GITGUARDIAN_NUM_COMMITS ?= 1
-
-###########################
-# HELP
-###########################
-
-.PHONY: help-marker
-help-markers:  ## print valid placeholder
-	@echo "Available marker:"s
-	@echo "------------------"
-	@echo "marker1"
-	@echo "marker2"
-
-.PHONY: help
-help:  ## help to show available commands with info
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) |  awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-	@make help-marker
-
-#################
-#
-# Run the following lines for setting up your venv
-# afterwards you must do a source .venv/bin/activate
-#
-##################
-
-.PHONY: setup-venv
-setup-venv: ## setup venv if needed
-	${PYTHON} -m venv .venv
-	. ${mkfile_dir}.venv/bin/activate
-
-.PHONY: install-deps
-install-deps: ## install python deps
-	${PYTHON} -m pip install -r requirements.txt
-
-#################
-#
-# Set parameters
-#
-##################
-
-.PHONY: set-marker
-set-marker: ## set placeholder
-	@counter =0; \
-	echo "Choose placeholders from ( 1 - $(words $(MARKER_CHOICES)) ):"; \
-	echo "---------------------------"; \
-	for value in $(MARKER_CHOICES); do \
-		echo "$$((counter+=1)). $$value"; \
-	done; \
-	read -p "Enter choice " choice; \
-	if [ -z "$$(echo $(MARKER_CHOICES) | cut -d ' ' -f $$choice)" ]; then \
-		echo "Set to default $(MARKER)"; \
-	else \
-		# echo "You chose $$(echo $(MARKER_CHOICES) | cut -d ' ' -f $$choice).";\
-		echo $$(echo $(MARKER_CHOICES) | cut -d ' ' -f $$choice) > marker_value.txt; \
-	fi
-
-
-#################
-#
-# Run pytests
-#
-##################
-
-.PHONY: test
-test: set-marker  ## run tests
-	$(eval PYTEST_PATH = src/tests/$(MARKER)/)
-	@echo "PYTEST_PATH = $(PYTEST_PATH)"
-	@echo "MARKER = $(MARKER)"
-	${PYTHON} -m pytest '${PYTEST_PATH}' -m ${MARKER}
-
-
-.PHONY: secret-scan
-secret-scan:  ## run secret scan with GitGuardian
-	ggshield secret scan path ../../ --recursive
-
-.PHONY: secret-scan-commit-range
-secret-scan-commit-range:  ## run secret scan for git commit range with GitGuardian
-	@read -p "Choose the number of commits starting from $(GITGUARDIAN_NUM_COMMITS): " num_commits; \
-	if [ -z "$$num_commits" ]; then \
-		num_commits="$(GITGUARDIAN_NUM_COMMITS)"; \
-	else \
-		num_commits="$$num_commits"; \
-	fi; \
-	echo "Command: ggshield secret scan commit-range HEAD~$$num_commits"
-	ggshield secret scan commit-range "HEAD~$$num_commits"
+.PHONY: local-run
+local-run:
+	npm run dev
