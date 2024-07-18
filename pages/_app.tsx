@@ -1,0 +1,23 @@
+'use client';
+
+import "@/styles/app.css";
+import type { AppProps } from "next/app";
+import { Amplify } from "aws-amplify";
+import outputs from "@/amplify_outputs.json";
+import "@aws-amplify/ui-react/styles.css";
+
+Amplify.configure(outputs, {
+	ssr: true
+});
+
+// export default function App({ Component, pageProps }: AppProps) {
+// 	return <Component {...pageProps} />;
+// }
+
+export default function RootLayoutThatConfiguresAmplifyOnTheClient({
+	children
+}: {
+	children: React.ReactNode;
+}) {
+	return children;
+}

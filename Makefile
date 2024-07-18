@@ -24,3 +24,20 @@ add-cognito:
 .PHONY: local-run
 local-run:
 	npm run dev
+
+.PHONY: secret-create
+secret-create:
+	npx ampx sandbox secret set foo --identifier feature1sandbox
+
+.PHONY: secret-ls
+secret-ls:
+	npx ampx sandbox secret list --identifier feature1sandbox
+
+.PHONY: secret-get
+secret-get: # Reference secrets in code by using `import { defineAuth, secret } from '@aws-amplify/backend'; secret('foo')`
+	npx ampx sandbox secret get foo --identifier feature1sandbox
+
+.PHONY: secret-rm
+secret-rm:
+	npx ampx sandbox secret remove foo --identifier feature1sandbox
+
