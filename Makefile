@@ -3,6 +3,11 @@ APP_NAME ?= django_app
 
 export PYTHONPATH := $(shell pwd):$(shell pwd)/src/apps
 
+.PHONY: nix-setup
+nix-setup: ## Setup project with Nix
+	echo "use nix" >> .envrc
+	direnv allow
+
 .PHONY: create-project
 	create-app: ## Create project
 	python3 src/manage.py startproject $(PROJECT_NAME)
