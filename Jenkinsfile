@@ -8,13 +8,15 @@ pipeline {
 	}
         stages {
           stage('Git checkout') {
-          git branch: 'master', url: 'https://github.com/IliyanKostov9/portfolio.git'
+            steps {
+              git branch: 'master', url: 'https://github.com/IliyanKostov9/portfolio.git'
+            }
         }
-        stage('Python version') {
-          steps {
-            sh 'python3 --version'
+          stage('Python version') {
+            steps {
+              sh 'python3 --version'
+            }
           }
-        }
           stage("SonarQube analysis") {
             steps {
                 withSonarQubeEnv('sonar-server') {
