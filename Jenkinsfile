@@ -1,12 +1,12 @@
 pipeline {
         agent none
-	env {
-          SCANNER_HOME= tool 'sonar-scanner'
-	}
+        options {
+          disableConcurrentBuilds()
+        }
         stages {
           stage('Git checkout') {
             steps {
-              git branch: 'master', url: 'https://github.com/IliyanKostov9/portfolio.git'
+              git branch: env.BRANCH_NAME , url: 'https://github.com/IliyanKostov9/portfolio.git'
             }
         }
           stage('Python version') {
@@ -16,10 +16,15 @@ pipeline {
           }
           stage("SonarQube analysis") {
             steps {
-                withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=portfolio \
-                    -Dsonar.projectKey=portfolio '''
+              scripts {
+                def scannerHome = tool 'SonarQubeScanner';
+                withSonarQubeEnv(installationName 'SonarQubeScanner') {
+                    sh "${scannerHome}/bin/sonar-scanner \
+                    -Dsonar.qualitygate.wait=true \
+                    -Dsonar.projectKey=portfolio \
+                    -Dsonar.branch.name=${env.BRANCH_NAME}"
                 }
+                  }
             }
           }
           stage("Quality Gate") {
