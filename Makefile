@@ -1,7 +1,7 @@
 PROJECT_NAME ?= django_project
 APP_NAME ?= django_app
 
-export PYTHONPATH := $(shell pwd):$(shell pwd)/src/apps
+# export PYTHONPATH := $(shell pwd):$(shell pwd)/src/apps
 
 .PHONY: nix-setup
 nix-setup: ## Setup project with Nix
