@@ -3,9 +3,6 @@ pipeline {
         options {
           disableConcurrentBuilds()
         }
-        tools {
-            SonarQubeScanner 'SonarQubeScanner'
-        }
         stages {
           stage('Git checkout') {
             steps {
