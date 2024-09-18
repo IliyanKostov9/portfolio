@@ -18,11 +18,13 @@ pipeline {
             steps {
               scripts {
                 def scannerHome = tool 'SonarQubeScanner';
-                withSonarQubeEnv(installationName 'SonarQubeScanner') {
-                    sh "${scannerHome}/bin/sonar-scanner \
-                    -Dsonar.qualitygate.wait=true \
-                    -Dsonar.projectKey=portfolio \
-                    -Dsonar.branch.name=${env.BRANCH_NAME}"
+                withSonarQubeEnv('SonarQubeScanner') {
+                    sh """
+                      ${scannerHome}/bin/sonar-scanner \
+                      -Dsonar.qualitygate.wait=true \
+                      -Dsonar.projectKey=portfolio \
+                      -Dsonar.branch.name=${env.BRANCH_NAME}
+                      """
                 }
                   }
             }
