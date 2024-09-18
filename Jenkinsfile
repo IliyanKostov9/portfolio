@@ -20,7 +20,7 @@ pipeline {
                       -Dsonar.projectKey=portfolio \
                       -Dsonar.branch.name=${env.BRANCH_NAME}
                       """
-                }
+                  }
                   }
             }
           }
