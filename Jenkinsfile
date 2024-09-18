@@ -3,6 +3,9 @@ pipeline {
         options {
           disableConcurrentBuilds()
         }
+        tools {
+            SonarQubeScanner 'SonarQubeScanner'
+        }
         stages {
           stage('Git checkout') {
             steps {
@@ -16,7 +19,7 @@ pipeline {
           }
           stage("SonarQube analysis") {
             steps {
-              scripts {
+              script {
                 def scannerHome = tool 'SonarQubeScanner';
                 withSonarQubeEnv('SonarQubeScanner') {
                     sh """
