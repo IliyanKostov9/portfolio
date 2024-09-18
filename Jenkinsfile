@@ -9,11 +9,6 @@ pipeline {
               git branch: env.BRANCH_NAME , url: 'https://github.com/IliyanKostov9/portfolio.git'
             }
         }
-          stage('Python version') {
-            steps {
-              sh 'python3 --version'
-            }
-          }
           stage("SonarQube analysis") {
             steps {
               script {
