@@ -1,10 +1,7 @@
 pipeline {
         agent none
-	tools {
-	  python3 'python3'
-	}
 	env {
-        SCANNER_HOME= tool 'sonar-scanner'
+          SCANNER_HOME= tool 'sonar-scanner'
 	}
         stages {
           stage('Git checkout') {
