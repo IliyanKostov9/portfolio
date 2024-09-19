@@ -15,7 +15,7 @@ pipeline {
                 def scannerHome = tool 'SonarCloud';
                 withSonarQubeEnv('SonarCloud') {
                     sh """
-                      ${scannerHome}/bin/sonar-scanner \
+                      ${scannerHome}/bin/sonar-scanner -X \
                       -Dsonar.qualitygate.wait=true \
                       -Dsonar.projectKey=portfolio \
                       -Dsonar.organization=iliyankostov9 \
