@@ -1,15 +1,17 @@
 pipeline {
-        agent { label 'lambda-java'}
+  agent: any
         options {
           disableConcurrentBuilds()
         }
         stages {
           stage('Git checkout') {
+          agent { label 'lambda-java'}
             steps {
               git branch: env.BRANCH_NAME , url: 'https://github.com/IliyanKostov9/portfolio.git'
             }
         }
           stage("SonarQube analysis") {
+          agent { label 'lambda-java'}
             steps {
               script {
                 def scannerHome = tool 'SonarCloud';
@@ -26,6 +28,7 @@ pipeline {
             }
           }
           stage("Quality Gate") {
+          agent { label 'lambda-java'}
             steps {
               timeout(time: 1, unit: 'HOURS') {
                 waitForQualityGate abortPipeline: true, credentialsId: 'Sonar-token'
