@@ -12,8 +12,8 @@ pipeline {
           stage("SonarQube analysis") {
             steps {
               script {
-                def scannerHome = tool 'SonarCloud';
-                withSonarQubeEnv('SonarCloud') {
+                def scannerHome = tool 'SonarQube';
+                withSonarQubeEnv('SonarQube') {
                     sh """
                       ${scannerHome}/bin/sonar-scanner \
                       -Dsonar.qualitygate.wait=true \
