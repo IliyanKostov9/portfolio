@@ -18,6 +18,7 @@ pipeline {
                       ${scannerHome}/bin/sonar-scanner \
                       -Dsonar.qualitygate.wait=true \
                       -Dsonar.projectKey=portfolio \
+                      -Dsonar.organization=iliyankostov9 \
                       -Dsonar.branch.name=${env.BRANCH_NAME}
                       """
                 }
