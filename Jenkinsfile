@@ -1,5 +1,5 @@
 pipeline {
-        agent any
+        agent { label 'lambda-java'}
         options {
           disableConcurrentBuilds()
         }
@@ -17,7 +17,7 @@ pipeline {
                     sh """
                       ${scannerHome}/bin/sonar-scanner -X \
                       -Dsonar.qualitygate.wait=true \
-                      -Dsonar.projectKey=portfolio \
+                      -Dsonar.projectKey=IliyanKostov9_portfolio \
                       -Dsonar.organization=iliyankostov9 \
                       -Dsonar.branch.name=${env.BRANCH_NAME}
                       """
