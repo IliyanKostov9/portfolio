@@ -21,7 +21,7 @@ pipeline {
                       -Dsonar.organization=iliyankostov9 \
                       -Dsonar.branch.name=${env.BRANCH_NAME}
                       """
-                }
+                    }
                   }
             }
           }
