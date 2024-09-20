@@ -1,6 +1,4 @@
 #   -*- coding: utf-8 -*-
-import os
-
 from pybuilder.core import init, use_plugin
 
 use_plugin("python.core")
