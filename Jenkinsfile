@@ -4,6 +4,11 @@ pipeline {
           disableConcurrentBuilds()
         }
         stages {
+    stage('Check Network Access') {
+      steps {
+        sh 'ping sonarcloud.io -c 4'
+      }
+    }
           stage('Git checkout') {
           agent { label 'lambda-java'}
             steps {
