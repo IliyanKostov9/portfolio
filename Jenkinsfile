@@ -4,15 +4,15 @@ pipeline {
           disableConcurrentBuilds()
         }
         stages {
-          stage('Set Java') {
-            steps {
-              script {
-                env.JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-                env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-                sh 'echo "Java version: $(java --version)"'
-                  }
-              }
-          }
+          // stage('Set Java') {
+          //   steps {
+          //     script {
+          //       env.JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+          //       env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+          //       sh 'echo "Java version: $(java --version)"'
+          //         }
+          //     }
+          // }
           stage('Git checkout') {
           agent { label 'lambda-java'}
             steps {
