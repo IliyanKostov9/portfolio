@@ -12,13 +12,13 @@ pipeline {
         }
           stage("SonarQube analysis") {
             environment {
-              scannerHome = tool 'SonarCloud';
+              scannerHome = tool 'SonarTool';
             }
             steps {
               script {
                 withSonarQubeEnv('SonarCloud') {
                   sh "${scannerHome}/bin/sonar-scanner -h"
-                  sh "${scannerHome}/bin/sonar-scanner"
+                  // sh "${scannerHome}/bin/sonar-scanner"
                     // sh """
                     //   ${scannerHome}/bin/sonar-scanner \
                     //   -Dsonar.qualitygate.wait=false \
