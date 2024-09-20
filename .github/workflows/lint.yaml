@@ -10,6 +10,10 @@ on:
       - "!.gitignore"
       - "!README.md"
 
+permissions:
+  checks: write
+  contents: write
+
 jobs:
   run-linters:
     name: Run linters
@@ -19,7 +23,8 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref  }}
+          # ref: ${{ github.head_ref  }}
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Set up Python
         uses: actions/setup-python@v1
