@@ -16,8 +16,8 @@ pipeline {
             }
             steps {
               script {
-                withSonarQubeEnv('SonarCloud') {
-                  sh "${scannerHome} -h"
+                withSonarQubeEnv(installationName: 'SonarCloud', credentialsId: '8049a509-1e79-4369-8240-2f413248d607') {
+                  sh "${scannerHome}/bin/sonar-scanner -h"
                   // sh "${scannerHome}/bin/sonar-scanner"
                     // sh """
                     //   ${scannerHome}/bin/sonar-scanner \
