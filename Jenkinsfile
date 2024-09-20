@@ -8,7 +8,8 @@ pipeline {
             steps {
               script {
                 env.JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-                sh 'echo "Java version: $JAVA_HOME"'
+                env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+                sh 'echo "Java version: $(java --version)"'
                   }
               }
           }
