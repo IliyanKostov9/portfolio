@@ -4,15 +4,6 @@ pipeline {
           disableConcurrentBuilds()
         }
         stages {
-          // stage('Set Java') {
-          //   steps {
-          //     script {
-          //       env.JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-          //       env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-          //       sh 'echo "Java version: $(java --version)"'
-          //         }
-          //     }
-          // }
           stage('Git checkout') {
           agent { label 'lambda-java'}
             steps {
@@ -30,7 +21,8 @@ pipeline {
                       -Dsonar.qualitygate.wait=true \
                       -Dsonar.projectKey=IliyanKostov9_portfolio \
                       -Dsonar.organization=iliyankostov9 \
-                      -Dsonar.branch.name=${env.BRANCH_NAME}
+                      -Dsonar.branch.name=${env.BRANCH_NAME} \
+                      -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true
                       """
                     }
                   }
