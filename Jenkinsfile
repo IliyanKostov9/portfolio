@@ -4,12 +4,6 @@ pipeline {
           disableConcurrentBuilds()
         }
         stages {
-    stage('Check Network Access') {
-          agent { label 'lambda-java'}
-      steps {
-        sh 'ping sonarcloud.io -c 4'
-      }
-    }
           stage('Git checkout') {
           agent { label 'lambda-java'}
             steps {
@@ -17,13 +11,15 @@ pipeline {
             }
         }
           stage("SonarQube analysis") {
+          agent { label 'lambda-java'}
             environment {
               scannerHome = tool 'SonarTool';
             }
             steps {
               script {
+                sh "echo '${scannerHome}"
                 withSonarQubeEnv(installationName: 'SonarCloud', credentialsId: '8049a509-1e79-4369-8240-2f413248d607') {
-                  sh "${scannerHome}/bin/sonar-scanner"
+                  sh "${scannerHome}/bin/sonar-scanner -v"
                   }
               }
             }
