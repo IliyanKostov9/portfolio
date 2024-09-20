@@ -5,9 +5,11 @@ pipeline {
         }
         stages {
           stage('Set Java') {
-            script {
-              env.JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-              sh 'echo "Java version: $JAVA_HOME"'
+            steps {
+              script {
+                env.JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+                sh 'echo "Java version: $JAVA_HOME"'
+                  }
               }
           }
           stage('Git checkout') {
