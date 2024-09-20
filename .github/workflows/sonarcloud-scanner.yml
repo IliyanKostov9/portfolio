@@ -17,6 +17,9 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@v3.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: ik-portfolio
+          SONAR_ORGANIZATION: iliyankostov9
+          SONAR_BRANCH_NAME: ${{ github.head_ref }}
 
       - name: Analyze with SonarCloud
         id: sonarqube-quality-gate-check
@@ -24,10 +27,7 @@ jobs:
         with:
           projectBaseDir: src
           args: >
-            -Dsonar.organization=iliyankostov9
-            -Dsonar.projectKey=ik-portfolio
-            -Dsonar.projectName=portfolio
-            -Dsonar.branch.name=${{ github.head_ref }}
+            -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.verbose=true
 
       - name: "SonarQube Quality result"
