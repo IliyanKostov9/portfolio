@@ -26,8 +26,8 @@ jobs:
           args: >
             -Dsonar.organization=iliyankostov9
             -Dsonar.projectKey=ik-portfolio
+            -Dsonar.projectName=portfolio
             -Dsonar.branch.name=${{ github.head_ref }}
-            -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.verbose=true
 
       - name: "SonarQube Quality result"
