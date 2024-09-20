@@ -33,6 +33,6 @@ jobs:
         with:
           auto_fix: true
           black: true
-          black_auto_fix: true
+          black_auto_fix: false
           flake8: true
           flake8_auto_fix: false
