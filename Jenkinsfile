@@ -22,7 +22,7 @@ pipeline {
                       -Dsonar.qualitygate.wait=false \
                       -Dsonar.projectKey=IliyanKostov9_portfolio \
                       -Dsonar.organization=iliyankostov9 \
-                      -Dsonar.branch.name=${env.BRANCH_NAME} \
+                      -Dsonar.branch.name=master \
                       -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true
                       """
                     }
