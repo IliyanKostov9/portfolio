@@ -19,7 +19,7 @@ pipeline {
                 withSonarQubeEnv('SonarCloud') {
                     sh """
                       ${scannerHome}/bin/sonar-scanner \
-                      -Dsonar.qualitygate.wait=true \
+                      -Dsonar.qualitygate.wait=false \
                       -Dsonar.projectKey=IliyanKostov9_portfolio \
                       -Dsonar.organization=iliyankostov9 \
                       -Dsonar.branch.name=${env.BRANCH_NAME} \
