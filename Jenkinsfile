@@ -5,6 +5,7 @@ pipeline {
         }
         stages {
     stage('Check Network Access') {
+          agent { label 'lambda-java'}
       steps {
         sh 'ping sonarcloud.io -c 4'
       }
