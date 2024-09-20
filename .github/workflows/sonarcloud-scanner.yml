@@ -6,6 +6,9 @@ on:
     branches:
       - master
 
+env:
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest
@@ -15,11 +18,6 @@ jobs:
           fetch-depth: 0
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v3.0.0
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: ik-portfolio
-          SONAR_ORGANIZATION: iliyankostov9
-          SONAR_BRANCH_NAME: ${{ github.head_ref }}
 
       - name: Analyze with SonarCloud
         id: sonarqube-quality-gate-check
