@@ -2,7 +2,7 @@ import unittest
 
 from mockito import mock, verify
 
-from src.dummy_src import dummy_fun
+from src.portfolio.dummy_src import dummy_fun
 
 
 class DummyTest(unittest.TestCase):
