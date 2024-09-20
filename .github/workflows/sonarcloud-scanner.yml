@@ -1,0 +1,37 @@
+name: SonarCloud scanner
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - master
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@v3.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Analyze with SonarCloud
+        id: sonarqube-quality-gate-check
+        uses: sonarsource/sonarcloud-github-action@v3.0.0
+        with:
+          args: >
+            -Dsonar.organization=iliyankostov9
+            -Dsonar.projectKey=ik-portfolio
+            -Dsonar.branch.name=${{ github.head_ref  }} \
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.sources=lib/
+            -Dsonar.test.exclusions=tests/**
+            -Dsonar.tests=tests/
+            -Dsonar.verbose=true
+
+      - name: "SonarQube Quality result"
+        run: |
+          echo "Quality Gate status: ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
