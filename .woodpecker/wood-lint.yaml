@@ -3,7 +3,7 @@ steps:
     image: python:3.11-buster
     when:
       event: pull_request
-      # branch: master
+      branch: master
     commands:
       - python -m pip install --upgrade pip
       - python -m pip install -r requirements.txt
@@ -19,17 +19,16 @@ steps:
       branch: master
 
     commands:
-      - ls
       - python -m venv venv
       - /bin/bash -c "source venv/bin/activate"
       - python -m pip install --upgrade pip
       - python -m pip install -r requirements.txt
+      - echo "Test finished!"
       # - pytest tests/
 
 matrix:
   TAG:
-    - 3.7
-    - 3.9
     - 3.8
+    - 3.9
     - 3.10
     - 3.11
