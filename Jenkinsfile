@@ -16,10 +16,10 @@ pipeline {
             //   scannerHome = tool 'SonarTool';
             // }
             steps {
-                sh '''
-                    set -x
-                    python3 --version
-                '''
+                script {
+                    def output = sh(script: "python3 --version", returnStdout: true)
+                    echo "Output: ${output}"
+                }
             }
           }
             }
