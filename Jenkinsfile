@@ -17,8 +17,8 @@ pipeline {
           agent { label 'lambda-java'}
             environment {
               scannerHome = tool 'SonarTool';
-              // JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-              // PATH = "${JAVA_HOME}/bin:${env.PATH}"
+              JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+              PATH = "${JAVA_HOME}/bin:${env.PATH}"
             }
             steps {
               script {
@@ -26,7 +26,7 @@ pipeline {
                   sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   sh 'echo "PATH: $PATH"'
                   sh 'java -version'
-                  sh  'which java'
+                  sh 'readlink -f $(which java)'
                   sh "${scannerHome}/bin/sonar-scanner"
                   }
               }
