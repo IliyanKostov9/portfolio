@@ -3,7 +3,7 @@ pipeline {
   options {
     disableConcurrentBuilds()
   }
-  tool {
+  tools {
     python3 'Python'
   }
   stages {
