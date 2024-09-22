@@ -17,7 +17,7 @@ pipeline {
             }
             environment {
               scannerHome = tool 'SonarTool';
-              JAVA_HOME = "/tmp/tools/hudson.model.JDK/jdk17/jdk-17"
+              JAVA_HOME = "/tmp/tools/hudson.model.JDK/jdk17/jdk-17.0.1"
               PATH = "${JAVA_HOME}/bin:${env.PATH}"
               SONAR_USER_HOME = "/tmp/sonar-cache"
             }
@@ -25,7 +25,7 @@ pipeline {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud') {
                   sh 'mkdir -p /tmp/sonar-cache'
-                  sh 'ls -lR /tmp/tools/hudson.model.JDK/'
+                  // sh 'ls -lR /tmp/tools/hudson.model.JDK/'
                   sh "${scannerHome}/bin/sonar-scanner -X"
                   }
               }
