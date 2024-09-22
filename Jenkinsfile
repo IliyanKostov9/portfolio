@@ -25,6 +25,8 @@ pipeline {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud') {
                   sh 'mkdir -p /tmp/sonar-cache'
+                  sh 'export JAVA_HOME=/tmp/tools/hudson.model.JDK/jdk21/jdk-21.0.4'
+                  sh 'export PATH=$JAVA_HOME/bin:$PATH'
 
                   sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   sh 'echo "PATH: $PATH"'
