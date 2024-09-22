@@ -4,7 +4,7 @@ pipeline {
     disableConcurrentBuilds()
   }
   environment {
-    python3 = tool 'Python'
+    PYTHON_HOME = tool 'Python'
   }
   stages {
     stage('Git checkout') {
@@ -16,7 +16,7 @@ pipeline {
     stage("Lint") {
       agent { label 'lambda-cloud'}
       steps {
-        sh '${python3} --version'
+        sh '${PYTHON_HOME}/bin/python3 --version'
         }
     }
   }
