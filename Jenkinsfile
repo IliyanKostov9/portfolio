@@ -11,7 +11,7 @@ pipeline {
             }
         }
           stage("Sonar Analysis") {
-          agent { label 'lambda-java'}
+          // agent { label 'lambda-java'}
             tools {
               jdk 'jdk21'
             }
