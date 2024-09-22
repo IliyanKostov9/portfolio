@@ -16,7 +16,10 @@ pipeline {
             //   scannerHome = tool 'SonarTool';
             // }
             steps {
-                sh 'python3 --version'
+                sh '''
+                    set -x
+                    python3 --version
+                '''
             }
           }
             }
