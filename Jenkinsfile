@@ -11,7 +11,7 @@ pipeline {
             }
         }
           stage("Build") {
-          agent { label 'lambda-java'}
+          // agent { label 'lambda-java'}
             environment {
               scannerHome = tool 'SonarTool';
             }
