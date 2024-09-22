@@ -2,7 +2,7 @@ pipeline {
   agent any
         options {
           disableConcurrentBuilds()
-          timeout (time: 60, unit: 'MINUTES')
+          timeout (time: 15, unit: 'MINUTES')
           timestamps()
         }
         stages {
@@ -14,7 +14,6 @@ pipeline {
           }
           stage("Sonar Analysis") {
           // agent { label 'lambda-java'}
-           agent { label 'docker'}
             // tools {
             //   jdk 'jdk21'
             // }
