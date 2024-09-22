@@ -12,9 +12,9 @@ pipeline {
         }
           stage("Sonar Analysis") {
           agent { label 'lambda-java'}
-            tools {
-              jdk 'jdk11'
-            }
+            // tools {
+            //   jdk 'jdk11'
+            // }
             environment {
               scannerHome = tool 'SonarTool';
               // JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
@@ -26,6 +26,7 @@ pipeline {
                   sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   sh 'echo "PATH: $PATH"'
                   sh 'java -version'
+                  sh 'ls /tmp/tools/'
                   sh "${scannerHome}/bin/sonar-scanner -X"
                   }
               }
