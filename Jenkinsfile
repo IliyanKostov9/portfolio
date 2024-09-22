@@ -12,6 +12,7 @@ pipeline {
         }
           stage("Sonar Analysis") {
           // agent { label 'lambda-java'}
+            agent { label 'docker' }
             // tools {
             //   jdk 'jdk21'
             // }
@@ -23,7 +24,6 @@ pipeline {
             }
             steps {
               script {
-          docker.image('sonarsource/sonar-scanner-cli:11.0').inside('') {
                 withSonarQubeEnv(installationName: 'SonarCloud') {
                   sh 'mkdir -p /tmp/sonar-cache'
                   // sh 'export JAVA_HOME=/tmp/tools/hudson.model.JDK/jdk21/jdk-21.0.4'
@@ -34,7 +34,6 @@ pipeline {
                   // sh 'java --version'
                   // sh "${scannerHome}/bin/sonar-scanner -X"
                   sh 'sonar-scanner -X'
-            }
                   }
               }
             }
