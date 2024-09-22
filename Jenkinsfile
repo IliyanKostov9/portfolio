@@ -17,7 +17,7 @@ pipeline {
             }
             environment {
               scannerHome = tool 'SonarTool';
-              JAVA_HOME = "/tmp/tools/hudson.model.JDK/jdk21/jdk-21"
+              JAVA_HOME = "/tmp/tools/hudson.model.JDK/jdk21/jdk-21.0.4"
               PATH = "${JAVA_HOME}/bin:${env.PATH}"
               SONAR_USER_HOME = "/tmp/sonar-cache"
             }
