@@ -13,7 +13,7 @@ pipeline {
           stage("Sonar Analysis") {
           agent { label 'lambda-java'}
             tools {
-              jdk 'jdk17'
+              jdk 'jdk9'
             }
             environment {
               scannerHome = tool 'SonarTool';
