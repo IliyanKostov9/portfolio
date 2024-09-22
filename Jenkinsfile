@@ -11,14 +11,6 @@ pipeline {
           disableConcurrentBuilds()
         }
         stages {
-          stage('List env') {
-          agent { label 'lambda-java'}
-          steps {
-            sh 'echo "JAVA_HOME: $JAVA_HOME"'
-            sh 'echo "PATH: $PATH"'
-             sh 'java -version'
-            }
-          }
           stage('Git checkout') {
           agent { label 'lambda-java'}
           steps {
@@ -34,6 +26,9 @@ pipeline {
             steps {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud', credentialsId: '8049a509-1e79-4369-8240-2f413248d607') {
+                  sh 'echo "JAVA_HOME: $JAVA_HOME"'
+                  sh 'echo "PATH: $PATH"'
+                  sh 'java -version'
                   sh "${scannerHome}/bin/sonar-scanner"
                   }
               }
