@@ -1,8 +1,5 @@
 pipeline {
   agent any
-        tools {
-          jdk 'jdk11'
-        }
         options {
           disableConcurrentBuilds()
         }
@@ -15,6 +12,9 @@ pipeline {
         }
           stage("Sonar Analysis") {
           agent { label 'lambda-java'}
+            tools {
+              jdk 'jdk17'
+            }
             environment {
               scannerHome = tool 'SonarTool';
               // JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
@@ -22,11 +22,11 @@ pipeline {
             }
             steps {
               script {
-                withSonarQubeEnv(installationName: 'SonarCloud', credentialsId: '8049a509-1e79-4369-8240-2f413248d607') {
+                withSonarQubeEnv(installationName: 'SonarCloud') {
                   sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   sh 'echo "PATH: $PATH"'
                   sh 'java -version'
-                  sh "${scannerHome}/bin/sonar-scanner"
+                  sh "${scannerHome}/bin/sonar-scanner -X"
                   }
               }
             }
