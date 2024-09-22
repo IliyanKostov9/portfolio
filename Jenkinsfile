@@ -18,19 +18,17 @@ pipeline {
             environment {
               scannerHome = tool 'SonarTool';
               // JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
-              JAVA_HOME="/tmp/tools/hudson.model.JDK/jdk11"
+              JAVA_HOME="/tmp/tools/hudson.model.JDK/jdk11/jdk-11"
               PATH = "${JAVA_HOME}/bin:${env.PATH}"
             }
             steps {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud') {
-                withEnv(["JAVA_HOME=${env.JAVA_HOME}", "PATH=${env.JAVA_HOME}/bin:${env.PATH}"]) {
                   sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   sh 'echo "PATH: $PATH"'
                   sh 'java -version'
-                  sh 'ls /tmp/tools/hudson.model.JDK/jdk11/'
+                  sh 'ls -lR /tmp/tools/hudson.model.JDK/'
                   sh "${scannerHome}/bin/sonar-scanner -X"
-            }
                   }
               }
             }
