@@ -12,32 +12,29 @@ pipeline {
         }
           stage("Sonar Analysis") {
           // agent { label 'lambda-java'}
-            tools {
-              jdk 'jdk21'
-            }
+            // tools {
+            //   jdk 'jdk21'
+            // }
             environment {
               scannerHome = tool 'SonarTool';
-              JAVA_HOME = "/tmp/tools/hudson.model.JDK/jdk21/jdk-21.0.4"
-              PATH = "${JAVA_HOME}/bin:${env.PATH}"
+              // JAVA_HOME = "/tmp/tools/hudson.model.JDK/jdk21/jdk-21.0.4"
+              // PATH = "${JAVA_HOME}/bin:${env.PATH}"
               SONAR_USER_HOME = "/tmp/sonar-cache"
             }
             steps {
               script {
+          docker.image('sonarsource/sonar-scanner-cli:11.0').inside('') {
                 withSonarQubeEnv(installationName: 'SonarCloud') {
                   sh 'mkdir -p /tmp/sonar-cache'
-                  sh 'export JAVA_HOME=/tmp/tools/hudson.model.JDK/jdk21/jdk-21.0.4'
-                  sh 'export PATH=$JAVA_HOME/bin:$PATH'
-
-                  sh 'echo "JAVA_HOME: $JAVA_HOME"'
-                  sh 'echo "PATH: $PATH"'
-                  sh 'java --version'
+                  // sh 'export JAVA_HOME=/tmp/tools/hudson.model.JDK/jdk21/jdk-21.0.4'
+                  // sh 'export PATH=$JAVA_HOME/bin:$PATH'
+                  //
+                  // sh 'echo "JAVA_HOME: $JAVA_HOME"'
+                  // sh 'echo "PATH: $PATH"'
+                  // sh 'java --version'
                   // sh "${scannerHome}/bin/sonar-scanner -X"
-                  sh '''
-                      set -x
-                      java --version
-                      echo "$JAVA_HOME $PATH"
-                      ${scannerHome}/bin/sonar-scanner -X
-                    '''
+                  sh 'sonar-scanner -X'
+            }
                   }
               }
             }
