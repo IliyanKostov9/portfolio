@@ -5,13 +5,13 @@ pipeline {
         }
         stages {
           stage('Git checkout') {
-          agent { label 'lambda-java'}
+          // agent { label 'lambda-java'}
             steps {
               git branch: env.BRANCH_NAME , url: 'https://codeberg.org/iliyan-kostov/portfolio.git'
             }
         }
           stage("Build") {
-          agent { label 'lambda-java'}
+          // agent { label 'lambda-java'}
             // environment {
             //   scannerHome = tool 'SonarTool';
             // }
