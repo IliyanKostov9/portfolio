@@ -25,9 +25,11 @@ pipeline {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud') {
                   sh 'mkdir -p /tmp/sonar-cache'
-                  echo '$JAVA_HOME $PATH'
-                  echo 'java --version'
-                  sh 'ls -lR /tmp/tools/hudson.model.JDK/jdk17'
+
+                  sh 'echo "JAVA_HOME: $JAVA_HOME"'
+                  sh 'echo "PATH: $PATH"'
+                  sh 'java --version'
+
                   sh "${scannerHome}/bin/sonar-scanner -X"
                   }
               }
