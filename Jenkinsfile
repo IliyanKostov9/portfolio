@@ -1,8 +1,8 @@
 pipeline {
   agent any
-        tools {
-          jdk 'JDK9'
-        }
+        // tools {
+        //   jdk 'JDK9'
+        // }
         options {
           disableConcurrentBuilds()
         }
@@ -18,14 +18,11 @@ pipeline {
             environment {
               scannerHome = tool 'SonarTool';
               // JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-              JAVA_HOME="/tmp/tools/hudson.model.JDK/JDK9/jdk-11"
               // PATH = "${JAVA_HOME}/bin:${env.PATH}"
-              PATH = "/tmp/tools/hudson.model.JDK/JDK9/jdk-11/bin:${env.PATH}"
             }
             steps {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud', credentialsId: '8049a509-1e79-4369-8240-2f413248d607') {
-                  sh 'export JAVA_HOME=/tmp/tools/hudson.model.JDK/JDK9/jdk-11'
                   sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   sh 'echo "PATH: $PATH"'
                   sh 'java -version'
