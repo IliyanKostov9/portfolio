@@ -1,9 +1,5 @@
 pipeline {
   agent any
-      // environment {
-      //   JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
-      //   PATH = "${JAVA_HOME}/bin:${env.PATH}"
-      // }
         tools {
           jdk 'JDK9'
         }
@@ -21,8 +17,11 @@ pipeline {
           agent { label 'lambda-java'}
             environment {
               scannerHome = tool 'SonarTool';
+              // JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+              JAVA_HOME="/tmp/tools/hudson.model.JDK/JDK9/jdk-11"
+              // PATH = "${JAVA_HOME}/bin:${env.PATH}"
+              PATH = "/tmp/tools/hudson.model.JDK/JDK9/jdk-11/bin:${env.PATH}"
             }
-
             steps {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud', credentialsId: '8049a509-1e79-4369-8240-2f413248d607') {
