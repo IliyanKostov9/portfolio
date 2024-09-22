@@ -8,7 +8,7 @@ pipeline {
   }
   stages {
     stage('Git checkout') {
-    agent { label 'lambda-cloud'}
+    // agent { label 'lambda-cloud'}
       steps {
         git branch: env.BRANCH_NAME , url: 'https://github.com/IliyanKostov9/portfolio.git'
       }
