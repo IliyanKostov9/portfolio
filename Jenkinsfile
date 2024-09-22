@@ -30,7 +30,13 @@ pipeline {
                   sh 'echo "PATH: $PATH"'
                   sh 'java --version'
 
-                  sh "${scannerHome}/bin/sonar-scanner -X"
+                  sh '''
+                  export JAVA_HOME="/tmp/tools/hudson.model.JDK/jdk17/jdk-17.0.1"
+                  export PATH="$JAVA_HOME/bin:$PATH"
+                  /tmp/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarTool/bin/sonar-scanner -X
+                  '''
+
+                  // sh "${scannerHome}/bin/sonar-scanner -X"
                   }
               }
             }
