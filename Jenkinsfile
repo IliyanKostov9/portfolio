@@ -12,21 +12,20 @@ pipeline {
         }
           stage("Sonar Analysis") {
           agent { label 'lambda-java'}
-            // tools {
-            //   jdk 'jdk17'
-            // }
+            tools {
+              jdk 'jdk17'
+            }
             environment {
               scannerHome = tool 'SonarTool';
-              JAVA_HOME = "/usr"
+              JAVA_HOME = "/tmp/tools/hudson.model.JDK/jdk17/jdk-17"
               PATH = "${JAVA_HOME}/bin:${env.PATH}"
               SONAR_USER_HOME = "/tmp/sonar-cache"
             }
             steps {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud') {
-                  sh 'java --version'
-                  sh 'mkdir -p /tmp/sonar-cache'
-                  // sh 'ls -lR /tmp/tools/hudson.model.JDK/jdk17/'
+                  sh 'mkdir /tmp/sonar-cache'
+                  sh 'ls -lR /tmp/tools/hudson.model.JDK/jdk17/'
                   sh "${scannerHome}/bin/sonar-scanner -X"
                   }
               }
