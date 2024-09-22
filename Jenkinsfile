@@ -26,7 +26,7 @@ pipeline {
                   sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   sh 'echo "PATH: $PATH"'
                   sh 'java -version'
-                  sh 'readlink -f $(which java)'
+                  sh 'ls /usr/lib/jvm/'
                   sh "${scannerHome}/bin/sonar-scanner"
                   }
               }
