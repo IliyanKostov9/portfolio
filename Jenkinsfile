@@ -31,7 +31,13 @@ pipeline {
                   sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   sh 'echo "PATH: $PATH"'
                   sh 'java --version'
-                  sh "${scannerHome}/bin/sonar-scanner -X"
+                  // sh "${scannerHome}/bin/sonar-scanner -X"
+                  sh '''
+                      set -x
+                      java --version
+                      echo "$JAVA_HOME $PATH"
+                      ${scannerHome}/bin/sonar-scanner -X
+                    '''
                   }
               }
             }
