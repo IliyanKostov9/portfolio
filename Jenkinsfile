@@ -3,9 +3,6 @@ pipeline {
   options {
     disableConcurrentBuilds()
   }
-  tools {
-  python3 'python'
-  }
   stages {
     stage('Git checkout') {
     agent { label 'lambda-cloud'}
