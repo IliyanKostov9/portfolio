@@ -29,6 +29,7 @@ pipeline {
                   sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   sh 'echo "PATH: $PATH"'
                   sh 'java --version'
+                  sh 'ls -lR /tmp/tools/hudson.model.JDK/jdk21/'
                   sh "${scannerHome}/bin/sonar-scanner -X"
                   }
               }
