@@ -1,5 +1,9 @@
 pipeline {
   agent any
+      environment {
+        JAVA_HOME="/usr/lib/jvm/java-17-openjdk-amd64"
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+      }
         options {
           disableConcurrentBuilds()
         }
@@ -15,6 +19,7 @@ pipeline {
             environment {
               scannerHome = tool 'SonarTool';
             }
+
             steps {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud', credentialsId: '8049a509-1e79-4369-8240-2f413248d607') {
