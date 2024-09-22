@@ -25,6 +25,7 @@ pipeline {
             steps {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud', credentialsId: '8049a509-1e79-4369-8240-2f413248d607') {
+                  sh 'export JAVA_HOME=/tmp/tools/hudson.model.JDK/JDK9/jdk-11'
                   sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   sh 'echo "PATH: $PATH"'
                   sh 'java -version'
