@@ -12,11 +12,13 @@ pipeline {
         }
           stage("Build") {
           agent { label 'lambda-java'}
-            // environment {
-            //   scannerHome = tool 'SonarTool';
-            // }
+            environment {
+              scannerHome = tool 'SonarTool';
+            }
             steps {
-                echo 'this is a test'
+                withSonarQubeEnv(installationName: 'SonarCloud', credentialsId: '8049a509-1e79-4369-8240-2f413248d607') {
+                  sh "${scannerHome}/bin/sonar-scanner"
+                  }
             }
           }
             }
