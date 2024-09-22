@@ -14,7 +14,7 @@ pipeline {
       }
   }
     stage("Lint") {
-      agent { label 'lambda-cloud'}
+      // agent { label 'lambda-cloud'}
       steps {
         sh 'python3 --version'
         }
