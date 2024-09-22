@@ -2,17 +2,19 @@ pipeline {
   agent any
         options {
           disableConcurrentBuilds()
+          timeout (time: 60, unit: 'MINUTES')
+          timestamps()
         }
         stages {
           stage('Git checkout') {
-          agent { label 'lambda-java'}
-          steps {
-              git branch: env.BRANCH_NAME , url: 'https://codeberg.org/iliyan-kostov/portfolio.git'
-            }
-        }
+            agent { label 'lambda-java'}
+            steps {
+                git branch: env.BRANCH_NAME , url: 'https://codeberg.org/iliyan-kostov/portfolio.git'
+              }
+          }
           stage("Sonar Analysis") {
           // agent { label 'lambda-java'}
-            agent { label 'docker' }
+           agent { label 'docker'}
             // tools {
             //   jdk 'jdk21'
             // }
@@ -20,20 +22,18 @@ pipeline {
               scannerHome = tool 'SonarTool';
               // JAVA_HOME = "/tmp/tools/hudson.model.JDK/jdk21/jdk-21.0.4"
               // PATH = "${JAVA_HOME}/bin:${env.PATH}"
-              SONAR_USER_HOME = "/tmp/sonar-cache"
+              // SONAR_USER_HOME = "/tmp/sonar-cache"
             }
             steps {
               script {
                 withSonarQubeEnv(installationName: 'SonarCloud') {
-                  sh 'mkdir -p /tmp/sonar-cache'
                   // sh 'export JAVA_HOME=/tmp/tools/hudson.model.JDK/jdk21/jdk-21.0.4'
                   // sh 'export PATH=$JAVA_HOME/bin:$PATH'
                   //
                   // sh 'echo "JAVA_HOME: $JAVA_HOME"'
                   // sh 'echo "PATH: $PATH"'
                   // sh 'java --version'
-                  // sh "${scannerHome}/bin/sonar-scanner -X"
-                  sh 'sonar-scanner -X'
+                  sh "${scannerHome}/bin/sonar-scanner -X"
                   }
               }
             }
