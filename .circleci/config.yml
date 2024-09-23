@@ -37,6 +37,7 @@ jobs:
       - run:
           name: Pyre analysis
           command: |
+            . .venv/bin/activate
             echo "Now performing analysis..."
             pyre --output=json | python3 -m json.tool
             pyre --noninteractive analyze --no-verify --output-format json
