@@ -6,8 +6,7 @@ pipeline {
   }
   environment {
     PATH ="/usr/bin/python3:$PATH"
-  }
-  stages {
+  } stages {
     stage('Git checkout') {
       agent { label 'lambda-cloud'}
       options {
@@ -17,13 +16,24 @@ pipeline {
         git branch: env.BRANCH_NAME , url: 'https://github.com/IliyanKostov9/portfolio.git'
       }
     }
-    stage("Lint") {
+    stage("Security Analyze") {
       agent { label 'master'}
       options {
-       timeout(time: 3, unit: 'MINUTES')
+       timeout(time: 10, unit: 'MINUTES')
       }
       steps {
-        sh 'python3 --version'
+        sh '''
+        python3 --version
+        echo "Activating virtual env..."
+        python3 -m venv .venv
+        .venv/bin/activate
+        echo "Now installing pyre deps..."
+        pip install --upgrade setuptools
+        pip install wheel pyre-check fb-sapp
+        echo "Now performing analysis..."
+        pyre --output=json | python3 -m json.tool
+        pyre --noninteractive analyze --no-verify --output-format json
+        '''
       }
     }
   }
