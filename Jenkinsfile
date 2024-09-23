@@ -9,18 +9,22 @@ pipeline {
   }
   stages {
     stage('Git checkout') {
-    agent { label 'lambda-cloud'}
-     timeout(time: 5, unit: 'MINUTES')
+      agent { label 'lambda-cloud'}
+      options {
+       timeout(time: 5, unit: 'MINUTES')
+      }
       steps {
         git branch: env.BRANCH_NAME , url: 'https://github.com/IliyanKostov9/portfolio.git'
       }
-  }
+    }
     stage("Lint") {
       agent { label 'lambda-cloud'}
-     timeout(time: 3, unit: 'MINUTES')
+      options {
+       timeout(time: 3, unit: 'MINUTES')
+      }
       steps {
         sh 'python3 --version'
-        }
+      }
     }
   }
 }
