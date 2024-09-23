@@ -5,15 +5,18 @@ pipeline {
           timeout (time: 15, unit: 'MINUTES')
           timestamps()
         }
+  environment {
+    PATH ="/usr/bin/java:$PATH"
+  }
         stages {
           stage('Git checkout') {
-            agent { label 'lambda-java'}
+            agent { label 'lambda-cloud'}
             steps {
                 git branch: env.BRANCH_NAME , url: 'https://codeberg.org/iliyan-kostov/portfolio.git'
               }
           }
           stage("Sonar Analysis") {
-          // agent { label 'lambda-java'}
+          agent { label 'lambda-cloud'}
             // tools {
             //   jdk 'jdk21'
             // }
@@ -38,7 +41,7 @@ pipeline {
             }
           }
           stage("Quality Gate") {
-            agent { label 'lambda-java'}
+            agent { label 'lambda-cloud'}
             steps {
               timeout(time: 1, unit: 'HOURS') {
                waitForQualityGate abortPipeline: true, credentialsId: 'Sonar-token'
