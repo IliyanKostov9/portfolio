@@ -18,7 +18,7 @@ pipeline {
       }
     }
     stage("Lint") {
-      agent { label 'lambda-cloud'}
+      agent { label 'master'}
       options {
        timeout(time: 3, unit: 'MINUTES')
       }
