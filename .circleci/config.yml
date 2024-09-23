@@ -42,7 +42,7 @@ jobs:
       - restore_cache:
           key: v1-portolio-{{ .Environment.CIRCLE_SHA1  }}
       - attach_workspace:
-          at: /opt/.
+          at: .
       - run:
           name: Pyre analysis
           command: |
