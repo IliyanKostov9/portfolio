@@ -6,7 +6,8 @@ pipeline {
   }
   environment {
     PATH ="/usr/bin/python3:$PATH"
-  } stages {
+  }
+  stages {
     stage('Git checkout') {
       agent { label 'lambda-cloud'}
       options {
