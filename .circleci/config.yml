@@ -3,8 +3,8 @@ version: 2.1
 executors:
   docker-python:
     docker:
-      - image: cimg/base:2024.09
-    # working_directory: /tmp
+      - image: cimg/python
+        # working_directory: /tmp
 
 jobs:
   build:
@@ -12,11 +12,6 @@ jobs:
     resource_class: medium
     steps:
       - checkout
-      - run:
-          name: Install Python deps
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y python3 python3-pip python3-venv watchman
       - run:
           name: Create Python venv
           command: |
