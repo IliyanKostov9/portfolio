@@ -12,15 +12,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Create venv
+          name: Python version
           command: |
-            ls
             python --version
-            python -m venv .venv
       - run:
           name: Install Pyre deps
           command: |
-            . .venv/bin/activate
             echo "Now installing pyre deps..."
             pip install --upgrade setuptools
             pip install wheel pyre-check fb-sapp
@@ -37,7 +34,7 @@ jobs:
       - run:
           name: Pyre analysis
           command: |
-            . .venv/bin/activate
+            pip list
             echo "Now performing analysis..."
             pyre --output=json | python3 -m json.tool
             pyre --noninteractive analyze --no-verify --output-format json
