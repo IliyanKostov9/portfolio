@@ -3,6 +3,7 @@ version: 2.1
 executors:
   docker-python:
     docker:
+      - image: cimg/base:2024.09
       - image: cimg/python:3.11-node
     # working_directory: /tmp
 
@@ -23,6 +24,7 @@ jobs:
             . .venv/bin/activate
             echo "Now installing pyre deps..."
             pip install --upgrade setuptools
+            sudo apt-get update && sudo apt-get install -y watchman
             pip install wheel pyre-check fb-sapp watchman
       - save_cache:
           paths:
