@@ -14,7 +14,6 @@ jobs:
       - run:
           name: Create venv
           command: |
-            ls
             python --version
             python -m venv .venv
       - run:
@@ -26,7 +25,7 @@ jobs:
             pip install wheel pyre-check fb-sapp
       - save_cache:
           paths:
-            - ~/.venv
+            - .venv
           key: v1-portolio-{{ .Environment.CIRCLE_SHA1  }}
 
   perform-analysis:
@@ -37,6 +36,7 @@ jobs:
       - run:
           name: Pyre analysis
           command: |
+            ls -a
             . .venv/bin/activate
             pip list
             echo "Now performing analysis..."
