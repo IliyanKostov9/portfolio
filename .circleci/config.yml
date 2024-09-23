@@ -28,7 +28,7 @@ jobs:
             . .venv/bin/activate
             echo "Now installing pyre deps..."
             pip install --upgrade setuptools
-            pip install wheel pyre-check fb-sapp watchman
+            pip install -r ./requirements.txt
       - save_cache:
           paths:
             - .venv
@@ -49,9 +49,11 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: List workspace
+          command: ls -1 -a
+      - run:
           name: Pyre analysis
           command: |
-            ls -1 -a
             . .venv/bin/activate
             echo "Now performing analysis..."
             pyre --output=json | python3 -m json.tool
