@@ -27,7 +27,8 @@ pipeline {
         python3 --version
         echo "Activating virtual env..."
         python3 -m venv .venv
-        .venv/bin/activate
+        chmod -R u+x .venv/bin/activate
+        . .venv/bin/activate
         echo "Now installing pyre deps..."
         pip install --upgrade setuptools
         pip install wheel pyre-check fb-sapp
