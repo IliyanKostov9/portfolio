@@ -28,6 +28,7 @@ jobs:
             . .venv/bin/activate
             echo "Now installing pyre deps..."
             pip install --upgrade setuptools
+            pip install wheel
             pip install -r ./requirements.txt
       - save_cache:
           paths:
