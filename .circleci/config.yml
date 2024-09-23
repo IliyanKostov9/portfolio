@@ -4,7 +4,6 @@ executors:
   docker-python:
     docker:
       - image: cimg/base:2024.09
-      - image: cimg/python:3.11-node
     # working_directory: /tmp
 
 jobs:
@@ -14,7 +13,12 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Create venv
+          name: Install Python deps
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y python3 python3-pip python3-venv watchman
+      - run:
+          name: Create Python venv
           command: |
             python --version
             python -m venv .venv
@@ -24,7 +28,6 @@ jobs:
             . .venv/bin/activate
             echo "Now installing pyre deps..."
             pip install --upgrade setuptools
-            sudo apt-get update && sudo apt-get install -y watchman
             pip install wheel pyre-check fb-sapp watchman
       - save_cache:
           paths:
