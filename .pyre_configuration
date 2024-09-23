@@ -1,7 +1,6 @@
 {
   "taint_models_path": "stubs/taint/",
   "site_package_search_strategy": "all",
-	"strict": true,
   "source_directories": [
     {
       "import_root": ".",
