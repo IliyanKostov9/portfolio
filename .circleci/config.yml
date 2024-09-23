@@ -31,7 +31,10 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - .
+            - src
+            - stubs
+            - .pyre_configuration
+            - tests
 
   perform-analysis:
     executor: docker-python
