@@ -1,0 +1,16 @@
+{
+  "taint_models_path": "stubs/taint",
+  "site_package_search_strategy": "all",
+  "source_directories": [
+    {
+      "import_root": ".",
+      "source": "src"
+    }
+  ],
+  "search_path": [
+    "src/"
+  ],
+  "exclude": [
+     ".venv"
+  ]
+}
