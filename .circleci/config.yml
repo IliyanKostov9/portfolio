@@ -1,10 +1,15 @@
 version: 2.1
 
+orbs:
+  ggshield: gitguardian/ggshield@1.1.4
+
 executors:
   docker-python:
     docker:
       - image: cimg/python:3.11
         # working_directory: /tmp
+    docker-base:
+      - image: cimg/base:2024.09
 
 jobs:
   build:
@@ -20,7 +25,7 @@ jobs:
             python -m venv .venv
 
       - run:
-          name: Install Pyre deps
+          name: Install deps
           command: |
             . .venv/bin/activate
             echo "Now installing pyre deps..."
@@ -41,7 +46,22 @@ jobs:
             - .pyre_configuration
             - tests
 
-  perform-analysis:
+  test:
+    executor: docker-python
+    resource_class: medium+
+    steps:
+      - run: echo "Test performed"
+
+  security-analysis:
+    executor: docker-base
+    resource_class: medium
+    steps:
+      - ggshield/scan:
+          name: ggshield-scan
+          base_revision: <<pipeline.git.base_revision>>
+          revision: <<pipeline.git.revision>>
+
+  static-analysis:
     executor: docker-python
     resource_class: large # Neeed to pyre analyze. Else it throws broken pipe error
     steps:
@@ -71,9 +91,15 @@ jobs:
           key: v1-portfolio-pyre-cache
 
 workflows:
-  security-analysis:
+  build_and_test:
     jobs:
       - build
-      - perform-analysis:
+      - test:
           requires:
             - build
+      - security-analysis:
+          requires:
+            - test
+      - static-analysis:
+          requires:
+            - security-analysis
