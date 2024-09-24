@@ -39,9 +39,12 @@ jobs:
 
   perform-analysis:
     executor: docker-python
+    resource_class: medium
     steps:
       - restore_cache:
-          key: v1-portolio-{{ .Environment.CIRCLE_SHA1  }}
+          keys:
+            - v1-portfolio-pyre-cache
+            - v1-portolio-{{ .Environment.CIRCLE_SHA1  }}
       - attach_workspace:
           at: .
       - run:
@@ -53,7 +56,11 @@ jobs:
             . .venv/bin/activate
             echo "Now performing analysis..."
             pyre --output=json | python3 -m json.tool
-            pyre --noninteractive analyze --no-verify --output-format json
+            pyre --noninteractive analyze --no-verify --use-cache --output-format json
+      - save_cache:
+          paths:
+            - .pyre
+          key: v1-portfolio-pyre-cache
 
 workflows:
   security-analysis:
