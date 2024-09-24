@@ -1,0 +1,79 @@
+version: 2.1
+
+executors:
+  docker-python:
+    docker:
+      - image: cimg/python:3.11
+        # working_directory: /tmp
+
+jobs:
+  build:
+    executor: docker-python
+    resource_class: medium
+    steps:
+      - checkout
+
+      - run:
+          name: Create Python venv
+          command: |
+            python --version
+            python -m venv .venv
+
+      - run:
+          name: Install Pyre deps
+          command: |
+            . .venv/bin/activate
+            echo "Now installing pyre deps..."
+            pip install --upgrade setuptools
+            pip install wheel
+            pip install -r ./requirements.txt
+
+      - save_cache:
+          paths:
+            - .venv
+          key: v1-portolio-{{ .Environment.CIRCLE_SHA1  }}
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - src
+            - stubs
+            - .pyre_configuration
+            - tests
+
+  perform-analysis:
+    executor: docker-python
+    resource_class: large # Neeed to pyre analyze. Else it throws broken pipe error
+    steps:
+      - restore_cache:
+          key: v1-portfolio-pyre-cache
+      - restore_cache:
+          key: v1-portolio-{{ .Environment.CIRCLE_SHA1  }}
+
+      - attach_workspace:
+          at: .
+
+      - run:
+          name: List workspace
+          command: ls -1 -a
+
+      - run:
+          name: Pyre analysis
+          command: |
+            . .venv/bin/activate
+            echo "Now performing analysis..."
+            pyre --output=json | python3 -m json.tool
+            pyre --noninteractive analyze --no-verify --use-cache --output-format json
+
+      - save_cache:
+          paths:
+            - .pyre
+          key: v1-portfolio-pyre-cache
+
+workflows:
+  security-analysis:
+    jobs:
+      - build
+      - perform-analysis:
+          requires:
+            - build

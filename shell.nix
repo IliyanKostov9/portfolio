@@ -10,5 +10,6 @@ pkgs.mkShell {
   runScript = "zsh";
   shellHook = ''
     export PYTHONPATH="$(pwd):$(pwd)/src/apps"
+    source .venv/bin/activate
   '';
 }

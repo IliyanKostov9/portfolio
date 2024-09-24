@@ -162,3 +162,5 @@ cython_debug/
 #.idea/
 .envrc
 .direnv
+pysa-runs
+sapp.db

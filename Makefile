@@ -22,6 +22,11 @@ create-app: ## Create app
 test: ## Test with Pybuilder
 	pyb -X -c -v
 
+
 .PHONY: runserver
 runserver: ## Run Django app
 	python3 src/manage.py runserver
+
+.PHONY: type-inference
+type-inference:
+	pyre infer -i
