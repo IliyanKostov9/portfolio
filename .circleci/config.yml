@@ -46,9 +46,9 @@ jobs:
     resource_class: large # Neeed to pyre analyze. Else it throws broken pipe error
     steps:
       - restore_cache:
-          keys:
-            - v1-portfolio-pyre-cache
-            - v1-portolio-{{ .Environment.CIRCLE_SHA1  }}
+          key: v1-portfolio-pyre-cache
+      - restore_cache:
+          key: v1-portolio-{{ .Environment.CIRCLE_SHA1  }}
 
       - attach_workspace:
           at: .
