@@ -1,0 +1,79 @@
+name: Pyre
+
+on:
+  [push]
+  # pull_request:
+  #   branches:
+  #     - master
+
+jobs:
+  pyre:
+    runs-on: docker
+    container:
+      image: ghcr.io/catthehacker/ubuntu:act-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python_version: ["3.11.9"]
+    steps:
+      - name: Check OS version
+        run: |
+          cat /etc/os-release
+
+      - name: Checkout code
+        uses: https://code.forgejo.org/actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "${{ matrix.python_version }}"
+          architecture: "arm64"
+          allow-prereleases: true
+
+      - name: Restore Venv
+        uses: actions/cache/restore@v4
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/pyproject.toml') }}
+
+      - name: Install PDM
+        run: |
+          pip install --upgrade pip
+          pip install pdm setuptools-rust
+
+      - name: Install deps
+        uses: docker://docker.io/library/rust:alpine3.20
+        with:
+          args: >
+            pdm install
+
+      - name: Save venv
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/pyproject.toml') }}
+
+      - name: Restore Pyre cache
+        uses: actions/cache/restore@v4
+        id: restore-cache
+        with:
+          path: .pyre
+          key: pyre-cache
+
+      - name: Pyre analysis
+        run: |
+          . .venv/bin/activate
+          pyre --output=json | python3 -m json.tool
+
+      - name: Pysa analysis
+        run: |
+          . .venv/bin/activate
+          pyre --noninteractive analyze --no-verify --use-cache --output-format json
+
+      - name: Save Pyre cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .pyre
+          key: pyre-cache
