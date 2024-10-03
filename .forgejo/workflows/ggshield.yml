@@ -19,6 +19,10 @@ jobs:
       - name: Setup python
         uses: docker://docker.io/library/python:3.11.10-slim-bullseye
 
+      - name: Install pip
+        run: |
+          apt-get update && apt-get install -y python3-pip
+
       - name: Install ggshield
         run: |
           pip install ggshield
