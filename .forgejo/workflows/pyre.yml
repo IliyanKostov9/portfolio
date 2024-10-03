@@ -18,21 +18,29 @@ jobs:
 
       - name: Install deps
         run: |
-          apt-get update && apt-get install -y python3-pip virtualenv
+          apt-get update && apt-get install -y python3-pip build-essential python3-dev
           python3 -m pip install --upgrade pip
           pip install pdm
 
-      - name: Create Venv
-        run: virtualenv .venv
+      - name: Restore Venv
+        uses: actions/cache/restore@v4
+        id: restore-cache
+        with:
+          key: venv
 
       - name: Install Pyre dep
         run: |
-          # source .venv/bin/activate
           echo "Now installing pyre deps..."
-          pip install --upgrade setuptools
-          pip install wheel
+          # pip install --upgrade setuptools
+          # pip install wheel
           pdm install --prod --no-editable --fail-fast
-          # pip install -r ./requirements.txt
+
+      - name: Save venv
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .venv
+          key: venv
 
       - name: Restore Pyre cache
         uses: actions/cache/restore@v4
@@ -42,7 +50,7 @@ jobs:
 
       - name: Pyre analysis
         run: |
-          # . .venv/bin/activate
+          . .venv/bin/activate
           pyre --output=json | python3 -m json.tool
 
       - name: Pysa analysis
