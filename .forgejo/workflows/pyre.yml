@@ -21,13 +21,13 @@ jobs:
       #     apt-get update && apt-get install -y python3.11 python3-pip python3-venv
 
       - name: Create Venv
-        run: python -m venv .venv
+        run: python3 -m venv .venv
 
       - name: Install Pyre dep
         run: |
           . .venv/bin/activate
           echo "Now installing pyre deps..."
-          python -m pip install --upgrade pip
+          python3 -m pip install --upgrade pip
           pip install --upgrade setuptools
           pip install wheel
           pip install -r ./requirements.txt
