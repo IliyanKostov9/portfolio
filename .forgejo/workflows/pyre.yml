@@ -9,14 +9,14 @@ on:
 jobs:
   pyre:
     runs-on: docker
-    container:
-      image: ubuntu:24.04
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
 
       # - name: Setup python
       #   uses: docker://python:3.11.10-bullseye
+      - name: Setup ubuntu
+        uses: docker://ubuntu:24.04
 
       - name: Install deps
         run: |
