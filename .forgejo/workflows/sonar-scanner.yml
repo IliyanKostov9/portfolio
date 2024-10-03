@@ -1,0 +1,41 @@
+name: SonarCloud scanner
+
+on:
+  [push]
+  # pull_request:
+  #   branches:
+  #     - master
+
+env:
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+jobs:
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: SonarCloud Scan
+        run: |
+          docker run \
+            --rm \
+            -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN }} \
+            -v $(pwd):/usr/src \
+            sonarsource/sonar-scanner-cli \
+            sonar-scanner
+
+      - name: Analyze with SonarCloud
+        run: |
+          docker run \
+            --rm \
+            -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN }} \
+            -v $(pwd):/usr/src \
+            sonarsource/sonar-scanner-cli \
+            sonar-scanner
+
+      - name: SonarQube Quality result
+        run: |
+          echo "Quality Gate status: ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
