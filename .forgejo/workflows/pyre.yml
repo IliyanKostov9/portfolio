@@ -18,7 +18,7 @@ jobs:
 
       - name: Install pip
         run: |
-          apt-get update && apt-get install -y python3-pip
+          apt-get update && apt-get install -y python3-pip python3-venv
 
       - name: Create Venv
         run: python3 -m venv .venv
