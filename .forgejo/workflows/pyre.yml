@@ -9,10 +9,8 @@ on:
 jobs:
   pyre:
     runs-on: docker
-    strategy:
-      matrix:
-        python-version:
-          - "pypy3.11"
+    container:
+      image: docker://ubuntu:24.04
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
