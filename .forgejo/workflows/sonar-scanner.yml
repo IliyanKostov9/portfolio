@@ -15,6 +15,7 @@ jobs:
     container:
       # image:  code.forgejo.org/oci/node:20-bookworm
       image: docker.io/sonarsource/sonar-scanner-cli:11.1
+      options: --workdir /workspace
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
