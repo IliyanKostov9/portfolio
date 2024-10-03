@@ -11,19 +11,18 @@ env:
 
 jobs:
   sonarcloud:
-    runs-on: docker
-    container:
+    runs-on:
+      docker
       # image:  code.forgejo.org/oci/node:20-bookworm
-      image: docker.io/sonarsource/sonar-scanner-cli:11.1
-      options: --workdir /workspace
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: SonarCloud Scan
-        run: |
-          sonar-scanner \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        uses: docker://docker.io/sonarsource/sonar-scanner-cli:11.1
+        with:
+          args: >
+            sonar-scanner
 
       # - name: Analyze with SonarCloud
       #   run: |
