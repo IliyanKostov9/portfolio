@@ -17,9 +17,9 @@ jobs:
         uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: Setup python
-        uses: https://code.forgejo.org/actions/setup-python@v5
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.11.10"
+          python-version: "3.11"
           cache: "pip"
 
       - name: Install ggshield
