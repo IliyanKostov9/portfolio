@@ -1,0 +1,31 @@
+name: Ggshield scanner
+
+on:
+  [push]
+  # pull_request:
+  #   branches:
+  #     - master
+
+env:
+  GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY  }}
+
+jobs:
+  sonarcloud:
+    runs-on: docker
+    steps:
+      - name: Checkout code
+        uses: https://code.forgejo.org/actions/checkout@v4
+
+      - name: Setup python
+        uses: https://code.forgejo.org/actions/setup-python@v5
+        with:
+          python-version: "pypy3.11"
+          cache: "pip"
+
+      - name: Install ggshield
+        run: |
+          pip install ggshield
+
+      - name: Analyze
+        run: |
+          ggshield secret scan repo .
