@@ -24,8 +24,8 @@ jobs:
 
       - name: Restore Venv
         uses: actions/cache/restore@v4
-        id: restore-cache
         with:
+          path: .venv
           key: venv
 
       - name: Install Pyre dep
@@ -46,6 +46,7 @@ jobs:
         uses: actions/cache/restore@v4
         id: restore-cache
         with:
+          path: .pyre
           key: pyre-cache
 
       - name: Pyre analysis
