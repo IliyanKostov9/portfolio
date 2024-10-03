@@ -13,12 +13,9 @@ jobs:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
 
-      - name: Setup python
-        uses: docker://docker.io/library/python:3.11.10-slim-bullseye
-
-      - name: Install pip
+      - name: Install Python
         run: |
-          apt-get update && apt-get install -y python3-pip python3-venv
+          apt-get update && apt-get install -y python3.11 python3-pip python3-venv
 
       - name: Create Venv
         run: python3 -m venv .venv
