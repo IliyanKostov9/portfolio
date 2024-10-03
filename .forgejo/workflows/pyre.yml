@@ -10,7 +10,7 @@ jobs:
   pyre:
     runs-on: docker
     container:
-      image: docker://ubuntu:24.04
+      image: ubuntu:24.04
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
