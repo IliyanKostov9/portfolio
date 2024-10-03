@@ -20,12 +20,12 @@ jobs:
       #   run: |
       #     apt-get update && apt-get install -y python3.11 python3-pip python3-venv
 
-      - name: Create Venv
-        run: python3 -m venv .venv
+      # - name: Create Venv
+      #   run: python3 -m venv .venv
 
       - name: Install Pyre dep
         run: |
-          . .venv/bin/activate
+          # . .venv/bin/activate
           echo "Now installing pyre deps..."
           python3 -m pip install --upgrade pip
           pip install --upgrade setuptools
@@ -40,12 +40,12 @@ jobs:
 
       - name: Pyre analysis
         run: |
-          . .venv/bin/activate
+          # . .venv/bin/activate
           pyre --output=json | python3 -m json.tool
 
       - name: Pysa analysis
         run: |
-          . .venv/bin/activate
+          # . .venv/bin/activate
           pyre --noninteractive analyze --no-verify --use-cache --output-format json
 
       - name: Save Pyre cache
