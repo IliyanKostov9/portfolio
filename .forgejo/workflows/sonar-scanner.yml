@@ -1,4 +1,4 @@
-# name: SonarCloud scanner
+name: SonarCloud scanner
 
 on:
   [push]
@@ -11,29 +11,18 @@ env:
 
 jobs:
   sonarcloud:
-    runs-on:
-      docker
-      # image:  code.forgejo.org/oci/node:20-bookworm
+    runs-on: docker
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: SonarCloud Scan
-        # uses: docker://docker.io/sonarsource/sonar-scanner-cli:11.1
         uses: docker://docker.io/iliyankostov/sonar-scanner-aarch64:6.1
         with:
           args: >
             sonar-scanner
 
-      # - name: Analyze with SonarCloud
-      #   run: |
-      #     docker run \
-      #       --rm \
-      #       -e SONAR_TOKEN=${{ secrets.SONAR_TOKEN }} \
-      #       -v $(pwd):/usr/src \
-      #       sonarsource/sonar-scanner-cli \
-      #       sonar-scanner
-      #
-      # - name: SonarQube Quality result
-      #   run: |
-      #     echo "Quality Gate status: ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
+      - name: SonarQube Quality result
+        shell: bash
+        run: |
+          echo "Quality Gate status: ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
