@@ -14,7 +14,7 @@ jobs:
         uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: Setup python
-        uses: docker://docker.io/library/python:3.11.10-bullseye
+        uses: docker://python:3.11.10-bullseye
 
       - name: Install deps
         run: |
@@ -27,6 +27,7 @@ jobs:
         run: |
           . .venv/bin/activate
           echo "Now installing pyre deps..."
+          python -m pip install --upgrade pip
           pip install --upgrade setuptools
           pip install wheel
           pip install -r ./requirements.txt
