@@ -13,17 +13,15 @@ jobs:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
 
-      # - name: Setup python
-      #   uses: docker://python:3.11.10-bullseye
-      - name: Setup ubuntu
-        uses: docker://ubuntu:24.04
+      - name: Setup python
+        uses: docker://python:3.11.10-bullseye
 
-      - name: Install deps
-        run: |
-          apt-get update && apt-get install -y python3.11 python3-pip python3-venv
+      # - name: Install deps
+      #   run: |
+      #     apt-get update && apt-get install -y python3.11 python3-pip python3-venv
 
       - name: Create Venv
-        run: python3 -m venv .venv
+        run: python -m venv .venv
 
       - name: Install Pyre dep
         run: |
