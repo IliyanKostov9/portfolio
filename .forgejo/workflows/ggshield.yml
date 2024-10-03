@@ -17,7 +17,7 @@ jobs:
         uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: Setup python
-        uses: docker://docker.io/_/python:3.11.10-slim-bullseye
+        uses: docker://docker.io/library/python:3.11.10-slim-bullseye
 
       - name: Install ggshield
         run: |
