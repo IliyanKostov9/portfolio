@@ -18,9 +18,15 @@ jobs:
 
       - name: Install deps
         run: |
-          apt-get update && apt-get install -y python3-pip build-essential python3-dev
+          apt-get update && apt-get install -y \
+          python3-pip \
+          python3-dev \
+          build-essential \
+          libffi-dev \
+          libssl-dev \
           python3 -m pip install --upgrade pip
           pip install pdm
+          python3 -m pip install --upgrade pdm
 
       - name: Restore Venv
         uses: actions/cache/restore@v4
@@ -30,9 +36,6 @@ jobs:
 
       - name: Install Pyre dep
         run: |
-          echo "Now installing pyre deps..."
-          # pip install --upgrade setuptools
-          # pip install wheel
           pdm install --prod --no-editable --fail-fast
 
       - name: Save venv
