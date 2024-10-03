@@ -1,0 +1,42 @@
+name: Pyre
+
+on:
+  [push]
+  # pull_request:
+  #   branches:
+  #     - master
+
+jobs:
+  ggshield:
+    runs-on: docker
+    steps:
+      - name: Checkout code
+        uses: https://code.forgejo.org/actions/checkout@v4
+
+      - name: Setup python
+        uses: docker://docker.io/library/python:3.11.10-slim-bullseye
+
+      - name: Install pip
+        run: |
+          apt-get update && apt-get install -y python3-pip
+
+      - name: Create Venv
+        run: python3 -m venv .venv
+
+      - name: Install Pyre dep
+        run: |
+          . .venv/bin/activate
+          echo "Now installing pyre deps..."
+          pip install --upgrade setuptools
+          pip install wheel
+          pip install -r ./requirements.txt
+
+      - name: Pyre analysis
+        run: |
+          . .venv/bin/activate
+          pyre --output=json | python3 -m json.tool
+
+      - name: Pysa analysis
+        run: |
+          . .venv/bin/activate
+          pyre --noninteractive analyze --no-verify --use-cache --output-format json
