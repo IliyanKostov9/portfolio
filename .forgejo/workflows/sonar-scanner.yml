@@ -19,7 +19,8 @@ jobs:
         uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: SonarCloud Scan
-        uses: docker://docker.io/sonarsource/sonar-scanner-cli:11.1
+        # uses: docker://docker.io/sonarsource/sonar-scanner-cli:11.1
+        uses: docker://docker.io/iliyankostov/sonar-scanner-aarch64:6.1
         with:
           args: >
             sonar-scanner
