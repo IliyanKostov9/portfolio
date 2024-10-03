@@ -16,10 +16,10 @@ jobs:
       - name: Setup python
         uses: docker://python:3.11.10
 
-      # - name: Install deps
-      #   run: |
-      #     apt-get update && apt-get install -y python3.11 python3-pip python3-venv
-      #     python3 -m pip install --upgrade pip
+      - name: Install deps
+        run: |
+          apt-get update && apt-get install -y python3.11 python3-pip python3-venv
+          python3 -m pip install --upgrade pip
 
       - name: Create Venv
         run: python3 -m venv .venv
