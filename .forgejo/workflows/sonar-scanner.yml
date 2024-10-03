@@ -13,7 +13,7 @@ jobs:
   sonarcloud:
     runs-on: docker
     container:
-      image: sonarsource/sonar-scanner-cli
+      image: sonarsource/sonar-scanner-cli:11.1
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v3
