@@ -7,8 +7,12 @@ on:
   #     - master
 
 jobs:
-  ggshield:
-    runs-on: ubuntu-latest
+  pyre:
+    runs-on: docker
+    strategy:
+      matrix:
+        python-version:
+          - "pypy3.11"
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
