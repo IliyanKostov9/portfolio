@@ -20,18 +20,19 @@ jobs:
         run: |
           apt-get update && apt-get install -y python3-pip virtualenv
           python3 -m pip install --upgrade pip
+          pip install pdm
 
       - name: Create Venv
         run: virtualenv .venv
 
       - name: Install Pyre dep
         run: |
-          source .venv/bin/activate
+          # source .venv/bin/activate
           echo "Now installing pyre deps..."
-          python3 -m pip install --upgrade pip
           pip install --upgrade setuptools
           pip install wheel
-          pip install -r ./requirements.txt
+          pdm install --prod --no-editable --fail-fast
+          # pip install -r ./requirements.txt
 
       - name: Restore Pyre cache
         uses: actions/cache/restore@v4
@@ -41,12 +42,12 @@ jobs:
 
       - name: Pyre analysis
         run: |
-          . .venv/bin/activate
+          # . .venv/bin/activate
           pyre --output=json | python3 -m json.tool
 
       - name: Pysa analysis
         run: |
-          . .venv/bin/activate
+          # . .venv/bin/activate
           pyre --noninteractive analyze --no-verify --use-cache --output-format json
 
       - name: Save Pyre cache
