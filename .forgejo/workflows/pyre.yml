@@ -38,7 +38,7 @@ jobs:
       - name: Install Pyre dep
         run: |
           pip install --upgrade setuptools
-          pip install pdm wheels
+          pip install pdm wheel
           python3 -m pip install --upgrade pdm
           pdm install --prod --no-editable --fail-fast
 
