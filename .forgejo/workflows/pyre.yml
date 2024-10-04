@@ -37,6 +37,7 @@ jobs:
 
       - name: Install Pyre dep
         run: |
+          pip install libcst --only-binary :all:
           pip install --upgrade setuptools
           pip install pdm wheel
           python3 -m pip install --upgrade pdm
