@@ -24,6 +24,9 @@ jobs:
           build-essential \
           libffi-dev \
           libssl-dev \
+          libxml2-dev \
+          libxslt-dev \
+          zlib1g-dev
           python3 -m pip install --upgrade pip
 
       - name: Restore Venv
