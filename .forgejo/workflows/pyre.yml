@@ -14,20 +14,21 @@ jobs:
         uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: Setup python
-        uses: docker://python:3.11.10
+        # uses: docker://python:3.11.10
+        uses: docker://docker.io/iliyankostov/python-pdm-aarch64:3.11
 
-      - name: Install deps
-        run: |
-          apt-get update && apt-get install -y \
-          python3-pip \
-          python3-dev \
-          build-essential \
-          libffi-dev \
-          libssl-dev \
-          libxml2-dev \
-          libxslt-dev \
-          zlib1g-dev
-          python3 -m pip install --upgrade pip
+      # - name: Install deps
+      #   run: |
+      #     apt-get update && apt-get install -y \
+      #     python3-pip \
+      #     python3-dev \
+      #     build-essential \
+      #     libffi-dev \
+      #     libssl-dev \
+      #     libxml2-dev \
+      #     libxslt-dev \
+      #     zlib1g-dev
+      #     python3 -m pip install --upgrade pip
 
       - name: Restore Venv
         uses: actions/cache/restore@v4
@@ -37,10 +38,10 @@ jobs:
 
       - name: Install Pyre dep
         run: |
-          pip install libcst --only-binary :all:
-          pip install --upgrade setuptools
-          pip install pdm wheel
-          python3 -m pip install --upgrade pdm
+          # pip install libcst --only-binary :all:
+          # pip install --upgrade setuptools
+          # pip install pdm wheel
+          # python3 -m pip install --upgrade pdm
           pdm install --prod --no-editable --fail-fast
 
       - name: Save venv
