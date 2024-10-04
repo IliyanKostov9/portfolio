@@ -23,10 +23,11 @@ jobs:
           key: venv
 
       - name: Install Pyre dep
-        uses: docker://docker.io/iliyankostov/python-pdm-aarch64:3.11
+        # uses: docker://docker.io/iliyankostov/python-pdm-aarch64:3.11
+        uses: docker://python:3.11.10
         with:
           args: >
-            pdm install --prod --no-editable --fail-fast
+            pip install -r requirements.txt
 
       - name: Save venv
         uses: actions/cache/save@v4
