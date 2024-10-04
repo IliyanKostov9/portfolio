@@ -26,7 +26,7 @@ jobs:
         # uses: docker://docker.io/iliyankostov/python-pdm-aarch64:3.11
         uses: docker://python:3.11.10
         with:
-          args: >
+          args: |
             python3 -m venv .venv
             . .venv/bin/activate
             pip install --upgrade pip
