@@ -17,11 +17,11 @@ jobs:
     container:
       image: python:3.11.10
     steps:
-      - name: Restore Venv
-        uses: actions/cache/restore@v4
-        with:
-          path: .venv
-          key: venv
+      # - name: Restore Venv
+      #   uses: actions/cache/restore@v4
+      #   with:
+      #     path: .venv
+      #     key: venv
 
       - name: Install Pyre dep
         # uses: docker://docker.io/iliyankostov/python-pdm-aarch64:3.11
@@ -31,19 +31,19 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Save venv
-        uses: actions/cache/save@v4
-        if: always()
-        with:
-          path: .venv
-          key: venv
-
-      - name: Restore Pyre cache
-        uses: actions/cache/restore@v4
-        id: restore-cache
-        with:
-          path: .pyre
-          key: pyre-cache
+      # - name: Save venv
+      #   uses: actions/cache/save@v4
+      #   if: always()
+      #   with:
+      #     path: .venv
+      #     key: venv
+      #
+      # - name: Restore Pyre cache
+      #   uses: actions/cache/restore@v4
+      #   id: restore-cache
+      #   with:
+      #     path: .pyre
+      #     key: pyre-cache
 
       - name: Pyre analysis
         run: |
