@@ -23,9 +23,12 @@ jobs:
           python-version: "${{ matrix.python_version }}"
           architecture: "x64"
           allow-prereleases: true
-        # env:
-        #   RUNNER_ALLOW_RUNASROOT: true
-        #   AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
+          check-latest: false
+          token: ***
+          update-environment: true
+        env:
+          RUNNER_ALLOW_RUNASROOT: true
+          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
       - name: Restore Venv
         uses: actions/cache/restore@v4
