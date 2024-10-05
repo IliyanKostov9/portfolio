@@ -8,7 +8,9 @@ on:
 
 jobs:
   pyre:
-    runs-on: ubuntu-latest
+    runs-on: docker
+    container:
+      image: ubuntu:20.04
     strategy:
       fail-fast: false
       matrix:
