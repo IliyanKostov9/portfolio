@@ -7,6 +7,11 @@ on:
   #     - master
 
 jobs:
+  checkout:
+    runs-on: docker
+    steps:
+      - name: Checkout code
+        uses: https://code.forgejo.org/actions/checkout@v4
   pyre:
     runs-on: docker
     container:
@@ -16,9 +21,6 @@ jobs:
       matrix:
         python_version: ["3.13.0-alpha.1"]
     steps:
-      - name: Checkout code
-        uses: https://code.forgejo.org/actions/checkout@v4
-
       - name: Install stuff
         run: |
           cat /etc/os-release
