@@ -16,9 +16,10 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11.9"
+          python-version: "3.11.1"
           architecture: "x64"
         env:
+          RUNNER_ALLOW_RUNASROOT: true
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
       - name: Restore Venv
