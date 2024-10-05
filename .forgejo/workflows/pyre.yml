@@ -19,8 +19,7 @@ jobs:
 
       - name: Install stuff
         run: |
-          apt-get update
-          apt-get install -y lsb-release
+          cat /etc/os-release
 
       - name: Setup Python
         uses: actions/setup-python@v5
