@@ -9,12 +9,11 @@ on:
 jobs:
   pyre:
     runs-on: docker
+    container:
+      image: python:3.11.10
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
-
-      # - name: Setup python
-      #   uses: docker://docker.io/iliyankostov/python-pdm-aarch64:3.11
 
       - name: Restore Venv
         uses: actions/cache/restore@v4
@@ -24,13 +23,11 @@ jobs:
 
       - name: Install Pyre dep
         # uses: docker://docker.io/iliyankostov/python-pdm-aarch64:3.11
-        uses: docker://python:3.11.10
-        with:
-          args: |
-            python3 -m venv .venv && \
-            . .venv/bin/activate && \
-            pip install --upgrade pip && \
-            pip install -r requirements.txt
+        run: |
+          python3 -m venv .venv
+          . .venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Save venv
         uses: actions/cache/save@v4
