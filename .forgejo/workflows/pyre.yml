@@ -9,6 +9,10 @@ on:
 jobs:
   pyre:
     runs-on: docker
+    strategy:
+      fail-fast: false
+      matrix:
+        python_version: ["3.12.3"]
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
@@ -16,11 +20,12 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12.3"
+          python-version: "${{ matrix.python_version }}"
           architecture: "x64"
-        env:
-          RUNNER_ALLOW_RUNASROOT: true
-          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
+          allow-prereleases: true
+        # env:
+        #   RUNNER_ALLOW_RUNASROOT: true
+        #   AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
       - name: Restore Venv
         uses: actions/cache/restore@v4
