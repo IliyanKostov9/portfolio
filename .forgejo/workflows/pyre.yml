@@ -14,9 +14,9 @@ jobs:
         uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: "3.11.9"
           architecture: "x64"
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
