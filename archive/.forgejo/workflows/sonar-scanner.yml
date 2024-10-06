@@ -1,0 +1,27 @@
+name: SonarCloud scanner
+
+on:
+  pull_request:
+    branches:
+      - master
+
+env:
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+jobs:
+  sonarcloud:
+    runs-on: docker
+    steps:
+      - name: Checkout code
+        uses: https://code.forgejo.org/actions/checkout@v4
+
+      - name: SonarCloud Scan
+        uses: docker://docker.io/iliyankostov/sonar-scanner-aarch64:6.1
+        with:
+          args: >
+            sonar-scanner
+
+      - name: SonarQube Quality result
+        shell: bash
+        run: |
+          echo "Quality Gate status: ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
