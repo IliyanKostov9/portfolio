@@ -39,6 +39,9 @@ jobs:
       - name: Install PDM
         run: pip install pdm
 
+      - name: Install Rust compiler for libcst
+        run: apt install rustc cargo
+
       - name: Install deps
         run: |
           pdm install
