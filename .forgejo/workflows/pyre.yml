@@ -40,7 +40,7 @@ jobs:
         run: pip install pdm
 
       - name: Install Rust compiler for libcst
-        run: apt install rustc cargo
+        run: curl https://sh.rustup.rs -sSf | sh
 
       - name: Install deps
         run: |
