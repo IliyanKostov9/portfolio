@@ -10,18 +10,19 @@ jobs:
   pyre:
     runs-on: docker
     container:
-      image: ghcr.io/catthehacker/ubuntu:act-22.04
+      # image: ghcr.io/catthehacker/ubuntu:act-22.04
+      image: ubuntu-22.04:docker://node:20-bullseye
     strategy:
       fail-fast: false
       matrix:
         python_version: ["3.11.9"]
     steps:
-      - name: Checkout code
-        uses: https://code.forgejo.org/actions/checkout@v4
-
-      - name: Install stuff
+      - name: Check OS version
         run: |
           cat /etc/os-release
+
+      - name: Checkout code
+        uses: https://code.forgejo.org/actions/checkout@v4
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -29,12 +30,6 @@ jobs:
           python-version: "${{ matrix.python_version }}"
           architecture: "arm64"
           allow-prereleases: true
-          # check-latest: false
-          # token: ***
-          # update-environment: true
-        # env:
-        # RUNNER_ALLOW_RUNASROOT: true
-        # AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
       - name: Restore Venv
         uses: actions/cache/restore@v4
@@ -42,11 +37,13 @@ jobs:
           path: .venv
           key: venv
 
-      - name: Install Pyre dep
+      - name: Install PDM
+        run: pip install pdm
+
+      - name: Install deps
         run: |
-          python3 -m venv .venv
-          . .venv/source/activate
-          pip install -r requirements.txt
+          pdm init
+          ls -a -1
 
       - name: Save venv
         uses: actions/cache/save@v4
@@ -69,7 +66,7 @@ jobs:
 
       - name: Pysa analysis
         run: |
-          # . .venv/bin/activate
+          . .venv/bin/activate
           pyre --noninteractive analyze --no-verify --use-cache --output-format json
 
       - name: Save Pyre cache
