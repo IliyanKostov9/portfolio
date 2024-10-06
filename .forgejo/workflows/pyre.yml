@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python_version: ["3.13.0-alpha.1"]
+        python_version: ["3.11.9"]
     steps:
       - name: Checkout code
         uses: https://code.forgejo.org/actions/checkout@v4
@@ -32,9 +32,9 @@ jobs:
           # check-latest: false
           # token: ***
           # update-environment: true
-        env:
-          RUNNER_ALLOW_RUNASROOT: true
-          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
+        # env:
+        # RUNNER_ALLOW_RUNASROOT: true
+        # AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
       - name: Restore Venv
         uses: actions/cache/restore@v4
