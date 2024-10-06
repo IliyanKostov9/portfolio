@@ -8,10 +8,10 @@ on:
 
 jobs:
   pyre:
-    runs-on: docker
+    runs-on: ubuntu-22.04
     container:
       # image: ghcr.io/catthehacker/ubuntu:act-22.04
-      image: ubuntu-22.04:docker://node:20-bullseye
+      image: node:20-bullseye
     strategy:
       fail-fast: false
       matrix:
