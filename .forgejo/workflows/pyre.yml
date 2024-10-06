@@ -41,8 +41,7 @@ jobs:
 
       - name: Install deps
         run: |
-          pdm init
-          ls -a -1
+          pdm install
 
       - name: Save venv
         uses: actions/cache/save@v4
