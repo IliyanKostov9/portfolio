@@ -41,12 +41,6 @@ jobs:
           pip install --upgrade pip
           pip install pdm setuptools-rust
 
-      # - name: Install Rust compiler for libcst
-      #   run: |
-      #     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-      #     export PATH= "$PATH:$HOME/.cargo/env"
-      #     rustc --version
-
       - name: Install deps
         uses: docker://docker.io/library/rust:alpine3.20
         with:
