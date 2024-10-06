@@ -48,8 +48,10 @@ jobs:
       #     rustc --version
 
       - name: Install deps
-        run: |
-          pdm install
+        uses: docker://docker.io/library/rust:alpine3.20
+        with:
+          args: >
+            pdm install
 
       - name: Save venv
         uses: actions/cache/save@v4
