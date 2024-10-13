@@ -1,0 +1,88 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "**"
+      - "!.gitignore"
+      - "!README.md"
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python_version: ["3.11.9"]
+
+    steps:
+      - name: Unit test
+        run: echo "It works!"
+
+  static-type-checking:
+    name: Pyre testing
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python_version: ["3.11.9"]
+
+    steps:
+      - name: Check out Git repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "${{ matrix.python_version  }}"
+          allow-prereleases: true
+
+      - name: Restore Venv
+        uses: actions/cache/restore@v4
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/pyproject.toml') }}
+
+      - name: Install PDM
+        run: |
+          pip install --upgrade pip
+          pip install pdm setuptools-rust
+
+      - name: Install deps
+        run: pdm install
+
+      - name: Save venv
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/pyproject.toml') }}
+
+      - name: Restore Pyre cache
+        uses: actions/cache/restore@v4
+        id: restore-cache
+        with:
+          path: .pyre
+          key: pyre-cache
+
+      - name: Pyre analysis
+        run: |
+          . .venv/bin/activate
+          pyre --output=json | python3 -m json.tool
+
+      - name: Pysa analysis
+        run: |
+          . .venv/bin/activate
+          pyre --noninteractive analyze --no-verify --use-cache --output-format json
+
+      - name: Save Pyre cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .pyre
+          key: pyre-cache
