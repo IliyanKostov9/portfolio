@@ -74,17 +74,20 @@ jobs:
         with:
           python-version: 3.11
 
-      - name: Install Python dependencies
-        run: pip install black flake8
+      - name: Install lint dependencies
+        run: pip install black flake8 pylint
 
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          auto_fix: false
-          black: true
-          black_auto_fix: false
-          flake8: true
-          flake8_auto_fix: false
+      - name: Pylint
+        run: |
+          pylint .
+
+      - name: Black
+        run: |
+          black --check .
+
+      - name: Flake8
+        run: |
+          flake8 .
 
   type-checking:
     name: Pyre testing
