@@ -11,12 +11,16 @@ on:
 
 jobs:
   test:
-    name: Unit testing
+    name: Test
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix: &matrix
         python_version: ["3.11.9"]
+
+    steps:
+      - name: Unit test
+        run: echo "It works!"
 
   static-type-checking:
     name: Pyre testing
