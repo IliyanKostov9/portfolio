@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix: &matrix
+      matrix:
         python_version: ["3.11.9"]
 
     steps:
@@ -26,7 +26,9 @@ jobs:
     name: Pyre testing
     runs-on: ubuntu-latest
     strategy:
-      matrix: *matrix
+      fail-fast: false
+      matrix:
+        python_version: ["3.11.9"]
 
     steps:
       - name: Check out Git repo
