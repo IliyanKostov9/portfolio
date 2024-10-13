@@ -19,7 +19,7 @@ jobs:
 
       - name: Analyze with SonarCloud
         id: sonarqube-quality-gate-check
-        uses: sonarsource/sonarcloud-github-action@v3.0.0
+        uses: sonarsource/sonarcloud-github-action@v3.1.0
 
       - name: "SonarQube Quality result"
         run: |
