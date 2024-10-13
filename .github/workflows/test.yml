@@ -6,7 +6,6 @@ on:
       - master
     paths:
       - "**"
-      - "!.github/**"
       - "!.gitignore"
       - "!README.md"
 
