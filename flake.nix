@@ -3,34 +3,48 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-      inputs.systems.follows = "systems";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.systems.follows = "nixpkgs";
+    };
+    devenv.url = "github:cachix/devenv";
+    nixpkgs-python = {
+      url = "github:cachix/nixpkgs-python";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs =
-    { nixpkgs, flake-utils, ... }:
+  outputs = inputs@{ nixpkgs, flake-parts, devenv, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
 
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        devShells.default = pkgs.mkShell {
+      imports = [
+        inputs.devenv.flakeModule
+      ];
+      systems = nixpkgs.lib.systems.flakeExposed;
+
+      perSystem = { config, self', inputs', pkgs, system, ... }: {
+
+        devenv.shells.default = {
+          languages.python.enable = true;
+          languages.python.version = "3.11.9";
+
           packages = with pkgs; [
-            python311
             pdm
-            zsh
           ];
 
-          runScript = "zsh";
-          shellHook = ''
+          enterShell = ''
             export PYTHONPATH="$(pwd):$(pwd)/src/apps"
-            source .venv/bin/activate
+
+            if ! [[ -d ".venv" ]]; then
+              pdm venv create --with venv
+              pdm install
+            elif [[ -d "pyproject.toml" ]]; then
+              pdm init
+            else
+              pdm venv activate
+            fi
           '';
         };
-      }
-    );
+      };
+    };
 }
