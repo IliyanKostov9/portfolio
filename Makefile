@@ -29,3 +29,16 @@ run-server: ## Run Django app
 .PHONY: type-inference
 type-inference:
 	pyre infer -i
+
+.PHONY: gen-models
+gen-models:
+	python3 src/manage.py makemigrations landing_page
+
+.PHONY: get-sql
+get-sql:
+	python3 src/manage.py sqlmigrate landing_page 0001
+
+
+.PHONY: sync
+sync:
+	python3 src/manage.py migrate
