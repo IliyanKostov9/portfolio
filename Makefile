@@ -1,8 +1,6 @@
 PROJECT_NAME ?= django_project
 APP_NAME ?= django_app
 
-# export PYTHONPATH := $(shell pwd):$(shell pwd)/src/apps
-
 .PHONY: nix-setup
 nix-setup: ## Setup project with Nix
 	echo "use nix" >> .envrc
@@ -22,8 +20,8 @@ create-app: ## Create app
 test: ## Test with Pybuilder
 	pyb -X -c -v
 
-.PHONY: run-server
-run-server: ## Run Django app
+.PHONY: run
+run: ## Run Django app
 	python3 src/manage.py runserver
 
 .PHONY: type-inference
