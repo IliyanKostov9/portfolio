@@ -1,0 +1,12 @@
+projects:
+  - name: nixos-config
+    description: >
+      A configuration files for NixOS
+    link: https://github.com/IliyanKostov9/nixos-config
+    image: nixos_img.png
+
+  - name: nvim-config
+    description: >
+      A configuration files for Neovim
+    link: https://github.com/IliyanKostov9/nvim-config
+    image: neovim.png
