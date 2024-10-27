@@ -7,13 +7,13 @@ def home(request):
     return HttpResponse(template.render({}, request))
 
 
-def projects(request):
+def projects():
     return HttpResponse("Projects")
 
 
-def contact(request):
+def contact():
     return HttpResponse("Contact")
 
 
-def about(request):
+def about():
     return HttpResponse("About")
