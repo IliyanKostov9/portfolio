@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <title>{% block title %} {% endblock %} - Iliyan Kostov</title>
+    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="style/default.css" />
+  </head>
+  <body>
+    <div class="content">
+      <div id="content">{% block content %} {% endblock %}</div>
+    </div>
+    <div id="footer" class="footer">
+      {% block footer %} &copy; Made with
+      <a href="https://www.djangoproject.com/"> <3 Django</a>
+      {% endblock %}
+    </div>
+  </body>
+</html>
