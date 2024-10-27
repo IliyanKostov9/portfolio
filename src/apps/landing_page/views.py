@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from django.views.decorators.http import require_http_methods
+from django.views.decorators.http import require_http_methods, require_POST
 
 
 @require_http_methods(["GET"])
@@ -14,7 +14,7 @@ def projects():
     return HttpResponse("Projects")
 
 
-@require_http_methods(["GET", "POST"])
+@require_POST
 def contact():
     return HttpResponse("Contact")
 
