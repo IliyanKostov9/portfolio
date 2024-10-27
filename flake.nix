@@ -27,21 +27,25 @@
         devenv.shells.default = {
           languages.python.enable = true;
           languages.python.version = "3.11.9";
+          languages.python.uv.enable = true;
+          languages.python.uv.sync.enable = true;
 
           packages = with pkgs; [
-            pdm
+            zsh
           ];
 
           enterShell = ''
-            export PYTHONPATH="$(pwd):$(pwd)/src/apps"
+            export PYTHONPATH="$(pwd):$(pwd)/src/apps:$(pwd)"
 
             if ! [[ -d ".venv" ]]; then
-              pdm venv create --with venv
-              pdm install
+              uv venv
+              source .devenv/state/venv/bin/activate
+              uv pip sync
             elif [[ -d "pyproject.toml" ]]; then
-              pdm init
+              source .devenv/state/venv/bin/activate
+              uv pip sync
             else
-              pdm venv activate
+              source .devenv/state/venv/bin/activate
             fi
           '';
         };

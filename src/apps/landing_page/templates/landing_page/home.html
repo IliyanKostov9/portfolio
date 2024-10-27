@@ -1,7 +1,11 @@
-{% extends "layout.html" %} {% block title %} Home {% endblock %}
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %} Home test {% endblock %}
 <!--head -->
 {% block head %} Home {% endblock %}
 
 <!--content -->
-{% block content %} Hi - I'm Iliyan. The Infra guy - Short description of myself
-- Work history - {% endblock %}
+{% block content %}
+Hi - I'm Iliyan. - Short description of myself - Work history:
+{% endblock %}

@@ -16,7 +16,6 @@ from typing import Dict, Union
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -32,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "django_bootstrap5",
     "landing_page.apps.LandingPageConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -56,7 +56,7 @@ ROOT_URLCONF = "portfolio.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [f"{BASE_DIR}/apps/landing_page/templates/landing_page"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
