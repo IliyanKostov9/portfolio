@@ -1,8 +1,6 @@
 PROJECT_NAME ?= django_project
 APP_NAME ?= django_app
 
-# export PYTHONPATH := $(shell pwd):$(shell pwd)/src/apps
-
 .PHONY: nix-setup
 nix-setup: ## Setup project with Nix
 	echo "use nix" >> .envrc
@@ -22,11 +20,23 @@ create-app: ## Create app
 test: ## Test with Pybuilder
 	pyb -X -c -v
 
-
-.PHONY: runserver
-runserver: ## Run Django app
+.PHONY: run
+run: ## Run Django app
 	python3 src/manage.py runserver
 
 .PHONY: type-inference
 type-inference:
 	pyre infer -i
+
+.PHONY: gen-models
+gen-models:
+	python3 src/manage.py makemigrations landing_page
+
+.PHONY: get-sql
+get-sql:
+	python3 src/manage.py sqlmigrate landing_page 0001
+
+
+.PHONY: sync
+sync:
+	python3 src/manage.py migrate
