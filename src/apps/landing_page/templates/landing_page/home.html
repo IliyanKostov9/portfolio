@@ -2,10 +2,74 @@
 {% load django_bootstrap5 %}
 
 {% block title %} Home test {% endblock %}
-<!--head -->
-{% block head %} Home {% endblock %}
-
 <!--content -->
 {% block content %}
-Hi - I'm Iliyan. - Short description of myself - Work history:
+
+    <div class=”jumbotron”>
+
+    <div class="media">
+        <div class="bg-image">
+          <img src="https://github.com/IliyanKostov9/images/blob/master/profile.jpg?raw=true"
+            class="img-fluid rounded bg-image hover-overlay hover-shadow ripple"
+            width="300px"
+            height="300px"
+            />
+          <a data-mdb-ripple-init href="#!">
+         <div class="mask" style="background-color: hsla(195, 83%, 58%, 0.2)"></div>
+          </a>
+        </div>
+
+      <div class="media-body">
+        <h5 class="mt-0">Hi - I'm Iliyan.👋</h5>
+        Passionate about being part of the entire software lifecycle, from initial development to production deployment
+      </div>
+    </div>
+
+    <div class="grid" style="--bs-rows: 3; --bs-columns: 3;">
+      <div>Auto-column</div>
+      <div class="g-start-2" style="grid-row: 2">Auto-column</div>
+      <div class="g-start-3" style="grid-row: 3">Auto-column</div>
+    </div>
+
+    <div class=”container”>
+
+        <div class=”row”>
+            <div class=”col-md-4″>
+                <h2>About</h2>
+                <p>foo</p>
+            </div>
+        </div>
+
+
+        <div class=”row”>
+            <div class=”col-md-4″>
+                <h2>Projects</h2>
+                <p>foo</p>
+            </div>
+        </div>
+
+        <div class=”row”>
+            <div class=”col-md-4″>
+                <h2>Work history</h2>
+                <p>foo</p>
+            </div>
+        </div>
+
+        <div class=”row”>
+            <div class=”col-md-4″>
+                <h2>Education</h2>
+                <p>foo</p>
+            </div>
+        </div>
+
+        <div class=”row”>
+            <div class=”col-md-4″>
+                <h2>Certification</h2>
+                <p>foo</p>
+            </div>
+        </div>
+
+   </div>
+
 {% endblock %}
+
