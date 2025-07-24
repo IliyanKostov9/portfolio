@@ -3,7 +3,7 @@ ARG DOCKER_USER=portfolio
 RUN addgroup -s ${DOCKER_USER} && adduser -S ${DOCKER_USER} -G ${DOCKER_USER}
 
 
-FROM python:3.11 AS build
+FROM python:3.13 AS build
 COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
@@ -18,7 +18,7 @@ LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio
 	env="prod"
 
 
-FROM python:3.11
+FROM python:3.13
 USER ${DOCKER_USER}
 WORKDIR /app/
 
