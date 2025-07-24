@@ -164,7 +164,7 @@ six==1.17.0
     #   graphql-relay
     #   promise
     #   singledispatch
-sqlalchemy==1.4.54
+sqlalchemy==2.0.41
     # via
     #   fb-sapp
     #   graphene-sqlalchemy
