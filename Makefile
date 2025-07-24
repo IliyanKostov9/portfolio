@@ -1,10 +1,17 @@
 PROJECT_NAME ?= django_project
 APP_NAME ?= django_app
 
-.PHONY: nix-setup
-nix-setup: ## Setup project with Nix
-	echo "use nix" >> .envrc
-	direnv allow
+.PHONY: all clean test run
+all: clean test run
+
+run: ## Run Django app
+	python3 src/manage.py runserver
+
+test: ## Test Django app
+	echo "test"
+
+clean:
+	echo "clean"
 
 .PHONY: create-project
 	create-app: ## Create project
@@ -15,14 +22,6 @@ create-app: ## Create app
 	mkdir src/apps/$(APP_NAME)
 	python3 src/manage.py startapp $(APP_NAME) src/apps/$(APP_NAME)
 	echo "$(APP_NAME) is created!"
-
-.PHONY: test
-test: ## Test with Pybuilder
-	pyb -X -c -v
-
-.PHONY: run
-run: ## Run Django app
-	python3 src/manage.py runserver
 
 .PHONY: type-inference
 type-inference:

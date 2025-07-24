@@ -12,14 +12,11 @@ updates:
       - "IliyanKostov9"
     reviewers:
       - "IliyanKostov9"
-    labels:
-      - "github-action"
-      - "dependencies"
 
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
       timezone: "Europe/Sofia"
     commit-message:
       prefix: "[pip] "
@@ -27,9 +24,6 @@ updates:
       - "IliyanKostov9"
     reviewers:
       - "IliyanKostov9"
-    labels:
-      - "java"
-      - "dependencies"
 
   - package-ecosystem: "docker"
     directory: "/"
@@ -43,8 +37,3 @@ updates:
       - "IliyanKostov9"
     reviewers:
       - "IliyanKostov9"
-    labels:
-      - "docker"
-      - "dependencies"
-    # milestone: 4
-    #    open-pull-requests-limit: 0
