@@ -35,4 +35,4 @@ jobs:
 
       - name: "SonarQube Quality result"
         run: |
-          echo "Quality Gate status: ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
+          echo "Quality gate status: ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
