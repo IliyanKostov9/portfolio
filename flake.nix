@@ -1,5 +1,5 @@
 {
-  description = "Dev shell for portfolio";
+  description = "Portfolio app";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     systems.url = "github:nix-systems/default";
@@ -14,36 +14,67 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, flake-parts, devenv, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-
+  outputs = inputs @ {
+    nixpkgs,
+    flake-parts,
+    devenv,
+    ...
+  }:
+    flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         inputs.devenv.flakeModule
       ];
       systems = nixpkgs.lib.systems.flakeExposed;
 
-      perSystem = { config, self', inputs', pkgs, system, ... }: {
-
+      perSystem = {
+        config,
+        self',
+        inputs',
+        pkgs,
+        system,
+        ...
+      }: {
         devenv.shells.default = {
-          languages.python.enable = true;
-          languages.python.version = "3.11.9";
-          languages.python.uv.enable = true;
-          languages.python.uv.sync.enable = true;
+          languages.python = {
+            enable = true;
+            version = "3.11.9";
+            uv = {
+              enable = true;
+              sync.enable = true;
+            };
+          };
 
           packages = with pkgs; [
             zsh
           ];
 
+          git-hooks.hooks = {
+            # Common
+            commitizen.enable = true;
+
+            actionlint = {
+              enable = false;
+              excludes = ["docker-publish.yaml"];
+            };
+            checkmake.enable = true;
+
+            # Python specific
+            black.enable = true;
+            flake8.enable = true;
+            autoflake = {
+              enable = true;
+              description = "Used to remove unused imports & vars";
+            };
+          };
+
           enterShell = ''
             export PYTHONPATH="$(pwd):$(pwd)/src/apps:$(pwd)"
 
-            if ! [[ -d ".venv" ]]; then
+            if ! [[ -d ".devenv/state/venv" ]]; then
               uv venv
               source .devenv/state/venv/bin/activate
-              uv pip sync
             elif [[ -d "pyproject.toml" ]]; then
               source .devenv/state/venv/bin/activate
-              uv pip sync
             else
               source .devenv/state/venv/bin/activate
             fi
