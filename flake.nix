@@ -65,6 +65,9 @@
               enable = true;
               description = "Used to remove unused imports & vars";
             };
+
+            # HTML
+            prettier.enable = true;
           };
 
           enterShell = ''
