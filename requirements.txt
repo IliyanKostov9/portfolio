@@ -47,7 +47,7 @@ flask-cors==6.0.1
     # via fb-sapp
 flask-graphql==2.0.1
     # via fb-sapp
-graphene==2.1.9
+graphene==3.4.3
     # via
     #   fb-sapp
     #   graphene-sqlalchemy
