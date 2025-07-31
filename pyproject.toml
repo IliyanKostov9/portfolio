@@ -4,17 +4,17 @@ version = "0.1.0"
 description = "Template for portfolio web app"
 
 dependencies = [
-    "Django>=5.1.1",
-    "mockito>=1.5.1",
-    "setuptools>=75.1.0",
-    "pyre-check>=0.9.22",
-    "fb-sapp>=0.5.6",
-    "Pillow>=11.0.0",
-    "pydantic>=1.10.18",
+    "Django>=5.2.4",
+    "mockito>=1.5.4",
+    "setuptools>=80.9.0",
+    "pydantic>=2.11.7",
     "email-validator>=2.2.0",
-    "loguru>=0.7.2",
+    "loguru>=0.7.3",
     "pyyaml>=6.0.2",
-    "django-bootstrap5>=24.3",
+    "django-bootstrap5>=25.1",
+    "pillow>=11.3.0",
+    "django-libsass>=0.9",
+    "django-compressor>=4.5.1",
 ]
 requires-python = "==3.11.*"
 readme = "README.md"

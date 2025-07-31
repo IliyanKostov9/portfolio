@@ -142,6 +142,7 @@ jobs:
       - name: Pyre analysis
         run: |
           . .venv/bin/activate
+          pdm add pyre-check fb-sapp
           pyre --output=json | python3 -m json.tool
 
       - name: Pysa analysis

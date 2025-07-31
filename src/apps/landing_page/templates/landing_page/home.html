@@ -1,75 +1,181 @@
-{% extends "base.html" %}
-{% load django_bootstrap5 %}
+{% extends "base.html" %} {% load django_bootstrap5 %} {% load static %} {% load
+compress %} {% compress css %}
+<link href="{% static 'home.scss' %}" rel="stylesheet" type="text/x-scss" />
+{% endcompress %} {% block title %} Iliyan's portfolio page {% endblock %} {%
+block content %}
 
-{% block title %} Home test {% endblock %}
-<!--content -->
-{% block content %}
+<!-- <div class="bg-image container-fluid d-flex align-items-center"> -->
+<!--   <img -->
+<!--     src="https://mdbcdn.b-cdn.net/img/new/standard/city/053.webp" -->
+<!--     class="w-100" -->
+<!--     width="50px" -->
+<!--     height="50px" -->
+<!--   /> -->
+<!-- <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)"> -->
+<!--   <div class="d-flex justify-content-center align-items-center h-100"> -->
+<!--     <div class="p-4 flex-grow-1"><h2 class="display-4">Welcome</h2></div> -->
+<!--     <div class="p-4 flex-grow-1"><h2 class="display-4">Добре дошли</h2></div> -->
+<!--     <div class="p-4 flex-grow-1"><h2 class="display-4">Willkommen</h2></div> -->
+<!--     <div class="p-4 flex-grow-1"><h2 class="display-4">Bonjour</h2></div> -->
+<!--   </div> -->
+<!-- </div> -->
+<!-- </div> -->
 
-    <div class=”jumbotron”>
+<div class="bg-image hover-overlay ripple profile-container">
+  <img
+    src="{% static 'landing_page/images/profile.jpg' %}"
+    class="img-fluid rounded-circle bg-image hover-overlay hover-shadow ripple"
+    alt="profile picture"
+    width="500px"
+    height="500px"
+  />
 
-    <div class="media">
-        <div class="bg-image">
-          <img src="https://github.com/IliyanKostov9/images/blob/master/profile.jpg?raw=true"
-            class="img-fluid rounded bg-image hover-overlay hover-shadow ripple"
-            width="300px"
-            height="300px"
-            />
-          <a data-mdb-ripple-init href="#!">
-         <div class="mask" style="background-color: hsla(195, 83%, 58%, 0.2)"></div>
-          </a>
-        </div>
+  <div style="margin-left: 40px" ;>
+    <h3 class="mt-2">I'm Iliyan</h3>
+    <p style="margin 0;">
+      Passionate about being part of the entire software lifecycle, from initial
+      development to production deployment
+    </p>
+  </div>
+</div>
 
-      <div class="media-body">
-        <h5 class="mt-0">Hi - I'm Iliyan.👋</h5>
-        Passionate about being part of the entire software lifecycle, from initial development to production deployment
+<div class="grid" style="--bs-rows: 3; --bs-columns: 3">
+  <div>Auto-column</div>
+  <div class="g-start-2" style="grid-row: 2">Auto-column</div>
+  <div class="g-start-3" style="grid-row: 3">Auto-column</div>
+</div>
+
+<div class="”container”">
+  <div class="”row”">
+    <div class="”col-md-4″">
+      <h2>About</h2>
+      <p>foo</p>
+    </div>
+  </div>
+
+  <div class="”row”">
+    <div class="”col-md-4″">
+      <h2>Projects</h2>
+      <p>foo</p>
+    </div>
+  </div>
+
+  <div class="”row”">
+    <div class="”col-md-4″">
+      <h2>Work history</h2>
+      <p>foo</p>
+    </div>
+  </div>
+
+  <div class="”row”">
+    <div class="”col-md-4″">
+      <h2>Education</h2>
+      <p>foo</p>
+    </div>
+  </div>
+
+  <div class="”row”">
+    <div class="”col-md-4″">
+      <h2>Certification</h2>
+      <p>foo</p>
+    </div>
+  </div>
+</div>
+
+<!-- Carousel wrapper -->
+<div
+  id="carouselBasicExample"
+  class="carousel slide carousel-fade"
+  data-mdb-ride="carousel"
+  data-mdb-carousel-init
+>
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+
+  <!-- Inner -->
+  <div class="carousel-inner">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp"
+        class="d-block w-100"
+        alt="Sunset Over the City"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
       </div>
     </div>
 
-    <div class="grid" style="--bs-rows: 3; --bs-columns: 3;">
-      <div>Auto-column</div>
-      <div class="g-start-2" style="grid-row: 2">Auto-column</div>
-      <div class="g-start-3" style="grid-row: 3">Auto-column</div>
+    <!-- Single item -->
+    <div class="carousel-item">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp"
+        class="d-block w-100"
+        alt="Canyon at Nigh"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
     </div>
 
-    <div class=”container”>
+    <!-- Single item -->
+    <div class="carousel-item">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp"
+        class="d-block w-100"
+        alt="Cliff Above a Stormy Sea"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Inner -->
 
-        <div class=”row”>
-            <div class=”col-md-4″>
-                <h2>About</h2>
-                <p>foo</p>
-            </div>
-        </div>
-
-
-        <div class=”row”>
-            <div class=”col-md-4″>
-                <h2>Projects</h2>
-                <p>foo</p>
-            </div>
-        </div>
-
-        <div class=”row”>
-            <div class=”col-md-4″>
-                <h2>Work history</h2>
-                <p>foo</p>
-            </div>
-        </div>
-
-        <div class=”row”>
-            <div class=”col-md-4″>
-                <h2>Education</h2>
-                <p>foo</p>
-            </div>
-        </div>
-
-        <div class=”row”>
-            <div class=”col-md-4″>
-                <h2>Certification</h2>
-                <p>foo</p>
-            </div>
-        </div>
-
-   </div>
+  <!-- Controls -->
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-mdb-target="#carouselBasicExample"
+    data-mdb-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-mdb-target="#carouselBasicExample"
+    data-mdb-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- Carousel wrapper -->
 
 {% endblock %}
-
