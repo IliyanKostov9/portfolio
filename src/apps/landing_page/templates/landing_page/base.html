@@ -3,7 +3,8 @@
 <!doctype html>
 <html lang="en" data-mdb-theme="dark">
   <head>
-    <title>{% block title %} {% endblock %}</title>
+    <title>Iliyan's portfolio page</title>
+        <link rel="browser icon" href="{% static 'favicon.ico' %}" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.min.css"
       rel="stylesheet"
@@ -14,6 +15,8 @@
       rel="stylesheet"
     />
     <link href="{% static 'default.css' %}" />
+
+    {% block extra_head %} {% endblock %}
   </head>
 
   <body>

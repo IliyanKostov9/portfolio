@@ -66,8 +66,8 @@
               description = "Used to remove unused imports & vars";
             };
 
-            # HTML
-            prettier.enable = true;
+            # NOTE: breakes ninja templates
+            prettier.enable = false;
           };
 
           enterShell = ''

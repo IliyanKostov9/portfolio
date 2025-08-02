@@ -1,8 +1,15 @@
-{% extends "base.html" %} {% load django_bootstrap5 %} {% load static %} {% load
-compress %} {% compress css %}
-<link href="{% static 'home.scss' %}" rel="stylesheet" type="text/x-scss" />
-{% endcompress %} {% block title %} Iliyan's portfolio page {% endblock %} {%
-block content %}
+{% extends "base.html" %}
+{% load static compress django_bootstrap5 %}
+  {% block extra_head %}
+  {% compress css %}
+<link
+  href="{% static 'style/home.scss' %}"
+  rel="stylesheet"
+  type="text/x-scss"
+/>
+{% endcompress %}
+{% endblock %}
+{% block content %}
 
 <!-- <div class="bg-image container-fluid d-flex align-items-center"> -->
 <!--   <img -->
@@ -23,7 +30,7 @@ block content %}
 
 <div class="bg-image hover-overlay ripple profile-container">
   <img
-    src="{% static 'landing_page/images/profile.jpg' %}"
+    src="{% static 'images/profile.jpg' %}"
     class="img-fluid rounded-circle bg-image hover-overlay hover-shadow ripple"
     alt="profile picture"
     width="500px"
@@ -176,6 +183,4 @@ block content %}
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<!-- Carousel wrapper -->
-
 {% endblock %}
