@@ -57,7 +57,10 @@ ROOT_URLCONF = "portfolio.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [f"{BASE_DIR}/apps/landing_page/templates/landing_page"],
+        "DIRS": [
+            f"{BASE_DIR}/apps/landing_page/templates/landing_page",
+            BASE_DIR / "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
