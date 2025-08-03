@@ -21,9 +21,15 @@ $spacer: 10px;
   padding: $spacer !important;
 }
 
-.profile-container {
-  position: relative;
-  padding: 10px;
-  margin-left: 100px;
-  display: flex;
+.lazy {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1.5s ease-out,
+    transform 1.5s ease-out;
+}
+
+.lazy.loaded {
+  opacity: 1;
+  transform: translateY(0);
 }

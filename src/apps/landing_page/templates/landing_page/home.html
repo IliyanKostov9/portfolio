@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 {% load static compress django_bootstrap5 %}
-  {% block extra_head %}
-  {% compress css %}
-<link
-  href="{% static 'style/home.scss' %}"
-  rel="stylesheet"
-  type="text/x-scss"
-/>
+
+{% block extra_head %}
+{% compress css %}
+  <link
+    href="{% static 'style/home.scss' %}"
+    rel="stylesheet"
+    type="text/x-scss"
+  />
 {% endcompress %}
 {% endblock %}
 
 {% block content %}
 <!-- TODO: add animations -->
-  <div class="d-flex justify-content-center align-items-center">
+  <div class="d-flex justify-content-center align-items-center initial-content">
   <img
     src="{% static 'images/profile.jpg' %}"
-    class="img-fluid rounded-circle me-4"
+    class="img-fluid rounded-circle me-4 lazy"
     style="margin: 70px;"
     alt="profile picture"
     width="450px"
@@ -23,33 +24,36 @@
   />
 
   <div class="text-start">
-    <h5 class="mt-1 text-secondary">Hi,</h5>
-    <h1 class="mt-1 text-primary display-1">I'm Iliyan</h1>
-    <p class="lead">
+    <h5 class="mt-1 text-secondary lazy">Hi,</h5>
+    <h1 class="mt-1 text-primary display-1 lazy">I'm Iliyan</h1>
+    <p class="lead lazy">
       <em>I try to figure out how things work.</em>
     </p>
     </div>
   </div>
 
-  <p class="lead text-center">
+<!-- NOTE: artificial padding -->
+<p style="margin-bottom: 220px;"></p>
+
+  <p class="lead text-center lazy">
     Scroll down to find out more about me
   </p>
-<div class="d-flex justify-content-center align-items-center">
+<div class="d-flex justify-content-center align-items-center lazy">
   <i class="fas fa-arrow-down-long align-items-center"></i>
 </div>
   <hr class="hr hr-blurry" />
 
-<div class="”container”">
+<div class="”container">
   <div class="”row”">
-    <div class="”col-md-4″">
+    <div class="”col-md-4 lazy″">
       <h2>About</h2>
       <p>foo</p>
     </div>
   </div>
 
   <div class="”row”">
-    <div class="”col-md-4″">
-      <h2>Projects</h2>
+    <div class="”col-md-4 lazy″">
+      <h2 class="lazy">Projects</h2>
       <p>foo</p>
     </div>
   </div>
@@ -78,7 +82,7 @@
 
 <div
   id="carouselBasicExample"
-  class="carousel slide carousel-fade"
+  class="carousel slide carousel-fade additional-content"
   data-mdb-ride="carousel"
   data-mdb-carousel-init
 >
