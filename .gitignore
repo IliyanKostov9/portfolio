@@ -166,3 +166,4 @@ pysa-runs
 sapp.db
 .devenv
 .pre-commit-config.yaml
+src/static/CACHE/css
