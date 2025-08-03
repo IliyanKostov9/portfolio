@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "compressor",
     "django_bootstrap5",
     "landing_page.apps.LandingPageConfig",
     "django.contrib.admin",
@@ -107,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "Europe/Sofia"
+TIME_ZONE = "Europe/Paris"
 
 USE_I18N = True
 
@@ -117,7 +118,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+STATIC_ROOT = "/var/www/example.com/static/"
 STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+)
+
+
+COMPRESS_ROOT = BASE_DIR / "static"
+COMPRESS_ENABLED = True
+# NOTE: Enable it in production with the command python3 src/manage.py compress
+COMPRESS_OFFLINE = False
+COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

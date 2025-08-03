@@ -1,75 +1,168 @@
 {% extends "base.html" %}
-{% load django_bootstrap5 %}
+{% load static compress django_bootstrap5 %}
 
-{% block title %} Home test {% endblock %}
-<!--content -->
+{% block extra_head %}
+{% compress css %}
+  <link
+    href="{% static 'style/home.scss' %}"
+    rel="stylesheet"
+    type="text/x-scss"
+  />
+{% endcompress %}
+{% endblock %}
+
 {% block content %}
+  <div class="d-flex justify-content-center align-items-center initial-content">
+  <img
+    src="{% static 'images/profile.jpg' %}"
+    class="img-fluid rounded-circle me-4 lazy"
+    style="margin: 70px;"
+    alt="profile"
+    width="450px"
+    height="450px"
+  />
 
-    <div class=”jumbotron”>
+  <div class="text-start">
+    <h5 class="mt-1 text-secondary lazy">Hi,</h5>
+    <h1 class="mt-1 text-primary display-1 lazy">I'm Iliyan</h1>
+    <p class="lead lazy">
+      <em>I try to figure out how things work.</em>
+    </p>
+    </div>
+  </div>
 
-    <div class="media">
-        <div class="bg-image">
-          <img src="https://github.com/IliyanKostov9/images/blob/master/profile.jpg?raw=true"
-            class="img-fluid rounded bg-image hover-overlay hover-shadow ripple"
-            width="300px"
-            height="300px"
-            />
-          <a data-mdb-ripple-init href="#!">
-         <div class="mask" style="background-color: hsla(195, 83%, 58%, 0.2)"></div>
-          </a>
-        </div>
+<!-- NOTE: artificial padding -->
+<p style="margin-bottom: 220px;"></p>
 
-      <div class="media-body">
-        <h5 class="mt-0">Hi - I'm Iliyan.👋</h5>
-        Passionate about being part of the entire software lifecycle, from initial development to production deployment
+  <p class="lead text-center lazy">
+    Scroll down to find out more about me
+  </p>
+<div class="d-flex justify-content-center align-items-center lazy">
+  <i class="fas fa-arrow-down-long align-items-center"></i>
+</div>
+  <hr class="hr hr-blurry" />
+
+<div class="”container">
+  <div class="”row”">
+    <div class="”col-md-4 lazy″">
+      <h2>About</h2>
+      <p>foo</p>
+    </div>
+  </div>
+
+  <div class="”row”">
+    <div class="”col-md-4 lazy″">
+      <h2 class="lazy">Projects</h2>
+      <p>foo</p>
+    </div>
+  </div>
+
+  <div class="”row”">
+    <div class="”col-md-4″">
+      <h2>Work history</h2>
+      <p>foo</p>
+    </div>
+  </div>
+
+  <div class="”row”">
+    <div class="”col-md-4″">
+      <h2>Education</h2>
+      <p>foo</p>
+    </div>
+  </div>
+
+  <div class="”row”">
+    <div class="”col-md-4″">
+      <h2>Certification</h2>
+      <p>foo</p>
+    </div>
+  </div>
+</div>
+
+<div
+  id="carouselBasicExample"
+  class="carousel slide carousel-fade additional-content"
+  data-mdb-ride="carousel"
+  data-mdb-carousel-init
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp"
+        class="d-block w-100"
+        alt="Sunset Over the City"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
       </div>
     </div>
 
-    <div class="grid" style="--bs-rows: 3; --bs-columns: 3;">
-      <div>Auto-column</div>
-      <div class="g-start-2" style="grid-row: 2">Auto-column</div>
-      <div class="g-start-3" style="grid-row: 3">Auto-column</div>
+    <div class="carousel-item">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp"
+        class="d-block w-100"
+        alt="Canyon at Nigh"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
     </div>
 
-    <div class=”container”>
-
-        <div class=”row”>
-            <div class=”col-md-4″>
-                <h2>About</h2>
-                <p>foo</p>
-            </div>
-        </div>
-
-
-        <div class=”row”>
-            <div class=”col-md-4″>
-                <h2>Projects</h2>
-                <p>foo</p>
-            </div>
-        </div>
-
-        <div class=”row”>
-            <div class=”col-md-4″>
-                <h2>Work history</h2>
-                <p>foo</p>
-            </div>
-        </div>
-
-        <div class=”row”>
-            <div class=”col-md-4″>
-                <h2>Education</h2>
-                <p>foo</p>
-            </div>
-        </div>
-
-        <div class=”row”>
-            <div class=”col-md-4″>
-                <h2>Certification</h2>
-                <p>foo</p>
-            </div>
-        </div>
-
-   </div>
+    <div class="carousel-item">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp"
+        class="d-block w-100"
+        alt="Cliff Above a Stormy Sea"
+      />
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-mdb-target="#carouselBasicExample"
+    data-mdb-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-mdb-target="#carouselBasicExample"
+    data-mdb-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
 {% endblock %}
-
