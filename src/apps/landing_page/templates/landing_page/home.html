@@ -9,62 +9,35 @@
 />
 {% endcompress %}
 {% endblock %}
+
 {% block content %}
-
-<!-- <div class="bg-image container-fluid d-flex align-items-center"> -->
-<!--   <img -->
-<!--     src="https://mdbcdn.b-cdn.net/img/new/standard/city/053.webp" -->
-<!--     class="w-100" -->
-<!--     width="50px" -->
-<!--     height="50px" -->
-<!--   /> -->
-<!-- <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)"> -->
-<!--   <div class="d-flex justify-content-center align-items-center h-100"> -->
-<!--     <div class="p-4 flex-grow-1"><h2 class="display-4">Welcome</h2></div> -->
-<!--     <div class="p-4 flex-grow-1"><h2 class="display-4">Добре дошли</h2></div> -->
-<!--     <div class="p-4 flex-grow-1"><h2 class="display-4">Willkommen</h2></div> -->
-<!--     <div class="p-4 flex-grow-1"><h2 class="display-4">Bonjour</h2></div> -->
-<!--   </div> -->
-<!-- </div> -->
-<!-- </div> -->
-
-<div class="bg-image hover-overlay ripple profile-container">
+<!-- TODO: add animations -->
+  <div class="d-flex justify-content-center align-items-center">
   <img
     src="{% static 'images/profile.jpg' %}"
-    class="img-fluid rounded-circle bg-image hover-overlay hover-shadow ripple"
+    class="img-fluid rounded-circle me-4"
+    style="margin: 70px;"
     alt="profile picture"
-    width="500px"
-    height="500px"
+    width="450px"
+    height="450px"
   />
 
-  <div style="margin-left: 40px" ;>
-    <h1 class="mt-2 text-primary">I'm Iliyan</h1>
+  <div class="text-start">
+    <h5 class="mt-1 text-secondary">Hi,</h5>
+    <h1 class="mt-1 text-primary display-1">I'm Iliyan</h1>
     <p class="lead">
-      <em>
-      I try to figure out how things work.
-      </em>
+      <em>I try to figure out how things work.</em>
     </p>
-    <div class="card shadow-0 mb-3" style="max-width: 30rem;">
-      <div class="card-header">
-        About
-      </div>
-      <div class="body">
-        <h5 class="card-title">
-          Where I come from
-        </h5>
-        <p class="card-text">
-          I'm from bla bla bla
-        </p>
-      </div>
     </div>
   </div>
-</div>
 
-<div class="grid" style="--bs-rows: 3; --bs-columns: 3">
-  <div>Auto-column</div>
-  <div class="g-start-2" style="grid-row: 2">Auto-column</div>
-  <div class="g-start-3" style="grid-row: 3">Auto-column</div>
+  <p class="lead text-center">
+    Scroll down to find out more about me
+  </p>
+<div class="d-flex justify-content-center align-items-center">
+  <i class="fas fa-arrow-down-long align-items-center"></i>
 </div>
+  <hr class="hr hr-blurry" />
 
 <div class="”container”">
   <div class="”row”">
@@ -188,4 +161,5 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
 {% endblock %}
