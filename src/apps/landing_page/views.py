@@ -14,7 +14,7 @@ def home(request: Any) -> HttpResponse:
 
 @require_http_methods(["GET"])
 def projects() -> HttpResponse:
-    return HttpResponse("Projects")
+    return HttpResponse("Experience")
 
 
 @require_POST
