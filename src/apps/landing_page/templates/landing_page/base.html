@@ -1,4 +1,4 @@
-{% load static %}
+{% load static compress %}
 
 <!doctype html>
 <html lang="en" data-mdb-theme="dark">
@@ -22,7 +22,13 @@
       rel="stylesheet"
     />
 
-    <link href="{% static 'default.css' %}" />
+    {% compress css %}
+      <link
+        href="{% static 'style/default.scss' %}"
+        rel="stylesheet"
+        type="text/x-scss"
+      />
+    {% endcompress %}
 
     {% block extra_head %} {% endblock %}
   </head>
@@ -33,8 +39,13 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.umd.min.js"
     ></script>
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar tab navbar-expand-lg me-1" aria-label="toolbar for navigating through the entire website">
       <div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+      </ol>
+    </nav>
         <button
           data-mdb-collapse-init
           class="navbar-toggler"
@@ -51,22 +62,35 @@
           id="navbarCenteredExample"
         >
           <ul class="navbar-nav mb-2 mb-lg-0">
+
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="#About">About</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Projects</a
+              <a class="nav-link active" aria-current="page" href="#Projects"
+                >Projects</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#WorkHistory">Work history</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#Education">Education</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#Certifications">Certifications</a>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#ContactMe"
+                >Contact me</a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Contact</a
-              >
-            </li>
+
           </ul>
         </div>
       </div>
