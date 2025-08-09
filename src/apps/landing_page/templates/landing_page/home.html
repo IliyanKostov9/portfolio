@@ -20,13 +20,25 @@
     document.addEventListener('DOMContentLoaded', function () {
       const carousels = document.querySelectorAll('.carousel');
       const tabLinks = document.querySelectorAll('[data-mdb-tab-init]');
+      const collapse = document.querySelectorAll('[data-mdb-collapse-init]');
+      const tooltips = document.querySelectorAll('[data-mdb-tooltip-init]');
+
+      collapse.forEach((collapse) => {
+        new mdb.Collapse(collapse);
+      });
 
       tabLinks.forEach((tabLink) => {
         new mdb.Tab(tabLink);
       });
+
       carousels.forEach((carousel) => {
         new mdb.Carousel(carousel);
       });
+
+      tooltips.forEach((tooltip) => {
+        new mdb.Tooltip(tooltip);
+      });
+
     });
   </script>
 
@@ -69,26 +81,56 @@
         <h2 id="About" class="lazy"><a href="#About">About</a></h2>
         <p class="lazy">As you may have already guessed from the title above, my name is indeed Iliyan. I'm born in Bulgaria in a city on the coast of the Black Sea - Varna.</p>
         <p class="lazy">I have started on my engineering journey back when I was a kid and had to constantly fix our family desktop computer from crashing on WindowsXP and Windows7, where the issue might be either hardware related - ROM failed, motherboard got fried because of the very hot summers we had at the late 2000s, or I installed a pirated game with additional content (aka malware). That repetition of breaking and fixing changed my way of thinking and approaching problems from there on.</p>
-      <p class="lazy">
+
+        <hr class="hr hr-blurry" />
+        <a
+          id="aboutCollapse"
+          data-mdb-collapse-init
+          data-mdb-ripple-init
+          href="#aboutCollapse"
+          aria-expanded="false"
+          aria-controls="collapseAbout"
+        >
+          <em>Continue reading</em>
+        </a>
+
+        <div class="collapse" id="aboutCollapse">
+          <p>
           Afterward I joined in a high school for operation of road transport. Yes, it's not computer related, but it's in the engineering field. I actually do consider myself more of an <u>engineer</u> than a computer scientist.
         </p>
-      <p class="lazy">
+          <p>
           Time passed by and then after high school I was working at a grocery store and like every confused 18 years old, I was wondering what I was going to do with my life. Then after looking of all the local Varna universities, I then stopped at this one, called *Technical university of Varna*. I got curious by the technical specialtes - mainly at computer science and computer technologies and internet. After a bit of thinking, I randomly choose the second option. That was by far the <span style="color: green;">best</span> life changing choice I've made so far and at that time I couldn't have imagined how much this decision was going to change me for the better.
         </p>
-      <p class="lazy">
+          <p>
           In there I didn't learn only about technology, I learnt about working with others, exchanging ideas with passionate people, engaging in debates with professors and assitants, and most importantly - becoming an adult. That's the point of an university, shaping you into a well-rounded individual, who can be integrated into the professional and social environments and being responsible for their actions. I concretely believe in that statement. I've heard so many pepole (co-students), that believe that the point of an university is to get a job, that person is either delusional or being a stubborn child, that doesn't want to look at the bigger picture.
         </p>
-      <p class="lazy">
+          <p>
           In the third year of my bachelor's degree (2021) I was in an internship of a small local financial institution, that we developed legacy Windows 32bit for WindowsXP systems in Visual Objects community edition (also called CAVO).
           In the same year I landed my first actual IT job as a DevOps engineer as a consultant. The good thing about being a consultant is that you can see different companies (clients) with different architectures and <i>ways-of-working</i> in a very short amount of time, but the bad part is that you are not a permanent employee in these projects and you'll have to learn all of those tedious company's processes and in-house tools again for the next project. Believe me, in time you'll get very irritated by it.
         </p>
-      <p class="lazy">
+          <p>
           After some time I've spend working there and becoming more familiar with the company, I started to dislike the the company culture and decided to go elsewhere. In May 2025, I found another job, which wasn't just a job, but a life change. I had to move out to live on the southern region of France, Côte d'Azur.
         </p>
-      <p class="lazy">
+          <p>
           <em>And the story continues...</em>
         </p>
+
+        <hr class="hr hr-blurry" />
+        <a
+          id="aboutCollapseOpened"
+          data-mdb-collapse-init
+          data-mdb-ripple-init
+          href="#aboutCollapse"
+          aria-expanded="true"
+          aria-controls="collapseAbout"
+        >
+          <em>See less</em>
+        </a>
+      </div>
     </div>
+
+    <!-- NOTE: artificial padding -->
+    <p style="margin-bottom: 50px;"></p>
 
       <div style="max-width: 700px; margin: 0 auto;">
         <div id="prog" class="carousel slide carousel-fade lazy" data-mdb-ride="carousel" data-mdb-carousel-init>
@@ -553,8 +595,106 @@
 <p style="margin-bottom: 220px;"></p>
 
   <div class="row text-center justify-content-center">
-    <div class="col-md-6 lazy">
+    <div class="col-md-7 lazy d-flex flex-column align-items-center">
         <h2 id="Education" class="lazy"><a href="#Education">Education</a></h2>
+
+          <div class="card" style="max-width: 700px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="{% static 'images/tu_varna.png' %}"
+                  class="img-fluid rounded-start me-4 lazy"
+                  style="margin: 50px; margin-bottom: 80px; margin-top: 80px;"
+                  alt="Technical university of Varna logo"
+                  width="550px"
+                  height="550px"
+                />
+            <!-- <button type="button" class="btn btn-outline-primary btn-rounded btn-lg" -->
+            <!--   data-mdb-ripple-init -->
+            <!--   style="margin-left: 80px;" -->
+            <!--   onclick="window.open('https://fs.tu-varna.bg/','_blank')" -->
+            <!-- > -->
+            <!--     Website -->
+            <!-- </button> -->
+              </div>
+
+          <div class="col-md-8">
+            <div class="card-body"
+                  style="margin-left: 50px;"
+            >
+          <figure>
+            <blockquote class="blockquote">
+                  <h3 class="card-title mb-3"> <a href="#thesis-masters" data-mdb-tooltip-init title="Thesis: Design and implementation of a system for doctoral students admission and training"> Masters degree</a></h3>
+                  <h5 class="card-title mb-3"><small class="text-muted">Software engineering</small></h5>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+            <p>
+              10-2023 - 07-2025
+            </p>
+            </figcaption>
+            </figure>
+
+                <p class="card-text">
+                  Graduates of the Master's Program "Software Engineering" can work as applied and system programmers, web designers and developers, software technology consultants, internet applications and more.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">GPA: 6.00</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- NOTE: artificial padding -->
+<p style="margin-bottom: 80px;"></p>
+
+          <div class="card" style="max-width: 700px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="{% static 'images/tu_varna.png' %}"
+                  class="img-fluid rounded-start me-4 lazy"
+                  style="margin: 50px; margin-bottom: 80px; margin-top: 80px;"
+                  alt="Technical university of Varna logo"
+                  width="550px"
+                  height="550px"
+                />
+              </div>
+
+          <div class="col-md-8">
+            <div class="card-body"
+                  style="margin-left: 50px;"
+            >
+          <figure>
+            <blockquote class="blockquote">
+                  <h3 class="card-title mb-3"> <a href="#thesis-bachelors" data-mdb-tooltip-init title="Thesis: AI-Driven Project management web app with ChatGPT 3.5"> Bachelors degree</a></h3>
+                  <h5 class="card-title mb-3"><small class="text-muted">Computer and Internet technology</small></h5>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+            <p>
+              09-2019 - 07-2023
+            </p>
+            </figcaption>
+            </figure>
+                <p class="card-text">
+                  The Objects of the Professional Activity of the Engineer with the specialty "SIT" are the design, development and maintenance of software and internet systems and applications, expanding the field of application of computer systems and networks and information technologies, successful application of modern and continuously developing technologies for the internet and expansion, distributed and parallel processing, as artificial intelligence.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">GPA: 6.00</small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+
+<p style="margin-bottom: 220px;"></p>
+
+  <div class="row text-center justify-content-center">
+    <div class="col-md-6 lazy">
+        <h2 id="Certifications" class="lazy"><a href="#Certifications">Certifications</a></h2>
       <p>foo</p>
     </div>
   </div>
@@ -563,7 +703,7 @@
 
   <div class="row text-center justify-content-center">
     <div class="col-md-6 lazy">
-        <h2 id="Certifications" class="lazy"><a href="#Certifications">Certifications</a></h2>
+        <h2 id="Projects" class="lazy"><a href="#Projects">Projects</a></h2>
       <p>foo</p>
     </div>
   </div>
