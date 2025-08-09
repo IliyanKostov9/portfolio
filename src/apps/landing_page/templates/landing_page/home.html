@@ -609,13 +609,6 @@
                   width="550px"
                   height="550px"
                 />
-            <!-- <button type="button" class="btn btn-outline-primary btn-rounded btn-lg" -->
-            <!--   data-mdb-ripple-init -->
-            <!--   style="margin-left: 80px;" -->
-            <!--   onclick="window.open('https://fs.tu-varna.bg/','_blank')" -->
-            <!-- > -->
-            <!--     Website -->
-            <!-- </button> -->
               </div>
 
           <div class="col-md-8">
@@ -676,7 +669,7 @@
             </p>
             </figcaption>
             </figure>
-                <p class="card-text">
+                <p class="card-text" style="max-height: 170px; overflow-y: auto;">
                   The Objects of the Professional Activity of the Engineer with the specialty "SIT" are the design, development and maintenance of software and internet systems and applications, expanding the field of application of computer systems and networks and information technologies, successful application of modern and continuously developing technologies for the internet and expansion, distributed and parallel processing, as artificial intelligence.
                 </p>
                 <p class="card-text">
@@ -1256,10 +1249,41 @@
 <p style="margin-bottom: 220px;"></p>
 
   <div class="row text-center justify-content-center">
-    <div class="col-md-6 lazy">
+    <div class="col-md-7 lazy d-flex flex-column align-items-center">
         <h2 id="ContactMe" class="lazy"><a href="#ContactMe">Contact me</a></h2>
-      <p>foo</p>
+
+      <span class="border border-primary">
+    <div class="card" >
+            <div class="card-body"
+            >
+<form style="width: 50rem;">
+  <div data-mdb-input-init class="form-outline mb-4">
+
+    <input type="text" id="formName" class="form-control" />
+    <label class="form-label" for="formName">Name</label>
+  </div>
+
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="email" id="formEmail" class="form-control" />
+    <label class="form-label" for="formEmail">Email address</label>
+  </div>
+
+  <div data-mdb-input-init class="form-outline mb-4">
+    <textarea class="form-control" id="formMessage" rows="4"></textarea>
+    <label class="form-label" for="formMessage">Message</label>
+  </div>
+
+  <button data-mdb-ripple-init type="button" class="btn btn-primary btn-block mb-4">Send
+<i class="fas fa-paper-plane"></i>
+            </button>
+</form>
+      </div>
     </div>
+    </span>
+
+    </div>
+
+<p style="margin-bottom: 150px;"></p>
   </div>
 
 
