@@ -1,8 +1,8 @@
 PROJECT_NAME ?= django_project
 APP_NAME ?= django_app
 
-.PHONY: all clean test run
-all: clean test run
+.PHONY: all check clean test run
+all: check clean test run
 
 run: ## Run Django app
 	python3 src/manage.py runserver
@@ -12,6 +12,10 @@ test: ## Test Django app
 
 clean:
 	echo "clean"
+
+.PHONY: check
+check: ## Check the django templates
+	python3 src/manage.py check --deploy
 
 .PHONY: create-project
 	create-app: ## Create project
@@ -34,7 +38,6 @@ gen-models:
 .PHONY: get-sql
 get-sql:
 	python3 src/manage.py sqlmigrate landing_page 0001
-
 
 .PHONY: sync
 sync:

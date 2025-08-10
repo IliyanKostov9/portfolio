@@ -13,7 +13,7 @@ RUN python3 -m venv .venv && \
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
 	version="1.0.0-RELEASE" \
-	description="Portfolio app for me" \
+	description="Portfolio app" \
 	author="Iliyan Kostov" \
 	env="prod"
 

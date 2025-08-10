@@ -4,7 +4,7 @@
 <html lang="en" data-mdb-theme="dark">
   <head>
     <title>Iliyan's portfolio page</title>
-        <link rel="browser icon" href="{% static 'favicon.ico' %}" />
+    <link rel="browser icon" href="{% static 'favicon.ico' %}" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.min.css"
       rel="stylesheet"
@@ -23,29 +23,32 @@
     />
 
     {% compress css %}
-      <link
-        href="{% static 'style/default.scss' %}"
-        rel="stylesheet"
-        type="text/x-scss"
-      />
-    {% endcompress %}
-
-    {% block extra_head %} {% endblock %}
+    <link
+      href="{% static 'style/default.scss' %}"
+      rel="stylesheet"
+      type="text/x-scss"
+    />
+    {% endcompress %} {% block extra_head %} {% endblock %}
   </head>
 
   <body>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.umd.min.js"
+      integrity="sha384-YzAp9mbtbROBzQd/GXua4zI0q9ZFctXLsebMBDVA0fvlsyHVP/1VOLlBwtFlThGn"
+      crossorigin="anonymous"
     ></script>
 
-    <nav class="navbar tab navbar-expand-lg me-1" aria-label="toolbar for navigating through the entire website">
+    <nav
+      class="navbar tab navbar-expand-lg me-1"
+      aria-label="toolbar for navigating through the entire website"
+    >
       <div class="container-fluid">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-      </ol>
-    </nav>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+          </ol>
+        </nav>
         <button
           data-mdb-collapse-init
           class="navbar-toggler"
@@ -62,25 +65,37 @@
           id="navbarCenteredExample"
         >
           <ul class="navbar-nav mb-2 mb-lg-0">
-
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#About">About</a>
+              <a class="nav-link active" aria-current="page" href="#About"
+                >About</a
+              >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#WorkHistory">Work history</a>
+              <a class="nav-link active" aria-current="page" href="#WorkHistory"
+                >Work history</a
+              >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#Education">Education</a>
+              <a class="nav-link active" aria-current="page" href="#Education"
+                >Education</a
+              >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#Certificates">Certificates</a>
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#Certificates"
+                >Certificates</a
+              >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#Projects">Projects</a>
+              <a class="nav-link active" aria-current="page" href="#Projects"
+                >Projects</a
+              >
             </li>
 
             <li class="nav-item">
@@ -88,7 +103,6 @@
                 >Contact me</a
               >
             </li>
-
           </ul>
         </div>
       </div>
@@ -109,8 +123,9 @@
           <button
             class="btn btn-link btn-floating btn-lg m-1"
             onclick="window.open('https://github.com/IliyanKostov9','_blank')"
-            ><i class="fab fa-2x fa-github"></i
-          ></button>
+          >
+            <i class="fab fa-2x fa-github"></i>
+          </button>
         </section>
       </div>
 
