@@ -70,6 +70,12 @@
             prettier.enable = false;
           };
 
+          env = {
+            ENV = "dev";
+            HOST = "localhost";
+            SECRET_KEY = "django-insecure-8uyy0d7vvcll=*i_@b4_8tm$ehr58-+=7)82s3q$uhxok^$bim";
+          };
+
           enterShell = ''
             export PYTHONPATH="$(pwd):$(pwd)/src/apps:$(pwd)"
 
