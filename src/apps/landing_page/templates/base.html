@@ -22,6 +22,8 @@
       rel="stylesheet"
     />
 
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+
     {% compress css %}
     <link
       href="{% static 'style/default.scss' %}"
@@ -38,6 +40,7 @@
       integrity="sha384-YzAp9mbtbROBzQd/GXua4zI0q9ZFctXLsebMBDVA0fvlsyHVP/1VOLlBwtFlThGn"
       crossorigin="anonymous"
     ></script>
+
 
     <nav
       class="navbar tab navbar-expand-lg me-1"
@@ -110,6 +113,8 @@
 
     {% block content %} {% endblock %}
     <script src="{% static 'scripts/lazyload.js' %}"></script>
+    <script src="{% static 'scripts/toast.js' %}"></script>
+    {% include "components/toast.html" %}
 
     <footer class="text-center bg-body-tertiary">
       <div class="container pt-4">

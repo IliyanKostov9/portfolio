@@ -1,9 +1,10 @@
 import os
 from typing import Any
 
+from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import redirect
 from django.views import View
 from landing_page.forms.contact_me_form import ContactMe, ContactMeForm
 
@@ -24,13 +25,18 @@ class ContactMeView(View):
                 to=[os.environ.get("TO_EMAIL")],
             ).send()
 
-            template = loader.get_template("home.html")
-            return HttpResponse(template.render({}, request))
+            messages.success(
+                request,
+                "You have successfully sent an email to John!",
+            )
+
+            return redirect("home")
         else:
             print("Form is invalid for some reason!")
+            return None
 
     def _check_email_envs_are_set(self) -> None:
-        mandatory_env_variables: list = [
+        mandatory_env_variables: list[str] = [
             "FROM_EMAIL",
             "TO_EMAIL",
             "EMAIL_HOST",
