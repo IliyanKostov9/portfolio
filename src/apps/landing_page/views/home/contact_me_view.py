@@ -27,7 +27,7 @@ class ContactMeView(View):
 
             messages.success(
                 request,
-                "You have successfully sent an email to John!",
+                "You have successfully sent an email to Iliyan!",
             )
 
             return redirect("home")

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "pages/base.html" %}
 {% load static compress django_bootstrap5 %}
 {% block extra_head %}
 {% compress css %}
@@ -1344,6 +1344,7 @@
                 class="form-control"
                 id="message"
                 name="message"
+                maxlength="300"
                 rows="4"
                 required
               ></textarea>

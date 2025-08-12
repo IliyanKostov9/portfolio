@@ -1,6 +1,4 @@
 (function () {
-  const toastOptions = { delay: 2000 };
-
   htmx.onLoad(() => {
     htmx.findAll(".toast").forEach((element) => {
       let toast = mdb.Toast.getInstance(element);
@@ -11,7 +9,7 @@
       }
 
       if (!toast) {
-        const toast = new mdb.Toast(element, toastOptions);
+        const toast = new mdb.Toast(element, { autohide: true, delay: 7000 });
         toast.show();
       }
     });
