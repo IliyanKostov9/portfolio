@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "pages/base.html" %}
 {% load static compress django_bootstrap5 %}
 {% block extra_head %}
 {% compress css %}
@@ -46,6 +46,7 @@
     });
   });
 </script>
+
 
 <div class="d-flex justify-content-center align-items-center initial-content">
   <img
@@ -1108,7 +1109,6 @@
             </div>
             <div
               class="btn-group"
-              role="group"
               aria-label="phd portal buttons for github"
             >
               <button
@@ -1176,7 +1176,6 @@
             </div>
             <div
               class="btn-group"
-              role="group"
               aria-label="phd portal buttons for github"
             >
               <button
@@ -1236,7 +1235,6 @@
 
                 <div
                   class="btn-group"
-                  role="group"
                   aria-label="chat app buttons for github"
                 >
                   <button
@@ -1343,6 +1341,7 @@
                 class="form-control"
                 id="message"
                 name="message"
+                maxlength="300"
                 rows="4"
                 required
               ></textarea>
@@ -1356,7 +1355,7 @@
               value="send_contact_me"
               class="btn btn-primary btn-block mb-4"
             >
-              <span id="spinnerSubmit" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"
+              <span id="spinnerSubmit" class="spinner-border spinner-border-sm"  aria-hidden="true"
                 style="display: none;"
               ></span>
               <span class="visually-hidden">Loading...</span>

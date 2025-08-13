@@ -24,7 +24,6 @@ if not SECRET_KEY:
     print("SECRET KEY is not set!")
 
 DEBUG = False if os.environ.get("ENV") == "prod" else True
-print(f"DEBUG is set to {DEBUG}")
 
 ALLOWED_HOSTS = [os.environ.get("HOST")]
 
@@ -59,7 +58,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            f"{BASE_DIR}/apps/landing_page/templates/landing_page",
+            f"{BASE_DIR}/apps/landing_page/templates",
             BASE_DIR / "templates",
         ],
         "APP_DIRS": True,
@@ -122,9 +121,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_ROOT = "/var/www/example.com/static/"
+
+STATIC_ROOT = "/var/www/portfolio.com/static/"
 STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    f"{BASE_DIR}/apps/landing_page/static",
+]
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -133,6 +136,7 @@ STATICFILES_FINDERS = (
 
 
 COMPRESS_ROOT = BASE_DIR / "static"
+
 COMPRESS_ENABLED = True
 # NOTE: Enable it in production with the command python3 src/manage.py compress
 COMPRESS_OFFLINE = False
