@@ -16,9 +16,15 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
+
+from src.portfolio.views.error.error_404 import Error404
+from src.portfolio.views.error.error_500 import Error500
 
 urlpatterns = [
     path("admin/", admin.site.urls),  # pyre-ignore[16]
     path("", include("landing_page.urls")),
 ]
+
+handler404 = Error404.as_view()
+handler500 = Error500.as_view()

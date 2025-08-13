@@ -6,7 +6,7 @@ from django.views import View
 
 
 class HomeView(View):
-    def get(self, request: Any, *args, **kwargs) -> HttpResponse:
-        template = loader.get_template("home.html")
+    def get(self, request: Any) -> HttpResponse:
+        template = loader.get_template("pages/home.html")
 
         return HttpResponse(template.render({}, request))
