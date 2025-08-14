@@ -1,3 +1,4 @@
+from collections import defaultdict
 from typing import Any
 
 from django.http import HttpResponse
@@ -9,41 +10,46 @@ from landing_page.models.technology import Technology
 class HomeView(View):
     def get(self, request: Any) -> HttpResponse:
         template = loader.get_template("pages/home/index.html")
-
         technologies = self._get_technologies()
-        print(technologies)
 
         context: dict[str, Any] = {"technologies": technologies}
 
         return HttpResponse(template.render(context, request))
 
     def _get_technologies(self) -> Any:
-        technologies_objs = Technology.objects.all().values()
+        technologies_objs = list(Technology.objects.all().values())
+        pages = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
 
-        technology_categories = set(item["category_id"] for item in technologies_objs)
-        technologies = [
-            {"name": name, "technologies": []} for name in technology_categories
-        ]
+        for tech in technologies_objs:
+            page = tech["page"]
+            category = tech["category_id"]
+            row = tech["row"]
 
-        for category in technology_categories:
-            index = next(
-                (
-                    index
-                    for index, dic in enumerate(technologies)
-                    if dic["name"] == category
-                ),
-                None,
-            )
+            item_data = {
+                k: v for k, v in tech.items() if k not in ("page", "row", "category_id")
+            }
+            pages[page][category][row].append(item_data)
 
-            technologies[index]["technologies"] = [
-                item for item in technologies_objs if item["category_id"] == category
-            ]
+        def dictify(obj):
+            if isinstance(obj, defaultdict):
+                return {k: dictify(v) for k, v in obj.items()}
+            elif isinstance(obj, dict):
+                return {k: dictify(v) for k, v in obj.items()}
+            return obj
 
-        # NOTE: Clean the elements in a dictionary with unnacessary id and category_id
-        for category in technologies:
-            for technology in category["technologies"]:
-                print("technology")
-                technology.pop("id")
-                technology.pop("category_id")
+        pages_clean = dictify(pages)
 
-        return technologies
+        result = {
+            "pages": {
+                page: {
+                    "categories": {
+                        category: {"rows": rows}
+                        for category, rows in categories.items()
+                    }
+                }
+                for page, categories in pages_clean.items()
+            }
+        }
+
+        # TODO: Clean the elements in a dictionary with unnacessary id and category_id
+        return result

@@ -111,7 +111,8 @@
     data-mdb-carousel-init
   >
     <div class="carousel-inner rounded-5 shadow-4-strong">
-      <div class="carousel-item active bg-image">
+      {%  for page, pages_data in technologies.pages.items %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
         <img
           src="{% static 'images/technologies_background.jpg' %}"
           class="d-block w-100 img-fluid"
@@ -121,29 +122,31 @@
           class="carousel-caption d-none d-md-block mask d-flexbox p-2"
           style="background-color: rgba(0, 0, 0, 0.6)"
         >
-
-          {% for category in technologies %}
-          <h4 class="text-white">{{ category.name }}</h4>
+          {% for category, category_data in pages_data.categories.items %}
+          <h4 class="text-white">{{ category }}</h4>
           <div class="container list-unstyled">
+            {% for row, row_data in category_data.rows.items %}
             <div class="row">
-            {% for technology in category.technologies %}
+            {% for technology in row_data %}
               <div class="col-md">
                 <p class="text-white">
-                  {% if technology.icon|slice:"-4:" == ".svg" %}
-                  <img src="{% static 'icons/'|add:technology.icon %}" alt="icon"/>
-                  {% elif technology.icon|slice:":5" == "fab" %}
-                  <i class={{ technology.icon }}></i>
-                  {% endif %}
 
+                  {% if technology.icon|slice:"-4:" == ".svg" %}
+                  {% include 'icons/'|add:technology.icon %}
+                  {% elif technology.icon|slice:":3" == "fab" %}
+                  <i class="{{ technology.icon }}"></i>
+                  {% endif %}
                   {{ technology.name }}
                 </p>
               </div>
-          {% endfor %}
+              {% endfor %}
             </div>
+            {% endfor %}
             </div>
           {% endfor %}
         </div>
       </div>
+      {% endfor %}
 
       <!-- NOTE: invert(1) to make the color of the arrows white -->
       <button

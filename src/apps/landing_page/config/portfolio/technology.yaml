@@ -68,7 +68,7 @@
   row: 1
 
 - name: ReactJS
-  icon: "reactjs.svg"
+  icon: "fab fa-react"
   category: "Frameworks"
   page: 1
   row: 1
@@ -113,7 +113,7 @@
 
 # NOTE: CI/CD
 - name: "Github actions"
-  icon: "CI/CD.svg"
+  icon: "github_actions.svg"
   category: "CI/CD"
   page: 2
   row: 1
