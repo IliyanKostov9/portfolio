@@ -1,0 +1,94 @@
+---
+# NOTE: Programming languages
+- name: Python
+  icon: "fab fa-python"
+  category: "Programming languages"
+
+- name: Java
+  icon: "fab fa-java"
+  category: "Programming languages"
+
+- name: Bash
+  icon: "bash.svg"
+  category: "Programming languages"
+
+- name: Javascript
+  icon: "javascript.svg"
+  category: "Programming languages"
+
+- name: Nix
+  icon: "nix.svg"
+  category: "Programming languages"
+
+- name: Lua
+  icon: "lua.svg"
+  category: "Programming languages"
+
+- name: Php
+  icon: "php.svg"
+  category: "Programming languages"
+
+- name: C++
+  icon: "c_plus_plus.svg"
+  category: "Programming languages"
+
+- name: Kotlin
+  icon: "kotlin.svg"
+  category: "Programming languages"
+
+# NOTE: Frameworks
+- name: "AWS Amplify"
+  icon: "fab fa-aws"
+  category: "Frameworks"
+
+- name: NextJS
+  icon: "nextjs.svg"
+  category: "Frameworks"
+
+- name: ReactJS
+  icon: "reactjs.svg"
+  category: "Frameworks"
+
+- name: Quarkus
+  icon: "quarkus.svg"
+  category: "Frameworks"
+
+- name: Pytest
+  icon: "pytest.svg"
+  category: "Frameworks"
+
+# NOTE: Containers
+- name: Docker
+  icon: "fab fa-docker"
+  category: "Containers"
+
+- name: Kubernetes
+  icon: "kubernetes.svg"
+  category: "Containers"
+
+# NOTE: SQL
+- name: MySQL
+  icon: "mysql.svg"
+  category: "SQL"
+
+- name: PostgreSQL
+  icon: "postgresql.svg"
+  category: "SQL"
+
+# NOTE: CI/CD
+- name: "Github actions"
+  icon: "CI/CD.svg"
+  category: "CI/CD"
+
+- name: "Azure DevOps"
+  icon: "azure_devops.svg"
+  category: "CI/CD"
+
+# NOTE: Cloud
+- name: AWS
+  icon: "fab fa-aws"
+  category: "Cloud"
+
+- name: Azure
+  icon: "azure.svg"
+  category: "Cloud"
