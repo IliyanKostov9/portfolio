@@ -1,0 +1,71 @@
+{% extends "pages/base.html" %}
+{% load static compress django_bootstrap5 %}
+{% block extra_head %}
+{% compress css %}
+<link
+  href="{% static 'style/home.scss' %}"
+  rel="stylesheet"
+  type="text/x-scss"
+/>
+{% endcompress %}
+{% endblock %}
+{% block content %}
+
+<script src="{% static 'scripts/scroll.js' %}"></script>
+<script src="{% static 'scripts/domContextLoaded.js' %}"></script>
+
+<div class="d-flex justify-content-center align-items-center initial-content">
+  <img
+    src="{% static 'images/profile.jpg' %}"
+    class="img-fluid rounded-circle me-4 lazy"
+    style="margin: 70px"
+    alt="profile"
+    width="450"
+    height="450"
+  />
+
+  <div class="text-start">
+    <h5 class="mt-1 text-secondary lazy">Hi,</h5>
+    <h1 class="mt-1 text-primary display-1 lazy">I'm Iliyan</h1>
+    <p class="lead lazy">
+      <em>I try to figure out how things work.</em>
+    </p>
+  </div>
+</div>
+
+<!-- NOTE: artificial padding -->
+<p style="margin-bottom: 250px" />
+
+<p class="lead text-center lazy hide-when-scrolling">
+  Scroll down to find out more about me
+</p>
+
+<div
+  class="d-flex justify-content-center align-items-center lazy hide-when-scrolling"
+>
+  <a href="#About">
+    <i class="fas fa-arrow-down-long align-items-center"></i>
+  </a>
+</div>
+<hr class="hr hr-blurry hide-when-scrolling" />
+
+<div class="container text-center">
+
+  {% include 'pages/home/about.html' %}
+  <p style="margin-bottom: 220px" />
+
+  {% include 'pages/home/work_history.html' %}
+  <p style="margin-bottom: 220px" />
+
+  {% include 'pages/home/education.html' %}
+  <p style="margin-bottom: 220px" />
+
+  {% include 'pages/home/certification.html' %}
+  <p style="margin-bottom: 220px" />
+
+  {% include 'pages/home/projects.html' %}
+  <p style="margin-bottom: 220px" />
+
+  {% include 'pages/home/contact_me.html' %}
+</div>
+{% endblock %}

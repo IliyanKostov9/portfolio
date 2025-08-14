@@ -1,0 +1,71 @@
+<div class="row text-center justify-content-center">
+  <div class="col-md-7 lazy d-flex flex-column align-items-center">
+    <h2 id="ContactMe" class="lazy"><a href="#ContactMe">Contact me</a></h2>
+
+    <div class="card">
+      <div class="card-body">
+        <form
+          id="contactForm"
+          action="{% url 'home/contact-me' %}"
+          method="post"
+          style="width: 50rem"
+        >
+          {% csrf_token %}
+
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input
+              id="name"
+              name="name"
+              type="text"
+              class="form-control"
+              required
+            />
+            <label class="form-label" for="name">Name</label>
+          </div>
+
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              class="form-control"
+              required
+            />
+            <label class="form-label" for="email">Email address</label>
+          </div>
+
+          <div data-mdb-input-init class="form-outline mb-4">
+            <textarea
+              class="form-control"
+              id="message"
+              name="message"
+              maxlength="300"
+              rows="4"
+              required
+            ></textarea>
+            <label class="form-label" for="message">Message</label>
+          </div>
+
+          <button
+            id="submitBtn"
+            data-mdb-ripple-init
+            type="submit"
+            value="send_contact_me"
+            class="btn btn-primary btn-block mb-4"
+          >
+            <span
+              id="spinnerSubmit"
+              class="spinner-border spinner-border-sm"
+              aria-hidden="true"
+              style="display: none"
+            ></span>
+            <span class="visually-hidden">Loading...</span>
+            Send
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <p style="margin-bottom: 150px" />
+</div>
