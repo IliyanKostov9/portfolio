@@ -17,28 +17,15 @@ clean:
 check: ## Check the django templates
 	python3 src/manage.py check --deploy
 
-.PHONY: create-project
-	create-app: ## Create project
-	python3 src/manage.py startproject $(PROJECT_NAME)
-
-.PHONY: create-app
-create-app: ## Create app
-	mkdir src/apps/$(APP_NAME)
-	python3 src/manage.py startapp $(APP_NAME) src/apps/$(APP_NAME)
-	echo "$(APP_NAME) is created!"
-
 .PHONY: type-inference
 type-inference:
 	pyre infer -i
 
-.PHONY: gen-models
-gen-models:
+.PHONY: schema-update
+schema-update:
 	python3 src/manage.py makemigrations landing_page
 
-.PHONY: get-sql
-get-sql:
-	python3 src/manage.py sqlmigrate landing_page 0001
-
-.PHONY: sync
-sync:
-	python3 src/manage.py migrate
+.PHONY: sql-init-test
+sql-init-test:
+	python src/manage.py migrate landing_page 0003_initial
+	python src/manage.py migrate landing_page
