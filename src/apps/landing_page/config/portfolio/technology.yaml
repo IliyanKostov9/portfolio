@@ -3,92 +3,136 @@
 - name: Python
   icon: "fab fa-python"
   category: "Programming languages"
+  page: 1
+  row: 1
 
 - name: Java
   icon: "fab fa-java"
   category: "Programming languages"
+  page: 1
+  row: 1
 
 - name: Bash
   icon: "bash.svg"
   category: "Programming languages"
+  page: 1
+  row: 1
 
 - name: Javascript
   icon: "javascript.svg"
   category: "Programming languages"
+  page: 1
+  row: 2
 
 - name: Nix
   icon: "nix.svg"
   category: "Programming languages"
+  page: 1
+  row: 2
 
 - name: Lua
   icon: "lua.svg"
   category: "Programming languages"
+  page: 1
+  row: 2
 
 - name: Php
   icon: "php.svg"
   category: "Programming languages"
+  page: 1
+  row: 3
 
 - name: C++
   icon: "c_plus_plus.svg"
   category: "Programming languages"
+  page: 1
+  row: 3
 
 - name: Kotlin
   icon: "kotlin.svg"
   category: "Programming languages"
+  page: 1
+  row: 3
 
 # NOTE: Frameworks
 - name: "AWS Amplify"
   icon: "fab fa-aws"
   category: "Frameworks"
+  page: 1
+  row: 1
 
 - name: NextJS
   icon: "nextjs.svg"
   category: "Frameworks"
+  page: 1
+  row: 1
 
 - name: ReactJS
   icon: "reactjs.svg"
   category: "Frameworks"
+  page: 1
+  row: 1
 
 - name: Quarkus
   icon: "quarkus.svg"
   category: "Frameworks"
+  page: 1
+  row: 1
 
 - name: Pytest
   icon: "pytest.svg"
   category: "Frameworks"
+  page: 1
+  row: 1
 
 # NOTE: Containers
 - name: Docker
   icon: "fab fa-docker"
   category: "Containers"
+  page: 2
+  row: 1
 
 - name: Kubernetes
   icon: "kubernetes.svg"
   category: "Containers"
+  page: 2
+  row: 1
 
 # NOTE: SQL
 - name: MySQL
   icon: "mysql.svg"
   category: "SQL"
+  page: 2
+  row: 1
 
 - name: PostgreSQL
   icon: "postgresql.svg"
   category: "SQL"
+  page: 2
+  row: 1
 
 # NOTE: CI/CD
 - name: "Github actions"
   icon: "CI/CD.svg"
   category: "CI/CD"
+  page: 2
+  row: 1
 
 - name: "Azure DevOps"
   icon: "azure_devops.svg"
   category: "CI/CD"
+  page: 2
+  row: 1
 
 # NOTE: Cloud
 - name: AWS
   icon: "fab fa-aws"
   category: "Cloud"
+  page: 2
+  row: 1
 
 - name: Azure
   icon: "azure.svg"
   category: "Cloud"
+  page: 2
+  row: 1

@@ -121,184 +121,27 @@
           class="carousel-caption d-none d-md-block mask d-flexbox p-2"
           style="background-color: rgba(0, 0, 0, 0.6)"
         >
-          <h4 class="text-white">Programming languages</h4>
+
+          {% for category in technologies %}
+          <h4 class="text-white">{{ category.name }}</h4>
           <div class="container list-unstyled">
             <div class="row">
+            {% for technology in category.technologies %}
               <div class="col-md">
                 <p class="text-white">
-                  <i class="fab fa-python"></i>
-                  Python
+                  {% if technology.icon|slice:"-4:" == ".svg" %}
+                  <img src="{% static 'icons/'|add:technology.icon %}" alt="icon"/>
+                  {% elif technology.icon|slice:":5" == "fab" %}
+                  <i class={{ technology.icon }}></i>
+                  {% endif %}
+
+                  {{ technology.name }}
                 </p>
               </div>
-
-              <div class="col-md">
-                <p class="text-white">
-                  <i class="fab fa-java"></i>
-                  Java
-                </p>
-              </div>
-
-              <div class="col-md">
-                <p class="text-white">{% include 'icons/bash.svg' %} Bash</p>
-              </div>
+          {% endfor %}
             </div>
-
-            <div class="row">
-              <div class="col-md">
-                <p class="text-white">
-                  {% include 'icons/javascript.svg' %} Javascript
-                </p>
-              </div>
-
-              <div class="col-md">
-                <p class="text-white">{% include 'icons/nix.svg' %} Nix</p>
-              </div>
-
-              <div class="col-md">
-                <p class="text-white">{% include 'icons/lua.svg' %} Lua</p>
-              </div>
             </div>
-
-            <div class="row">
-              <div class="col-md">
-                <p class="text-white">{% include 'icons/php.svg' %} Php</p>
-              </div>
-
-              <div class="col-md">
-                <p class="text-white">
-                  {% include 'icons/c_plus_plus.svg' %} C++
-                </p>
-              </div>
-
-              <div class="col-md">
-                <p class="text-white">
-                  {% include 'icons/kotlin.svg' %} Kotlin
-                </p>
-              </div>
-            </div>
-
-            <h4 class="text-white">Frameworks</h4>
-            <div class="container">
-              <div class="row">
-                <div class="col-md">
-                  <p class="text-white">
-                    <i class="fab fa-aws"></i>
-                    AWS Amplify
-                  </p>
-                </div>
-
-                <div class="col-md">
-                  <p class="text-white">
-                    {% include 'icons/nextjs.svg' %} NextJS
-                  </p>
-                </div>
-
-                <div class="col-md">
-                  <p class="text-white">
-                    <i class="fab fa-react"></i>
-                    ReactJS
-                  </p>
-                </div>
-
-                <div class="col-md">
-                  <p class="text-white">
-                    {% include 'icons/quarkus.svg' %} Quarkus
-                  </p>
-                </div>
-
-                <div class="col-md">
-                  <p class="text-white">
-                    {% include 'icons/pytest.svg' %} Pytest
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Active out -->
-      </div>
-
-      <div class="carousel-item">
-        <img
-          src="{% static 'images/technologies_background.jpg' %}"
-          class="d-block w-100"
-          alt="Blue art background for technology stack"
-        />
-        <div
-          class="carousel-caption d-none d-md-block mask d-flexbox p-2"
-          style="background-color: rgba(0, 0, 0, 0.6)"
-        >
-          <h4 class="text-white">Containers</h4>
-          <ul class="list-unstyled">
-            <div class="container">
-              <div class="row">
-                <div class="col-md">
-                  <p class="text-white">
-                    <i class="fab fa-docker"></i>
-                    Docker
-                  </p>
-                </div>
-
-                <div class="col-md">
-                  <p class="text-white">
-                    {% include 'icons/kubernetes.svg' %} Kubernetes
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ul>
-
-          <h4 class="text-white">SQL</h4>
-          <ul class="list-unstyled">
-            <div class="container">
-              <div class="row">
-                <div class="col-md">
-                  <p class="text-white">
-                    {% include 'icons/mysql.svg' %} MySQL
-                  </p>
-                </div>
-
-                <div class="col-md">
-                  <p class="text-white">
-                    {% include 'icons/postgresql.svg' %} PostgreSQL
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ul>
-
-          <h4 class="text-white">CI/CD</h4>
-          <ul class="list-unstyled">
-            <div class="container">
-              <div class="row">
-                <div class="col-md">
-                  <p class="text-white">
-                    {% include 'icons/github_actions.svg' %} Github actions
-                  </p>
-                </div>
-
-                <div class="col-md">
-                  <p class="text-white">
-                    {% include 'icons/azure_devops.svg' %} Azure DevOps
-                  </p>
-                </div>
-
-                <div class="col-md">
-                  <p class="text-white">
-                    <i class="fab fa-aws"></i>
-                    AWS
-                  </p>
-                </div>
-
-                <div class="col-md">
-                  <p class="text-white">
-                    {% include 'icons/azure.svg' %} Azure
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ul>
+          {% endfor %}
         </div>
       </div>
 

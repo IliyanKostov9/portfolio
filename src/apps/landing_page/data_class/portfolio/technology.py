@@ -10,6 +10,8 @@ class Technology(Portfolio):
     name: str
     icon: str
     category: int
+    page: int
+    row: int
 
     @classmethod
     def from_yaml(cls, path: str) -> list["Technology"]:
@@ -37,5 +39,9 @@ class Technology(Portfolio):
             )
 
             technology_model.objects.create(
-                name=technology.name, icon=technology.icon, category=category
+                name=technology.name,
+                icon=technology.icon,
+                category=category,
+                row=technology.row,
+                page=technology.page,
             )
