@@ -1,0 +1,64 @@
+---
+- name: "NixOS config"
+  description: |
+    It contains hardware/software configurations for setting up my personal/work machines.
+  schroll_description: false
+  image: "nixos.png"
+  date: "06-2024 - Present"
+  row: 1
+  urls:
+    - "https://github.com/IliyanKostov9/nixos-config"
+
+- name: "Phd portal system"
+  description: |
+    The project develops an engineering solution for digitizing an
+    information system for doctoral students and candidates in order
+    to be used by higher education institutions, which would
+    integrate into the systematic process for the management and
+    management of the so -called "digital university".
+  schroll_description: true
+  image: "tu_varna.png"
+  date: "08-2024 - 06-2025"
+  row: 1
+  urls:
+    - "https://github.com/Tu-Varna-2019/phd-portal-server"
+    - https://github.com/Tu-Varna-2019/phd-portal-client"
+    - https://github.com/Tu-Varna-2019/phd-portal-infra"
+  project_names: "Server, Client, Infra"
+
+- name: "Geo Android app"
+  description: |
+    Information system, which allows users to inspect hazards and
+    risks anywhere in the world.
+  schroll_description: false
+  image: "tu_varna.png"
+  date: "02-2024 - 06-2024"
+  row: 1
+  urls:
+    - "https://github.com/Tu-Varna-2019/geo-server"
+    - https://github.com/Tu-Varna-2019/geo-client"
+  project_names: "Server, Client"
+
+- name: "ChatApp mobile app"
+  description: |
+    Mobile application for real time messaging communication
+  schroll_description: false
+  image: "tu_varna.png"
+  date: "08-2023 - 02-2024"
+  row: 2
+  urls:
+    - "https://github.com/Tu-Varna-2019/chatapp-server"
+    - https://github.com/Tu-Varna-2019/chatapp-client"
+  project_names: "Server, Client"
+
+- name: "Project management with OpenAI"
+  description: |
+    A browser-based project management app, that is integrated with
+    ChatGPT-3.5 for supporting the agile team to autogenerate
+    tickets.
+  schroll_description: true
+  image: "tu_varna.png"
+  date: "02-2023 - 06-2023"
+  row: 2
+  urls:
+    - "https://github.com/Tu-Varna-2019/project-management-openai"
