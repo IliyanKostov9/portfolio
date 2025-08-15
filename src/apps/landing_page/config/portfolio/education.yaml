@@ -6,7 +6,7 @@
     Graduates of the Master's Program "Software Engineering" can work
     as applied and system programmers, web designers and developers,
     software technology consultants, internet applications and more.
-  schroll_description: false
+  scroll_description: false
   image: "tu_varna.png"
   href_tooltip: "#thesis-masters"
   href_title: "Thesis: Design and implementation of a system for doctoral students admission and training"
@@ -25,7 +25,7 @@
     continuously developing technologies for the internet and
     expansion, distributed and parallel processing, as artificial
     intelligence.
-  schroll_description: true
+  scroll_description: true
   image: "tu_varna.png"
   href_tooltip: "#thesis-bachelors"
   href_title: "Thesis: AI-Driven Project management web app with ChatGPT 3.5"

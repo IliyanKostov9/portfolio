@@ -1,7 +1,11 @@
+from typing import Any
+
 from django.db.models import CharField, JSONField, Model
+from landing_page.models.portfolio import Portfolio
+from typing_extensions import override
 
 
-class WorkHistory(Model):
+class WorkHistory(Model, Portfolio):
     company_name: CharField = CharField("Company name", max_length=100)
     company_name_label: CharField = CharField(
         "Aria label of the company in pattern company-name-123", max_length=100
@@ -10,3 +14,11 @@ class WorkHistory(Model):
     specialty: CharField = CharField("Specialty name", max_length=100)
     dates: JSONField = JSONField("Dates of work")
     description: CharField = CharField("Description of the work history")
+
+    @override
+    def get_all(self) -> Any:
+        pass
+
+    @override
+    def transform(self) -> Any:
+        pass

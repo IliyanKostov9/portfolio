@@ -3,46 +3,54 @@
   image: "german_a1.jpg"
   date: "10.04.2025"
   url: "https://infobulgaria.net/"
+  style: "margin: 30px"
   row: 1
 
 - name: "AWS Migration acceleration program"
   image: "aws_migration_acceleration_program.png"
   date: "09-2024"
   url: "https://www.credly.com/badges/79c50d81-a092-4d64-9abd-c82b74af8836/linked_in_profile"
+  style: "margin: 15px"
   row: 1
 
 - name: "AWS Technical accelerated"
   image: "aws_technical_accelerated.png"
   date: "09-2024"
   url: "https://www.credly.com/badges/d2561920-df6c-4a04-a267-4009de608a8f/linked_in_profile"
+  style: "margin: 30px"
   row: 1
 
 - name: "Partner Training - Gen AI & LLM on Databricks"
   image: "databricks_gen_llm.jpg"
   date: "10.04.2024 - 09.09.2026"
   url: "https://credentials.databricks.com/b2a0ea97-cbe8-47db-b075-8c833525ef4f#acc.R8i3Nzvg"
+  style: "margin: 30px"
   row: 2
 
 - name: "Microsoft Certified: Azure Developer Associate"
   image: "microsoft_associate.png"
   date: "02.10.2023 - 03.10.2026"
   url: "https://learn.microsoft.com/en-us/users/kostoviliyan-7522/credentials/4cbfcf5b11b3e4ee?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+  style: "margin: 30px"
   row: 2
 
 - name: "Microsoft Certified: DevOps Engineer Expert"
   image: "microsoft_expert.png"
   date: "02.10.2023 - 03.10.2026"
   url: "https://learn.microsoft.com/en-us/users/kostoviliyan-7522/credentials/5ac1e309f3cd6c25?ref=https%3A%2F%2Fwww.linkedin.com%2F"
+  style: "margin: 30px"
   row: 2
 
 - name: "Microsoft Certified: Azure Data Engineer Associate"
   image: "microsoft_associate.png"
   date: "28.04.2022 - 28.04.2023"
   url: "https://www.credly.com/badges/a7fc1fb7-e1b6-4473-8453-6c4eff17c10f/public_url"
+  style: "margin: 30px"
   row: 3
 
 - name: "AWS Certified Solutions Architect – Associate"
   image: "aws_saa.png"
   date: "29.07.2022 - 29.07.2025"
   url: "https://www.credly.com/badges/620c9229-2256-4c1c-8067-18368f84862b/public_url"
+  style: "margin: 30px"
   row: 3

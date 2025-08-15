@@ -6,7 +6,7 @@ class Education(Model):
     specialty: CharField = CharField("Specialty name", max_length=100)
     university_name: CharField = CharField("University name", max_length=50)
     description: CharField = CharField("Description of the education", max_length=300)
-    schroll_description: BooleanField = BooleanField(
+    scroll_description: BooleanField = BooleanField(
         "Whether or not the description should be scrollable or not"
     )
     image: CharField = CharField("Image of the education", max_length=30)

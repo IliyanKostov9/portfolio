@@ -24,8 +24,18 @@ type-inference:
 .PHONY: schema-update
 schema-update:
 	python3 src/manage.py makemigrations landing_page
+	python3 src/manage.py makemigrations landing_page --empty
+	echo "Now copy the following code to the new empty migrated python file like"
+	echo " \
+		from . import init, init_reverse \
+		operations = [ \
+			migrations.RunPython(init, init_reverse), \
+		] \
+	"
 
 .PHONY: sql-init-test
 sql-init-test:
-	python src/manage.py migrate landing_page 0003_initial
-	python src/manage.py migrate landing_page
+	# python3 src/manage.py migrate landing_page 0003_initial
+	python3 src/manage.py migrate landing_page
+
+
