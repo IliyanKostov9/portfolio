@@ -17,8 +17,17 @@ class WorkHistory(Model, Portfolio):
 
     @override
     def get_all(self) -> Any:
-        pass
+        return list(WorkHistory.objects.all().values())
 
     @override
     def transform(self) -> Any:
-        pass
+        work_history_objs = self.get_all()
+
+        self.clean(work_history_objs)
+        print(f">>>>>>>>>>>>>>>>>>>>>>>>>>>>> {work_history_objs}")
+        return work_history_objs
+
+    @override
+    def clean(self, work_histories: list[Any]) -> None:
+        for work_history in work_histories:
+            work_history.pop("id")

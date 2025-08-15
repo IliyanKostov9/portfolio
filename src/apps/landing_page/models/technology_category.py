@@ -17,3 +17,7 @@ class TechnologyCategory(Model, Portfolio):
     @override
     def transform(self) -> Any:
         pass
+
+    @override
+    def clean(self) -> None:
+        pass

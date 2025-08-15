@@ -11,3 +11,6 @@ class Portfolio:
 
     def transform(self) -> Any:
         pass
+
+    def clean(self) -> None:
+        pass

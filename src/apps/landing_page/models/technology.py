@@ -61,3 +61,8 @@ class Technology(Model, Portfolio):
 
         # TODO: Clean the elements in a dictionary with unnacessary id and category_id
         return result
+
+    @override
+    def clean(self, technologies) -> None:
+        for technology in technologies:
+            technology.pop("id")
