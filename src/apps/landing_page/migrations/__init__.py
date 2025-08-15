@@ -1,3 +1,6 @@
+from landing_page.data_class.portfolio.certification import Certification
+from landing_page.data_class.portfolio.education import Education
+from landing_page.data_class.portfolio.project import Project
 from landing_page.data_class.portfolio.technology import Technology
 from landing_page.data_class.portfolio.technology_category import TechnologyCategory
 from landing_page.data_class.portfolio.work_history import WorkHistory
@@ -8,6 +11,9 @@ def init(apps, schema_editor):
     Technology.table_create(apps)
 
     WorkHistory.table_create(apps)
+    Education.table_create(apps)
+    Certification.table_create(apps)
+    Project.table_create(apps)
 
 
 def init_reverse(apps, schema_editor):

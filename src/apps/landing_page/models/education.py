@@ -1,7 +1,11 @@
+from typing import Any
+
 from django.db.models import BooleanField, CharField, Model
+from landing_page.models.portfolio import Portfolio
+from typing_extensions import override
 
 
-class Education(Model):
+class Education(Model, Portfolio):
     degree: CharField = CharField("Degree name", max_length=100)
     specialty: CharField = CharField("Specialty name", max_length=100)
     university_name: CharField = CharField("University name", max_length=50)
@@ -14,3 +18,20 @@ class Education(Model):
     href_title: CharField = CharField("Href title of the education", max_length=200)
     date: CharField = CharField("Date of the education")
     gpa: CharField = CharField("GPA of the education")
+
+    @override
+    def get_all(self) -> Any:
+        return list(Education.objects.all().values())
+
+    @override
+    def transform(self) -> Any:
+        education_objs = self.get_all()
+
+        self.clean(education_objs)
+        print(f">>>>>>>>>>>>>>>>>>>>>>>>>>>>> {education_objs}")
+        return education_objs
+
+    @override
+    def clean(self, education_objs: list[Any]) -> None:
+        for education in education_objs:
+            education.pop("id")

@@ -13,13 +13,18 @@ class Project(Portfolio):
     image: str
     date: str
     row: int
+    project_names: list[str]
     urls: list[str]
 
     @classmethod
     def from_yaml(cls, path: str) -> list["Project"]:
+        defaults = {
+            "scroll_description": False,
+            "project_names": [],
+        }
         objects: Any = super().read_yaml(path)
 
-        return [cls(**obj) for obj in objects]
+        return [cls(**{**defaults, **obj}) for obj in objects]
 
     @override
     @staticmethod
@@ -38,4 +43,5 @@ class Project(Portfolio):
                 date=project.date,
                 row=project.row,
                 urls=project.urls,
+                project_names=project.project_names,
             )

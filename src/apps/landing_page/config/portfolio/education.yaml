@@ -1,6 +1,6 @@
 ---
-- degree: "Software engineering"
-  specialty: "Masters degree"
+- degree: "Masters degree"
+  specialty: "Software engineering"
   university_name: "Technical university of Varna"
   description: |
     Graduates of the Master's Program "Software Engineering" can work
@@ -13,8 +13,8 @@
   date: "10-2023 - 07-2025"
   gpa: "GPA: 6.00"
 
-- degree: "Computer and Internet technology"
-  specialty: "Bachelors degree"
+- degree: "Bachelors degree"
+  specialty: "Computer and Internet technology"
   university_name: "Technical university of Varna"
   description: |
     The Objects of the Professional Activity of the Engineer with the

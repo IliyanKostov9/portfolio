@@ -22,9 +22,8 @@ class WorkHistory(Model, Portfolio):
     @override
     def transform(self) -> Any:
         work_history_objs = self.get_all()
-
         self.clean(work_history_objs)
-        print(f">>>>>>>>>>>>>>>>>>>>>>>>>>>>> {work_history_objs}")
+
         return work_history_objs
 
     @override
