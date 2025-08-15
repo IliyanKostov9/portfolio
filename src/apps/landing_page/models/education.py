@@ -28,7 +28,6 @@ class Education(Model, Portfolio):
         education_objs = self.get_all()
 
         self.clean(education_objs)
-        print(f">>>>>>>>>>>>>>>>>>>>>>>>>>>>> {education_objs}")
         return education_objs
 
     @override
