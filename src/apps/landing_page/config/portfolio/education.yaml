@@ -1,0 +1,33 @@
+---
+- degree: "Masters degree"
+  specialty: "Software engineering"
+  university_name: "Technical university of Varna"
+  description: |
+    Graduates of the Master's Program "Software Engineering" can work
+    as applied and system programmers, web designers and developers,
+    software technology consultants, internet applications and more.
+  scroll_description: false
+  image: "tu_varna.png"
+  href_tooltip: "#thesis-masters"
+  href_title: "Thesis: Design and implementation of a system for doctoral students admission and training"
+  date: "10-2023 - 07-2025"
+  gpa: "GPA: 6.00"
+
+- degree: "Bachelors degree"
+  specialty: "Computer and Internet technology"
+  university_name: "Technical university of Varna"
+  description: |
+    The Objects of the Professional Activity of the Engineer with the
+    specialty "SIT" are the design, development and maintenance of
+    software and internet systems and applications, expanding the
+    field of application of computer systems and networks and
+    information technologies, successful application of modern and
+    continuously developing technologies for the internet and
+    expansion, distributed and parallel processing, as artificial
+    intelligence.
+  scroll_description: true
+  image: "tu_varna.png"
+  href_tooltip: "#thesis-bachelors"
+  href_title: "Thesis: AI-Driven Project management web app with ChatGPT 3.5"
+  date: "09-2019 - 07-2023"
+  gpa: "GPA: 6.00"

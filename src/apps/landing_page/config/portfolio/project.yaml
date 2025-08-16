@@ -1,0 +1,67 @@
+---
+- name: "NixOS config"
+  description: |
+    It contains hardware/software configurations for setting up my personal/work machines.
+  image: "nixos.png"
+  date: "06-2024 - Present"
+  row: 1
+  repositories:
+    - name: ""
+      url: "https://github.com/IliyanKostov9/nixos-config"
+
+- name: "Phd portal system"
+  description: |
+    The project develops an engineering solution for digitizing an
+    information system for doctoral students and candidates in order
+    to be used by higher education institutions, which would
+    integrate into the systematic process for the management and
+    management of the so -called "digital university".
+  scroll_description: true
+  image: "tu_varna.png"
+  date: "08-2024 - 06-2025"
+  row: 1
+  repositories:
+    - name: "Server"
+      url: "https://github.com/Tu-Varna-2019/phd-portal-server"
+    - name: "Client"
+      url: "https://github.com/Tu-Varna-2019/phd-portal-client"
+    - name: "Infra"
+      url: "https://github.com/Tu-Varna-2019/phd-portal-infra"
+
+- name: "Geo Android app"
+  description: |
+    Information system, which allows users to inspect hazards and
+    risks anywhere in the world.
+  image: "tu_varna.png"
+  date: "02-2024 - 06-2024"
+  row: 1
+  repositories:
+    - name: "Server"
+      url: "https://github.com/Tu-Varna-2019/geo-server"
+    - name: "Client"
+      url: "https://github.com/Tu-Varna-2019/geo-client"
+
+- name: "ChatApp mobile app"
+  description: |
+    Mobile application for real time messaging communication
+  image: "tu_varna.png"
+  date: "08-2023 - 02-2024"
+  row: 2
+  repositories:
+    - name: "Server"
+      url: "https://github.com/Tu-Varna-2019/chatapp-server"
+    - name: "Client"
+      url: "https://github.com/Tu-Varna-2019/chatapp-client"
+
+- name: "Project management with OpenAI"
+  description: |
+    A browser-based project management app, that is integrated with
+    ChatGPT-3.5 for supporting the agile team to autogenerate
+    tickets.
+  scroll_description: true
+  image: "tu_varna.png"
+  date: "02-2023 - 06-2023"
+  row: 2
+  repositories:
+    - name: ""
+      url: "https://github.com/Tu-Varna-2019/project-management-openai"
