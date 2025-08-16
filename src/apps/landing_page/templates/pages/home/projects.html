@@ -7,21 +7,21 @@
   <div class="row">
     {% for project in row.project %}
     <div class="col-md-4 lazy d-flex">
-      <div class="card h-100 w-100">
-        <div class="row">
+      <div class="card">
+        <div class="row g-0 flex-grow-1">
           <div class="col-md-4">
             <img
               src="{% static 'images/'|add:project.image %}"
               class="img-fluid rounded-start me-4 lazy"
-              style="margin: 50px; margin-bottom: 80px; margin-top: 80px"
+              style="margin: 15px; margin-bottom: 80px; margin-top: 80px"
               alt="{{ project.name }}"
               width="550"
               height="550"
             />
           </div>
 
-          <div class="col-md-8 d-flex flex-column">
-            <div class="card-body">
+          <div class="col-md-8">
+            <div class="card-body flex-grow-1">
               <figure>
                 <blockquote class="blockquote">
                   <h3 class="card-title mb-3">{{ project.name }}</h3>
@@ -35,7 +35,7 @@
               </p>
             </div>
             </div>
-              <div class="btn-group" aria-label="{{ project.name }} buttons for github">
+              <div class="btn-group mt-auto p-3" aria-label="{{ project.name }} buttons for github">
               {% for repo in project.repositories %}
               <button
                 type="button"
@@ -48,7 +48,7 @@
               </button>
               {% endfor %}
               </div>
-        </div>
+            </div>
       </div>
     </div>
     {% endfor %}
