@@ -1,8 +1,12 @@
 PROJECT_NAME ?= django_project
 APP_NAME ?= django_app
 
+.PHONY: help
+help:  ## help target to show available commands with information
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) |  awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
 .PHONY: all check clean test run
-all: check clean test run
+all: check clean test run ## Perform check clean test run at the same time
 
 run: ## Run Django app
 	python3 src/manage.py runserver
@@ -18,11 +22,11 @@ check: ## Check the django templates
 	python3 src/manage.py check --deploy
 
 .PHONY: type-inference
-type-inference:
+type-inference: ## Perform static type check with Pyre
 	pyre infer -i
 
 .PHONY: schema-update
-schema-update:
+schema-update: ## Update SQL schema & create an empty migration
 	python3 src/manage.py makemigrations landing_page
 	python3 src/manage.py makemigrations landing_page --empty
 	echo "Now copy the following code to the new empty migrated python file like"
@@ -34,7 +38,7 @@ schema-update:
 	"
 
 .PHONY: sql-init-test
-sql-init-test:
+sql-init-test: ## Perform SQL migration
 	python3 src/manage.py migrate landing_page
 
 
