@@ -24,7 +24,11 @@ WORKDIR /app/
 COPY --from=build /opt/.venv /app/.venv
 COPY --chown=${DOCKER_USER}:${DOCKER_USER} src /app/src
 
+
 ENV PYTHONPATH=/app:/app/src/apps:/app/src
+
+RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
+	/app/.venv/bin/python3 src/manage.py collectstatic
 
 EXPOSE 8000
 CMD ["/app/.venv/bin/python3", "src/manage.py","runserver","0.0.0.0:8000"]

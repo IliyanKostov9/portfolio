@@ -50,3 +50,6 @@ sql-reset: ## Perform SQL reset
 	rm -rf $(MAKE)/src/apps/landing_page/migrations/00*.py
 
 
+.PHONY: generate-secretkey
+generate-secretkey: ## Generate a secret key
+	python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
