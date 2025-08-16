@@ -1,5 +1,6 @@
 from typing import Any
 
+import markdown
 from django.db.models import CharField, JSONField, Model
 from landing_page.models.portfolio import Portfolio
 from typing_extensions import override
@@ -30,3 +31,11 @@ class WorkHistory(Model, Portfolio):
     def clean(self, work_histories: list[Any]) -> None:
         for work_history in work_histories:
             work_history.pop("id")
+
+    def set_description_markdown(self, work_histories: list[Any]) -> None:
+        """
+        Not used currently
+        """
+        md = markdown.Markdown(extensions=["fenced_code", "codehilite"])
+        for work_history in work_histories:
+            work_history["description"] = md.convert(work_history["description"])
