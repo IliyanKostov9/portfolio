@@ -1,0 +1,69 @@
+---
+- company_name: "Sys Consulting"
+  company_name_label: "sys-consulting"
+  image: "sys_consulting.svg"
+  specialty: "Software Engineer"
+  dates:
+    - "Internship 07-2021 - 12-2021"
+  description: |
+    The intership consisted of mainaiting a legacy banking system for Balkan clients.
+    The system was comprised of a desktop Windows XP compatible application,
+    written in CAVO (Visual Objects) programming language.
+
+- company_name: "DevOps Engineer"
+  company_name_label: "dxc-technology"
+  image: "dxc_technology.svg"
+  specialty: "DevOps Engineer"
+  dates:
+    - "Mid 04-2023 - 05-2025"
+    - "Junior 02-2022 - 04-2023"
+  description: |
+    My initial project focused on the development of Advanced Driver Assistance Systems (ADAS) for a multinational automotive company.
+    Within this project, my role was working as a DevOps Engineer on AWS cloud infrastructure management,
+    where we were responsible for maintaining the entire cloud platform, including the deployment of
+    customer products with the help of AWS ADF framework, AWS Account-Vending-Machine and AWS Control Tower custom REST API.
+
+    We were also responsible governing the cloud platform by using AWS Cloudformation Policy templates and all of the essential resources.
+    The automation these processes was achieved through the use of AWS CDK Infrastructure as Code (IaaC).
+
+    As part of my contributions to client services, I implemented the following solutions:
+
+      - budget cost alerting on the entire platform with predifned % of exceeded budget to fire off email messages to the Business Owners
+
+      - creating additional REST API endpoints for the Control Tower for specifying which newly created AWS accounts belong to which VPC.
+        In there I also wrote the logic where a Lambda Function checks the type of account and based on which VPC template it belongs to - deploys the AWS CloudFormation StackSet to the appropriate account.
+
+      - creating a High level design of data flow and replication for the entire Data platform
+
+    My second project revolved around delivering valuable insights to enhance
+    the shopping experience for customers and establishing loyalty programs for a renowned Whole Foods store company.
+    I was positioned as Data Engineer on the Azure platform for ensuring data integrity and data validation on the
+    Raw to Source to Prepared Layer. For data validation processes, we developed a Test Automation Framework built upon the pytest framework.
+    The data flow initiates as follows:
+
+      1. A single entry of test data (.avro file) and a configuration file are copied from raw layer on Blob Storage
+
+      2. From that event of the configuration file being copied, it invokes an ADF (Azure Data Factory) pipeline, that in turn parses this test data towards Azure Databricks cluster
+
+      3. That cluster was responsible for doing minor transformations of the data, like converting the data type from avro -> parquet, changing column names for compatibility purposes, etc
+
+      4. After the transformations were done, that transformed test data gets copied to the Source layer of Blob Storage
+
+      5. Test Framework via the Azure SDK is validating the data on the raw and source layer, for example: schema checks, data checks, duplication checks, column checks
+
+      6. After all tests are gathered, pytest creates a test execution results file junitxml_report.xml, thats required for the reporting tools to visualize the test results
+      We provided 2 different reporting tools: Zephyr Scale Rest API and Allure
+
+- company_name: "Alten"
+  company_name_label: "alten"
+  image: "alten.svg"
+  specialty: "DevOps Engineer"
+  dates:
+    - "Mid 04-2025 - Present"
+  description: |
+    My first project is a software company, that provides global distribution service to airline companies. These distributions of data products are in the area of the travel industry.
+
+    The team I'm in is in the department of ticket reservation. The role I'm currently working is platform engineer and the objective is to maintain,
+    operate and develop the data processing pipeline, that is responsible
+    for ingesting the raw data, that's sent by the global distribution system,
+    process it through multiple layers and finally send it to the customer via various transfer protocols - FTP or S3.
