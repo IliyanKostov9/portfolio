@@ -5,6 +5,7 @@ from django.template import loader
 from django.views import View
 from landing_page.models.certification import Certification
 from landing_page.models.education import Education
+from landing_page.models.project import Project
 from landing_page.models.technology import Technology
 from landing_page.models.work_history import WorkHistory
 
@@ -17,12 +18,14 @@ class HomeView(View):
         work_histories = WorkHistory().transform()
         educations = Education().transform()
         certifications = Certification().transform()
+        projects = Project().transform()
 
         context: dict[str, Any] = {
             "technologies": technologies,
             "work_histories": work_histories,
             "educations": educations,
             "certificates": certifications,
+            "projects": projects,
         }
 
         return HttpResponse(template.render(context, request))

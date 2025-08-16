@@ -35,7 +35,14 @@ schema-update:
 
 .PHONY: sql-init-test
 sql-init-test:
-	# python3 src/manage.py migrate landing_page 0003_initial
 	python3 src/manage.py migrate landing_page
+
+
+.PHONY: sql-reset
+sql-reset: ## Perform SQL reset
+	echo "Deleting database..."
+	rm -rf $(MAKE)/src/db.sqlite3
+	echo "Deleting migrations..."
+	rm -rf $(MAKE)/src/apps/landing_page/migrations/00*.py
 
 
