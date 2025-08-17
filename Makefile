@@ -9,7 +9,7 @@ help:  ## help target to show available commands with information
 all: check clean test run ## Perform check clean test run at the same time
 
 run: ## Run Django app
-	python3 src/manage.py runserver
+	python3 -m uvicorn src.portfolio.asgi:application --reload
 
 test: ## Test Django app
 	echo "test"

@@ -26,12 +26,12 @@ if not SECRET_KEY:
 
 ALLOWED_HOSTS = [os.environ.get("HOST")]
 
-ADMINS = [("Iliyan", os.environ.get("TO_EMAIL"))]
-MANAGERS = [("Iliyan", os.environ.get("TO_EMAIL"))]
-SERVER_EMAIL = os.environ.get("FROM_EMAIL")
-
 # NOTE: Check if we are running on prod
 if os.environ.get("ENV") == "prod":
+    ADMINS = [("Iliyan", os.environ.get("TO_EMAIL"))]
+    MANAGERS = [("Iliyan", os.environ.get("TO_EMAIL"))]
+    SERVER_EMAIL = os.environ.get("FROM_EMAIL")
+
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
@@ -111,7 +111,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "portfolio.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -156,7 +155,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-
 STATIC_ROOT = "/var/www/portfolio.ikostov.org/static/"
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
@@ -175,7 +173,6 @@ COMPRESS_ENABLED = True
 # NOTE: Enable it in production with the command python3 src/manage.py compress
 COMPRESS_OFFLINE = False
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
-
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_PORT = 587
