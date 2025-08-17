@@ -16,8 +16,8 @@ RUN apk add --no-cache \
 	bash \
 	linux-headers
 
-# NOTE: Github action for ARM doesn't have these packages installed
 RUN python3 -m venv /opt/.venv \
+	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel \
 	&& /opt/.venv/bin/pip install -r requirements.txt
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
