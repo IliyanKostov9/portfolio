@@ -7,6 +7,12 @@ FROM python:3.11-slim AS build
 COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
+# NOTE: Github action for ARM doesn't have these packages installed
+RUN apt-get update && apt-get install -y \
+	build-essential \
+	gcc \
+	libsass-dev
+
 RUN python3 -m venv /opt/.venv && \
 	/opt/.venv/bin/pip install -r requirements.txt
 
