@@ -156,7 +156,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_ROOT = "/var/www/portfolio.ikostov.org/static/"
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     f"{BASE_DIR}/apps/landing_page/static",
@@ -170,7 +170,7 @@ STATICFILES_FINDERS = (
 
 COMPRESS_ROOT = BASE_DIR / "static"
 COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = False
+COMPRESS_OFFLINE = True
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
