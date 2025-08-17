@@ -14,15 +14,12 @@ RUN apt-get update && apt-get install -y \
 	g++ \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Create virtual environment and upgrade pip
 RUN python3 -m venv /opt/.venv \
 	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel
 
-# Pre-build libsass wheel
 RUN mkdir /wheels \
 	&& SYSTEM_SASS=1 /opt/.venv/bin/pip wheel --no-cache-dir --no-deps --wheel-dir=/wheels libsass
 
-# Install all requirements using the pre-built wheel
 RUN /opt/.venv/bin/pip install --no-cache-dir --find-links=/wheels libsass \
 	&& /opt/.venv/bin/pip install --no-cache-dir -r requirements.txt
 
