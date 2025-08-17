@@ -12,12 +12,14 @@ RUN apt-get update && apt-get install -y \
 	build-essential \
 	gcc \
 	python3-dev \
-	libsass-dev \
+	libssl-dev \
 	libffi-dev \
+	libsass-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m venv /opt/.venv && \
-	/opt/.venv/bin/pip install -r requirements.txt
+	/opt/.venv/bin/pip install --upgrade pip setuptools wheel && \
+	/opt/.venv/bin/pip install --prefer-binary -r requirements.txt
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
 	version="1.0.0-RELEASE" \
