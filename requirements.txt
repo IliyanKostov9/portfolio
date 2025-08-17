@@ -10,6 +10,7 @@ django==5.2.5
     #   django-appconf
     #   django-bootstrap5
     #   django-compressor
+    #   django-csp
 django-appconf==1.1.0
     # via django-compressor
 django-bootstrap5==25.2
@@ -18,6 +19,8 @@ django-compressor==4.5.1
     # via
     #   portfolio (pyproject.toml)
     #   django-libsass
+django-csp==4.0
+    # via portfolio (pyproject.toml)
 django-libsass==0.9
     # via portfolio (pyproject.toml)
 dnspython==2.7.0
@@ -39,8 +42,12 @@ markdown==3.8.2
 mockito==1.5.4
     # via portfolio (pyproject.toml)
 packaging==25.0
-    # via gunicorn
+    # via
+    #   django-csp
+    #   gunicorn
 pillow==11.3.0
+    # via portfolio (pyproject.toml)
+pip==25.2
     # via portfolio (pyproject.toml)
 python-dotenv==1.1.1
     # via portfolio (pyproject.toml)
