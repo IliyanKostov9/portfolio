@@ -14,9 +14,12 @@ RUN apt-get update && apt-get install -y \
 	python3-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m venv /opt/.venv \
-	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel \
-	&& /opt/.venv/bin/pip install -r requirements.txt
+
+RUN pip install --upgrade pip setuptools wheel
+RUN pip install --only-binary=:all: -r requirements.txt
+# RUN python3 -m venv /opt/.venv \
+# 	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel \
+# 	&& /opt/.venv/bin/pip install -r requirements.txt
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
 	version="1.0.0-RELEASE" \
