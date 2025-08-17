@@ -3,7 +3,7 @@ ARG DOCKER_USER=portfolio
 RUN addgroup -s ${DOCKER_USER} && adduser -S ${DOCKER_USER} -G ${DOCKER_USER}
 
 
-FROM python:3.11-slim-bookworm AS build
+FROM python:3.11 AS build
 COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
@@ -14,12 +14,9 @@ RUN apt-get update && apt-get install -y \
 	python3-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
-
-RUN pip install --upgrade pip setuptools wheel
-RUN pip install --only-binary=:all: -r requirements.txt
-# RUN python3 -m venv /opt/.venv \
-# 	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel \
-# 	&& /opt/.venv/bin/pip install -r requirements.txt
+RUN python3 -m venv /opt/.venv \
+	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel \
+	&& /opt/.venv/bin/pip install -r requirements.txt
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
 	version="1.0.0-RELEASE" \
