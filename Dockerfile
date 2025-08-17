@@ -42,7 +42,9 @@ ENV PYTHONPATH=/app:/app/src/apps:/app/src
 
 RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
 	/app/.venv/bin/python3 src/manage.py migrate --noinput && \
-	/app/.venv/bin/python3 src/manage.py collectstatic
+	/app/.venv/bin/python3 src/manage.py collectstatic --noinput && \
+	/app/.venv/bin/python3 src/manage.py compress --force
+
 
 EXPOSE 8000
 CMD ["/app/.venv/bin/python3", "-m", "gunicorn", "src.portfolio.asgi:application", "-k", "uvicorn_worker.UvicornWorker", "-b", "0.0.0.0:8000"]
