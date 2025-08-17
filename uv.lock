@@ -86,6 +86,19 @@ wheels = [
 ]
 
 [[package]]
+name = "django-csp"
+version = "4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+    { name = "packaging" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/52/db/23567744dff2169aadb095f726088074476b24dfff5a759ffcf6389cf401/django_csp-4.0.tar.gz", hash = "sha256:b27010bb702eb20a3dad329178df2b61a2b82d338b70fbdc13c3a3bd28712833", size = 20028, upload-time = "2025-04-02T16:41:46.721Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e1/a4/736ab90ee527a23e194d1ce7358c6bcced66381ced83c28268b4aea236f7/django_csp-4.0-py3-none-any.whl", hash = "sha256:d5a0a05463a6b75a4f1fc1828c58c89af8db9364d09fc6e12f122b4d7f3d00dc", size = 25689, upload-time = "2025-04-02T16:41:45.689Z" },
+]
+
+[[package]]
 name = "django-libsass"
 version = "0.9"
 source = { registry = "https://pypi.org/simple" }
@@ -217,6 +230,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pip"
+version = "25.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/20/16/650289cd3f43d5a2fadfd98c68bd1e1e7f2550a1a5326768cddfbcedb2c5/pip-25.2.tar.gz", hash = "sha256:578283f006390f85bb6282dffb876454593d637f5d1be494b5202ce4877e71f2", size = 1840021, upload-time = "2025-07-30T21:50:15.401Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b7/3f/945ef7ab14dc4f9d7f40288d2df998d1837ee0888ec3659c813487572faa/pip-25.2-py3-none-any.whl", hash = "sha256:6d67a2b4e7f14d8b31b8b52648866fa717f45a1eb70e83002f4331d07e953717", size = 1752557, upload-time = "2025-07-30T21:50:13.323Z" },
+]
+
+[[package]]
 name = "portfolio"
 version = "0.1.0"
 source = { virtual = "." }
@@ -224,18 +246,21 @@ dependencies = [
     { name = "django" },
     { name = "django-bootstrap5" },
     { name = "django-compressor" },
+    { name = "django-csp" },
     { name = "django-libsass" },
     { name = "email-validator" },
     { name = "gunicorn" },
     { name = "markdown" },
     { name = "mockito" },
     { name = "pillow" },
+    { name = "pip" },
     { name = "python-dotenv" },
     { name = "pyyaml" },
     { name = "setuptools" },
     { name = "typing-extensions" },
     { name = "uvicorn" },
     { name = "uvicorn-worker" },
+    { name = "whitenoise" },
 ]
 
 [package.metadata]
@@ -243,18 +268,21 @@ requires-dist = [
     { name = "django", specifier = ">=5.2.4" },
     { name = "django-bootstrap5", specifier = ">=25.1" },
     { name = "django-compressor", specifier = ">=4.5.1" },
+    { name = "django-csp", specifier = ">=4.0" },
     { name = "django-libsass", specifier = ">=0.9" },
     { name = "email-validator", specifier = ">=2.2.0" },
     { name = "gunicorn", specifier = ">=23.0.0" },
     { name = "markdown", specifier = ">=3.8.2" },
     { name = "mockito", specifier = ">=1.5.4" },
     { name = "pillow", specifier = ">=11.3.0" },
+    { name = "pip", specifier = ">=25.2" },
     { name = "python-dotenv", specifier = ">=1.1.1" },
     { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "setuptools", specifier = ">=80.9.0" },
     { name = "typing-extensions", specifier = ">=4.14.1" },
     { name = "uvicorn", specifier = ">=0.35.0" },
     { name = "uvicorn-worker", specifier = ">=0.3.0" },
+    { name = "whitenoise", specifier = ">=6.9.0" },
 ]
 
 [[package]]
@@ -371,4 +399,13 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/37/c0/b5df8c9a31b0516a47703a669902b362ca1e569fed4f3daa1d4299b28be0/uvicorn_worker-0.3.0.tar.gz", hash = "sha256:6baeab7b2162ea6b9612cbe149aa670a76090ad65a267ce8e27316ed13c7de7b", size = 9181, upload-time = "2024-12-26T12:13:07.591Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f7/1f/4e5f8770c2cf4faa2c3ed3c19f9d4485ac9db0a6b029a7866921709bdc6c/uvicorn_worker-0.3.0-py3-none-any.whl", hash = "sha256:ef0fe8aad27b0290a9e602a256b03f5a5da3a9e5f942414ca587b645ec77dd52", size = 5346, upload-time = "2024-12-26T12:13:06.026Z" },
+]
+
+[[package]]
+name = "whitenoise"
+version = "6.9.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b9/cf/c15c2f21aee6b22a9f6fc9be3f7e477e2442ec22848273db7f4eb73d6162/whitenoise-6.9.0.tar.gz", hash = "sha256:8c4a7c9d384694990c26f3047e118c691557481d624f069b7f7752a2f735d609", size = 25920, upload-time = "2025-02-06T22:16:34.957Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/64/b2/2ce9263149fbde9701d352bda24ea1362c154e196d2fda2201f18fc585d7/whitenoise-6.9.0-py3-none-any.whl", hash = "sha256:c8a489049b7ee9889617bb4c274a153f3d979e8f51d2efd0f5b403caf41c57df", size = 20161, upload-time = "2025-02-06T22:16:32.589Z" },
 ]
