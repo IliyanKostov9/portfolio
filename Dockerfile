@@ -34,6 +34,10 @@ FROM python:3.11-bookworm
 USER ${DOCKER_USER}
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y \
+	libsass1 \
+	&& rm -rf /var/lib/apt/lists/*
+
 COPY --from=build /opt/.venv /app/.venv
 COPY --chown=${DOCKER_USER}:${DOCKER_USER} src /app/src
 
