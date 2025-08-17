@@ -4,20 +4,27 @@ RUN addgroup -s ${DOCKER_USER} && adduser -S ${DOCKER_USER} -G ${DOCKER_USER}
 
 
 
-FROM quay.io/pypa/manylinux_2_39_aarch64 AS build
+FROM python:3.11 AS build
 COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
-# RUN apt-get update && apt-get install -y \
-# 	build-essential \
-# 	libffi-dev \
-# 	libssl-dev \
-# 	python3-dev \
-# 	&& rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+	build-essential \
+	libffi-dev \
+	libssl-dev \
+	python3-dev \
+	&& rm -rf /var/lib/apt/lists/*
 
+# Create virtual environment and upgrade pip
 RUN python3 -m venv /opt/.venv \
-	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel \
-	&& /opt/.venv/bin/pip install -r requirements.txt
+	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel
+
+# Pre-build libsass wheel
+RUN mkdir /wheels \
+	&& SYSTEM_SASS=1 /opt/.venv/bin/pip wheel --no-cache-dir --no-deps --wheel-dir=/wheels libsass
+
+# Install all requirements using the pre-built wheel
+RUN /opt/.venv/bin/pip install --no-index --find-links=/wheels -r requirements.txt
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
 	version="1.0.0-RELEASE" \
