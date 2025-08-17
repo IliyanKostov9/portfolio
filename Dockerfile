@@ -8,8 +8,7 @@ COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
 # NOTE: Github action for ARM doesn't have these packages installed
-RUN apt-get update -q \
-	&& python3 -m venv /opt/.venv \
+RUN python3 -m venv /opt/.venv \
 	&& /opt/.venv/bin/pip install --no-build-isolation --use-pep517 -r requirements.txt
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
