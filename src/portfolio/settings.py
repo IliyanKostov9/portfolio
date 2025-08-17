@@ -14,8 +14,6 @@ import os
 from pathlib import Path
 from typing import Dict, Union
 
-from django.utils.csp import CSP
-
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -89,27 +87,31 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.cache.FetchFromCacheMiddleware",  # INFO: Must be last
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    "django.middleware.csp.ContentSecurityPolicyMiddleware",
+    "csp.middleware.CSPMiddleware",
 ]
-SECURE_CSP = {
-    "default-src": [CSP.SELF],
-    "script-src": [
-        CSP.SELF,
-        "https://cdnjs.cloudflare.com",
-        "https://unpkg.com",
-        "'unsafe-inline'",
-    ],
-    "style-src": [
-        CSP.SELF,
-        "https://cdnjs.cloudflare.com",
-        "https://fonts.googleapis.com",
-        "'unsafe-inline'",
-    ],
-    "font-src": [
-        CSP.SELF,
-        "https://fonts.gstatic.com",
-    ],
-}
+
+CSP_STYLE_SRC = (
+    "'self'",
+    "https://fonts.googleapis.com",
+    "https://cdnjs.cloudflare.com",
+)
+
+CSP_SCRIPT_SRC = (
+    "'self'",
+    "https://cdnjs.cloudflare.com",
+    "https://unpkg.com",
+)
+
+CSP_IMG_SRC = (
+    "'self'",
+    "https://html.sammy-codes.com",
+)
+
+CSP_FONT_SRC = (
+    "'self'",
+    "https://fonts.gstatic.com",
+    "https://cdnjs.cloudflare.com",
+)
 
 ROOT_URLCONF = "portfolio.urls"
 
