@@ -12,8 +12,7 @@ RUN apt-get update -q \
 	&& apt-get install --no-install-recommends -qy python3-dev g++ gcc inetutils-ping \
 	&& python3 -m venv /opt/.venv \
 	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel \
-	&& /opt/.venv/bin/pip install --no-cache-dir --progress-bar off gunicorn \
-	&& /opt/.venv/bin/pip install --no-cache-dir --progress-bar off -r requirements.txt \
+	&& /opt/.venv/bin/pip install --no-build-isolation --use-pep517 -r requirements.txt \
 	&& apt-get remove -qy python3-dev g++ gcc --purge \
 	&& rm -rf /var/lib/apt/lists/*
 
