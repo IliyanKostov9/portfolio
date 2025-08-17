@@ -167,3 +167,4 @@ sapp.db
 .devenv
 .pre-commit-config.yaml
 src/static/CACHE/css
+src/static/CACHE/manifest.json
