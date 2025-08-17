@@ -170,7 +170,7 @@ STATICFILES_FINDERS = (
 
 COMPRESS_ROOT = BASE_DIR / "static"
 COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = False
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
