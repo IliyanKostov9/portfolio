@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
-import sys
 from pathlib import Path
 from typing import Dict, Union
 
@@ -172,9 +171,7 @@ STATICFILES_FINDERS = (
 COMPRESS_ROOT = BASE_DIR / "static"
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
-COMPRESS_PRECOMPILERS = (
-    ("text/x-scss", f"{sys.executable} -m django_libsass.SassCompiler"),
-)
+COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_PORT = 587
