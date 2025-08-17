@@ -23,7 +23,8 @@ RUN mkdir /wheels \
 	&& SYSTEM_SASS=1 /opt/.venv/bin/pip wheel --no-cache-dir --no-deps --wheel-dir=/wheels libsass
 
 # Install all requirements using the pre-built wheel
-RUN /opt/.venv/bin/pip install --no-index --find-links=/wheels -r requirements.txt
+RUN /opt/.venv/bin/pip install --no-cache-dir --find-links=/wheels libsass \
+	&& /opt/.venv/bin/pip install --no-cache-dir -r requirements.txt
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
 	version="1.0.0-RELEASE" \
