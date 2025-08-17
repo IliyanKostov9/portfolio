@@ -24,7 +24,13 @@ if not SECRET_KEY:
     print("SECRET KEY is not set!")
 
 
-ALLOWED_HOSTS = [os.environ.get("HOST")]
+ALLOWED_HOSTS = [
+    os.environ.get("HOST"),
+    "fonts.googleapis.com",
+    "cdnjs.cloudflare.com",
+    "unpkg.com",
+    "fonts.gstatic.com",
+]
 
 # NOTE: Check if we are running on prod
 if os.environ.get("ENV") == "prod":
@@ -100,11 +106,6 @@ CSP_SCRIPT_SRC = (
     "'self'",
     "https://cdnjs.cloudflare.com",
     "https://unpkg.com",
-)
-
-CSP_IMG_SRC = (
-    "'self'",
-    "https://html.sammy-codes.com",
 )
 
 CSP_FONT_SRC = (
