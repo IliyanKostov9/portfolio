@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 from typing import Dict, Union
 
-from csp.constants import NONE, SELF
+from csp.constants import NONE, SELF, UNSAFE_INLINE
 
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
@@ -101,7 +101,12 @@ MIDDLEWARE = [
 CONTENT_SECURITY_POLICY = {
     "DIRECTIVES": {
         "default-src": [SELF],
-        "script-src": [SELF, "https://cdnjs.cloudflare.com", "https://unpkg.com"],
+        "script-src": [
+            SELF,
+            UNSAFE_INLINE,
+            "https://cdnjs.cloudflare.com",
+            "https://unpkg.com",
+        ],
         "style-src": [
             SELF,
             "https://cdnjs.cloudflare.com",
