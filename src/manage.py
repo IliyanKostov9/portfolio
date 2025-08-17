@@ -22,5 +22,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    load_dotenv()
+    if os.environ.get("ENV") == "dev":
+        load_dotenv()
     main()
