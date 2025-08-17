@@ -3,13 +3,13 @@ ARG DOCKER_USER=portfolio
 RUN addgroup -s ${DOCKER_USER} && adduser -S ${DOCKER_USER} -G ${DOCKER_USER}
 
 
-FROM python:alpine3.22 AS build
+FROM python:3.11-alpine3.22 AS build
 COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
 # NOTE: Github action for ARM doesn't have these packages installed
 RUN python3 -m venv /opt/.venv \
-	&& /opt/.venv/bin/pip install --no-build-isolation --use-pep517 -r requirements.txt
+	&& /opt/.venv/bin/pip install -r requirements.txt
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
 	version="1.0.0-RELEASE" \
