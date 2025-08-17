@@ -14,6 +14,8 @@ import os
 from pathlib import Path
 from typing import Dict, Union
 
+from django.utils.csp import CSP
+
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -87,7 +89,27 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.cache.FetchFromCacheMiddleware",  # INFO: Must be last
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.csp.ContentSecurityPolicyMiddleware",
 ]
+SECURE_CSP = {
+    "default-src": [CSP.SELF],
+    "script-src": [
+        CSP.SELF,
+        "https://cdnjs.cloudflare.com",
+        "https://unpkg.com",
+        "'unsafe-inline'",
+    ],
+    "style-src": [
+        CSP.SELF,
+        "https://cdnjs.cloudflare.com",
+        "https://fonts.googleapis.com",
+        "'unsafe-inline'",
+    ],
+    "font-src": [
+        CSP.SELF,
+        "https://fonts.gstatic.com",
+    ],
+}
 
 ROOT_URLCONF = "portfolio.urls"
 
@@ -156,8 +178,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-# STATIC_ROOT = "/var/www/portfolio.ikostov.org/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = "/var/www/portfolio.ikostov.org/static/"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
