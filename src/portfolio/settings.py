@@ -26,13 +26,7 @@ if not SECRET_KEY:
     print("SECRET KEY is not set!")
 
 
-ALLOWED_HOSTS = [
-    os.environ.get("HOST"),
-    "fonts.googleapis.com",
-    "cdnjs.cloudflare.com",
-    "unpkg.com",
-    "fonts.gstatic.com",
-]
+ALLOWED_HOSTS = [os.environ.get("HOST")]
 
 # NOTE: Check if we are running on prod
 if os.environ.get("ENV") == "prod":
