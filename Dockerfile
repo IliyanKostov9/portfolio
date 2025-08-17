@@ -8,18 +8,13 @@ COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
 # NOTE: Github action for ARM doesn't have these packages installed
-RUN apt-get update && apt-get install -y \
-	build-essential \
-	gcc \
-	python3-dev \
-	libssl-dev \
-	libffi-dev \
-	libsass-dev \
+RUN apt-get update -q \
+	&& python3 -m venv /opt/.venv \
+	&& apt-get install --no-install-recommends -qy python3-dev g++ gcc inetutils-ping \
+	&& /opt/.venv/bin/pip install --no-cache-dir --progress-bar off gunicorn \
+	&& /opt/.venv/bin/pip install --no-cache-dir --progress-bar off -r requirements.txt \
+	&& apt-get remove -qy python3-dev g++ gcc --purge \
 	&& rm -rf /var/lib/apt/lists/*
-
-RUN python3 -m venv /opt/.venv && \
-	/opt/.venv/bin/pip install --upgrade pip setuptools wheel && \
-	/opt/.venv/bin/pip install --prefer-binary -r requirements.txt
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
 	version="1.0.0-RELEASE" \
