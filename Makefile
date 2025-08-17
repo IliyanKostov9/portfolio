@@ -9,7 +9,7 @@ help:  ## help target to show available commands with information
 all: check clean test run ## Perform check clean test run at the same time
 
 run: ## Run Django app
-	python3 src/manage.py runserver
+	python3 -m uvicorn src.portfolio.asgi:application --reload
 
 test: ## Test Django app
 	echo "test"
@@ -50,3 +50,6 @@ sql-reset: ## Perform SQL reset
 	rm -rf $(MAKE)/src/apps/landing_page/migrations/00*.py
 
 
+.PHONY: generate-secretkey
+generate-secretkey: ## Generate a secret key
+	python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
