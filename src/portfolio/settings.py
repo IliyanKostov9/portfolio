@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 from typing import Dict, Union
 
-from csp.constants import SELF
+from csp.constants import NONE, SELF
 
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
@@ -50,12 +50,12 @@ if os.environ.get("ENV") == "prod":
     CONN_MAX_AGE = None
 
     # NOTE: Maybe remove it from prod ?
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-            "LOCATION": "portfolio-cache",
-        }
-    }
+    # CACHES = {
+    #     "default": {
+    #         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+    #         "LOCATION": "portfolio-cache",
+    #     }
+    # }
 
     print("Running in production. Now setting all prod options ON...")
 else:
@@ -107,13 +107,31 @@ CONTENT_SECURITY_POLICY = {
             "https://cdnjs.cloudflare.com",
             "https://fonts.googleapis.com",
         ],
-        "font-src": [SELF, "https://fonts.gstatic.com"],
+        "font-src": [NONE, "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
         "img-src": [SELF],
         "frame-ancestors": [SELF],
         "form-action": [SELF],
         "report-uri": "/csp-report/",
     },
 }
+
+# CONTENT_SECURITY_POLICY_REPORT_ONLY = {
+#     "DIRECTIVES": {
+#         "default-src": [NONE],
+#         "script-src": [NONE, "https://cdnjs.cloudflare.com", "https://unpkg.com"],
+#         "style-src": [
+#             NONE,
+#             "https://cdnjs.cloudflare.com",
+#             "https://fonts.googleapis.com",
+#         ],
+#         "font-src": [NONE, "https://fonts.gstatic.com"],
+#         "img-src": [NONE],
+#         "frame-ancestors": [NONE],
+#         "form-action": [SELF],
+#         "report-uri": "/csp-report/",
+#     },
+# }
+
 
 ROOT_URLCONF = "portfolio.urls"
 
