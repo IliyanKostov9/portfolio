@@ -14,6 +14,8 @@ import os
 from pathlib import Path
 from typing import Dict, Union
 
+from csp.constants import SELF
+
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -96,23 +98,22 @@ MIDDLEWARE = [
     "csp.middleware.CSPMiddleware",
 ]
 
-CSP_STYLE_SRC = (
-    "'self'",
-    "https://fonts.googleapis.com",
-    "https://cdnjs.cloudflare.com",
-)
-
-CSP_SCRIPT_SRC = (
-    "'self'",
-    "https://cdnjs.cloudflare.com",
-    "https://unpkg.com",
-)
-
-CSP_FONT_SRC = (
-    "'self'",
-    "https://fonts.gstatic.com",
-    "https://cdnjs.cloudflare.com",
-)
+CONTENT_SECURITY_POLICY = {
+    "DIRECTIVES": {
+        "default-src": [SELF],
+        "script-src": [SELF, "https://cdnjs.cloudflare.com", "https://unpkg.com"],
+        "style-src": [
+            SELF,
+            "https://cdnjs.cloudflare.com",
+            "https://fonts.googleapis.com",
+        ],
+        "font-src": [SELF, "https://fonts.gstatic.com"],
+        "img-src": [SELF],
+        "frame-ancestors": [SELF],
+        "form-action": [SELF],
+        "report-uri": "/csp-report/",
+    },
+}
 
 ROOT_URLCONF = "portfolio.urls"
 
