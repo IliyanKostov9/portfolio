@@ -3,7 +3,7 @@ ARG DOCKER_USER=portfolio
 RUN addgroup -s ${DOCKER_USER} && adduser -S ${DOCKER_USER} -G ${DOCKER_USER}
 
 
-FROM python:3.11-slim AS build
+FROM python:3.11-bookworm AS build
 COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
@@ -11,7 +11,10 @@ WORKDIR /portfolio
 RUN apt-get update && apt-get install -y \
 	build-essential \
 	gcc \
-	libsass-dev
+	python3-dev \
+	libsass-dev \
+	libffi-dev \
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m venv /opt/.venv && \
 	/opt/.venv/bin/pip install -r requirements.txt
