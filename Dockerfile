@@ -9,10 +9,9 @@ COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
 RUN apt-get update && apt-get install -y \
-	build-essential \
-	libffi-dev \
-	libssl-dev \
-	python3-dev \
+	libsass1 \
+	libsass-dev \
+	g++ \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Create virtual environment and upgrade pip
