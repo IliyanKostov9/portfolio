@@ -62,3 +62,5 @@ uvicorn==0.35.0
     #   uvicorn-worker
 uvicorn-worker==0.3.0
     # via portfolio (pyproject.toml)
+whitenoise==6.9.0
+    # via portfolio (pyproject.toml)
