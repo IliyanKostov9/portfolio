@@ -3,18 +3,16 @@ ARG DOCKER_USER=portfolio
 RUN addgroup -s ${DOCKER_USER} && adduser -S ${DOCKER_USER} -G ${DOCKER_USER}
 
 
-FROM python:3.11-alpine3.22 AS build
+FROM python:3.11-slim-bookworm AS build
 COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
-RUN apk add --no-cache \
-	build-base \
+RUN apt-get update && apt-get install -y \
+	build-essential \
 	python3-dev \
-	musl-dev \
 	libffi-dev \
-	openssl-dev \
-	bash \
-	linux-headers
+	libssl-dev \
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m venv /opt/.venv \
 	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel \
