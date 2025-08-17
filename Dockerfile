@@ -7,6 +7,15 @@ FROM python:3.11-alpine3.22 AS build
 COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
+RUN apk add --no-cache \
+	build-base \          # gcc, g++, make
+python3-dev \         # Python headers
+musl-dev \            # C standard library
+libffi-dev \          # For cffi
+openssl-dev \         # For SSL support
+bash \                # optional, useful for scripts
+linux-headers
+
 # NOTE: Github action for ARM doesn't have these packages installed
 RUN python3 -m venv /opt/.venv \
 	&& /opt/.venv/bin/pip install -r requirements.txt
