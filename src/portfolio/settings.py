@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     "compressor",
     "django_bootstrap5",
     "landing_page.apps.LandingPageConfig",
-    "django.contrib.admin",
+    # "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
