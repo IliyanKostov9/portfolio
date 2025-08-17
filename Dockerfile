@@ -9,8 +9,9 @@ WORKDIR /portfolio
 
 # NOTE: Github action for ARM doesn't have these packages installed
 RUN apt-get update -q \
-	&& python3 -m venv /opt/.venv \
 	&& apt-get install --no-install-recommends -qy python3-dev g++ gcc inetutils-ping \
+	&& python3 -m venv /opt/.venv \
+	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel \
 	&& /opt/.venv/bin/pip install --no-cache-dir --progress-bar off gunicorn \
 	&& /opt/.venv/bin/pip install --no-cache-dir --progress-bar off -r requirements.txt \
 	&& apt-get remove -qy python3-dev g++ gcc --purge \
