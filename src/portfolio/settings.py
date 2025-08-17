@@ -14,6 +14,8 @@ import os
 from pathlib import Path
 from typing import Dict, Union
 
+from csp.constants import NONE, SELF, UNSAFE_INLINE
+
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -42,12 +44,12 @@ if os.environ.get("ENV") == "prod":
     CONN_MAX_AGE = None
 
     # NOTE: Maybe remove it from prod ?
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-            "LOCATION": "portfolio-cache",
-        }
-    }
+    # CACHES = {
+    #     "default": {
+    #         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+    #         "LOCATION": "portfolio-cache",
+    #     }
+    # }
 
     print("Running in production. Now setting all prod options ON...")
 else:
@@ -66,7 +68,7 @@ INSTALLED_APPS = [
     "compressor",
     "django_bootstrap5",
     "landing_page.apps.LandingPageConfig",
-    "django.contrib.admin",
+    # "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
@@ -86,7 +88,54 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.cache.FetchFromCacheMiddleware",  # INFO: Must be last
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "csp.middleware.CSPMiddleware",
 ]
+
+CONTENT_SECURITY_POLICY = {
+    "DIRECTIVES": {
+        "default-src": [SELF],
+        "script-src": [
+            SELF,
+            UNSAFE_INLINE,
+            "https://cdnjs.cloudflare.com",
+            "https://unpkg.com",
+        ],
+        "style-src": [
+            SELF,
+            "https://cdnjs.cloudflare.com",
+            "https://fonts.googleapis.com",
+        ],
+        "font-src": [NONE, "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
+        "img-src": [SELF],
+        "frame-ancestors": [SELF],
+        "form-action": [SELF],
+        "report-uri": "/csp-report/",
+    },
+}
+
+CONTENT_SECURITY_POLICY_REPORT_ONLY = {
+    "DIRECTIVES": {
+        "default-src": [SELF],
+        "script-src": [
+            SELF,
+            UNSAFE_INLINE,
+            "https://cdnjs.cloudflare.com",
+            "https://unpkg.com",
+        ],
+        "style-src": [
+            SELF,
+            "https://cdnjs.cloudflare.com",
+            "https://fonts.googleapis.com",
+        ],
+        "font-src": [NONE, "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
+        "img-src": [SELF],
+        "frame-ancestors": [SELF],
+        "form-action": [SELF],
+        "report-uri": "/csp-report/",
+    },
+}
+
 
 ROOT_URLCONF = "portfolio.urls"
 
@@ -156,7 +205,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_ROOT = "/var/www/portfolio.ikostov.org/static/"
-STATIC_URL = "static/"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     f"{BASE_DIR}/apps/landing_page/static",
@@ -170,8 +220,7 @@ STATICFILES_FINDERS = (
 
 COMPRESS_ROOT = BASE_DIR / "static"
 COMPRESS_ENABLED = True
-# NOTE: Enable it in production with the command python3 src/manage.py compress
-COMPRESS_OFFLINE = False
+COMPRESS_OFFLINE = True
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
