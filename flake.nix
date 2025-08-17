@@ -77,7 +77,7 @@
           };
 
           enterShell = ''
-            export PYTHONPATH="$(pwd):$(pwd)/src/apps:$(pwd)"
+            export PYTHONPATH="$(pwd):$(pwd)/src/apps:$(pwd)/src"
 
             if ! [[ -d ".devenv/state/venv" ]]; then
               uv venv
