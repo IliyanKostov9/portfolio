@@ -3,7 +3,7 @@ ARG DOCKER_USER=portfolio
 RUN addgroup -s ${DOCKER_USER} && adduser -S ${DOCKER_USER} -G ${DOCKER_USER}
 
 
-FROM python:3.11-bullseye AS build
+FROM python:3.11-trixie AS build
 COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
