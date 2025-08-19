@@ -18,7 +18,6 @@ class ContactMeView(View):
             self._check_email_envs_are_set()
 
             contact_me: ContactMe = ContactMe.from_form(form)
-            print(contact_me)
 
             _ = EmailMessage(
                 subject=f"{contact_me.email} contacted you from your portfolio 'ContactMe'",

@@ -53,15 +53,13 @@ jobs:
       - name: Unit test
         run: echo "It works!"
 
-      - name: List files
-        run: ls -1 -a
-
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/astral-sh/uv:0.8.12
     if: ${{ github.actor != 'dependabot[bot]' }}
     needs: test
-
     steps:
       - name: Download repo artifact
         uses: actions/download-artifact@v5
@@ -69,13 +67,9 @@ jobs:
           name: portfolio
           path: .
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.11
-
       - name: Install lint dependencies
-        run: pip install black flake8 pylint
+        run: |
+          uv sync --group test
 
       - name: Pylint
         run: |
@@ -89,49 +83,6 @@ jobs:
         run: |
           flake8 .
 
-  type-checking:
-    name: Pyre testing
-    runs-on: ubuntu-latest
-    needs: test
-    strategy:
-      fail-fast: false
-      matrix:
-        python_version: ["3.11.9"]
-
-    steps:
-      - name: Download repo artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: portfolio
-          path: .
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "${{ matrix.python_version  }}"
-          allow-prereleases: true
-
-      - name: Restore Venv
-        uses: actions/cache/restore@v4
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/pyproject.toml') }}
-
-      - name: Install PDM
-        run: |
-          pip install --upgrade pip
-          pip install pdm setuptools-rust
-
-      - name: Install deps
-        run: pdm install
-
-      - name: Save venv
-        uses: actions/cache/save@v4
-        if: always()
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/pyproject.toml') }}
-
       - name: Restore Pyre cache
         uses: actions/cache/restore@v4
         id: restore-cache
@@ -142,7 +93,6 @@ jobs:
       - name: Pyre analysis
         run: |
           . .venv/bin/activate
-          pdm add pyre-check fb-sapp
           pyre --output=json | python3 -m json.tool
 
       - name: Pysa analysis
@@ -156,3 +106,37 @@ jobs:
         with:
           path: .pyre
           key: pyre-cache
+
+      - name: Save venv
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .venv
+          key: venv
+
+  pre-checks:
+    name: Check if the app is eligable for deployment per Django standards
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Download repo artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: portfolio
+          path: .
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Restore venv
+        uses: actions/cache/restore@v4
+        id: restore-cache
+        with:
+          path: .venv
+          key: venv
+
+      - name: Check if app is compliant for deployment
+        run: |
+          python3 src/manage.py check --deploy

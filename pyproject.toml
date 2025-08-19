@@ -26,3 +26,14 @@ dependencies = [
 requires-python = "==3.11.*"
 readme = "README.md"
 license = {text = "GPL"}
+
+[dependency-groups]
+test = [
+    "black>=25.1.0",
+    "django-test-migrations>=1.5.0",
+    "fb-sapp>=0.5.8",
+    "flake8>=7.3.0",
+    "pylint>=3.3.8",
+    "pyre-check>=0.9.25",
+    "setuptools-rust>=1.11.1",
+]

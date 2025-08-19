@@ -4,7 +4,7 @@ RUN addgroup -s ${DOCKER_USER} && adduser -S ${DOCKER_USER} -G ${DOCKER_USER}
 
 
 
-FROM python:3.11 AS build
+FROM ghcr.io/astral-sh/uv:0.8.12 AS build
 COPY requirements.txt /portfolio/requirements.txt
 WORKDIR /portfolio
 
@@ -14,14 +14,10 @@ RUN apt-get update && apt-get install -y \
 	g++ \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m venv /opt/.venv \
-	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel
-
 RUN mkdir /wheels \
-	&& SYSTEM_SASS=1 /opt/.venv/bin/pip wheel --no-cache-dir --no-deps --wheel-dir=/wheels libsass
+	&& SYSTEM_SASS=1 uv add --wheel-dir=/wheels libsass
 
-RUN /opt/.venv/bin/pip install --no-cache-dir --find-links=/wheels libsass \
-	&& /opt/.venv/bin/pip install --no-cache-dir -r requirements.txt
+RUN uv add --find-links=/wheels libsass && uv sync
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
 	version="1.0.0-RELEASE" \
@@ -40,7 +36,6 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=build /opt/.venv /app/.venv
 COPY --chown=${DOCKER_USER}:${DOCKER_USER} src /app/src
-
 
 ENV PYTHONPATH=/app:/app/src/apps:/app/src
 
