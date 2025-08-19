@@ -6,7 +6,8 @@ from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views import View
-from landing_page.forms.contact_me_form import ContactMe, ContactMeForm
+
+from apps.landing_page.forms.contact_me_form import ContactMe, ContactMeForm
 
 
 class ContactMeView(View):

@@ -2,8 +2,9 @@ from typing import Any
 
 import markdown
 from django.db.models import CharField, JSONField
-from landing_page.models.portfolio import Portfolio
 from typing_extensions import override
+
+from apps.landing_page.models.portfolio import Portfolio
 
 
 class WorkHistory(Portfolio):

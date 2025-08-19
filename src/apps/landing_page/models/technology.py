@@ -2,9 +2,10 @@ from collections import defaultdict
 from typing import Any
 
 from django.db.models import CASCADE, CharField, ForeignKey, IntegerField
-from landing_page.models.portfolio import Portfolio
-from landing_page.models.technology_category import TechnologyCategory
 from typing_extensions import override
+
+from apps.landing_page.models.portfolio import Portfolio
+from apps.landing_page.models.technology_category import TechnologyCategory
 
 
 class Technology(Portfolio):

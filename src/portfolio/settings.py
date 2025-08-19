@@ -65,9 +65,9 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    "apps.landing_page.apps",
     "compressor",
     "django_bootstrap5",
-    "landing_page.apps",
     # "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

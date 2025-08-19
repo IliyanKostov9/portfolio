@@ -1,8 +1,9 @@
 from typing import Any
 
 from django.db.models import BooleanField, CharField, IntegerField, JSONField
-from landing_page.models.portfolio import Portfolio
 from typing_extensions import override
+
+from apps.landing_page.models.portfolio import Portfolio
 
 
 class Project(Portfolio):
