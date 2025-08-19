@@ -1,11 +1,11 @@
 from typing import Any
 
-from django.db.models import CharField, Model
+from django.db.models import CharField
 from landing_page.models.portfolio import Portfolio
 from typing_extensions import override
 
 
-class TechnologyCategory(Model, Portfolio):
+class TechnologyCategory(Portfolio):
     name: CharField = CharField(
         "Name of the technology category", max_length=50, primary_key=True
     )

@@ -1,11 +1,11 @@
 from typing import Any
 
-from django.db.models import BooleanField, CharField, Model
+from django.db.models import BooleanField, CharField
 from landing_page.models.portfolio import Portfolio
 from typing_extensions import override
 
 
-class Education(Model, Portfolio):
+class Education(Portfolio):
     degree: CharField = CharField("Degree name", max_length=100)
     specialty: CharField = CharField("Specialty name", max_length=100)
     university_name: CharField = CharField("University name", max_length=50)

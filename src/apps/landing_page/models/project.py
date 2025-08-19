@@ -1,11 +1,11 @@
 from typing import Any
 
-from django.db.models import BooleanField, CharField, IntegerField, JSONField, Model
+from django.db.models import BooleanField, CharField, IntegerField, JSONField
 from landing_page.models.portfolio import Portfolio
 from typing_extensions import override
 
 
-class Project(Model, Portfolio):
+class Project(Portfolio):
     name: CharField = CharField("Name of the project", max_length=50)
     description: CharField = CharField("Description of the project", max_length=300)
     scroll_description: BooleanField = BooleanField(
