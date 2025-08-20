@@ -41,6 +41,10 @@ schema-update: ## Update SQL schema & create an empty migration
 sql-init-test: ## Perform SQL migration
 	python3 src/manage.py migrate landing_page
 
+.PHONY: show-migrate
+show-migrate: ## Perform SQL migration
+	python3 src/manage.py showmigrations
+
 
 .PHONY: sql-reset
 sql-reset: ## Perform SQL reset

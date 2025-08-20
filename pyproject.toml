@@ -30,6 +30,7 @@ license = {text = "GPL"}
 [dependency-groups]
 test = [
     "black>=25.1.0",
+    "django-migration-linter>=5.2.0",
     "django-test-migrations>=1.5.0",
     "fb-sapp>=0.5.8",
     "flake8>=7.3.0",

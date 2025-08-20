@@ -81,6 +81,7 @@
 
             if ! [[ -d ".devenv/state/venv" ]]; then
               uv venv
+              uv test --group test
               source .devenv/state/venv/bin/activate
             elif [[ -d "pyproject.toml" ]]; then
               source .devenv/state/venv/bin/activate

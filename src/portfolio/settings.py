@@ -65,7 +65,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
-    "apps.landing_page.apps",
+    "apps.landing_page.apps.LandingPageConfig",
     "compressor",
     "django_bootstrap5",
     # "django.contrib.admin",
@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_test_migrations.contrib.django_checks.AutoNames",
     "django_test_migrations.contrib.django_checks.DatabaseConfiguration",
+    "django_migration_linter",
 ]
 
 MIDDLEWARE = [

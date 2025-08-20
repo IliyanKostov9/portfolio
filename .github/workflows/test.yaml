@@ -140,3 +140,7 @@ jobs:
       - name: Check if app is compliant for deployment
         run: |
           python3 src/manage.py check --deploy
+
+      - name: Check if the migrations are backwards compatible
+        run: |
+          python3 src/manage.py lintmigrations
