@@ -1,21 +1,8 @@
-from django.db import connection
-from django.db.migrations.state import ProjectState
-from django.test import TransactionTestCase
-from django_test_migrations.migrator import Migrator
-
 from apps.landing_page.models.technology_category import TechnologyCategory
+from apps.landing_page.tests.models.portfolio import Portfolio
 
 
-class TechonolgyCategoryTestCase(TransactionTestCase):
-    model: ProjectState
-
-    def setUp(self):
-        with connection.constraint_checks_disabled():
-            migrator = Migrator(database="default")
-            self.model = migrator.apply_initial_migration(
-                ("landing_page", "0002_auto_20250820_2315")
-            )
-
+class TechonolgyCategoryTestCase(Portfolio):
     def test_data_types(self):
         self.setUp()
 
