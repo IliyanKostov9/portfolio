@@ -1,16 +1,16 @@
-from django.db import transaction
+from django.db import connection
 from django.db.migrations.state import ProjectState
-from django.test import TestCase
+from django.test import TransactionTestCase
 from django_test_migrations.migrator import Migrator
 
 from apps.landing_page.models.technology_category import TechnologyCategory
 
 
-class TechonolgyCategoryTestCase(TestCase):
+class TechonolgyCategoryTestCase(TransactionTestCase):
     model: ProjectState
 
     def setUp(self):
-        with transaction.atomic():
+        with connection.constraint_checks_disabled():
             migrator = Migrator(database="default")
             self.model = migrator.apply_initial_migration(
                 ("landing_page", "0002_auto_20250820_2315")
@@ -20,8 +20,8 @@ class TechonolgyCategoryTestCase(TestCase):
         self.setUp()
 
         technology_category: TechnologyCategory = self.model.apps.get_model(
-            "landing_page", name="Programming languages"
-        )
+            "landing_page", "TechnologyCategory"
+        ).objects.get(name="Programming languages")
 
-        self.assertEqual(isinstance(technology_category.name), str)
+        self.assertEqual(isinstance(technology_category.name, str), True)
         super().tearDownClass()
