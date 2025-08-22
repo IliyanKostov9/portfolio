@@ -47,7 +47,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matix.python_version }}
+          python-version: ${{ matrix.python_version }}
 
       - name: Download repo artifact
         uses: actions/download-artifact@v5
@@ -92,7 +92,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matix.python_version }}
+          python-version: ${{ matrix.python_version }}
 
       - name: Download repo artifact
         uses: actions/download-artifact@v5
