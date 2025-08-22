@@ -6,7 +6,8 @@ from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views import View
-from landing_page.forms.contact_me_form import ContactMe, ContactMeForm
+
+from apps.landing_page.forms.contact_me_form import ContactMe, ContactMeForm
 
 
 class ContactMeView(View):
@@ -17,7 +18,6 @@ class ContactMeView(View):
             self._check_email_envs_are_set()
 
             contact_me: ContactMe = ContactMe.from_form(form)
-            print(contact_me)
 
             _ = EmailMessage(
                 subject=f"{contact_me.email} contacted you from your portfolio 'ContactMe'",

@@ -1,13 +1,14 @@
 from collections import defaultdict
 from typing import Any
 
-from django.db.models import CASCADE, CharField, ForeignKey, IntegerField, Model
-from landing_page.models.portfolio import Portfolio
-from landing_page.models.technology_category import TechnologyCategory
+from django.db.models import CASCADE, CharField, ForeignKey, IntegerField
 from typing_extensions import override
 
+from apps.landing_page.models.portfolio import Portfolio
+from apps.landing_page.models.technology_category import TechnologyCategory
 
-class Technology(Model, Portfolio):
+
+class Technology(Portfolio):
     name: CharField = CharField("Name of the technology", max_length=50)
     icon: CharField = CharField("Icon name of the technology", max_length=20)
     row: IntegerField = IntegerField("Row number of the technology")
