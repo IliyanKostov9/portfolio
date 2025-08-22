@@ -12,6 +12,7 @@ class Certification(Portfolio):
     image: str
     date: str
     url: str
+    issuer: str
     row: int
     style: str
 
@@ -39,4 +40,5 @@ class Certification(Portfolio):
                 date=certification.date,
                 row=certification.row,
                 style=certification.style,
+                issuer=certification.issuer,
             )

@@ -11,5 +11,5 @@ class Portfolio(TransactionTestCase):
         with connection.constraint_checks_disabled():
             migrator = Migrator(database="default")
             self.model = migrator.apply_initial_migration(
-                ("landing_page", "0002_auto_20250820_2315")
+                ("landing_page", "0002_auto_20250822_1716")
             )
