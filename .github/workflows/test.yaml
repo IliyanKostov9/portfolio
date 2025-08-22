@@ -100,14 +100,17 @@ jobs:
 
       - name: Pylint
         run: |
+          . .venv/bin/activate
           pylint .
 
       - name: Black
         run: |
+          . .venv/bin/activate
           black --check .
 
       - name: Flake8
         run: |
+          . .venv/bin/activate
           flake8 .
 
       - name: Restore Pyre cache
@@ -161,8 +164,10 @@ jobs:
 
       - name: Check if app is compliant for deployment
         run: |
+          . .venv/bin/activate
           make check
 
       - name: Check if the migrations are backwards compatible
         run: |
+          . .venv/bin/activate
           make migrate-check
