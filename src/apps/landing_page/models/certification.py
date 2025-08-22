@@ -12,6 +12,7 @@ class Certification(Portfolio):
     date: CharField = CharField("Date of the certificate")
     name: CharField = CharField("Name of the certificate")
     url: CharField = CharField("Url of the certificate to verify")
+    issuer: CharField = CharField("Issuer of the certificate")
     # TODO: Don't manually align this card by using margin
     style: CharField = CharField("Custom css of the certificate", max_length=300)
 
