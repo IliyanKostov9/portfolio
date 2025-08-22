@@ -44,14 +44,38 @@ jobs:
         python_version: ["3.11.9"]
 
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matix.python_version }}
+
       - name: Download repo artifact
         uses: actions/download-artifact@v5
         with:
           name: portfolio
           path: .
 
-      - name: Unit test
-        run: echo "It works!"
+      - name: Restore venv
+        uses: actions/cache/restore@v4
+        id: restore-cache
+        with:
+          path: .venv
+          key: venv
+
+      - name: Install deps
+        run: |
+          uv venv
+          uv sync --group test
+
+      - name: Run tests
+        run: make test
+
+      - name: Save venv
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .venv
+          key: venv
 
   lint:
     name: Lint
@@ -60,16 +84,28 @@ jobs:
       image: ghcr.io/astral-sh/uv:0.8.12
     if: ${{ github.actor != 'dependabot[bot]' }}
     needs: test
+    strategy:
+      fail-fast: false
+      matrix:
+        python_version: ["3.11.9"]
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matix.python_version }}
+
       - name: Download repo artifact
         uses: actions/download-artifact@v5
         with:
           name: portfolio
           path: .
 
-      - name: Install lint dependencies
-        run: |
-          uv sync --group test
+      - name: Restore venv
+        uses: actions/cache/restore@v4
+        id: restore-cache
+        with:
+          path: .venv
+          key: venv
 
       - name: Pylint
         run: |
@@ -107,28 +143,25 @@ jobs:
           path: .pyre
           key: pyre-cache
 
-      - name: Save venv
-        uses: actions/cache/save@v4
-        if: always()
-        with:
-          path: .venv
-          key: venv
-
   pre-checks:
     name: Check if the app is eligable for deployment per Django standards
     runs-on: ubuntu-latest
     needs: test
+    strategy:
+      fail-fast: false
+      matrix:
+        python_version: ["3.11.9"]
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python_version }}
+
       - name: Download repo artifact
         uses: actions/download-artifact@v5
         with:
           name: portfolio
           path: .
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 3.11
 
       - name: Restore venv
         uses: actions/cache/restore@v4
@@ -139,8 +172,8 @@ jobs:
 
       - name: Check if app is compliant for deployment
         run: |
-          python3 src/manage.py check --deploy
+          make check
 
       - name: Check if the migrations are backwards compatible
         run: |
-          python3 src/manage.py lintmigrations
+          make migrate-check

@@ -21,6 +21,10 @@ clean:
 check: ## Check the django templates
 	python3 src/manage.py check --deploy
 
+.PHONY: migrate-check
+migrate-check: ## Check if the migrations are compatible
+	  python3 src/manage.py lintmigrations
+
 .PHONY: type-inference
 type-inference: ## Perform static type check with Pyre
 	pyre infer -i
