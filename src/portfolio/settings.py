@@ -62,9 +62,7 @@ else:
     print("Running in non production. Now setting all prod options OFF...")
 
 
-# Application definition
-
-INSTALLED_APPS = [
+apps = [
     "apps.landing_page.apps.LandingPageConfig",
     "compressor",
     "django_bootstrap5",
@@ -74,10 +72,16 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # NOTE: Test
     "django_test_migrations.contrib.django_checks.AutoNames",
     "django_test_migrations.contrib.django_checks.DatabaseConfiguration",
     "django_migration_linter",
 ]
+
+if os.environ.get("ENV") == "prod":
+    apps = apps[: len(apps) - 3]
+
+INSTALLED_APPS = apps
 
 MIDDLEWARE = [
     "django.middleware.cache.UpdateCacheMiddleware",  # INFO: Must be first
