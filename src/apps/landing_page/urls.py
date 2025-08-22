@@ -1,6 +1,7 @@
 from django.urls import path
-from landing_page.views.home.contact_me_view import ContactMeView
-from landing_page.views.home.home_view import HomeView
+
+from apps.landing_page.views.home.contact_me_view import ContactMeView
+from apps.landing_page.views.home.home_view import HomeView
 
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),

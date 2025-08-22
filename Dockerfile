@@ -2,10 +2,9 @@ FROM alpine:3.22
 ARG DOCKER_USER=portfolio
 RUN addgroup -s ${DOCKER_USER} && adduser -S ${DOCKER_USER} -G ${DOCKER_USER}
 
-
-
 FROM python:3.11 AS build
-COPY requirements.txt /portfolio/requirements.txt
+COPY pyproject.toml /portfolio/pyproject.toml
+COPY uv.lock /portfolio/uv.lock
 WORKDIR /portfolio
 
 RUN apt-get update && apt-get install -y \
@@ -15,19 +14,22 @@ RUN apt-get update && apt-get install -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m venv /opt/.venv \
-	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel
+	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel uv==0.8.13
 
 RUN mkdir /wheels \
 	&& SYSTEM_SASS=1 /opt/.venv/bin/pip wheel --no-cache-dir --no-deps --wheel-dir=/wheels libsass
 
 RUN /opt/.venv/bin/pip install --no-cache-dir --find-links=/wheels libsass \
-	&& /opt/.venv/bin/pip install --no-cache-dir -r requirements.txt
+	&& /opt/.venv/bin/uv pip compile pyproject.toml -o requirements.txt \
+	&& /opt/.venv/bin/pip install --no-cache-dir -r requirements.txt \
+	&& /opt/.venv/bin/pip uninstall -y uv
 
 LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
 	version="1.0.0-RELEASE" \
 	description="Portfolio app" \
 	author="Iliyan Kostov" \
 	env="prod"
+
 
 
 FROM python:3.11-bookworm
@@ -41,8 +43,12 @@ RUN apt-get update && apt-get install -y \
 COPY --from=build /opt/.venv /app/.venv
 COPY --chown=${DOCKER_USER}:${DOCKER_USER} src /app/src
 
+RUN echo "Removing all 'tests' directories now..." \
+	&& cd /app/src \
+	&& find . -type d -name tests -exec rm -rf {} + 2>/dev/null
 
 ENV PYTHONPATH=/app:/app/src/apps:/app/src
+ENV ENV="prod"
 
 RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
 	/app/.venv/bin/python3 src/manage.py migrate --noinput && \
