@@ -36,6 +36,8 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/astral-sh/uv:0.8.12
     needs: checkout
     if: ${{ github.actor != 'dependabot[bot]' }}
     strategy:
@@ -79,8 +81,6 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/astral-sh/uv:0.8.12
     if: ${{ github.actor != 'dependabot[bot]' }}
     needs: test
     strategy:
