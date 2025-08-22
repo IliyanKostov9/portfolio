@@ -1,7 +1,9 @@
 from typing import Any
 
+from django.db import models
 
-class Portfolio:
+
+class Portfolio(models.Model):
     """
     Interface for all of the models to inhecit and override methods
     """
@@ -14,3 +16,7 @@ class Portfolio:
 
     def clean(self) -> None:
         pass
+
+    class Meta:
+        abstract: bool = True
+        app_label: str = "landing_page"

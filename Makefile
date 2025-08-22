@@ -12,7 +12,7 @@ run: ## Run Django app
 	python3 -m uvicorn src.portfolio.asgi:application --reload
 
 test: ## Test Django app
-	echo "test"
+	python3 ./src/manage.py test apps.landing_page.tests -v 3
 
 clean:
 	echo "clean"
@@ -20,6 +20,10 @@ clean:
 .PHONY: check
 check: ## Check the django templates
 	python3 src/manage.py check --deploy
+
+.PHONY: migrate-check
+migrate-check: ## Check if the migrations are compatible
+	  python3 src/manage.py lintmigrations
 
 .PHONY: type-inference
 type-inference: ## Perform static type check with Pyre
@@ -40,6 +44,10 @@ schema-update: ## Update SQL schema & create an empty migration
 .PHONY: sql-init-test
 sql-init-test: ## Perform SQL migration
 	python3 src/manage.py migrate landing_page
+
+.PHONY: show-migrate
+show-migrate: ## Perform SQL migration
+	python3 src/manage.py showmigrations
 
 
 .PHONY: sql-reset

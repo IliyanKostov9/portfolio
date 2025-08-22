@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 from typing import Any
 
-from landing_page.data_class.portfolio.portfolio import Portfolio
 from typing_extensions import override
+
+from apps.landing_page.data_class.portfolio.portfolio import Portfolio
 
 
 @dataclass(frozen=True)

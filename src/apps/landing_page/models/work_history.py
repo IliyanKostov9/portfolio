@@ -1,12 +1,13 @@
 from typing import Any
 
 import markdown
-from django.db.models import CharField, JSONField, Model
-from landing_page.models.portfolio import Portfolio
+from django.db.models import CharField, JSONField
 from typing_extensions import override
 
+from apps.landing_page.models.portfolio import Portfolio
 
-class WorkHistory(Model, Portfolio):
+
+class WorkHistory(Portfolio):
     company_name: CharField = CharField("Company name", max_length=100)
     company_name_label: CharField = CharField(
         "Aria label of the company in pattern company-name-123", max_length=100
