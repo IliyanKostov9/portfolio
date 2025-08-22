@@ -12,6 +12,7 @@
 ## 🚀 About
 
 This project is for creating and maintaining my personal website at [https://portfolio.ikostov.org](https://portfolio.ikostov.org).
+The application is hosted on a Raspberry pi 4B in Docker. You can find it's configuration [here](https://github.com/IliyanKostov9/raspberry-pi-dotfiles/blob/master/docker/personal/docker-compose.yaml)
 
 ## 🎉 Getting started
 

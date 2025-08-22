@@ -3,11 +3,12 @@ from typing import Any
 from django.http import HttpResponse
 from django.template import loader
 from django.views import View
-from landing_page.models.certification import Certification
-from landing_page.models.education import Education
-from landing_page.models.project import Project
-from landing_page.models.technology import Technology
-from landing_page.models.work_history import WorkHistory
+
+from apps.landing_page.models.certification import Certification
+from apps.landing_page.models.education import Education
+from apps.landing_page.models.project import Project
+from apps.landing_page.models.technology import Technology
+from apps.landing_page.models.work_history import WorkHistory
 
 
 class HomeView(View):
