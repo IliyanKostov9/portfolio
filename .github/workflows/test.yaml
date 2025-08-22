@@ -60,7 +60,9 @@ jobs:
           uv sync --group test
 
       - name: Run tests
-        run: make test
+        run: |
+          . .venv/bin/activate
+          make test
 
       - name: Save venv
         uses: actions/cache/save@v4
