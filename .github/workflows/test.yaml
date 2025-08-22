@@ -37,9 +37,9 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     needs: checkout
-    container:
-      image: ghcr.io/astral-sh/uv:python3.11-bookworm-slim
     if: ${{ github.actor != 'dependabot[bot]' }}
+    container:
+      image: ghcr.io/astral-sh/uv:python3.11-trixie
     steps:
       - name: Download repo artifact
         uses: actions/download-artifact@v5
