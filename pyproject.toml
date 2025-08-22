@@ -13,7 +13,6 @@ dependencies = [
     "pillow>=11.3.0",
     "django-libsass>=0.9",
     "django-compressor>=4.5.1",
-    "python-dotenv>=1.1.1",
     "markdown>=3.8.2",
     "uvicorn>=0.35.0",
     "uvicorn-worker>=0.3.0",
@@ -28,6 +27,9 @@ readme = "README.md"
 license = {text = "GPL"}
 
 [dependency-groups]
+dev = [
+    "python-dotenv>=1.1.1",
+]
 test = [
     "black>=25.1.0",
     "django-migration-linter>=5.2.0",

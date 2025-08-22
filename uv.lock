@@ -803,7 +803,6 @@ dependencies = [
     { name = "mockito" },
     { name = "pillow" },
     { name = "pip" },
-    { name = "python-dotenv" },
     { name = "pyyaml" },
     { name = "setuptools" },
     { name = "typing-extensions" },
@@ -813,6 +812,9 @@ dependencies = [
 ]
 
 [package.dev-dependencies]
+dev = [
+    { name = "python-dotenv" },
+]
 test = [
     { name = "black" },
     { name = "django-migration-linter" },
@@ -837,7 +839,6 @@ requires-dist = [
     { name = "mockito", specifier = ">=1.5.4" },
     { name = "pillow", specifier = ">=11.3.0" },
     { name = "pip", specifier = ">=25.2" },
-    { name = "python-dotenv", specifier = ">=1.1.1" },
     { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "setuptools", specifier = ">=80.9.0" },
     { name = "typing-extensions", specifier = ">=4.14.1" },
@@ -847,6 +848,7 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
+dev = [{ name = "python-dotenv", specifier = ">=1.1.1" }]
 test = [
     { name = "black", specifier = ">=25.1.0" },
     { name = "django-migration-linter", specifier = ">=5.2.0" },

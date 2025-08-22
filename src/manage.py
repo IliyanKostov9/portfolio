@@ -4,8 +4,6 @@
 import os
 import sys
 
-from dotenv import load_dotenv
-
 
 def main() -> None:
     """Run administrative tasks."""
@@ -23,5 +21,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     if os.environ.get("ENV") == "dev":
+        from dotenv import load_dotenv
+
         load_dotenv()
     main()
