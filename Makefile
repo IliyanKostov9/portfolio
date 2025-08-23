@@ -12,7 +12,7 @@ run: ## Run Django app
 	python3 -m uvicorn src.portfolio.asgi:application --reload
 
 test: ## Test Django app
-	python3 ./src/manage.py test apps.landing_page.tests -v 3
+	python3 -Wa ./src/manage.py test apps.landing_page.tests -v 3
 
 clean:
 	echo "clean"
