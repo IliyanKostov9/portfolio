@@ -21,18 +21,17 @@ BASE_DIR: Path = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("PORTFOLIO_SECRET_KEY")
 if not SECRET_KEY:
     print("SECRET KEY is not set!")
 
 
-ALLOWED_HOSTS = [os.environ.get("HOST")]
+ALLOWED_HOSTS = [os.environ.get("PORTFOLIO_HOST")]
 
-# NOTE: Check if we are running on prod
-if os.environ.get("ENV") == "prod":
-    ADMINS = [("Iliyan", os.environ.get("TO_EMAIL"))]
-    MANAGERS = [("Iliyan", os.environ.get("TO_EMAIL"))]
-    SERVER_EMAIL = os.environ.get("FROM_EMAIL")
+if os.environ.get("PORTFOLIO_ENV") == "prod":
+    ADMINS = [("Iliyan", os.environ.get("PORTFOLIO_TO_EMAIL"))]
+    MANAGERS = [("Iliyan", os.environ.get("PORTFOLIO_TO_EMAIL"))]
+    SERVER_EMAIL = os.environ.get("PORTFOLIO_FROM_EMAIL")
 
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECURE_SSL_REDIRECT = True
@@ -78,7 +77,7 @@ apps = [
     "django_migration_linter",
 ]
 
-if os.environ.get("ENV") == "prod":
+if os.environ.get("PORTFOLIO_ENV") == "prod":
     apps = apps[: len(apps) - 3]
 
 INSTALLED_APPS = apps
@@ -237,10 +236,10 @@ COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = os.environ.get("FROM_EMAIL")
-EMAIL_HOST = os.environ.get("EMAIL_HOST")
-EMAIL_HOST_USER = os.environ.get("EMAIL_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+DEFAULT_FROM_EMAIL = os.environ.get("PORTFOLIO_FROM_EMAIL")
+EMAIL_HOST = os.environ.get("PORTFOLIO_EMAIL_HOST")
+EMAIL_HOST_USER = os.environ.get("PORTFOLIO_EMAIL_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("PORTFOLIO_EMAIL_PASSWORD")
 
 
 # Default primary key field type
