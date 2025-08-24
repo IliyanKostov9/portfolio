@@ -3,8 +3,9 @@
 {% block extra_head %}
 {% compress css %}
 <link
-  href="{% static 'style/home.css' %}"
+  href="{% static 'style/home.scss' %}"
   rel="stylesheet"
+  type="text/x-scss"
 />
 {% endcompress %}
 {% endblock %}
@@ -33,7 +34,7 @@
 </div>
 
 <!-- NOTE: artificial padding -->
-<p style="margin-bottom: 250px" />
+<p style="margin-bottom: 250px"/>
 
 <p class="lead text-center lazy hide-when-scrolling">
   Scroll down to find out more about me
