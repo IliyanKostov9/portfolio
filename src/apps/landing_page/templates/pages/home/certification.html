@@ -9,7 +9,7 @@
   <div class="row text-center justify-content-center">
     {% for cert in row.certificate %}
     <div class="col-md-3 lazy d-flex flex-column align-items-center">
-      <div class="card">
+      <div class="card h-100 d-flex flex-column">
         <img
           src="{% static 'images/certificates/'|add:cert.image %}"
           class="img-fluid mx-auto lazy spacing-30"
