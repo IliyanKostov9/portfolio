@@ -8,7 +8,7 @@
           id="contactForm"
           action="{% url 'home/contact-me' %}"
           method="post"
-          style="width: 50rem"
+          class="form-width-50"
         >
           {% csrf_token %}
 
@@ -55,9 +55,8 @@
           >
             <span
               id="spinnerSubmit"
-              class="spinner-border spinner-border-sm"
+              class="spinner-border spinner-border-sm display-none"
               aria-hidden="true"
-              style="display: none"
             ></span>
             <span class="visually-hidden">Loading...</span>
             Send
@@ -67,5 +66,5 @@
       </div>
     </div>
   </div>
-  <p style="margin-bottom: 150px" />
+  <p class="space-bottom-150" />
 </div>

@@ -22,7 +22,7 @@ class ContactMeView(View):
             _ = EmailMessage(
                 subject=f"{contact_me.email} contacted you from your portfolio 'ContactMe'",
                 body=f"Name: {contact_me.name}\n\n" + contact_me.message,
-                to=[os.environ.get("TO_EMAIL")],
+                to=[os.environ.get("PORTFOLIO_TO_EMAIL")],
             ).send()
 
             messages.success(
@@ -37,11 +37,11 @@ class ContactMeView(View):
 
     def _check_email_envs_are_set(self) -> None:
         mandatory_env_variables: list[str] = [
-            "FROM_EMAIL",
-            "TO_EMAIL",
-            "EMAIL_HOST",
-            "EMAIL_USER",
-            "EMAIL_PASSWORD",
+            "PORTFOLIO_FROM_EMAIL",
+            "PORTFOLIO_TO_EMAIL",
+            "PORTFOLIO_EMAIL_HOST",
+            "PORTFOLIO_EMAIL_USER",
+            "PORTFOLIO_EMAIL_PASSWORD",
         ]
 
         for env_var in mandatory_env_variables:
