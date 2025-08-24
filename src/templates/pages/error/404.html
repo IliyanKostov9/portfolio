@@ -1,9 +1,12 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page Not Found</title>
+    <link rel="browser icon" href="{% static 'favicon.ico' %}" />
   </head>
   <style>
     body {
@@ -31,6 +34,10 @@
       font-size: 18px;
       color: #fbfbfb;
     }
+    .a-home {
+      text-decoration: none;
+      color: #54b4d3;
+    }
   </style>
   <body>
     <div class="container">
@@ -38,9 +45,7 @@
       <p>
         The page you're looking for doesn't exist. Let's get you back on track:
       </p>
-      <a href="/" style="text-decoration: none; color: #54b4d3"
-        >Go to Homepage</a
-      >
+      <a href="/" class="a-home"> </a>
     </div>
   </body>
 </html>

@@ -7,7 +7,7 @@ BASE_DIR: Path = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = [os.environ.get("PORTFOLIO_HOST")]
 
 SECRET_KEY = os.environ.get("PORTFOLIO_SECRET_KEY")
-if not SECRET_KEY:
+if not SECRET_KEY and not os.environ.get("PORTFOLIO_SKIP_SECRET_KEY_CHECK", False):
     raise OSError("SECRET KEY is not set!")
 
 if os.environ.get("PORTFOLIO_ENV") == "prod":
@@ -103,6 +103,8 @@ CONTENT_SECURITY_POLICY = {
             "'sha256-3ITP0qhJJYBulKb1omgiT3qOK6k0iB3rMDhGfpM8b7c='",
             "'sha256-DqHyLrY03A99krj4zwj8j6M04dAkecX+/ck4dgG6zCk='",
             "'sha256-bsV5JivYxvGywDAZ22EZJKBFip65Ng9xoJVLbBg7bdo='",
+            # NOTE: For Error 404 && 500
+            "'sha256-oxny43U4yMNZqsxffAINTdjzidFj6nAZr/6MrmG+WZA='",
         ],
         "font-src": ["https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
         "img-src": [SELF],
