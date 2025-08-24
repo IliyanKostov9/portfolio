@@ -20,7 +20,7 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    if os.environ.get("ENV") == "dev":
+    if os.environ.get("PORTFOLIO_ENV") == "dev":
         from dotenv import load_dotenv
 
         load_dotenv()

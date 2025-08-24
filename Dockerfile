@@ -43,12 +43,9 @@ RUN apt-get update && apt-get install -y \
 COPY --from=build /opt/.venv /app/.venv
 COPY --chown=${DOCKER_USER}:${DOCKER_USER} src /app/src
 
-RUN echo "Removing all 'tests' directories now..." \
-	&& cd /app/src \
-	&& find . -type d -name tests -exec rm -rf {} + 2>/dev/null
-
 ENV PYTHONPATH=/app:/app/src/apps:/app/src
-ENV ENV="prod"
+ENV PORTFOLIO_ENV="prod"
+ENV PORTFOLIO_SKIP_SECRET_KEY_CHECK=true
 
 RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
 	/app/.venv/bin/python3 src/manage.py migrate --noinput && \

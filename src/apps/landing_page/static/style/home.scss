@@ -45,3 +45,85 @@ $spacer: 10px;
   transform: translateY(-10px);
   pointer-events: none;
 }
+
+.spacing {
+  margin-bottom: 250px;
+}
+
+.spacing-50 {
+  margin-bottom: 50px;
+}
+
+.profile-img {
+  margin: 70px;
+  width: 450;
+  height: 450;
+}
+
+.p-green {
+  color: green;
+}
+
+.carousel-slide {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.carousel-caption-bg {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.invert-color {
+  filter: invert(1);
+}
+
+.spacing-30 {
+  margin: 30px;
+}
+
+.spacing-left-50 {
+  margin-left: 50px;
+}
+
+.space-bottom-150 {
+  margin-bottom: 150px;
+}
+
+.space-bottom-50 {
+  margin-bottom: 50px;
+}
+
+.space-bottom-80 {
+  margin-bottom: 80px;
+}
+
+.form-width-50 {
+  width: 50rem;
+}
+
+.display-none {
+  display: none;
+}
+
+.max-width-700 {
+  max-width: 700px;
+}
+
+.education-img {
+  margin: 50px;
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+
+.project-img {
+  margin: 15px;
+  margin-bottom: 80px;
+  margin-top: 80px;
+  width: 550;
+  height: 550;
+}
+
+.scroll-text {
+  max-height: 80px;
+  overflow-y: auto;
+}
