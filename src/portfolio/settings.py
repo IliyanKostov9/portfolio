@@ -6,11 +6,40 @@ from csp.constants import SELF, UNSAFE_INLINE
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = [os.environ.get("PORTFOLIO_HOST")]
 
+CSP_POLICY = {
+    "DIRECTIVES": {
+        "default-src": [SELF],
+        "script-src": [
+            SELF,
+            UNSAFE_INLINE,
+            "https://cdnjs.cloudflare.com",
+            "https://unpkg.com",
+        ],
+        "style-src": [
+            SELF,
+            "https://cdnjs.cloudflare.com",
+            "https://fonts.googleapis.com",
+            "'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='",
+            "'sha256-3ITP0qhJJYBulKb1omgiT3qOK6k0iB3rMDhGfpM8b7c='",
+            "'sha256-DqHyLrY03A99krj4zwj8j6M04dAkecX+/ck4dgG6zCk='",
+            "'sha256-bsV5JivYxvGywDAZ22EZJKBFip65Ng9xoJVLbBg7bdo='",
+            # NOTE: For Error 404 && 500
+            "'sha256-oxny43U4yMNZqsxffAINTdjzidFj6nAZr/6MrmG+WZA='",
+        ],
+        "font-src": ["https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
+        "img-src": [SELF],
+        "frame-ancestors": [SELF],
+        "form-action": [SELF],
+        # "report-uri": "/csp-report/",
+    },
+}
+
 SECRET_KEY = os.environ.get("PORTFOLIO_SECRET_KEY")
 if not SECRET_KEY and not os.environ.get("PORTFOLIO_SKIP_SECRET_KEY_CHECK", False):
     raise OSError("SECRET KEY is not set!")
 
 if os.environ.get("PORTFOLIO_ENV") == "prod":
+    CONTENT_SECURITY_POLICY = CSP_POLICY
     ADMINS = [("Iliyan", os.environ.get("PORTFOLIO_TO_EMAIL"))]
     MANAGERS = [("Iliyan", os.environ.get("PORTFOLIO_TO_EMAIL"))]
     SERVER_EMAIL = os.environ.get("PORTFOLIO_FROM_EMAIL")
@@ -46,6 +75,8 @@ else:
             "BACKEND": "django.core.cache.backends.dummy.DummyCache",
         }
     }
+
+    CONTENT_SECURITY_POLICY_REPORT_ONLY = CSP_POLICY
     print("Running in non production. Now setting all prod options OFF...")
 
 
@@ -86,33 +117,6 @@ MIDDLEWARE = [
     "csp.middleware.CSPMiddleware",
 ]
 
-CONTENT_SECURITY_POLICY = {
-    "DIRECTIVES": {
-        "default-src": [SELF],
-        "script-src": [
-            SELF,
-            UNSAFE_INLINE,
-            "https://cdnjs.cloudflare.com",
-            "https://unpkg.com",
-        ],
-        "style-src": [
-            SELF,
-            "https://cdnjs.cloudflare.com",
-            "https://fonts.googleapis.com",
-            "'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='",
-            "'sha256-3ITP0qhJJYBulKb1omgiT3qOK6k0iB3rMDhGfpM8b7c='",
-            "'sha256-DqHyLrY03A99krj4zwj8j6M04dAkecX+/ck4dgG6zCk='",
-            "'sha256-bsV5JivYxvGywDAZ22EZJKBFip65Ng9xoJVLbBg7bdo='",
-            # NOTE: For Error 404 && 500
-            "'sha256-oxny43U4yMNZqsxffAINTdjzidFj6nAZr/6MrmG+WZA='",
-        ],
-        "font-src": ["https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
-        "img-src": [SELF],
-        "frame-ancestors": [SELF],
-        "form-action": [SELF],
-        # "report-uri": "/csp-report/",
-    },
-}
 
 ROOT_URLCONF = "portfolio.urls"
 
