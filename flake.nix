@@ -71,9 +71,9 @@
           };
 
           env = {
-            ENV = "dev";
-            HOST = "localhost";
-            SECRET_KEY = "django-insecure-8uyy0d7vvcll=*i_@b4_8tm$ehr58-+=7)82s3q$uhxok^$bim";
+            PORTFOLIO_ENV = "dev";
+            PORTFOLIO_HOST = "localhost";
+            PORTFOLIO_SECRET_KEY = "django-insecure-8uyy0d7vvcll=*i_@b4_8tm$ehr58-+=7)82s3q$uhxok^$bim";
           };
 
           enterShell = ''

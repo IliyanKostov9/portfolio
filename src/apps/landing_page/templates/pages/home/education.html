@@ -5,13 +5,12 @@
     <h2 id="Education" class="lazy"><a href="#Education">Education</a></h2>
 
     {% for education in educations %}
-    <div class="card" style="max-width: 700px">
+    <div class="card max-width-700">
       <div class="row g-0">
         <div class="col-md-4">
           <img
             src="{% static 'images/'|add:education.image %}"
-            class="img-fluid rounded-start me-4 lazy"
-            style="margin: 50px; margin-bottom: 80px; margin-top: 80px"
+            class="education-img img-fluid rounded-start me-4 lazy"
             alt="{{ education.university_name }}"
             width="550"
             height="550"
@@ -19,7 +18,7 @@
         </div>
 
         <div class="col-md-8">
-          <div class="card-body" style="margin-left: 50px">
+          <div class="card-body spacing-left-50" >
             <figure>
               <blockquote class="blockquote">
                 <h3 class="card-title mb-3">
@@ -49,8 +48,7 @@
         </div>
       </div>
     </div>
-    <!-- NOTE: artificial padding -->
-    <p style="margin-bottom: 80px"></p>
+    <p class="space-bottom-80"></p>
     {% endfor %}
   </div>
 </div>

@@ -14,7 +14,6 @@ class Certification(Portfolio):
     url: str
     issuer: str
     row: int
-    style: str
 
     @classmethod
     def from_yaml(cls, path: str) -> list["Certification"]:
@@ -39,6 +38,5 @@ class Certification(Portfolio):
                 url=certification.url,
                 date=certification.date,
                 row=certification.row,
-                style=certification.style,
                 issuer=certification.issuer,
             )

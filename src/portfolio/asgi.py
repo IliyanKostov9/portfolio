@@ -13,4 +13,9 @@ from django.core.asgi import get_asgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "portfolio.settings")
 
+if os.environ.get("PORTFOLIO_ENV") == "dev":
+    from dotenv import load_dotenv
+
+    load_dotenv()
+
 application = get_asgi_application()
