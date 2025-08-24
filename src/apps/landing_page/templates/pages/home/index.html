@@ -17,11 +17,8 @@
 <div class="d-flex justify-content-center align-items-center initial-content">
   <img
     src="{% static 'images/profile.jpg' %}"
-    class="img-fluid rounded-circle me-4 lazy"
-    style="margin: 70px"
+    class="profile-img img-fluid rounded-circle me-4 lazy"
     alt="profile"
-    width="450"
-    height="450"
   />
 
   <div class="text-start">
@@ -34,7 +31,7 @@
 </div>
 
 <!-- NOTE: artificial padding -->
-<p style="margin-bottom: 250px"/>
+<p class="spacing"/>
 
 <p class="lead text-center lazy hide-when-scrolling">
   Scroll down to find out more about me
@@ -52,19 +49,19 @@
 <div class="container text-center">
 
   {% include 'pages/home/about.html' %}
-  <p style="margin-bottom: 220px" />
+  <p class="spacing"/>
 
   {% include 'pages/home/work_history.html' %}
-  <p style="margin-bottom: 220px" />
+  <p class="spacing"/>
 
   {% include 'pages/home/education.html' %}
-  <p style="margin-bottom: 220px" />
+  <p class="spacing"/>
 
   {% include 'pages/home/certification.html' %}
-  <p style="margin-bottom: 220px" />
+  <p class="spacing"/>
 
   {% include 'pages/home/projects.html' %}
-  <p style="margin-bottom: 220px" />
+  <p class="spacing"/>
 
   {% include 'pages/home/contact_me.html' %}
 </div>

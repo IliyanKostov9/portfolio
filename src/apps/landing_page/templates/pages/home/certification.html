@@ -12,8 +12,7 @@
       <div class="card">
         <img
           src="{% static 'images/certificates/'|add:cert.image %}"
-          class="img-fluid mx-auto lazy"
-          style="{{ cert.style }}"
+          class="img-fluid mx-auto lazy spacing-30"
           width="150"
           height="150"
           alt="{{ cert.name }}"
@@ -39,7 +38,7 @@
           </figure>
         </div>
       </div>
-    <p style="margin-bottom: 50px" />
+    <p class="spacing-50" />
     </div>
     {% endfor %}
   </div>

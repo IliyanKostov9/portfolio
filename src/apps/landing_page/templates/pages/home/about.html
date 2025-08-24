@@ -46,7 +46,7 @@
         of Varna*. I got curious by the technical specialtes - mainly at
         computer science and computer technologies and internet. After a bit of
         thinking, I randomly choose the second option. That was by far the
-        <span style="color: green">best</span> life changing choice I've made so
+        <span class="p-green">best</span> life changing choice I've made so
         far and at that time I couldn't have imagined how much this decision was
         going to change me for the better.
       </p>
@@ -101,12 +101,11 @@
   </div>
 
   <!-- NOTE: artificial padding -->
-  <p style="margin-bottom: 50px" />
+  <p class="spacing-50" />
 
   <div
     id="prog"
-    style="max-width: 700px; margin: 0 auto"
-    class="carousel slide carousel-fade lazy"
+    class="carousel-slide carousel slide carousel-fade lazy"
     data-mdb-ride="carousel"
     data-mdb-carousel-init
   >
@@ -119,9 +118,7 @@
           alt="Blue art background for technology stack"
         />
         <div
-          class="carousel-caption d-none d-md-block mask d-flexbox p-2"
-          style="background-color: rgba(0, 0, 0, 0.6)"
-        >
+          class="carousel-caption-bg carousel-caption d-none d-md-block mask d-flexbox p-2">
           {% for category, category_data in pages_data.categories.items %}
           <h4 class="text-white">{{ category }}</h4>
           <div class="container list-unstyled">
@@ -150,21 +147,19 @@
 
       <!-- NOTE: invert(1) to make the color of the arrows white -->
       <button
-        class="carousel-control-prev"
+        class="carousel-control-prev invert-color"
         type="button"
         data-mdb-target="#prog"
         data-mdb-slide="prev"
-        style="filter: invert(1)"
       >
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
       <button
-        class="carousel-control-next"
+        class="carousel-control-next invert-color"
         type="button"
         data-mdb-target="#prog"
         data-mdb-slide="next"
-        style="filter: invert(1)"
       >
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>

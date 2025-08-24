@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from csp.constants import NONE, SELF, UNSAFE_INLINE
+from csp.constants import SELF, UNSAFE_INLINE
 
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = [os.environ.get("PORTFOLIO_HOST")]
@@ -99,30 +99,12 @@ CONTENT_SECURITY_POLICY = {
             SELF,
             "https://cdnjs.cloudflare.com",
             "https://fonts.googleapis.com",
+            "'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='",
+            "'sha256-3ITP0qhJJYBulKb1omgiT3qOK6k0iB3rMDhGfpM8b7c='",
+            "'sha256-DqHyLrY03A99krj4zwj8j6M04dAkecX+/ck4dgG6zCk='",
+            "'sha256-bsV5JivYxvGywDAZ22EZJKBFip65Ng9xoJVLbBg7bdo='",
         ],
-        "font-src": [NONE, "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
-        "img-src": [SELF],
-        "frame-ancestors": [SELF],
-        "form-action": [SELF],
-        # "report-uri": "/csp-report/",
-    },
-}
-
-CONTENT_SECURITY_POLICY_REPORT_ONLY = {
-    "DIRECTIVES": {
-        "default-src": [SELF],
-        "script-src": [
-            SELF,
-            UNSAFE_INLINE,
-            "https://cdnjs.cloudflare.com",
-            "https://unpkg.com",
-        ],
-        "style-src": [
-            SELF,
-            "https://cdnjs.cloudflare.com",
-            "https://fonts.googleapis.com",
-        ],
-        "font-src": [NONE, "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
+        "font-src": ["https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
         "img-src": [SELF],
         "frame-ancestors": [SELF],
         "form-action": [SELF],
