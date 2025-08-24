@@ -12,7 +12,6 @@ run: ## Run Django app
 	python3 -m uvicorn src.portfolio.asgi:application --reload
 
 test: ## Test Django app
-	export PORTFOLIO_SKIP_SECRET_KEY_CHECK=true
 	python3 -Wa ./src/manage.py test apps.landing_page.tests -v 3
 
 clean:

@@ -69,6 +69,8 @@ jobs:
           uv sync --group test
 
       - name: Run tests
+        env:
+          PORTFOLIO_SKIP_SECRET_KEY_CHECK: true
         run: |
           . .venv/bin/activate
           make test
