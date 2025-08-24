@@ -111,7 +111,7 @@ jobs:
       - name: Pylint
         run: |
           . .venv/bin/activate
-          pylint .
+          pylint src stubs
 
       - name: Black
         run: |
