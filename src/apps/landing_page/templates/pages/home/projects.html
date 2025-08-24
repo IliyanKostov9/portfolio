@@ -12,11 +12,8 @@
           <div class="col-md-4">
             <img
               src="{% static 'images/'|add:project.image %}"
-              class="img-fluid rounded-start me-4 lazy"
-              style="margin: 15px; margin-bottom: 80px; margin-top: 80px"
+              class="project-img img-fluid rounded-start me-4 lazy"
               alt="{{ project.name }}"
-              width="550"
-              height="550"
             />
           </div>
 
@@ -30,7 +27,7 @@
                   <p>{{ project.date }}</p>
                 </figcaption>
               </figure>
-              <p class="card-text" {% if project.scroll_description %}style="max-height: 80px; overflow-y: auto"{% endif %}>
+              <p class="card-text" {% if project.scroll_description %}scroll-text{% endif %}>
                 {{ project.description }}
               </p>
             </div>
@@ -53,6 +50,6 @@
     </div>
     {% endfor %}
   </div>
-  <p style="margin-bottom: 50px" />
+  <p class="space-bottom-50" />
   {% endfor %}
 </div>

@@ -27,7 +27,6 @@ class CertificationTestCase(Portfolio):
             self.assertEqual(certification_dc.image, certification.image)
             self.assertEqual(certification_dc.date, certification.date)
             self.assertEqual(certification_dc.url, certification.url)
-            self.assertEqual(certification_dc.style, certification.style)
             self.assertEqual(certification_dc.row, certification.row)
 
         super().tearDownClass()
@@ -69,6 +68,5 @@ class CertificationTestCase(Portfolio):
                 self.assertEqual(cert_model.date, cert["date"])
                 self.assertEqual(cert_model.url, cert["url"])
                 self.assertEqual(cert_model.issuer, cert["issuer"])
-                self.assertEqual(cert_model.style, cert["style"])
 
         super().tearDownClass()

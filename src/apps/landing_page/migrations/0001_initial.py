@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = []
@@ -40,12 +39,6 @@ class Migration(migrations.Migration):
                     models.CharField(verbose_name="Url of the certificate to verify"),
                 ),
                 ("issuer", models.CharField(verbose_name="Issuer of the certificate")),
-                (
-                    "style",
-                    models.CharField(
-                        max_length=300, verbose_name="Custom css of the certificate"
-                    ),
-                ),
             ],
             options={
                 "abstract": False,
