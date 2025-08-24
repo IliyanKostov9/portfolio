@@ -57,4 +57,4 @@ RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
 
 
 EXPOSE 8000
-CMD ["/app/.venv/bin/python3", "-m", "gunicorn", "src.portfolio.asgi:application", "-k", "uvicorn_worker.UvicornWorker", "-w", "4", "-b", "0.0.0.0:8000"]
+CMD ["/app/.venv/bin/python3", "-m", "gunicorn", "src.portfolio.asgi:application", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
