@@ -5,6 +5,9 @@ from django.core.handlers.wsgi import WSGIRequest
 from django.urls import reverse
 
 from apps.landing_page.models.education import Education
+from apps.landing_page.models.certification import Certification
+from apps.landing_page.models.project import Project
+from apps.landing_page.models.work_history import WorkHistory
 
 
 class HomeViewTestCase(TestCase):
@@ -30,7 +33,32 @@ class HomeViewTestCase(TestCase):
                 href_title="href_title",
                 date="date",
                 gpa="gpa",
-            )
+            ),
+            Certification.objects.create(
+                name="cert",
+                issuer="issuer",
+                image="image",
+                date="date",
+                url="url",
+                row=1,
+            ),
+            Project.objects.create(
+                name="project",
+                description="description",
+                image="image",
+                date="date",
+                scroll_description=False,
+                row=1,
+                repositories=[{"name": "name", "url": "url"}],
+            ),
+            WorkHistory.objects.create(
+                company_name="company_name",
+                company_name_label="company_name_label",
+                image="image",
+                specialty="specialty",
+                dates=["date123"],
+                description="description",
+            ),
         ]
 
         self.view.setup(self.request)
