@@ -27,25 +27,32 @@
                   <p>{{ project.date }}</p>
                 </figcaption>
               </figure>
-              <p class="card-text" {% if project.scroll_description %}scroll-text{% endif %}>
+              <p
+                class="card-text"
+                {% if project.scroll_description %}scroll-text
+                {% endif %}
+              >
                 {{ project.description }}
               </p>
             </div>
-            </div>
-              <div class="btn-group mt-auto p-3" aria-label="{{ project.name }} buttons for github">
-              {% for repo in project.repositories %}
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-rounded btn-lg"
-                data-mdb-ripple-init
-                onclick="window.open('{{ repo.url }}','_blank')"
-              >
-                {{ repo.name }}
-                <i class="fab fa-github"></i>
-              </button>
-              {% endfor %}
-              </div>
-            </div>
+          </div>
+          <div
+            class="btn-group mt-auto p-3"
+            aria-label="{{ project.name }} buttons for github"
+          >
+            {% for repo in project.repositories %}
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-rounded btn-lg"
+              data-mdb-ripple-init
+              onclick="window.open('{{ repo.url }}','_blank')"
+            >
+              {{ repo.name }}
+              <i class="fab fa-github"></i>
+            </button>
+            {% endfor %}
+          </div>
+        </div>
       </div>
     </div>
     {% endfor %}
