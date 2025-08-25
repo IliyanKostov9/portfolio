@@ -5,13 +5,12 @@
     </h2>
 
     <ul class="nav nav-tabs nav-justified mb-3" id="projects-tab">
-
       {% for work_history in work_histories %}
 
       <li class="nav-item">
         <a
           data-mdb-tab-init
-          class="nav-link  {% if forloop.first %}active{% endif %}"
+          class="nav-link {% if forloop.first %}active{% endif %}"
           id="{{ work_history.company_name_label }}"
           href="#{{ work_history.company_name_label }}-href"
           role="tab"
@@ -45,9 +44,7 @@
             {% endfor %}
           </figcaption>
         </figure>
-    <div class="text-start">
-        {{ work_history.description|linebreaks }}
-      </div>
+        <div class="text-start">{{ work_history.description|linebreaks }}</div>
       </div>
       {% endfor %}
     </div>
