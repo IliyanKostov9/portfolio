@@ -25,3 +25,15 @@ class ContactMeTestCase(TestCase):
         )
         self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, "/")
+
+        response: WSGIRequest = self.client.post(
+            "/home/contact-me/",
+            {
+                "name": "dummy",
+                "email": "This is invalid email",
+                "message": "This is a dummy message by dummy from dummy",
+            },
+            follow=True,
+        )
+
+        self.assertEqual(response.status_code, 400)
