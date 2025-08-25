@@ -46,8 +46,8 @@
         of Varna*. I got curious by the technical specialtes - mainly at
         computer science and computer technologies and internet. After a bit of
         thinking, I randomly choose the second option. That was by far the
-        <span class="p-green">best</span> life changing choice I've made so
-        far and at that time I couldn't have imagined how much this decision was
+        <span class="p-green">best</span> life changing choice I've made so far
+        and at that time I couldn't have imagined how much this decision was
         going to change me for the better.
       </p>
       <p>
@@ -109,7 +109,7 @@
     data-mdb-carousel-init
   >
     <div class="carousel-inner rounded-5 shadow-4-strong">
-      {%  for page, pages_data in technologies.pages.items %}
+      {% for page, pages_data in technologies.pages.items %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
         <img
           src="{% static 'images/technologies_background.jpg' %}"
@@ -117,16 +117,16 @@
           alt="Blue art background for technology stack"
         />
         <div
-          class="carousel-caption-bg carousel-caption d-none d-md-block mask d-flexbox p-2">
+          class="carousel-caption-bg carousel-caption d-none d-md-block mask d-flexbox p-2"
+        >
           {% for category, category_data in pages_data.categories.items %}
           <h4 class="text-white">{{ category }}</h4>
           <div class="container list-unstyled">
             {% for row, row_data in category_data.rows.items %}
             <div class="row">
-            {% for technology in row_data %}
+              {% for technology in row_data %}
               <div class="col-md">
                 <p class="text-white">
-
                   {% if technology.icon|slice:"-4:" == ".svg" %}
                   {% include 'icons/'|add:technology.icon %}
                   {% elif technology.icon|slice:":3" == "fab" %}
@@ -138,7 +138,7 @@
               {% endfor %}
             </div>
             {% endfor %}
-            </div>
+          </div>
           {% endfor %}
         </div>
       </div>
