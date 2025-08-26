@@ -8,11 +8,6 @@ from django.conf import settings
 class ContactMeTestCase(TestCase):
     def test_post(self):
         settings.SECRET_KEY = "dummy-key"
-        # settings.PORTFOLIO_FROM_EMAIL = "dummy.dummy@mail.com"
-        # settings.PORTFOLIO_EMAIL_HOST = "smtp.dummy.com"
-        # settings.PORTFOLIO_EMAIL_USER = "dummy"
-        # settings.PORTFOLIO_EMAIL_PASSWORD = "123"
-
         os.environ["PORTFOLIO_FROM_EMAIL"] = "dummy.dummy@mail.com"
         os.environ["PORTFOLIO_TO_EMAIL"] = "dummy.dummy@mail.com"
         os.environ["PORTFOLIO_EMAIL_USER"] = "dummy"
@@ -33,6 +28,7 @@ class ContactMeTestCase(TestCase):
             follow=True,
         )
 
+        print(f"CSP {response.headers.get('Content-Security-Policy-Report-Only')}")
         self.assertEqual(
             hash(response.headers.get("Content-Security-Policy-Report-Only").strip()),
             hash(expected_headers),
