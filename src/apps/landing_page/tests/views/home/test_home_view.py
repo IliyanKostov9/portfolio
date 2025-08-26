@@ -1,21 +1,22 @@
 from apps.landing_page.views.home.home_view import HomeView
 from django.core.handlers.wsgi import WSGIRequest
 from django.urls import reverse
-from django.test import TestCase, RequestFactory, override_settings
+from django.test import TestCase, RequestFactory
 
 from apps.landing_page.models.education import Education
 from apps.landing_page.models.certification import Certification
 from apps.landing_page.models.project import Project
 from apps.landing_page.models.work_history import WorkHistory
 
+from django.conf import settings
 
-@override_settings(SECRET_KEY="dummy-key")
+
 class HomeViewTestCase(TestCase):
     def setUp(self):
         self.request = RequestFactory().get(reverse("home"))
         self.view = HomeView()
         self.view.setup(self.request)
-        self.settings.SECRET_KEY = "dummy-key"
+        settings.SECRET_KEY = "dummy-key"
 
     def test_get(self):
         response: WSGIRequest = self.client.get(
