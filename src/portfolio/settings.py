@@ -35,7 +35,7 @@ CSP_POLICY = {
 }
 
 SECRET_KEY = bool(os.environ.get("PORTFOLIO_SECRET_KEY"))
-skip_check = bool("PORTFOLIO_SKIP_SECRET_KEY_CHECK", False)
+skip_check = bool(os.environ.get("PORTFOLIO_SKIP_SECRET_KEY_CHECK", False))
 
 print(f"Skip check {skip_check}")
 
