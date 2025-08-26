@@ -14,6 +14,7 @@ class ContactMeTestCase(TestCase):
         # settings.PORTFOLIO_EMAIL_PASSWORD = "123"
 
         os.environ["PORTFOLIO_FROM_EMAIL"] = "dummy.dummy@mail.com"
+        os.environ["PORTFOLIO_TO_EMAIL"] = "dummy.dummy@mail.com"
         os.environ["PORTFOLIO_EMAIL_USER"] = "dummy"
         os.environ["PORTFOLIO_EMAIL_HOST"] = "smtp.dummy.com"
         os.environ["PORTFOLIO_EMAIL_PASSWORD"] = "123"
