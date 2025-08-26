@@ -10,7 +10,8 @@ class Project(Portfolio):
     name: CharField = CharField("Name of the project", max_length=50)
     description: CharField = CharField("Description of the project", max_length=300)
     scroll_description: BooleanField = BooleanField(
-        "Whether or not the description should be scrollable or not"
+        "Whether or not the description should be scrollable or not",
+        null=True,
     )
     image: CharField = CharField("Image of the project", max_length=30)
     date: CharField = CharField("Date of the project being worked on")
