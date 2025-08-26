@@ -1,8 +1,7 @@
-from django.test import RequestFactory, TestCase
-import os
 from apps.landing_page.views.home.home_view import HomeView
 from django.core.handlers.wsgi import WSGIRequest
 from django.urls import reverse
+from django.test import override_settings, TestCase, RequestFactory
 
 from apps.landing_page.models.education import Education
 from apps.landing_page.models.certification import Certification
@@ -10,6 +9,7 @@ from apps.landing_page.models.project import Project
 from apps.landing_page.models.work_history import WorkHistory
 
 
+@override_settings(SECRET_KEY="dummy-key")
 class HomeViewTestCase(TestCase):
     def setUp(self):
         self.request = RequestFactory().get(reverse("home"))
@@ -17,7 +17,6 @@ class HomeViewTestCase(TestCase):
         self.view.setup(self.request)
 
     def test_get(self):
-        os.environ["PORTFOLIO_SKIP_SECRET_KEY_CHECK"] = "true"
         response: WSGIRequest = self.client.get(
             "/",
         )
