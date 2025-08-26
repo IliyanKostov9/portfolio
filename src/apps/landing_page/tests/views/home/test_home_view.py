@@ -15,6 +15,7 @@ class HomeViewTestCase(TestCase):
         self.request = RequestFactory().get(reverse("home"))
         self.view = HomeView()
         self.view.setup(self.request)
+        self.settings.SECRET_KEY = "dummy-key"
 
     def test_get(self):
         response: WSGIRequest = self.client.get(
