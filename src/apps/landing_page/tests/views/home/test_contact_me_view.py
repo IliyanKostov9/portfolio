@@ -1,8 +1,9 @@
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.core.handlers.wsgi import WSGIRequest
 from apps.landing_page.helpers.hash import hash
 
 
+@override_settings(SECRET_KEY="dummy-key")
 class ContactMeTestCase(TestCase):
     def test_post(self):
         expected_headers = """
