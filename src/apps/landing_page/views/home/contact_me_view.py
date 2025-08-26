@@ -3,7 +3,7 @@ from typing import Any
 
 from django.contrib import messages
 from django.core.mail import EmailMessage
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import redirect
 from django.views import View
 
@@ -33,7 +33,7 @@ class ContactMeView(View):
             return redirect("home")
         else:
             print("Form is invalid for some reason!")
-            return None
+            return HttpResponseBadRequest()
 
     def _check_email_envs_are_set(self) -> None:
         mandatory_env_variables: list[str] = [

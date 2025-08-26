@@ -35,7 +35,9 @@ CSP_POLICY = {
 }
 
 SECRET_KEY = os.environ.get("PORTFOLIO_SECRET_KEY")
-if not SECRET_KEY and not os.environ.get("PORTFOLIO_SKIP_SECRET_KEY_CHECK", False):
+if not SECRET_KEY and not bool(
+    os.environ.get("PORTFOLIO_SKIP_SECRET_KEY_CHECK", False)
+):
     raise OSError("SECRET KEY is not set!")
 
 if os.environ.get("PORTFOLIO_ENV") == "prod":
