@@ -1,5 +1,5 @@
 from django.test import RequestFactory, TestCase
-
+import os
 from apps.landing_page.views.home.home_view import HomeView
 from django.core.handlers.wsgi import WSGIRequest
 from django.urls import reverse
@@ -17,6 +17,7 @@ class HomeViewTestCase(TestCase):
         self.view.setup(self.request)
 
     def test_get(self):
+        os.environ["PORTFOLIO_SKIP_SECRET_KEY_CHECK"] = True
         response: WSGIRequest = self.client.get(
             "/",
         )
