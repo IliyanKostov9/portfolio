@@ -17,7 +17,7 @@ class HomeViewTestCase(TestCase):
         self.view.setup(self.request)
 
     def test_get(self):
-        os.environ["PORTFOLIO_SKIP_SECRET_KEY_CHECK"] = True
+        os.environ["PORTFOLIO_SKIP_SECRET_KEY_CHECK"] = "true"
         response: WSGIRequest = self.client.get(
             "/",
         )
