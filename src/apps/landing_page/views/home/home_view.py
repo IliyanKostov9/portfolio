@@ -9,10 +9,16 @@ from apps.landing_page.models.education import Education
 from apps.landing_page.models.project import Project
 from apps.landing_page.models.technology import Technology
 from apps.landing_page.models.work_history import WorkHistory
+from src.portfolio.monitor.log import logger
 
 
 class HomeView(View):
     def get(self, request: Any) -> HttpResponse:
+        logger.info("Configure it")
+        logger.info(
+            "Response {code} url: {url}", code=200, url="https://loki_handler.io"
+        )
+
         template = loader.get_template("pages/home/index.html")
 
         technologies = Technology().transform()

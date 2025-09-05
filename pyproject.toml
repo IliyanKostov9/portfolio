@@ -22,6 +22,8 @@ dependencies = [
     "pip>=25.2",
     "django-csp>=4.0",
     "loguru>=0.7.3",
+    "loki-logger-handler>=1.1.2",
+    "requests>=2.32.5",
 ]
 requires-python = "==3.11.*"
 readme = "README.md"
