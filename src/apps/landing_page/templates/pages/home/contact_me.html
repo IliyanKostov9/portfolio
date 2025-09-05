@@ -13,6 +13,7 @@
           {% csrf_token %}
 
           <div data-mdb-input-init class="form-outline mb-4">
+            <div class="input-group">
             <input
               id="name"
               name="name"
@@ -22,8 +23,10 @@
             />
             <label class="form-label" for="name">Name</label>
           </div>
+          </div>
 
           <div data-mdb-input-init class="form-outline mb-4">
+          <div class="input-group">
             <input
               id="email"
               name="email"
@@ -33,10 +36,12 @@
             />
             <label class="form-label" for="email">Email address</label>
           </div>
+          </div>
 
           <div data-mdb-input-init class="form-outline mb-4">
+          <div class="input-group">
             <textarea
-              class="form-control"
+              class="form-control height-120"
               id="message"
               name="message"
               maxlength="300"
@@ -44,6 +49,7 @@
               required
             ></textarea>
             <label class="form-label" for="message">Message</label>
+          </div>
           </div>
 
           <button
