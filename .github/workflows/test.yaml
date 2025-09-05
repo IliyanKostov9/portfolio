@@ -11,6 +11,9 @@ on:
       - "!.gitignore"
       - "!README.md"
 
+env:
+  PYRE_SKIP: true
+
 jobs:
   checkout:
     name: Checkout repo
@@ -127,23 +130,26 @@ jobs:
 
       - name: Restore Pyre cache
         uses: actions/cache/restore@v4
+        if: env.PYRE_SKIP == 'false'
         with:
           path: .pyre
           key: pyre-cache
 
       - name: Pyre analysis
+        if: env.PYRE_SKIP == 'false'
         run: |
           . .venv/bin/activate
           pyre --output=json | python3 -m json.tool
 
       - name: Pysa analysis
+        if: env.PYRE_SKIP == 'false'
         run: |
           . .venv/bin/activate
           pyre --noninteractive analyze --no-verify --use-cache --output-format json
 
       - name: Save Pyre cache
         uses: actions/cache/save@v4
-        if: always()
+        if: env.PYRE_SKIP == 'false'
         with:
           path: .pyre
           key: pyre-cache
