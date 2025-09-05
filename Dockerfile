@@ -31,7 +31,6 @@ LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio
 	env="prod"
 
 
-
 FROM python:3.11-bookworm
 USER ${DOCKER_USER}
 WORKDIR /app
@@ -43,6 +42,7 @@ RUN apt-get update && apt-get install -y \
 COPY --from=build /opt/.venv /app/.venv
 COPY --chown=${DOCKER_USER}:${DOCKER_USER} src /app/src
 
+
 ENV PYTHONPATH=/app:/app/src/apps:/app/src
 ENV PORTFOLIO_ENV="prod"
 ENV PORTFOLIO_SKIP_SECRET_KEY_CHECK=true
@@ -51,7 +51,6 @@ RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
 	/app/.venv/bin/python3 src/manage.py migrate --noinput && \
 	/app/.venv/bin/python3 src/manage.py collectstatic --noinput && \
 	/app/.venv/bin/python3 src/manage.py compress --force
-
 
 EXPOSE 8000
 CMD ["/app/.venv/bin/python3", "-m", "uvicorn", "src.portfolio.asgi:application", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
