@@ -1,26 +1,11 @@
 $spacer: 10px;
 
-.mt-0 {
-  margin-top: 0 !important;
-}
-
-.ms-1 {
-  margin-left: ($spacer * 0.25) !important;
-}
-
-.pad-100 {
-  margin: 100px !important;
-}
-
-.px-2 {
-  padding-left: ($spacer * 0.5) !important;
-  padding-right: ($spacer * 0.5) !important;
-}
-
+// Padding
 .p-3 {
   padding: $spacer !important;
 }
 
+// Lazy
 .lazy {
   opacity: 0;
   transform: translateY(20px);
@@ -34,6 +19,7 @@ $spacer: 10px;
   transform: translateY(0);
 }
 
+// Hide element
 .hide-when-scrolling {
   transition:
     opacity 1s ease-out,
@@ -46,24 +32,51 @@ $spacer: 10px;
   pointer-events: none;
 }
 
-.spacing {
+// Spacing
+.spacing-bot-250 {
   margin-bottom: 250px;
 }
 
-.spacing-50 {
+.spacing-30 {
+  margin: 30px;
+}
+
+.spacing-lef-50 {
+  margin-left: 50px;
+}
+
+.spacing-bot-150 {
+  margin-bottom: 150px;
+}
+
+.spacing-bot-50 {
   margin-bottom: 50px;
 }
 
+.spacing-bot-80 {
+  margin-bottom: 80px;
+}
+.spacing-bot-50 {
+  margin-bottom: 50px;
+}
+
+// Profile
 .profile-img {
   margin: 70px;
   width: 450;
   height: 450;
 }
 
-.p-green {
+// Color
+.green {
   color: green;
 }
 
+.invert-color {
+  filter: invert(1);
+}
+
+// Carousel
 .carousel-slide {
   max-width: 700px;
   margin: 0 auto;
@@ -73,42 +86,33 @@ $spacer: 10px;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.invert-color {
-  filter: invert(1);
-}
-
-.spacing-30 {
-  margin: 30px;
-}
-
-.spacing-left-50 {
-  margin-left: 50px;
-}
-
-.space-bottom-150 {
-  margin-bottom: 150px;
-}
-
-.space-bottom-50 {
-  margin-bottom: 50px;
-}
-
-.space-bottom-80 {
-  margin-bottom: 80px;
-}
-
+// Form
 .form-width-50 {
   width: 50rem;
 }
 
+// Display
 .display-none {
   display: none;
 }
 
+// Width
 .max-width-700 {
   max-width: 700px;
 }
 
+// Height
+.height-120 {
+  height: 120px !important;
+}
+
+// Text scroll
+.scroll-text {
+  max-height: 80px;
+  overflow-y: auto;
+}
+
+// Page specific
 .education-img {
   margin: 50px;
   margin-bottom: 80px;
@@ -121,13 +125,4 @@ $spacer: 10px;
   margin-top: 80px;
   width: 550;
   height: 550;
-}
-
-.scroll-text {
-  max-height: 80px;
-  overflow-y: auto;
-}
-
-.height-120 {
-  height: 120px !important;
 }
