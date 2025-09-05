@@ -15,16 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.urls import include, path, re_path
+from django.urls import include, path
+
 from portfolio.views.error.error_404 import Error404
 from portfolio.views.error.error_500 import Error500
-from django.views.static import serve
-from django.conf import settings
 
 urlpatterns = [
     # path("admin/", admin.site.urls),  # pyre-ignore[16]
     path("", include("apps.landing_page.urls")),
-    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
 ]
 
 handler404 = Error404.as_view()
