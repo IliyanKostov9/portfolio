@@ -31,7 +31,7 @@ FROM_EMAIL = "john.doe@mail.com"
 TO_EMAIL = "john.doe@mail.com"
 EMAIL_HOST = "smtp.gmail.com" # or whatever you use
 EMAIL_USER = "user"
-EMAIL_PASSWORD = "passwor"
+EMAIL_PASSWORD = "password"
 ```
 
 2. Install your dependencies
