@@ -59,12 +59,17 @@ if os.environ.get("PORTFOLIO_ENV") == "prod":
 
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
     # NOTE: Maybe remove it from prod ?
-    # CACHES = {
-    #     "default": {
-    #         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-    #         "LOCATION": "portfolio-cache",
-    #     }
-    # }
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+            "LOCATION": "portfolio-cache",
+        }
+    }
+    STORAGES = {
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
 
     print("Running in production. Now setting all prod options ON...")
 else:
@@ -93,6 +98,7 @@ apps = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # NOTE: Test
+    "whitenoise.runserver_nostatic",
     "django_test_migrations.contrib.django_checks.AutoNames",
     "django_test_migrations.contrib.django_checks.DatabaseConfiguration",
     "django_migration_linter",
@@ -194,7 +200,9 @@ STATICFILES_FINDERS = (
     "compressor.finders.CompressorFinder",
 )
 
-COMPRESS_ROOT = BASE_DIR / "static"
+# COMPRESS_ROOT = BASE_DIR / "static"
+COMPRESS_ROOT = STATIC_ROOT
+COMPRESS_OUTPUT_DIR = "CACHE"
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
