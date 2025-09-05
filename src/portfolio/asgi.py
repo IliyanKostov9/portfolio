@@ -20,8 +20,8 @@ if os.environ.get("PORTFOLIO_ENV") == "dev":
     load_dotenv()
 
 if os.environ.get("PORTFOLIO_ENV") == "prod":
-    application = get_asgi_application()
-else:
     application = WhiteNoise(
         get_asgi_application(), root="/var/www/portfolio.ikostov.org/static"
     )
+else:
+    application = get_asgi_application()
