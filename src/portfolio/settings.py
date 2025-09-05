@@ -57,8 +57,7 @@ if os.environ.get("PORTFOLIO_ENV") == "prod":
     COMPRESS_ENABLED = True
     COMPRESS_OFFLINE = True
 
-    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
-    # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
     # NOTE: Maybe remove it from prod ?
     CACHES = {
         "default": {
