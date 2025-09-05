@@ -6,6 +6,19 @@ from csp.constants import SELF, UNSAFE_INLINE
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = [os.environ.get("PORTFOLIO_HOST")]
 
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    f"{BASE_DIR}/apps/landing_page/static",
+]
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+)
+
+COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
+
 CSP_POLICY = {
     "DIRECTIVES": {
         "default-src": [SELF],
@@ -56,6 +69,9 @@ if os.environ.get("PORTFOLIO_ENV") == "prod":
     CONN_MAX_AGE = None
     COMPRESS_ENABLED = True
     COMPRESS_OFFLINE = True
+    STATIC_ROOT = "/var/www/portfolio.ikostov.org/static/"
+    COMPRESS_ROOT = STATIC_ROOT
+    COMPRESS_OUTPUT_DIR = "CACHE"
 
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
     # NOTE: Maybe remove it from prod ?
@@ -64,6 +80,11 @@ if os.environ.get("PORTFOLIO_ENV") == "prod":
             "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
             "LOCATION": "portfolio-cache",
         }
+    }
+    STORAGES = {
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
     }
 
     print("Running in production. Now setting all prod options ON...")
@@ -79,6 +100,7 @@ else:
     }
 
     CONTENT_SECURITY_POLICY_REPORT_ONLY = CSP_POLICY
+    COMPRESS_ROOT = BASE_DIR / "static"
     print("Running in non production. Now setting all prod options OFF...")
 
 
@@ -93,6 +115,7 @@ apps = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # NOTE: Test
+    "whitenoise.runserver_nostatic",
     "django_test_migrations.contrib.django_checks.AutoNames",
     "django_test_migrations.contrib.django_checks.DatabaseConfiguration",
     "django_migration_linter",
@@ -181,21 +204,6 @@ TIME_ZONE = "Europe/Paris"
 USE_I18N = True
 
 USE_TZ = True
-
-STATIC_ROOT = "/var/www/portfolio.ikostov.org/static/"
-STATIC_URL = "/static/"
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    f"{BASE_DIR}/apps/landing_page/static",
-]
-STATICFILES_FINDERS = (
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "compressor.finders.CompressorFinder",
-)
-
-COMPRESS_ROOT = BASE_DIR / "static"
-COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_PORT = 587

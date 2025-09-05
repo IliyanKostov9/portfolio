@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const tabLinks = document.querySelectorAll("[data-mdb-tab-init]");
   const collapse = document.querySelectorAll("[data-mdb-collapse-init]");
   const tooltips = document.querySelectorAll("[data-mdb-tooltip-init]");
+  const inputs = document.querySelectorAll("[data-mdb-input-init]");
 
   document
     .getElementById("contactForm")
@@ -30,4 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
   tooltips.forEach((tooltip) => {
     new mdb.Tooltip(tooltip);
   });
+
+  inputs.forEach((formOutline) => {
+    const input = formOutline.querySelector("input");
+    const mdbInput = new mdb.Input(formOutline);
+    mdbInput.update(input);
+  });
+
 });
