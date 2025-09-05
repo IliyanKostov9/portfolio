@@ -59,12 +59,12 @@ if os.environ.get("PORTFOLIO_ENV") == "prod":
 
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
     # NOTE: Maybe remove it from prod ?
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-            "LOCATION": "portfolio-cache",
-        }
-    }
+    # CACHES = {
+    #     "default": {
+    #         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+    #         "LOCATION": "portfolio-cache",
+    #     }
+    # }
 
     print("Running in production. Now setting all prod options ON...")
 else:
