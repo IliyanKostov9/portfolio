@@ -33,9 +33,6 @@ $spacer: 10px;
 }
 
 // Spacing
-.spacing-bot-250 {
-  margin-bottom: 250px;
-}
 
 .about-me-spacing-bot {
   margin-bottom: 250px;
@@ -60,6 +57,10 @@ $spacer: 10px;
   .about-me-spacing-bot {
     margin-bottom: 610px;
   }
+}
+
+.spacing-bot-200 {
+  margin-bottom: 200px;
 }
 
 .spacing-30 {
