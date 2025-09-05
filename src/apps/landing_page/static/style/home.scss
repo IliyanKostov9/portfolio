@@ -33,8 +33,34 @@ $spacer: 10px;
 }
 
 // Spacing
-.spacing-bot-250 {
+
+.about-me-spacing-bot {
   margin-bottom: 250px;
+}
+
+// 2560 Monitor
+@media (min-width: 1400px) and (max-width: 2559px) {
+  .about-me-spacing-bot {
+    margin-bottom: 660px;
+  }
+}
+
+// Monitor
+@media (min-width: 992px) and (max-width: 1399px) {
+  .about-me-spacing-bot {
+    margin-bottom: 750px;
+  }
+}
+
+// Phones
+@media (max-width: 575px) {
+  .about-me-spacing-bot {
+    margin-bottom: 610px;
+  }
+}
+
+.spacing-bot-200 {
+  margin-bottom: 200px;
 }
 
 .spacing-30 {
