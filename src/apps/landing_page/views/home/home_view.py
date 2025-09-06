@@ -9,14 +9,16 @@ from apps.landing_page.models.education import Education
 from apps.landing_page.models.project import Project
 from apps.landing_page.models.technology import Technology
 from apps.landing_page.models.work_history import WorkHistory
-from src.portfolio.monitor.log import logger
+from portfolio.monitor.log import logger
 
 
 class HomeView(View):
+    LOG = logger.bind(module="home_view")
+
     def get(self, request: Any) -> HttpResponse:
-        logger.info("Configure it")
-        logger.info(
-            "Response {code} url: {url}", code=200, url="https://loki_handler.io"
+        self.LOG.info(
+            f"User: {request.META.get('REMOTE_ADDR')} is requesting to view the landing page",
+            code=200,
         )
 
         template = loader.get_template("pages/home/index.html")
@@ -35,4 +37,8 @@ class HomeView(View):
             "projects": projects,
         }
 
+        self.LOG.success(
+            f"Page load for home view was successfull for user {request.META.get('REMOTE_ADDR')}",
+            code=200,
+        )
         return HttpResponse(template.render(context, request))
