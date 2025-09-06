@@ -25,16 +25,11 @@ with the following branches
 
 Merges into those branches are only allowed with a PR
 
-- dev -> DEV environment
-- qa -> QA environment
-- prod -> PROD environment
-
-with an exception of hotfixes, to `qa` and `prod` branch it is only allowed to open a PR in the following order:
-`dev` -> `qa` -> `prod`
+- feature -> PROD (master) environment
 
 ### Deployments
 
-The deployments to **DEV/QA/PROD** are automated. That means that whenever a PR is merged to one of the **Team branches**
+The deployments to **PROD** are automated. That means that whenever a PR is merged to one of the **Team branches**
 the CI/CD build is triggered and will automatically deploy those changes to the related environment.
 
 ## Commit messages
