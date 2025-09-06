@@ -29,6 +29,14 @@ migrate-check: ## Check if the migrations are compatible
 type-inference: ## Perform static type check with Pyre
 	pyre infer -i
 
+
+.PHONY: sql-reset
+sql-reset: ## Perform SQL reset
+	echo "Deleting database..."
+	rm -rf $(MAKE)/src/db.sqlite3
+	echo "Deleting migrations..."
+	rm -rf $(MAKE)/src/apps/landing_page/migrations/00*.py
+
 .PHONY: schema-update
 schema-update: ## Update SQL schema & create an empty migration
 	python3 src/manage.py makemigrations landing_page
@@ -48,14 +56,6 @@ sql-init-test: ## Perform SQL migration
 .PHONY: show-migrate
 show-migrate: ## Perform SQL migration
 	python3 src/manage.py showmigrations
-
-
-.PHONY: sql-reset
-sql-reset: ## Perform SQL reset
-	echo "Deleting database..."
-	rm -rf $(MAKE)/src/db.sqlite3
-	echo "Deleting migrations..."
-	rm -rf $(MAKE)/src/apps/landing_page/migrations/00*.py
 
 
 .PHONY: generate-secretkey

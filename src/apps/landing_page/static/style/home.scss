@@ -152,3 +152,28 @@ $spacer: 10px;
   width: 550;
   height: 550;
 }
+
+// Progress bar widget
+.progress-bar-25 {
+  --percentage: 25;
+  width: 80px;
+  height: 80px;
+}
+
+.progress-bar-50 {
+  --percentage: 50;
+  width: 80px;
+  height: 80px;
+}
+
+.progress-bar-75 {
+  --percentage: 75;
+  width: 80px;
+  height: 80px;
+}
+
+.progress-bar-100 {
+  --percentage: 100;
+  width: 80px;
+  height: 80px;
+}
