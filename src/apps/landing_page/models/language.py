@@ -9,7 +9,7 @@ from apps.landing_page.models.portfolio import Portfolio
 class Language(Portfolio):
     name: CharField = CharField("Language", max_length=50)
     proficiency: CharField = CharField("Proficiency of the language", max_length=50)
-    flag: CharField = CharField("Flag of the language", max_length=50)
+    icon: CharField = CharField("Flag of the language", max_length=50)
     row: IntegerField = IntegerField("Row number of the language")
 
     @override

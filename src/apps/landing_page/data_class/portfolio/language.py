@@ -10,7 +10,7 @@ from apps.landing_page.data_class.portfolio.portfolio import Portfolio
 class Language(Portfolio):
     name: str
     proficiency: str
-    flag: bool
+    icon: str
     row: int
 
     @classmethod
@@ -32,5 +32,5 @@ class Language(Portfolio):
                 name=language.name,
                 proficiency=language.proficiency,
                 row=language.row,
-                flag=language.flag,
+                icon=language.icon,
             )
