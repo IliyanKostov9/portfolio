@@ -52,7 +52,6 @@ class Language(Portfolio):
             language["level_color"] = LANGUAGE_LEVEL_COLORS.get(language["proficiency"])
             rows[row]["language"].append(language)
 
-        print(f"Languages: {result}")
         return result
 
     @override
