@@ -12,7 +12,37 @@
 ## 🚀 About
 
 This project is for creating and maintaining my personal website at [https://portfolio.ikostov.org](https://portfolio.ikostov.org).
-The application is hosted on a Raspberry pi 4B in Docker. You can find it's configuration [here](https://github.com/IliyanKostov9/raspberry-pi-dotfiles/blob/master/docker/personal/docker-compose.yaml)
+
+The project is build as a server side web app with the [Django framework](https://www.djangoproject.com/).
+It uses the standard (MVC) architecture pattern and the views are rendered as [Jinja templates](https://jinja.palletsprojects.com/en/stable/).
+
+> [!IMPORTANT]
+> The application follows the [Django guide deployment checklist](https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/), and if you find any security vulnerabilities, then please contact me by following [SECURITY.md](https://github.com/IliyanKostov9/portfolio/blob/master/.github/SECURITY.md)
+
+Since the application is light and only loads static data from [these yaml files](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/landing_page/config/portfolio), it currently uses [SQLite](https://sqlite.org/) (*the simpler the better*)
+Email sending is done with [AWS SES](https://aws.amazon.com/ses/).
+
+For the web server, it uses the better ASGI web server on [Uvicorn](https://www.uvicorn.org/). We don't need to run it on [Guvicorn](https://gunicorn.org/), as it doesn't get a lot of web traffic.
+
+Testing is written with the Django integrated test suite libraries, with unit tests on the [models](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/landing_page/tests/models) and integration tests for the [views](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/landing_page/tests/views).
+
+The development environment can be optionally installed with the help of [Nix devenv](https://devenv.sh/).
+For CI/CD, it uses github action to test & scan for security vulnerabilities, for deployment is by publishing a docker image to [Github packages](https://github.com/IliyanKostov9/portfolio/pkgs/container/portfolio).
+Afterwards the image gets pulled from Raspberry PI 4B in Docker (you can find it's configuration [here](https://github.com/IliyanKostov9/raspberry-pi-dotfiles/blob/master/docker/personal/docker-compose.yaml)).
+
+For maintenance it uses [Grafana](https://grafana.com/), that the application sends log data via the [Loguru](https://github.com/Delgan/loguru) library and sends it to [Grafana Loki](https://grafana.com/oss/loki/).
+
+## ✨ Technology stack
+
+- [Python](https://www.python.org/)
+- [Django](https://www.djangoproject.com/)
+- [Nix devenv](https://devenv.sh/)
+- [Grafana](https://grafana.com/)
+- [SQLite](https://sqlite.org/)
+- [Docker](https://www.docker.com/)
+- [Github actions](https://github.com/features/actions)
+- [AWS Simple Email Service](https://aws.amazon.com/ses/)
+
 
 ## 🎉 Getting started
 
@@ -27,11 +57,15 @@ In order to build & run the app, make sure you have installed [Python 3.11](http
 1. Add your secrets in `.env` file.
 
 ```bash
-FROM_EMAIL = "john.doe@mail.com"
-TO_EMAIL = "john.doe@mail.com"
-EMAIL_HOST = "smtp.gmail.com" # or whatever you use
-EMAIL_USER = "user"
-EMAIL_PASSWORD = "password"
+PORTFOLIO_FROM_EMAIL=john.doe@mail.com
+PORTFOLIO_TO_EMAIL=jane.doe@mail.com
+PORTFOLIO_EMAIL_HOST="smtp.outlook.com"
+PORTFOLIO_EMAIL_USER=user123
+PORTFOLIO_EMAIL_PASSWORD=password123
+PORTFOLIO_HOST=localhost
+PORTFOLIO_ENV=dev
+PORTFOLIO_SECRET_KEY="django-insecure-123"
+PORTFOLIO_LOKI_URL="https://{{USER}}:{{PASSWORD}}@grafana.net/loki/api/v1/push"
 ```
 
 2. Install your dependencies

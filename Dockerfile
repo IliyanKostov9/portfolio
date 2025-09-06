@@ -25,12 +25,6 @@ RUN /opt/.venv/bin/pip install --no-cache-dir --find-links=/wheels libsass \
 	&& /opt/.venv/bin/pip install --no-cache-dir -r requirements.txt \
 	&& /opt/.venv/bin/pip uninstall -y uv
 
-LABEL org.opencontainers.image.source=https://github.com/IliyanKostov9/portfolio \
-	version="1.0.0-RELEASE" \
-	description="Portfolio app" \
-	author="Iliyan Kostov" \
-	env="prod"
-
 
 FROM python:3.11-bookworm
 USER ${DOCKER_USER}
@@ -54,4 +48,13 @@ RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
 	/app/.venv/bin/python3 src/manage.py compress --force
 
 EXPOSE 8000
+
+LABEL org.opencontainers.image.source="https://github.com/IliyanKostov9/portfolio" \
+	org.opencontainers.image.version="1.1.0-RELEASE" \
+	org.opencontainers.image.description="Portfolio app" \
+	org.opencontainers.image.authors="Iliyan Kostov" \
+	org.opencontainers.image.vendor="IliyanKostov" \
+	org.opencontainers.image.licenses="GPL-3.0-only" \
+	env="prod"
+
 CMD ["/app/.venv/bin/python3", "-m", "uvicorn", "src.portfolio.asgi:application", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
