@@ -9,7 +9,7 @@ LABELS: Final[dict[str, str]] = {"app": "portfolio"}
 
 
 log_handler: LokiLoggerHandler = LokiLoggerHandler(
-    url=os.environ.get("LOKI_URL"),
+    url=os.environ.get("PORTFOLIO_LOKI_URL"),
     labels=LABELS,
     label_keys={"module"},
     timeout=10,

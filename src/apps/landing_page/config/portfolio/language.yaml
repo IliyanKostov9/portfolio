@@ -1,0 +1,20 @@
+---
+- name: Bulgarian
+  proficiency: "Native"
+  row: 1
+  flag: "bulgaria"
+
+- name: English
+  proficiency: "Fluent"
+  row: 1
+  flag: "england"
+
+- name: German
+  proficiency: "Beginner"
+  row: 1
+  flag: "germany"
+
+- name: French
+  proficiency: "Beginner"
+  row: 1
+  flag: "france"
