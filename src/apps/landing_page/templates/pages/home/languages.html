@@ -1,0 +1,36 @@
+{% load static %}
+
+<div class="row text-center justify-content-center">
+  <h2 id="Languages" class="lazy"><a href="#Languages">Languages</a></h2>
+
+  {% for row in languages %}
+  <div class="row text-center justify-content-center">
+    {% for language in row.language %}
+    <div class="col-md-3 d-flex flex-column">
+      <div class="card h-70 align-items-center">
+        {% include 'icons/'|add:language.icon %}
+        <div class="card-body d-flex flex-column">
+          <figure class="d-flex flex-column flex-grow-1">
+            <blockquote class="blockquote">
+              <h3 class="card-title mb-3">{{ language.name }}</h3>
+            </blockquote>
+            <figcaption class="blockquote-footer mt-auto">
+              <p>Proficiency</p>
+            </figcaption>
+          </figure>
+          <div class="d-flex justify-content-center">
+            <div
+              class="progress progress-circular my-2 progress-bar-{{ language.level }}"
+            >
+              <div class="progress-bar {{ language.level_color }}"></div>
+              <div class="progress-label">{{ language.proficiency }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <p class="spacing-bot-50" />
+  {% endfor %}
+</div>
