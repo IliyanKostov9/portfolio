@@ -1,9 +1,26 @@
-from typing import Any
+from typing import Any, Final
 
 from django.db.models import CharField, IntegerField
 from typing_extensions import override
 
 from apps.landing_page.models.portfolio import Portfolio
+
+
+LANGUAGE_LEVEL_PROFICIENCY: Final[dict[str, int]] = {
+    "Beginner": 25,
+    "Intermidiate": 50,
+    "Advanced": 75,
+    "Fluent": 100,
+    "Native": 100,
+}
+
+LANGUAGE_LEVEL_COLORS: Final[dict[str, str]] = {
+    "Beginner": "bg-danger",
+    "Intermidiate": "bg-warning",
+    "Advanced": "",
+    "Fluent": "bg-success",
+    "Native": "bg-success",
+}
 
 
 class Language(Portfolio):
@@ -30,8 +47,12 @@ class Language(Portfolio):
                 rows[row] = {"row": row, "language": []}
                 result.append(rows[row])
             language.pop("row")
+
+            language["level"] = LANGUAGE_LEVEL_PROFICIENCY.get(language["proficiency"])
+            language["level_color"] = LANGUAGE_LEVEL_COLORS.get(language["proficiency"])
             rows[row]["language"].append(language)
 
+        print(f"Languages: {result}")
         return result
 
     @override
