@@ -80,7 +80,7 @@ jobs:
 
       - name: Save venv
         uses: actions/cache/save@v4
-        if: always()
+        if: success() && github.job == 'build'
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
