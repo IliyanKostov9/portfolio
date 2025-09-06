@@ -32,8 +32,7 @@ $spacer: 10px;
   pointer-events: none;
 }
 
-// Spacing
-
+// About me space
 .about-me-spacing-bot {
   margin-bottom: 250px;
 }
@@ -59,6 +58,7 @@ $spacer: 10px;
   }
 }
 
+// Spacing
 .spacing-bot-200 {
   margin-bottom: 200px;
 }
@@ -82,8 +82,13 @@ $spacer: 10px;
 .spacing-bot-80 {
   margin-bottom: 80px;
 }
+
 .spacing-bot-50 {
   margin-bottom: 50px;
+}
+
+.spacing-top-50 {
+  margin-top: 50px;
 }
 
 // Profile

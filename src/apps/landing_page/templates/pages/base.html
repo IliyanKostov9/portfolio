@@ -45,20 +45,30 @@
       crossorigin="anonymous"
     ></script>
 
+    <script>
+      fetch("https://api.github.com/repos/IliyanKostov9/portfolio/releases/latest")
+        .then((response) => response.json())
+        .then((data) => {
+          const version = data.tag_name;
+          document.getElementById("github-version").textContent = version;
+        })
+        .catch((error) => console.error("Cannot fetch latest release!"));
+    </script>
+
     <nav
       class="navbar tab navbar-expand-lg me-1"
       aria-label="toolbar for navigating through the entire website"
     >
       <div class="container-fluid">
-          <button
-              type="button"
-              class="btn btn-rounded btn-link btn-lg text-white"
-              data-mdb-ripple-init
-              data-mdb-ripple-color="light"
-              onclick="window.open('https://github.com/IliyanKostov9/portfolio','_blank')"
-            >
+        <button
+          type="button"
+          class="btn btn-rounded btn-link btn-lg text-white"
+          data-mdb-ripple-init
+          data-mdb-ripple-color="light"
+          onclick="window.open('https://github.com/IliyanKostov9/portfolio','_blank')"
+        >
           <i class="fab fa-github fa-lg"></i>
-          Source
+          <p id="github-version" class="d-inline mb-0 fw-bold p-3">Source</p>
         </button>
         <div
           class="collapse navbar-collapse justify-content-center"

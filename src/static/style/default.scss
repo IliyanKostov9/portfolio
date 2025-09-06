@@ -1,3 +1,5 @@
+$spacer: 10px;
+
 .footer {
   width: 100%;
   text-align: center;
@@ -16,4 +18,9 @@
 
 .footer-text {
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+// Padding
+.p-3 {
+  padding: $spacer !important;
 }
