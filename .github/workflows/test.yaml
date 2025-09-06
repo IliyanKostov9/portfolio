@@ -57,8 +57,10 @@ jobs:
         id: cache-venv
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}-${{ github.run_id }}
           fail-on-cache-miss: false
+          restore-keys: |
+            venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}-
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -66,6 +68,7 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Install deps
+        if: steps.cache-venv.outputs.cache-hit != 'true'
         run: |
           pip install uv==0.8.13
           uv venv
@@ -84,7 +87,7 @@ jobs:
         if: steps.cache-venv.outputs.cache-hit != 'true'
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}-${{ github.run_id }}
 
   lint:
     name: Lint
@@ -111,7 +114,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}-${{ github.run_id }}
           fail-on-cache-miss: true
 
       - name: Pylint
@@ -179,7 +182,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}
+          key: venv-${{ runner.os }}-${{ hashFiles('uv.lock') }}-${{ github.run_id }}
 
       - name: Check if app is compliant for deployment
         env:
