@@ -9,6 +9,7 @@ from apps.landing_page.models.education import Education
 from apps.landing_page.models.project import Project
 from apps.landing_page.models.technology import Technology
 from apps.landing_page.models.work_history import WorkHistory
+from apps.landing_page.models.language import Language
 from portfolio.monitor.log import logger
 
 
@@ -28,6 +29,7 @@ class HomeView(View):
         educations = Education().transform()
         certifications = Certification().transform()
         projects = Project().transform()
+        languages = Language().transform()
 
         context: dict[str, Any] = {
             "technologies": technologies,
@@ -35,6 +37,7 @@ class HomeView(View):
             "educations": educations,
             "certificates": certifications,
             "projects": projects,
+            "languages": languages,
         }
 
         self.LOG.success(
