@@ -22,6 +22,7 @@ COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 CSP_POLICY = {
     "DIRECTIVES": {
         "default-src": [SELF],
+        "connect-src": [SELF, "https://api.github.com"],
         "script-src": [
             SELF,
             UNSAFE_INLINE,
