@@ -17,9 +17,9 @@ The project is build as a server side web app with the [Django framework](https:
 It uses the standard (MVC) architecture pattern and the views are rendered as [Jinja templates](https://jinja.palletsprojects.com/en/stable/).
 
 > [!IMPORTANT]
-> The application follows the [Django guide deployment checklist](https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/), and if you find any security vulnerabilities, then please contact me by following [SECURITY.md](https://github.com/IliyanKostov9/portfolio/blob/master/.github/SECURITY.md)
+> The application follows the [Django guide deployment checklist](https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/), however if you find any security vulnerabilities during your interaction with the prod version with the app (or just by looking at the code), then please contact me by following the [SECURITY.md](https://github.com/IliyanKostov9/portfolio/blob/master/.github/SECURITY.md) guide.
 
-Since the application is light and only loads static data from [these yaml files](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/landing_page/config/portfolio), it currently uses [SQLite](https://sqlite.org/) (*the simpler the better*)
+Since the application is light and only loads static data from [these yaml files](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/landing_page/config/portfolio), it currently uses [SQLite](https://sqlite.org/) (*the simpler the better*).
 Email sending is done with [AWS SES](https://aws.amazon.com/ses/).
 
 For the web server, it uses the better ASGI web server on [Uvicorn](https://www.uvicorn.org/). We don't need to run it on [Guvicorn](https://gunicorn.org/), as it doesn't get a lot of web traffic.
@@ -28,7 +28,7 @@ Testing is written with the Django integrated test suite libraries, with unit te
 
 The development environment can be optionally installed with the help of [Nix devenv](https://devenv.sh/).
 For CI/CD, it uses github action to test & scan for security vulnerabilities, for deployment is by publishing a docker image to [Github packages](https://github.com/IliyanKostov9/portfolio/pkgs/container/portfolio).
-Afterwards the image gets pulled from Raspberry PI 4B in Docker (you can find it's configuration [here](https://github.com/IliyanKostov9/raspberry-pi-dotfiles/blob/master/docker/personal/docker-compose.yaml)).
+Afterwards the image gets pulled from Raspberry PI 4B and finally gets exposed to the public internet via HTTP proxy [traefik](https://traefik.io/traefik) (you can find it's configuration [here](https://github.com/IliyanKostov9/raspberry-pi-dotfiles/blob/master/docker/personal/docker-compose.yaml)).
 
 For maintenance it uses [Grafana](https://grafana.com/), that the application sends log data via the [Loguru](https://github.com/Delgan/loguru) library and sends it to [Grafana Loki](https://grafana.com/oss/loki/).
 
