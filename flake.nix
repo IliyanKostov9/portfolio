@@ -45,7 +45,7 @@
           };
 
           packages = with pkgs; [
-            zsh
+            sops
           ];
 
           git-hooks.hooks = {

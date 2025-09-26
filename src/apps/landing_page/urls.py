@@ -6,4 +6,5 @@ from apps.landing_page.views.home.home_view import HomeView
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path("home/contact-me/", ContactMeView.as_view(), name="home/contact-me"),
+    path("csp-report/", ContactMeView.as_view(), name="monitor/csp-report"),
 ]
