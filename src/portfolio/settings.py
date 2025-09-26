@@ -20,7 +20,7 @@ STATICFILES_FINDERS = (
 
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
-CSP_REPORT_URI = reverse_lazy("report_csp")
+CSP_REPORT_URI = reverse_lazy("monitor/csp-report")
 CSP_REPORTS_EMAIL_ADMINS = True
 CSP_REPORTS_LOG = False
 CSP_REPORTS_SAVE = False
@@ -114,7 +114,6 @@ apps = [
     "apps.landing_page.apps.LandingPageConfig",
     "compressor",
     "django_bootstrap5",
-    "cspreports",
     # "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

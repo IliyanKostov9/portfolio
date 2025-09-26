@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 import os
 from typing import Any
 
@@ -19,3 +20,5 @@ class CSPReportView(View):
             f"User: {request.META.get('REMOTE_ADDR')} has successfully sent an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}",
             code=200,
         )
+
+        return HttpResponse("Report send!")

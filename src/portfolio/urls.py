@@ -23,7 +23,6 @@ from portfolio.views.error.error_500 import Error500
 urlpatterns = [
     # path("admin/", admin.site.urls),  # pyre-ignore[16]
     path("", include("apps.landing_page.urls")),
-    path("csp/", include("cspreports.urls")),
 ]
 
 handler404 = Error404.as_view()

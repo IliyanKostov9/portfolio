@@ -255,18 +255,6 @@ wheels = [
 ]
 
 [[package]]
-name = "django-csp-reports"
-version = "1.10.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "django" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/16/35/ac591e550367c1211ea7c5059283fd6821f0fc4623b3a8f63e22d019e4b0/django-csp-reports-1.10.0.tar.gz", hash = "sha256:9ae4ecce552fdca7f4725b54408df8bbd714089efc0afcdbd469967176185747", size = 14448, upload-time = "2025-06-13T12:06:49.474Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/9a/92/4ac0f08efd66eb965cb3d7e13efb5679c4e64029a10423b4cf3f4ebea2a3/django_csp_reports-1.10.0-py3-none-any.whl", hash = "sha256:2eaaa70b85f2cc1cfa6780b5359b569af0662db3d41daf9814a01bbd0591e052", size = 25810, upload-time = "2025-06-13T12:06:48.463Z" },
-]
-
-[[package]]
 name = "django-libsass"
 version = "0.9"
 source = { registry = "https://pypi.org/simple" }
@@ -859,7 +847,6 @@ dependencies = [
     { name = "django-bootstrap5" },
     { name = "django-compressor" },
     { name = "django-csp" },
-    { name = "django-csp-reports" },
     { name = "django-libsass" },
     { name = "email-validator" },
     { name = "gunicorn" },
@@ -899,7 +886,6 @@ requires-dist = [
     { name = "django-bootstrap5", specifier = ">=25.1" },
     { name = "django-compressor", specifier = ">=4.5.1" },
     { name = "django-csp", specifier = ">=4.0" },
-    { name = "django-csp-reports", specifier = ">=1.10.0" },
     { name = "django-libsass", specifier = ">=0.9" },
     { name = "email-validator", specifier = ">=2.2.0" },
     { name = "gunicorn", specifier = ">=23.0.0" },
