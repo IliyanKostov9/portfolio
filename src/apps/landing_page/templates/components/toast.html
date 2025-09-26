@@ -5,7 +5,7 @@
 >
   {% for message in messages %}
   <div
-    class="toast align-items-center border-0 bg-success {{ message.tags }}"
+    class="toast align-items-center border-0 {% if 'success' in message.tags %} bg-success {% elif 'error' in message.tags %} bg-danger {% elif 'warning' in message.tags %} bg-warning {% else %} bg-info {% endif %}"
     role="alert"
     aria-live="assertive"
     aria-atomic="true"

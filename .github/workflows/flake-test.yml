@@ -1,0 +1,44 @@
+name: Flake ❄️ Tests
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+jobs:
+  flake-checker:
+    name: Flake ❄️ Checker ✅
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: DeterminateSystems/nix-installer-action@90bb610b90bf290cad97484ba341453bd1cbefea
+      - uses: cachix/cachix-action@0fc020193b5a1fa3ac4575aa3a7d3aa6a35435ad
+        with:
+          name: iliyankostov9-portfolio
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - uses: DeterminateSystems/flake-checker-action@3164002371bc90729c68af0e24d5aacf20d7c9f6
+
+  lock-updater:
+    permissions:
+      contents: write
+      pull-requests: write
+
+    name: Flake ❄️ Lock 🔒️ Updater ✨
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: DeterminateSystems/nix-installer-action@90bb610b90bf290cad97484ba341453bd1cbefea
+      - uses: cachix/cachix-action@0fc020193b5a1fa3ac4575aa3a7d3aa6a35435ad
+        with:
+          name: iliyankostov9-portfolio
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - uses: DeterminateSystems/update-flake-lock@c5930b397a673a70ca70be06020e943aeac310a1
+        with:
+          pr-title: "chore: update flake.lock"
+          pr-labels: |
+            dependencies
+            automated
