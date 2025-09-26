@@ -16,8 +16,10 @@ class ContactMeView(View):
     LOG = logger.bind(module="contact_me_view")
 
     def post(self, request: Any) -> HttpResponse:
+        client_ip: str = get_client_ip(request)
+
         self.LOG.info(
-            f"User: {request.META.get('REMOTE_ADDR')} is requesting to send an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}",
+            f"User: {client_ip} is requesting to send an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}",
             code=200,
         )
 
@@ -37,13 +39,13 @@ class ContactMeView(View):
                     "You have successfully sent an email to Iliyan!",
                 )
                 self.LOG.success(
-                    f"User: {get_client_ip(request)} has successfully sent an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}",
+                    f"User: {client_ip} has successfully sent an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}",
                     code=200,
                 )
 
             except ValueError as error:
                 self.LOG.error(
-                    f"Application error: Cannot send an email,{str(error)} .Aborting email send request from user {get_client_ip(request)}",
+                    f"Application error: Cannot send an email,{error} .Aborting email send request from user {client_ip}",
                     code=500,
                 )
                 messages.error(
@@ -55,7 +57,7 @@ class ContactMeView(View):
         else:
             print("Form is invalid for some reason!")
             self.LOG.error(
-                f"User: {get_client_ip(request)} cannot send an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}, because of an invalid data he put on the form",
+                f"User: {client_ip} cannot send an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}, because of an invalid data he put on the form",
                 code=400,
             )
 
