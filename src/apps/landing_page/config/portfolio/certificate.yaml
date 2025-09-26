@@ -9,14 +9,14 @@
 - name: "AWS Migration acceleration program"
   issuer: "Amazon Web Services (AWS)"
   image: "aws_migration_acceleration_program.png"
-  date: "09-2024 - ∞"
+  date: "09.2024 - ∞"
   url: "https://www.credly.com/badges/79c50d81-a092-4d64-9abd-c82b74af8836/linked_in_profile"
   row: 1
 
 - name: "AWS Technical accelerated"
   issuer: "Amazon Web Services (AWS)"
   image: "aws_technical_accelerated.png"
-  date: "09-2024 - ∞"
+  date: "09.2024 - ∞"
   url: "https://www.credly.com/badges/d2561920-df6c-4a04-a267-4009de608a8f/linked_in_profile"
   row: 1
 
