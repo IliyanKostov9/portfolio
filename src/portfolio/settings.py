@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 from csp.constants import SELF, UNSAFE_INLINE
+from django.urls import reverse_lazy
 
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = [os.environ.get("PORTFOLIO_HOST")]
@@ -19,6 +20,10 @@ STATICFILES_FINDERS = (
 
 COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
 
+CSP_REPORT_URI = reverse_lazy("monitor/csp-report")
+CSP_REPORTS_EMAIL_ADMINS = True
+CSP_REPORTS_LOG = False
+CSP_REPORTS_SAVE = False
 CSP_POLICY = {
     "DIRECTIVES": {
         "default-src": [SELF],
@@ -44,7 +49,7 @@ CSP_POLICY = {
         "img-src": [SELF],
         "frame-ancestors": [SELF],
         "form-action": [SELF],
-        # "report-uri": "/csp-report/",
+        "report-uri": "/csp-report/",
     },
 }
 
