@@ -19,12 +19,12 @@ It uses the standard (MVC) architecture pattern and the views are rendered as [J
 > [!IMPORTANT]
 > The application follows the [Django guide deployment checklist](https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/), however if you find any security vulnerabilities during your interaction with the prod version with the app (or just by looking at the code), then please contact me by following the [SECURITY.md](https://github.com/IliyanKostov9/portfolio/blob/master/.github/SECURITY.md) guide.
 
-Since the application is light and only loads static data from [these yaml files](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/landing_page/config/portfolio), it currently uses [SQLite](https://sqlite.org/) (*the simpler the better*).
+Since the application is light and only loads static data from [these yaml files](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/resume/config/portfolio), it currently uses [SQLite](https://sqlite.org/) (*the simpler the better*).
 Email sending is done with [AWS SES](https://aws.amazon.com/ses/).
 
 For the web server, it uses the better ASGI web server on [Uvicorn](https://www.uvicorn.org/). We don't need to run it on [Guvicorn](https://gunicorn.org/), as it doesn't get a lot of web traffic.
 
-Testing is written with the Django integrated test suite libraries, with unit tests on the [models](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/landing_page/tests/models) and integration tests for the [views](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/landing_page/tests/views).
+Testing is written with the Django integrated test suite libraries, with unit tests on the [models](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/resume/tests/models) and integration tests for the [views](https://github.com/IliyanKostov9/portfolio/tree/master/src/apps/resume/tests/views).
 
 The development environment can be optionally installed with the help of [Nix devenv](https://devenv.sh/).
 For CI/CD, it uses github action to test & scan for security vulnerabilities, for deployment is by publishing a docker image to [Github packages](https://github.com/IliyanKostov9/portfolio/pkgs/container/portfolio).
