@@ -10,7 +10,7 @@ ALLOWED_HOSTS = [os.environ.get("PORTFOLIO_HOST")]
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    f"{BASE_DIR}/apps/landing_page/static",
+    f"{BASE_DIR}/apps/resume/static",
 ]
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -111,7 +111,7 @@ else:
 
 
 apps = [
-    "apps.landing_page.apps.LandingPageConfig",
+    "apps.resume.apps.ResumeConfig",
     "compressor",
     "django_bootstrap5",
     # "django.contrib.admin",
@@ -155,7 +155,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            f"{BASE_DIR}/apps/landing_page/templates",
+            f"{BASE_DIR}/apps/resume/templates",
             BASE_DIR / "templates",
         ],
         "APP_DIRS": True,
