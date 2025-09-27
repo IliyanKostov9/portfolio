@@ -1,0 +1,35 @@
+name: Semantic release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The version to release
+        required: true
+        type: string
+
+jobs:
+  release:
+    name: Perform release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@9cc899c47e6841430bbaedb43de1560a568dfd16
+        with:
+          dry_run: false
+          semantic_version: ${{ inputs.version }}
+          branch: master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create a release branch
+        run: |
+          git checkout -b $RELEASE_BRANCH
+          git push -f origin $RELEASE_BRANCH
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_BRANCH: release/v${{ inputs.version }}
