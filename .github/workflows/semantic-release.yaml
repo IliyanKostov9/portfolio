@@ -29,6 +29,6 @@ jobs:
       - name: Create a release branch
         run: |
           git checkout -b release/${{ inputs.version }}
-          git push -f origin release/${{ inputs.version }}
+          git push -f origin release/v${{ inputs.version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
