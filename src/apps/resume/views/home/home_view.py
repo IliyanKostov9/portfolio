@@ -18,7 +18,7 @@ class HomeView(View):
 
     def get(self, request: Any) -> HttpResponse:
         self.LOG.info(
-            f"User: {request.META.get('REMOTE_ADDR')} is requesting to view the landing page",
+            f"User: {request.META.get('REMOTE_ADDR')} is requesting to view the resume page",
             code=200,
         )
 
