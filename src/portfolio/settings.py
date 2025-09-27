@@ -49,7 +49,7 @@ CSP_POLICY = {
         "img-src": [SELF],
         "frame-ancestors": [SELF],
         "form-action": [SELF],
-        "report-uri": "/csp-report/",
+        "report-uri": "/monitor/csp-report",
     },
 }
 
