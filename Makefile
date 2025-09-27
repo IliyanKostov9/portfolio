@@ -9,7 +9,7 @@ run: ## Run Django app
 	python3 -m uvicorn src.portfolio.asgi:application --reload
 
 test: ## Test Django app
-	python3 -Wa ./src/manage.py test apps.landing_page.tests -v 3
+	python3 -Wa ./src/manage.py test apps.resume.tests -v 3
 
 clean:
 	echo "clean"
@@ -22,22 +22,17 @@ check: ## Check the django templates
 migrate-check: ## Check if the migrations are compatible
 	  python3 src/manage.py lintmigrations
 
-.PHONY: type-inference
-type-inference: ## Perform static type check with Pyre
-	pyre infer -i
-
-
 .PHONY: sql-reset
 sql-reset: ## Perform SQL reset
 	echo "Deleting database..."
-	rm -rf $(MAKE)/src/db.sqlite3
+	rm -rf $(PWD)/src/db.sqlite3
 	echo "Deleting migrations..."
-	rm -rf $(MAKE)/src/apps/landing_page/migrations/00*.py
+	rm -rf $(PWD)/src/apps/resume/migrations/00*.py
 
 .PHONY: schema-update
 schema-update: ## Update SQL schema & create an empty migration
-	python3 src/manage.py makemigrations landing_page
-	python3 src/manage.py makemigrations landing_page --empty
+	python3 src/manage.py makemigrations resume
+	python3 src/manage.py makemigrations resume --empty
 	echo "Now copy the following code to the new empty migrated python file like"
 	echo " \
 		from . import init, init_reverse \
@@ -48,7 +43,7 @@ schema-update: ## Update SQL schema & create an empty migration
 
 .PHONY: sql-init-test
 sql-init-test: ## Perform SQL migration
-	python3 src/manage.py migrate landing_page
+	python3 src/manage.py migrate resume
 
 .PHONY: show-migrate
 show-migrate: ## Perform SQL migration
