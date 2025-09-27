@@ -1,0 +1,29 @@
+name: Semantic release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The version to release
+        required: true
+        type: string
+
+jobs:
+  release:
+    name: Perform release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v5
+        with:
+          dry_run: true
+          semantic_version: ${{ inputs.version }}
+          extra_plugins: |
+            @semantic-release/changelog@6.0.0
+            @semantic-release/git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
