@@ -3,7 +3,7 @@ from typing import Any
 
 from typing_extensions import override
 
-from apps.resume.data_class.portfolio.portfolio import Portfolio
+from apps.resume.data_class.portfolio import Portfolio
 
 
 @dataclass(frozen=True)
@@ -31,7 +31,7 @@ class Education(Portfolio):
         education_model = apps.get_model(Portfolio.app_name, "Education")
         education_model.objects.all().delete()
 
-        educations: list[Education] = Education.from_yaml("portfolio/education.yaml")
+        educations: list[Education] = Education.from_yaml("education.yaml")
 
         for education in educations:
             education_model.objects.create(

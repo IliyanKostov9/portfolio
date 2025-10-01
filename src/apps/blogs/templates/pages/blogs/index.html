@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static compress django_bootstrap5 %}
+{% block extra_head %}
+{% compress css %}
+<link
+  href="{% static 'style/blogs.scss' %}"
+  rel="stylesheet"
+  type="text/x-scss"
+/>
+
+{% endcompress %}
+{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center initial-content">
+  <section id="Blogs">
+    <h2 class="lazy"><a href="#Blogs">Blogs</a></h2>
+  </section>
+
+<div class="row text-center justify-content-center">
+  {% for row in blogs %}
+  <div class="row">
+    {% for blog in row.blog %}
+    <div class="col-md-4 lazy d-flex">
+      <div class="card">
+        <div class="row g-0 flex-grow-1">
+          <div class="col-md-4">
+            <img
+              src="{% static 'images/blogs/'|add:blog.image_preview %}"
+              class="project-img img-fluid rounded-start me-4 lazy"
+              alt="{{ blog.title }}"
+            />
+          </div>
+
+          <div class="col-md-8">
+            <div class="card-body">
+              <figure>
+                <blockquote class="blockquote">
+                  <h3 class="card-title mb-3">{{ blog.title }}</h3>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                  <p>Category: {{ blog.category }}</p>
+                  <p>{{ blog.date }}</p>
+                  <p>Read time: {{ blog.read_time_mins }}</p>
+                </figcaption>
+              </figure>
+              <p class="card-text">
+                  Description
+              </p>
+            </div>
+          </div>
+          <div
+            class="btn-group mt-auto p-3"
+            aria-label="{{ blog.title }} button"
+          >
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-rounded btn-lg"
+              data-mdb-ripple-init
+              onclick="window.open('{{ blog.url }}','_blank')"
+            >
+                Read more
+              <i class="fas fa-book-open-reader"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <p class="spacing-bot-50" />
+  {% endfor %}
+</div>
+</div>
+
+{% endblock %}

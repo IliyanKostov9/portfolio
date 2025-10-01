@@ -46,7 +46,9 @@
     ></script>
 
     <script>
-      fetch("https://api.github.com/repos/IliyanKostov9/portfolio/releases/latest")
+      fetch(
+        "https://api.github.com/repos/IliyanKostov9/portfolio/releases/latest",
+      )
         .then((response) => response.json())
         .then((data) => {
           const version = data.tag_name;
@@ -76,55 +78,25 @@
         >
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#About"
-                >About</a
+              <a class="nav-link active" aria-current="page" href="/"
+                >Portfolio</a
               >
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#WorkHistory"
-                >Work history</a
+              <a class="nav-link active" aria-current="page" href="/blogs"
+                >Blogs</a
               >
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#Education"
-                >Education</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#Languages"
-                >Languages</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="#Certificates"
-                >Certificates</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#Projects"
-                >Projects</a
-              >
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#ContactMe"
-                >Contact me</a
-              >
-            </li>
           </ul>
         </div>
       </div>
     </nav>
 
     {% block content %} {% endblock %}
+    <script src="{% static 'scripts/scroll.js' %}"></script>
+    <script src="{% static 'scripts/domContextLoaded.js' %}"></script>
     <script src="{% static 'scripts/lazyload.js' %}"></script>
     <script src="{% static 'scripts/toast.js' %}"></script>
     {% include "components/toast.html" %}
