@@ -27,9 +27,7 @@ class WorkHistory(Portfolio):
         work_history_model = apps.get_model(Portfolio.app_name, "WorkHistory")
         work_history_model.objects.all().delete()
 
-        work_histories: list[WorkHistory] = WorkHistory.from_yaml(
-            "portfolio/work_history.yaml"
-        )
+        work_histories: list[WorkHistory] = WorkHistory.from_yaml("work_history.yaml")
 
         for work_history in work_histories:
             work_history_model.objects.create(

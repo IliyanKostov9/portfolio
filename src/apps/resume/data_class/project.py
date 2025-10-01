@@ -31,7 +31,7 @@ class Project(Portfolio):
         project_model = apps.get_model(Portfolio.app_name, "Project")
         project_model.objects.all().delete()
 
-        projects: list[Project] = Project.from_yaml("portfolio/project.yaml")
+        projects: list[Project] = Project.from_yaml("project.yaml")
 
         for project in projects:
             project_model.objects.create(

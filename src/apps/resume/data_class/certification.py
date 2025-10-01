@@ -28,7 +28,7 @@ class Certification(Portfolio):
         certification_model.objects.all().delete()
 
         certifications: list[Certification] = Certification.from_yaml(
-            "portfolio/certificate.yaml"
+            "certificate.yaml"
         )
 
         for certification in certifications:
