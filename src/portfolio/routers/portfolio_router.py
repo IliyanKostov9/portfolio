@@ -1,21 +1,27 @@
+from typing import Final
+
+
+POSTGRES_TABLES: Final[list[str]] = ["user", "comment"]
+
+
 class PortfolioRouter:
-    portfolio_users_database = "portfolio"
-    default_database = "default"
+    postgres_database: str = "portfolio"
+    default_database: str = "default"
 
-    def read(self, model):
-        if model._meta.model_name == "portfolio":
-            return self.portfolio_users_database
+    def db_for_read(self, model, **hints):
+        if model._meta.model_name in POSTGRES_TABLES:
+            return self.postgres_database
         else:
             return None
 
-    def write(self, model):
-        if model._meta.model_name == "portfolio":
-            return self.portfolio_users_database
+    def db_for_write(self, model, **hints):
+        if model._meta.model_name in POSTGRES_TABLES:
+            return self.postgres_database
         else:
             return None
 
-    def migrate(self, database, app_label, model=None):
-        if model == "user" or model == "comment":
+    def allow_migrate(self, database, app_label, model=None, **hints):
+        if database in POSTGRES_TABLES:
             return database == "portfolio"
         else:
             return database == "default"
