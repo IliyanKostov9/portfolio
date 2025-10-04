@@ -1,3 +1,9 @@
+APP ?= resume
+
+##########################
+# TARGET
+# #######################
+
 .PHONY: help
 help:  ## help target to show available commands with information
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) |  awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -31,8 +37,8 @@ sql-reset: ## Perform SQL reset
 
 .PHONY: schema-update
 schema-update: ## Update SQL schema & create an empty migration
-	python3 src/manage.py makemigrations resume
-	python3 src/manage.py makemigrations resume --empty
+	python3 src/manage.py makemigrations $(APP)
+	python3 src/manage.py makemigrations $(APP) --empty
 	echo "Now copy the following code to the new empty migrated python file like"
 	echo " \
 		from . import init, init_reverse \

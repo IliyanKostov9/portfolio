@@ -3,7 +3,7 @@ from typing import Any
 from django.db.models import CASCADE, CharField, DateField, ForeignKey, IntegerField
 from typing_extensions import override
 
-from apps.blogs.models.BlogCategory import BlogCategory
+from apps.blogs.models.blog_category import BlogCategory
 from apps.blogs.models.portfolio import Portfolio
 
 

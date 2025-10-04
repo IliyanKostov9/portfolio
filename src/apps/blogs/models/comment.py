@@ -8,8 +8,8 @@ from django.db.models import (
 )
 from typing_extensions import override
 
-from apps.blogs.models.Blog import Blog
-from apps.blogs.models.User import User
+from apps.blogs.models.blog import Blog
+from apps.blogs.models.user import User
 from apps.blogs.models.portfolio import Portfolio
 
 
