@@ -11,6 +11,7 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     f"{BASE_DIR}/apps/resume/static",
+    f"{BASE_DIR}/apps/blogs/static",
 ]
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -110,8 +111,9 @@ else:
     print("Running in non production. Now setting all prod options OFF...")
 
 
-apps = [
+apps: list[str] = [
     "apps.resume.apps.ResumeConfig",
+    "apps.blogs.apps.BlogsConfig",
     "compressor",
     "django_bootstrap5",
     # "django.contrib.admin",
@@ -132,7 +134,7 @@ if os.environ.get("PORTFOLIO_ENV") == "prod":
 
 INSTALLED_APPS = apps
 
-MIDDLEWARE = [
+MIDDLEWARE: list[str] = [
     "django.middleware.cache.UpdateCacheMiddleware",  # INFO: Must be first
     # NOTE: Send email messages to admins when user gets 404 error
     "django.middleware.common.BrokenLinkEmailsMiddleware",
@@ -149,13 +151,14 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = "portfolio.urls"
+ROOT_URLCONF: str = "portfolio.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             f"{BASE_DIR}/apps/resume/templates",
+            f"{BASE_DIR}/apps/blogs/templates",
             BASE_DIR / "templates",
         ],
         "APP_DIRS": True,
@@ -172,7 +175,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "portfolio.wsgi.application"
 
-DATABASES: dict[str, dict[str, str | Path | dict[str, Path | str]]] = {
+DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
@@ -180,8 +183,25 @@ DATABASES: dict[str, dict[str, str | Path | dict[str, Path | str]]] = {
             "NAME": BASE_DIR / "db.test.sqlite3",
             "ENGINE": "django.db.backends.sqlite3",
         },
-    }
+    },
+    "portfolio": {
+        "NAME": "portfolio",
+        "ENGINE": "django.db.backends.postgresql",
+        "USER": os.environ.get("PORTFOLIO_POSTGRES_USER"),
+        "PASSWORD": os.environ.get("PORTFOLIO_POSTGRES_PASSWORD"),
+        "HOST": os.environ.get("PORTFOLIO_POSTGRES_HOST"),
+        "PORT": "5432",
+        "OPTIONS": {
+            "server_side_binding": True,
+        },
+        "TEST": {
+            "NAME": BASE_DIR / "db.test.sqlite3",
+            "ENGINE": "django.db.backends.sqlite3",
+        },
+    },
 }
+
+DATABASE_ROUTERS = ["portfolio.routers.portfolio_router.PortfolioRouter"]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
