@@ -3,18 +3,18 @@ from typing import Any
 from django.db.models import CharField
 from typing_extensions import override
 
-from apps.blogs.models.Blog import Blog
 from apps.blogs.models.portfolio import Portfolio
 
 
+# NOTE: Create TOTP
 class User(Portfolio):
-    # NOTE: Create TOTP
     username: CharField = CharField("Username of the user")
+    email: CharField = CharField("Email of the user")
     password: CharField = CharField("Password of the user")
 
     @override
     def get_all(self) -> Any:
-        return list(Blog.objects.all().values())
+        return list(User.objects.all().values())
 
     @override
     def transform(self) -> Any:

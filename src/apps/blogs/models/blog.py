@@ -1,29 +1,25 @@
 from typing import Any
 
-from django.db.models import (
-    CASCADE,
-    CharField,
-    ForeignKey,
-    ManyToManyField,
-    OneToOneField,
-)
+from django.db.models import CASCADE, CharField, DateField, ForeignKey, IntegerField
 from typing_extensions import override
 
-from apps.blogs.models.Blog import Blog
-from apps.blogs.models.User import User
+from apps.blogs.models.BlogCategory import BlogCategory
 from apps.blogs.models.portfolio import Portfolio
 
 
-class Comment(Portfolio):
-    message: CharField = CharField("Message on the comment")
-    reply: ManyToManyField = ManyToManyField("self", blank=True, symmetrical=True)
-    blogs: ForeignKey = ForeignKey(
-        Blog,
-        verbose_name="Blogs for which the comments are commented about",
-        on_delete=CASCADE,
+class Blog(Portfolio):
+    title: CharField = CharField("Title of the blog", max_length=100)
+    image_preview: CharField = CharField("Image preview of the blog", max_length=30)
+    date: DateField = DateField("Date of the blog being posted", max_length=30)
+    page_name: CharField = CharField(
+        "Name of the page of the blog, where the user can navigate to"
     )
-    user: OneToOneField = OneToOneField(
-        User,
+    read_time_mins: IntegerField = IntegerField(
+        "Number of minutes for the reader to read the blog"
+    )
+    category: ForeignKey = ForeignKey(
+        BlogCategory,
+        verbose_name="Category of which blog it belongs to (life, technology, project, etc)",
         on_delete=CASCADE,
     )
 
