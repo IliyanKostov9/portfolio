@@ -1,4 +1,4 @@
-{% extends "pages/base.html" %}
+{% extends "base.html" %}
 {% load static compress django_bootstrap5 %}
 {% block extra_head %}
 {% compress css %}
@@ -11,9 +11,6 @@
 {% endcompress %}
 {% endblock %}
 {% block content %}
-
-<script src="{% static 'scripts/scroll.js' %}"></script>
-<script src="{% static 'scripts/domContextLoaded.js' %}"></script>
 
 <div class="d-flex justify-content-center align-items-center initial-content">
   <img

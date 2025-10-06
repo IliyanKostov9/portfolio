@@ -1,3 +1,18 @@
-{% load static %}
+{% extends "base.html" %}
+{% load static compress django_bootstrap5 %}
+{% block extra_head %}
+{% compress css %}
+<link
+  href="{% static 'style/blogs.scss' %}"
+  rel="stylesheet"
+  type="text/x-scss"
+/>
 
-<h1>test</h1>
+{% endcompress %}
+{% endblock %}
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center initial-content">
+</div>
+
+{% endblock %}

@@ -34,7 +34,7 @@ class Blog(Portfolio):
 
         for blog in blogs:
             blog_model.objects.create(
-                name=blog.name,
+                title=blog.title,
                 image_preivew=blog.image_preview,
                 date=blog.date,
                 page_name=blog.page_name,
