@@ -19,4 +19,4 @@ class Portfolio(models.Model):
 
     class Meta:
         abstract: bool = True
-        app_label: str = "resume"
+        app_label: str = "blogs"

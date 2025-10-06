@@ -1,4 +1,4 @@
-{% extends "pages/base.html" %}
+{% extends "base.html" %}
 {% load static compress django_bootstrap5 %}
 {% block extra_head %}
 {% compress css %}
@@ -12,8 +12,14 @@
 {% endblock %}
 {% block content %}
 
-<script src="{% static 'scripts/scroll.js' %}"></script>
-<script src="{% static 'scripts/domContextLoaded.js' %}"></script>
+<div class="row">
+
+  <div class="col-md-9">
+    <div
+  data-mdb-scrollspy-init
+  data-mdb-target="#scroll-table-contents"
+  data-mdb-offset="0"
+  class="center-content">
 
 <div class="d-flex justify-content-center align-items-center initial-content">
   <img
@@ -68,4 +74,43 @@
 
   {% include 'pages/home/contact_me.html' %}
 </div>
+   </div>
+  </div>
+
+  <div class="col-md-3 d-none d-md-block anchor-scrollspy">
+    <div id="scroll-table-contents" class="sticky-top pt-3">
+      <ul class="nav flex-column nav-pills menu-sidebar">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#About">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#WorkHistory">Work history</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Education">Education</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Languages">Languages</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Certificates">Certificates</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Projects">Projects</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#ContactMe">Contact me</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  </div>
 {% endblock %}
