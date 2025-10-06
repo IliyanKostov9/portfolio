@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const collapse = document.querySelectorAll("[data-mdb-collapse-init]");
   const tooltips = document.querySelectorAll("[data-mdb-tooltip-init]");
   const inputs = document.querySelectorAll("[data-mdb-input-init]");
-  const scrollspys = document.querySelectorAll("[data-mdb-scrollspy-init]");
 
   document
     .getElementById("contactForm")
@@ -37,10 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const input = formOutline.querySelector("input");
     const mdbInput = new mdb.Input(formOutline);
     mdbInput.update(input);
-  });
-
-  scrollspys.forEach((scrollspy) => {
-    new mdb.Scrollspy(scrollspy);
   });
 
 });

@@ -12,6 +12,15 @@
 {% endblock %}
 {% block content %}
 
+<div class="row">
+
+  <div class="col-md-9">
+    <div
+  data-mdb-scrollspy-init
+  data-mdb-target="#scroll-table-contents"
+  data-mdb-offset="0"
+  class="center-content">
+
 <div class="d-flex justify-content-center align-items-center initial-content">
   <img
     src="{% static 'images/profile.jpg' %}"
@@ -45,24 +54,77 @@
 
 <div class="container text-center">
 
+        <div class="about-scroll">
   {% include 'pages/home/about.html' %}
+        </div>
   <p class="spacing-bot-200" />
 
+        <div class="work-history-scroll">
   {% include 'pages/home/work_history.html' %}
   <p class="spacing-bot-200" />
 
+        <div class="education-scroll">
   {% include 'pages/home/education.html' %}
+          </div>
   <p class="spacing-bot-200" />
 
+        <div class="languages-scroll">
   {% include 'pages/home/languages.html' %}
+          </div>
   <p class="spacing-bot-200" />
 
+        <div class="certification-scroll">
   {% include 'pages/home/certification.html' %}
+          </div>
   <p class="spacing-bot-200" />
 
+        <div class="projects-scroll">
   {% include 'pages/home/projects.html' %}
+          </div>
   <p class="spacing-bot-200" />
 
+        <div class="contact-me-scroll">
   {% include 'pages/home/contact_me.html' %}
+          </div>
 </div>
+   </div>
+  </div>
+  </div>
+
+  <div class="col-md-3 d-none d-md-block anchor-scrollspy">
+    <div id="scroll-table-contents" class="sticky-top pt-3">
+      <ul class="nav flex-column nav-pills menu-sidebar">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#About">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#WorkHistory">Work history</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Education">Education</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Languages">Languages</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Certificates">Certificates</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Projects">Projects</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#ContactMe">Contact me</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  </div>
 {% endblock %}
