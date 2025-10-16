@@ -12,12 +12,10 @@
 {% endblock %}
 {% block content %}
 
-<div class="row">
-  <div class="col-md-9">
   <div
   data-mdb-scrollspy-init
   data-mdb-target="#scroll-table-contents"
-  class="center-content">
+  >
 
 <div class="d-flex justify-content-center align-items-center initial-content">
   <img
@@ -72,9 +70,8 @@
   {% include 'home/contact_me.html' %}
 </div>
    </div>
-  </div>
 
-  <div class="col-md-3 anchor-scrollspy">
+    <div class="anchor-scrollspy">
     <div id="scroll-table-contents" class="sticky-top pt-3">
       <ul class="nav flex-column nav-pills menu-sidebar">
 
@@ -108,6 +105,5 @@
 
       </ul>
     </div>
-  </div>
-  </div>
+    </div>
 {% endblock %}

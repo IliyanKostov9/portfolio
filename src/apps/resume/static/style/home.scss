@@ -157,9 +157,12 @@ $spacer: 10px;
 }
 
 .anchor-scrollspy {
-  padding-left: 20rem;
+  position: fixed;
+  top: 50px;
+  right: 0px;
+  width: 400px;
 }
 
-.center-content {
-  padding-left: 600px;
-}
+/* * { */
+/*   outline: 1px solid rgba(255, 0, 0, 0.2); */
+/* } */
