@@ -42,8 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
  scrollspys.forEach((scrollspy) => {
     new mdb.ScrollSpy(scrollspy, {
       target: "#scroll-table-contents",
-      // offset: 10,
-      smoothScroll: true
+       offset: 140
     });
   });
 
