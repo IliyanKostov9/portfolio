@@ -1,4 +1,4 @@
-{% extends "pages/base.html" %}
+{% extends "base.html" %}
 {% load static compress django_bootstrap5 %}
 {% block extra_head %}
 {% compress css %}
@@ -12,8 +12,10 @@
 {% endblock %}
 {% block content %}
 
-<script src="{% static 'scripts/scroll.js' %}"></script>
-<script src="{% static 'scripts/domContextLoaded.js' %}"></script>
+  <div
+  data-mdb-scrollspy-init
+  data-mdb-target="#scroll-table-contents"
+  >
 
 <div class="d-flex justify-content-center align-items-center initial-content">
   <img
@@ -38,8 +40,7 @@
 </p>
 
 <div
-  class="d-flex justify-content-center align-items-center lazy hide-when-scrolling"
->
+  class="d-flex justify-content-center align-items-center lazy hide-when-scrolling">
   <a href="#About">
     <i class="fas fa-arrow-down-long align-items-center"></i>
   </a>
@@ -48,24 +49,61 @@
 
 <div class="container text-center">
 
-  {% include 'pages/home/about.html' %}
+  {% include 'home/about.html' %}
   <p class="spacing-bot-200" />
 
-  {% include 'pages/home/work_history.html' %}
+  {% include 'home/work_history.html' %}
   <p class="spacing-bot-200" />
 
-  {% include 'pages/home/education.html' %}
+  {% include 'home/education.html' %}
   <p class="spacing-bot-200" />
 
-  {% include 'pages/home/languages.html' %}
+  {% include 'home/languages.html' %}
   <p class="spacing-bot-200" />
 
-  {% include 'pages/home/certification.html' %}
+  {% include 'home/certification.html' %}
   <p class="spacing-bot-200" />
 
-  {% include 'pages/home/projects.html' %}
+  {% include 'home/projects.html' %}
   <p class="spacing-bot-200" />
 
-  {% include 'pages/home/contact_me.html' %}
+  {% include 'home/contact_me.html' %}
 </div>
+   </div>
+
+    <div class="anchor-scrollspy">
+    <div id="scroll-table-contents" class="sticky-top pt-3">
+      <ul class="nav flex-column nav-pills menu-sidebar">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#About">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#WorkHistory">Work history</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Education">Education</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Languages">Languages</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Certificates">Certificates</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#Projects">Projects</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#ContactMe">Contact me</a>
+        </li>
+
+      </ul>
+    </div>
+    </div>
 {% endblock %}
