@@ -157,6 +157,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
+            f"{BASE_DIR}/apps/resume/templates/pages",
             f"{BASE_DIR}/apps/resume/templates",
             f"{BASE_DIR}/apps/blogs/templates",
             BASE_DIR / "templates",
