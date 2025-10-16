@@ -2,7 +2,7 @@ FROM alpine:3.22
 ARG DOCKER_USER=portfolio
 RUN addgroup -s ${DOCKER_USER} && adduser -S ${DOCKER_USER} -G ${DOCKER_USER}
 
-FROM python:3.11 AS build
+FROM python:3.14 AS build
 COPY pyproject.toml /portfolio/pyproject.toml
 COPY uv.lock /portfolio/uv.lock
 WORKDIR /portfolio
@@ -26,7 +26,7 @@ RUN /opt/.venv/bin/pip install --no-cache-dir --find-links=/wheels libsass \
 	&& /opt/.venv/bin/pip uninstall -y uv
 
 
-FROM python:3.11-bookworm
+FROM python:3.14-bookworm
 USER ${DOCKER_USER}
 WORKDIR /app
 
