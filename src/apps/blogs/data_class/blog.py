@@ -10,6 +10,7 @@ from apps.blogs.data_class.portfolio import Portfolio
 @dataclass(frozen=True)
 class Blog(Portfolio):
     title: str
+    description: str
     image_preview: str
     date: date
     url: str
@@ -36,6 +37,7 @@ class Blog(Portfolio):
         for blog in blogs:
             blog_model.objects.create(
                 title=blog.title,
+                description=blog.description,
                 image_preview=blog.image_preview,
                 date=blog.date,
                 url=blog.url,

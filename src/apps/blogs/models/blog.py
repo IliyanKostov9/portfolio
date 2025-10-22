@@ -9,6 +9,7 @@ from apps.blogs.models.portfolio import Portfolio
 
 class Blog(Portfolio):
     title: CharField = CharField("Title of the blog", max_length=100)
+    description: CharField = CharField("Short description of the blog")
     image_preview: CharField = CharField("Image preview of the blog", max_length=30)
     date: DateField = DateField("Date of the blog being posted", max_length=30)
     url: CharField = CharField(

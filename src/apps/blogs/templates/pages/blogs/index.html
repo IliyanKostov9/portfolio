@@ -12,65 +12,60 @@
 {% endblock %}
 {% block content %}
 
-<div class="d-flex justify-content-center align-items-center initial-content">
-  <section id="Blogs">
-    <h2 class="lazy"><a href="#Blogs">Blogs</a></h2>
-  </section>
-
 <div class="row text-center justify-content-center">
-  {% for row in blogs %}
-  <div class="row">
-    {% for blog in row.blog %}
-    <div class="col-md-4 lazy d-flex">
-      <div class="card">
-        <div class="row g-0 flex-grow-1">
-          <div class="col-md-4">
-            <img
-              src="{% static 'images/blogs/'|add:blog.image_preview %}"
-              class="project-img img-fluid rounded-start me-4 lazy"
-              alt="{{ blog.title }}"
-            />
-          </div>
+<p class="spacing-bot-50" />
 
-          <div class="col-md-8">
-            <div class="card-body">
-              <figure>
+<div class="d-flex justify-content-center align-items-center lazy">
+  <section id="Blogs">
+    <h2 class="lazy"><a href="#Blogs" class="fs-2">Blogs</a></h2>
+  </section>
+</div>
+
+<div class="d-flex justify-content-center align-items-center lazy">
+  <p class="font-monoscope fs-4">
+    Read about my latest thoughts
+  </p>
+</div>
+
+<p class="spacing-bot-150" />
+
+  {% for row in blogs %}
+  <div class="row justify-content-center">
+    {% for blog in row.blog %}
+    <div class="col-md-2 d-flex flex-column">
+    <a href="{{ blog.url }}" class="text-decoration-none text-reset">
+      <div class="card">
+          <img
+            src="{% static 'images/blogs/'|add:blog.image_preview %}"
+            class="img-fluid mx-auto lazy spacing-30 rounded-circle"
+            alt="{{ blog.title }}"
+            width="150"
+            height="150"
+          />
+
+          <div class="card-body d-flex flex-column">
+          <figure class="d-flex flex-column flex-grow-1">
                 <blockquote class="blockquote">
                   <h3 class="card-title mb-3">{{ blog.title }}</h3>
                 </blockquote>
-                <figcaption class="blockquote-footer">
-                  <p>Category: {{ blog.category }}</p>
-                  <p>{{ blog.date }}</p>
-                  <p>Read time: {{ blog.read_time_mins }}</p>
+              <p class="card-text text-wrap">
+              {{ blog.description }}
+              </p>
+              <figcaption class="blockquote-footer mt-auto">
+              <div class="d-flex justify-content-between">
+                <p class="mb-0">{{ blog.date }}</p>
+                <p class="text-danger fw-bolder mb-0">Read time: {{ blog.read_time_mins }}</p>
+              </div>
                 </figcaption>
               </figure>
-              <p class="card-text">
-                  Description
-              </p>
             </div>
-          </div>
-          <div
-            class="btn-group mt-auto p-3"
-            aria-label="{{ blog.title }} button"
-          >
-            <button
-              type="button"
-              class="btn btn-outline-primary btn-rounded btn-lg"
-              data-mdb-ripple-init
-              onclick="window.open('{{ blog.url }}','_blank')"
-            >
-                Read more
-              <i class="fas fa-book-open-reader"></i>
-            </button>
-          </div>
-        </div>
+            </div>
+      </a>
       </div>
-    </div>
     {% endfor %}
   </div>
   <p class="spacing-bot-50" />
   {% endfor %}
-</div>
-</div>
 
 {% endblock %}
+</div>

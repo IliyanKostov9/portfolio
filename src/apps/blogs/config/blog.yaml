@@ -1,16 +1,10 @@
 ---
 - title: The start of something new
+  description: |
+    Starting a brand new idea from scratch and facing the challenges
   image_preview: zprofile.png
   date: "2025-10-04"
   url: "the-start-of-something-new"
-  read_time_mins: 3
-  category: zprofile
-  row: 1
-
-- title: The start of something new
-  image_preview: zprofile.png
-  date: "2025-10-04"
-  url: "test"
   read_time_mins: 3
   category: zprofile
   row: 1
