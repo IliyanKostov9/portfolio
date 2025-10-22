@@ -1,5 +1,4 @@
-{% extends "base.html" %}
-{% load static compress django_bootstrap5 %}
+{% extends "base.html" %} {% load static compress django_bootstrap5 %}
 {% block extra_head %}
 {% compress css %}
 <link
@@ -13,28 +12,26 @@
 {% block content %}
 
 <div class="row text-center justify-content-center">
-<p class="spacing-bot-50" />
+  <p class="spacing-bot-50" />
 
-<div class="d-flex justify-content-center align-items-center lazy">
-  <section id="Blogs">
-    <h2 class="lazy"><a href="#Blogs" class="fs-2">Blogs</a></h2>
-  </section>
-</div>
+  <div class="d-flex justify-content-center align-items-center lazy">
+    <section id="Blogs">
+      <h2 class="lazy"><a href="#Blogs" class="fs-2">Blogs</a></h2>
+    </section>
+  </div>
 
-<div class="d-flex justify-content-center align-items-center lazy">
-  <p class="font-monoscope fs-4">
-    Read about my latest thoughts
-  </p>
-</div>
+  <div class="d-flex justify-content-center align-items-center lazy">
+    <p class="font-monoscope fs-4">Read about my latest thoughts</p>
+  </div>
 
-<p class="spacing-bot-150" />
+  <p class="spacing-bot-150" />
 
   {% for row in blogs %}
   <div class="row justify-content-center">
     {% for blog in row.blog %}
     <div class="col-md-2 d-flex flex-column">
-    <a href="{{ blog.url }}" class="text-decoration-none text-reset">
-      <div class="card h-70 text-bg-light">
+      <a href="{{ blog.url }}" class="text-decoration-none text-reset">
+        <div class="card h-70 text-bg-light">
           <img
             src="{% static 'images/blogs/'|add:blog.image_preview %}"
             class="img-fluid mx-auto lazy spacing-30 rounded-circle"
@@ -43,28 +40,27 @@
             height="150"
           />
           <div class="card-body">
-          <figure>
-                <blockquote class="blockquote">
-                  <h3 class="card-title mb-2">{{ blog.title }}</h3>
-                </blockquote>
-              <p class="card-text text-wrap">
-              {{ blog.description }}
-              </p>
+            <figure>
+              <blockquote class="blockquote">
+                <h3 class="card-title mb-2">{{ blog.title }}</h3>
+              </blockquote>
+              <p class="card-text text-wrap">{{ blog.description }}</p>
               <figcaption class="blockquote-footer">
-              <div class="d-flex justify-content-between">
-                <p class="mb-0">{{ blog.date }}</p>
-                <p class="fw-bolder mb-0">Read time: {{ blog.read_time_mins }} minutes</p>
-              </div>
-                </figcaption>
-              </figure>
-            </div>
-            </div>
+                <div class="d-flex justify-content-between">
+                  <p class="mb-0">{{ blog.date }}</p>
+                  <p class="fw-bolder mb-0">
+                    Read time: {{ blog.read_time_mins }} minutes
+                  </p>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
       </a>
-      </div>
+    </div>
     {% endfor %}
   </div>
   <p class="spacing-bot-50" />
   {% endfor %}
-
-{% endblock %}
+  {% endblock %}
 </div>
