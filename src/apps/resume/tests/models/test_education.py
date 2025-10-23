@@ -1,8 +1,6 @@
 from typing import Any
 
-from apps.resume.data_class.portfolio.education import (
-    Education as EducationDataClass,
-)
+from apps.resume.data_class.education import Education as EducationDataClass
 from apps.resume.models.education import Education
 from apps.resume.tests.models.portfolio import Portfolio
 
@@ -13,9 +11,7 @@ class EducationTestCase(Portfolio):
 
         education_model: Any = self.model.apps.get_model("resume", "Education")
 
-        educations_dc: list[Any] = EducationDataClass.from_yaml(
-            "portfolio/education.yaml"
-        )
+        educations_dc: list[Any] = EducationDataClass.from_yaml("education.yaml")
 
         for education_dc in educations_dc:
             education: Education = education_model.objects.get(

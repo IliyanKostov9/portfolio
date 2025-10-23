@@ -1,12 +1,12 @@
-from apps.resume.data_class.portfolio.certification import Certification
-from apps.resume.data_class.portfolio.education import Education
-from apps.resume.data_class.portfolio.project import Project
-from apps.resume.data_class.portfolio.language import Language
-from apps.resume.data_class.portfolio.technology import Technology
-from apps.resume.data_class.portfolio.technology_category import (
+from apps.resume.data_class.certification import Certification
+from apps.resume.data_class.education import Education
+from apps.resume.data_class.project import Project
+from apps.resume.data_class.language import Language
+from apps.resume.data_class.technology import Technology
+from apps.resume.data_class.technology_category import (
     TechnologyCategory,
 )
-from apps.resume.data_class.portfolio.work_history import WorkHistory
+from apps.resume.data_class.work_history import WorkHistory
 
 
 def init(apps, schema_editor):

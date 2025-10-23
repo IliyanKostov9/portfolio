@@ -3,7 +3,7 @@ from typing import Any
 
 from typing_extensions import override
 
-from apps.resume.data_class.portfolio.portfolio import Portfolio
+from apps.resume.data_class.portfolio import Portfolio
 
 
 @dataclass(frozen=True)
@@ -25,7 +25,7 @@ class Language(Portfolio):
         language_model = apps.get_model(Portfolio.app_name, "Language")
         language_model.objects.all().delete()
 
-        languages: list[Language] = Language.from_yaml("portfolio/language.yaml")
+        languages: list[Language] = Language.from_yaml("language.yaml")
 
         for language in languages:
             language_model.objects.create(
