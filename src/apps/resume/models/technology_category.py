@@ -13,7 +13,7 @@ class TechnologyCategory(Portfolio):
 
     @override
     def get_all(self) -> Any:
-        pass
+        return list(TechnologyCategory.objects.all().values())
 
     @override
     def transform(self) -> Any:

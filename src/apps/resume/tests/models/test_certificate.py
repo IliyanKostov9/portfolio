@@ -1,6 +1,6 @@
 from typing import Any
 
-from apps.resume.data_class.portfolio.certification import (
+from apps.resume.data_class.certification import (
     Certification as CertificatationDataClass,
 )
 from apps.resume.models.certification import Certification
@@ -14,7 +14,7 @@ class CertificationTestCase(Portfolio):
         certification_model: Any = self.model.apps.get_model("resume", "Certification")
 
         certification_dc: list[Any] = CertificatationDataClass.from_yaml(
-            "portfolio/certificate.yaml"
+            "certificate.yaml"
         )
 
         for certification_dc in certification_dc:
