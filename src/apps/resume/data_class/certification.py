@@ -3,7 +3,7 @@ from typing import Any
 
 from typing_extensions import override
 
-from apps.resume.data_class.portfolio.portfolio import Portfolio
+from apps.resume.data_class.portfolio import Portfolio
 
 
 @dataclass(frozen=True)
@@ -28,7 +28,7 @@ class Certification(Portfolio):
         certification_model.objects.all().delete()
 
         certifications: list[Certification] = Certification.from_yaml(
-            "portfolio/certificate.yaml"
+            "certificate.yaml"
         )
 
         for certification in certifications:

@@ -3,7 +3,7 @@ from typing import Any
 
 from typing_extensions import override
 
-from apps.resume.data_class.portfolio.portfolio import Portfolio
+from apps.resume.data_class.portfolio import Portfolio
 
 
 @dataclass(frozen=True)
@@ -30,9 +30,7 @@ class Technology(Portfolio):
 
         technology_model.objects.all().delete()
 
-        technologies: list[Technology] = Technology.from_yaml(
-            "portfolio/technology.yaml"
-        )
+        technologies: list[Technology] = Technology.from_yaml("technology.yaml")
 
         for technology in technologies:
             category: Any = technology_category_model.objects.get(

@@ -1,8 +1,6 @@
 from typing import Any
 
-from apps.resume.data_class.portfolio.work_history import (
-    WorkHistory as WorkHistoryDataClass,
-)
+from apps.resume.data_class.work_history import WorkHistory as WorkHistoryDataClass
 from apps.resume.models.work_history import WorkHistory
 from apps.resume.tests.models.portfolio import Portfolio
 
@@ -14,7 +12,7 @@ class WorkHistoryTestCase(Portfolio):
         work_history_model: Any = self.model.apps.get_model("resume", "WorkHistory")
 
         work_histories_dc: list[Any] = WorkHistoryDataClass.from_yaml(
-            "portfolio/work_history.yaml"
+            "work_history.yaml"
         )
 
         for work_history_dc in work_histories_dc:

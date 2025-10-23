@@ -24,3 +24,69 @@ $spacer: 10px;
 .p-3 {
   padding: $spacer !important;
 }
+
+// Lazy
+.lazy {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1.5s ease-out,
+    transform 1.5s ease-out;
+}
+
+.lazy.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Hide element
+.hide-when-scrolling {
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
+}
+
+.hide-element {
+  opacity: 0 !important;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+// Spacing
+.spacing-bot-200 {
+  margin-bottom: 200px;
+}
+
+.spacing-30 {
+  margin: 30px;
+}
+
+.spacing-lef-50 {
+  margin-left: 50px;
+}
+
+.spacing-bot-150 {
+  margin-bottom: 150px;
+}
+
+.spacing-bot-80 {
+  margin-bottom: 80px;
+}
+
+.spacing-bot-50 {
+  margin-bottom: 50px;
+}
+
+.spacing-bot-1000 {
+  margin-bottom: 1000px;
+}
+
+.spacing-top-50 {
+  margin-top: 50px;
+}
+
+// Text scroll
+.scroll-text {
+  max-height: 80px;
+  overflow-y: auto;
+}
