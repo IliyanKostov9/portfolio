@@ -69,10 +69,6 @@ $spacer: 10px;
   margin-bottom: 150px;
 }
 
-.spacing-bot-50 {
-  margin-bottom: 50px;
-}
-
 .spacing-bot-80 {
   margin-bottom: 80px;
 }
@@ -93,9 +89,4 @@ $spacer: 10px;
 .scroll-text {
   max-height: 80px;
   overflow-y: auto;
-}
-
-// Padding
-.p-3 {
-  padding: $spacer !important;
 }

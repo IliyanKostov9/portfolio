@@ -39,11 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
     mdbInput.update(input);
   });
 
- scrollspys.forEach((scrollspy) => {
+  for (const scrollspy in Array.from(scrollspys)) {
     new mdb.ScrollSpy(scrollspy, {
       target: "#scroll-table-contents",
        offset: 140
     });
-  });
+  }
 
 });

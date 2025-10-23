@@ -176,13 +176,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "portfolio.wsgi.application"
 
+sqlite3_engine = "django.db.backends.sqlite3"
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": sqlite3_engine,
         "NAME": BASE_DIR / "db.sqlite3",
         "TEST": {
             "NAME": BASE_DIR / "db.test.sqlite3",
-            "ENGINE": "django.db.backends.sqlite3",
+            "ENGINE": sqlite3_engine,
         },
     },
     "portfolio": {
@@ -197,7 +199,7 @@ DATABASES = {
         },
         "TEST": {
             "NAME": BASE_DIR / "db.test.sqlite3",
-            "ENGINE": "django.db.backends.sqlite3",
+            "ENGINE": sqlite3_engine,
         },
     },
 }
