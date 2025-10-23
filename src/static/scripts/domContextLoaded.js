@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   for (const scrollspy in Array.from(scrollspys)) {
-    new mdb.ScrollSpy(scrollspy, {
+    return new mdb.ScrollSpy(scrollspy, {
       target: "#scroll-table-contents",
        offset: 140
     });
