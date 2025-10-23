@@ -1,8 +1,6 @@
 from typing import Any
 
-from apps.resume.data_class.portfolio.language import (
-    Language as LanguageDataClass,
-)
+from apps.resume.data_class.language import Language as LanguageDataClass
 from apps.resume.models.language import Language
 from apps.resume.tests.models.portfolio import Portfolio
 
@@ -13,7 +11,7 @@ class LanguageTestCase(Portfolio):
 
         language_model: Any = self.model.apps.get_model("resume", "Language")
 
-        languages_dc: list[Any] = LanguageDataClass.from_yaml("portfolio/language.yaml")
+        languages_dc: list[Any] = LanguageDataClass.from_yaml("language.yaml")
 
         for language_dc in languages_dc:
             language: Language = language_model.objects.get(name=language_dc.name)

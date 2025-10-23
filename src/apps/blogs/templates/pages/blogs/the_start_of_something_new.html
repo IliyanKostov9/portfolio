@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static compress django_bootstrap5 %}
+{% block extra_head %}
+{% compress css %}
+<link
+  href="{% static 'style/blogs.scss' %}"
+  rel="stylesheet"
+  type="text/x-scss"
+/>
+
+{% endcompress %}
+{% endblock %}
+
+{% block content %}
+
+  <p class="spacing-bot-50" />
+<div class="d-flex justify-content-center">
+  <p class="spacing-bot-1000" />
+  <h1>Work in progress</h1>
+    <i class="fas fa-hammer"></i>
+</div>
+{% endblock %}

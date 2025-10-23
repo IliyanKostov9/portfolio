@@ -1,8 +1,6 @@
 from typing import Any
 
-from apps.resume.data_class.portfolio.technology import (
-    Technology as TechnologyDataClass,
-)
+from apps.resume.data_class.technology import Technology as TechnologyDataClass
 from apps.resume.models.technology import Technology
 from apps.resume.tests.models.portfolio import Portfolio
 
@@ -13,9 +11,7 @@ class TechonolgyTestCase(Portfolio):
 
         technology_model: Any = self.model.apps.get_model("resume", "Technology")
 
-        technologies_dc: list[Any] = TechnologyDataClass.from_yaml(
-            "portfolio/technology.yaml"
-        )
+        technologies_dc: list[Any] = TechnologyDataClass.from_yaml("technology.yaml")
 
         for technology_dc in technologies_dc:
             technology: Technology = technology_model.objects.get(

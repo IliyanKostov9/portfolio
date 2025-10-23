@@ -6,12 +6,12 @@ import yaml
 
 
 class Portfolio(ABC):
-    app_name: Final[str] = "resume"
+    app_name: Final[str] = "blogs"
 
     @classmethod
     def read_yaml(cls, path: str) -> Any:
         parent_dir: str = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), "..", "..", "config")
+            os.path.join(os.path.dirname(__file__), "..", "config")
         )
 
         if not path.endswith((".yaml", ".yml")):
