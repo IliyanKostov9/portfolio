@@ -1,3 +1,7 @@
+##########################
+# TARGET
+# #######################
+
 .PHONY: help
 help:  ## help target to show available commands with information
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) |  awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -28,11 +32,19 @@ sql-reset: ## Perform SQL reset
 	rm -rf $(PWD)/src/db.sqlite3
 	echo "Deleting migrations..."
 	rm -rf $(PWD)/src/apps/resume/migrations/00*.py
+	rm -rf $(PWD)/src/apps/blogs/migrations/00*.py
+
+.PHONY: migrate
+migrate: ## Perform SQL migration
+	python3 src/manage.py migrate resume
+	python3 src/manage.py migrate blogs
 
 .PHONY: schema-update
 schema-update: ## Update SQL schema & create an empty migration
 	python3 src/manage.py makemigrations resume
 	python3 src/manage.py makemigrations resume --empty
+	python3 src/manage.py makemigrations blogs
+	python3 src/manage.py makemigrations blogs --empty
 	echo "Now copy the following code to the new empty migrated python file like"
 	echo " \
 		from . import init, init_reverse \
@@ -40,10 +52,6 @@ schema-update: ## Update SQL schema & create an empty migration
 			migrations.RunPython(init, init_reverse), \
 		] \
 	"
-
-.PHONY: sql-init-test
-sql-init-test: ## Perform SQL migration
-	python3 src/manage.py migrate resume
 
 .PHONY: show-migrate
 show-migrate: ## Perform SQL migration

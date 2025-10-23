@@ -18,7 +18,6 @@ class Technology(Portfolio):
         verbose_name="Category of the technology",
         on_delete=CASCADE,
     )
-    # avatar = models.ImageField(name=f"{name}-avatar", width_field=300, height_field=300)
 
     @override
     def get_all(self) -> Any:

@@ -5,7 +5,7 @@ from django.db import models
 
 class Portfolio(models.Model):
     """
-    Interface for all of the models to inhecit and override methods
+    Interface for all of the models to inherit and override methods
     """
 
     def get_all(self) -> Any:

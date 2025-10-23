@@ -1,6 +1,6 @@
 from typing import Any
 
-from apps.resume.data_class.portfolio.project import Project as ProjectDataClass
+from apps.resume.data_class.project import Project as ProjectDataClass
 from apps.resume.models.project import Project
 from apps.resume.tests.models.portfolio import Portfolio
 
@@ -11,7 +11,7 @@ class ProjectTestCase(Portfolio):
 
         project_model: Any = self.model.apps.get_model("resume", "Project")
 
-        projects_dc: list[Any] = ProjectDataClass.from_yaml("portfolio/project.yaml")
+        projects_dc: list[Any] = ProjectDataClass.from_yaml("project.yaml")
 
         for project_dc in projects_dc:
             project: Project = project_model.objects.get(name=project_dc.name)

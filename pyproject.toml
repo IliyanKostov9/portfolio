@@ -24,6 +24,7 @@ dependencies = [
     "loguru>=0.7.3",
     "loki-logger-handler>=1.1.2",
     "requests>=2.32.5",
+    "psycopg2-binary>=2.9.10",
 ]
 requires-python = "==3.11.*"
 readme = "README.md"
