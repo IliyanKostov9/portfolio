@@ -187,21 +187,21 @@ DATABASES = {
             "ENGINE": sqlite3_engine,
         },
     },
-    "portfolio": {
-        "NAME": "portfolio",
-        "ENGINE": "django.db.backends.postgresql",
-        "USER": os.environ.get("PORTFOLIO_POSTGRES_USER"),
-        "PASSWORD": os.environ.get("PORTFOLIO_POSTGRES_PASSWORD"),
-        "HOST": os.environ.get("PORTFOLIO_POSTGRES_HOST"),
-        "PORT": "5432",
-        "OPTIONS": {
-            "server_side_binding": True,
-        },
-        "TEST": {
-            "NAME": BASE_DIR / "db.test.sqlite3",
-            "ENGINE": sqlite3_engine,
-        },
-    },
+    # "portfolio": {
+    #     "NAME": "portfolio",
+    #     "ENGINE": "django.db.backends.postgresql",
+    #     "USER": os.environ.get("PORTFOLIO_POSTGRES_USER"),
+    #     "PASSWORD": os.environ.get("PORTFOLIO_POSTGRES_PASSWORD"),
+    #     "HOST": os.environ.get("PORTFOLIO_POSTGRES_HOST"),
+    #     "PORT": "5432",
+    #     "OPTIONS": {
+    #         "server_side_binding": True,
+    #     },
+    #     "TEST": {
+    #         "NAME": BASE_DIR / "db.test.sqlite3",
+    #         "ENGINE": sqlite3_engine,
+    #     },
+    # },
 }
 
 DATABASE_ROUTERS = ["portfolio.routers.portfolio_router.PortfolioRouter"]
