@@ -32,7 +32,7 @@
     {% for blog in row.blog %}
     <div class="col-md-2 d-flex flex-column">
       <a href="{{ blog.url }}" class="text-decoration-none text-reset">
-        <div class="card h-70 text-bg-light">
+        <div class="card h-70" id="theme-card">
           <img
             src="{% static 'images/blogs/'|add:blog.image_preview %}"
             class="img-fluid mx-auto lazy spacing-30 rounded-circle"

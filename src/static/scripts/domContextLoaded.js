@@ -7,15 +7,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputs = document.querySelectorAll("[data-mdb-input-init]");
   const scrollspys = document.querySelectorAll("[data-mdb-scrollspy-init]");
 
-  document
-    .getElementById("contactForm")
-    .addEventListener("submit", function () {
+  const contactForm =  document.getElementById("contactForm");
+  const card = document.getElementById("theme-card");
+
+  if (contactForm) {
+      contactForm.addEventListener("submit", function () {
       const btn = document.getElementById("submitBtn");
       const spinner = document.getElementById("spinnerSubmit");
 
       btn.disabled = true;
       spinner.style.display = "inline-block";
     });
+  }
 
   collapse.forEach((collapse) => {
     new mdb.Collapse(collapse);
@@ -52,10 +55,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const currentTheme = getCookie("theme") || html.getAttribute("data-mdb-theme") || "light";
   html.setAttribute("data-mdb-theme",currentTheme);
 
+  if (card) {
+    card.classList.toggle("text-bg-dark", currentTheme === "light");
+    card.classList.toggle("text-bg-light", currentTheme === "dark");
+  }
+
+
   toggle.addEventListener("click", () => {
     const theme = html.getAttribute("data-mdb-theme") === "dark" ? "light": "dark";
     html.setAttribute("data-mdb-theme", theme);
     setCookie("theme", theme, 365);
+
+  if (card) {
+    card.classList.toggle("text-bg-dark");
+    card.classList.toggle("text-bg-light");
+  }
+
   });
 
 });
