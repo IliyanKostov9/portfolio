@@ -14,6 +14,7 @@ run: ## Run Django app
 
 test: ## Test Django app
 	python3 -Wa ./src/manage.py test apps.resume.tests -v 3
+	python3 -Wa ./src/manage.py test apps.blogs.tests -v 3
 
 clean:
 	echo "clean"
