@@ -1,14 +1,15 @@
-from apps.resume.views.home.home_view import HomeView
-from django.core.handlers.wsgi import WSGIRequest
-from django.urls import reverse
-from django.test import TestCase, RequestFactory
-
-from apps.resume.models.education import Education
-from apps.resume.models.certification import Certification
-from apps.resume.models.project import Project
-from apps.resume.models.work_history import WorkHistory
-
 from django.conf import settings
+from django.core.handlers.wsgi import WSGIRequest
+from django.test import RequestFactory, TestCase
+from django.urls import reverse
+
+from apps.resume.models.certification import Certification
+from apps.resume.models.education import Education
+from apps.resume.models.project import Project
+from apps.resume.models.technology import Technology
+from apps.resume.models.technology_category import TechnologyCategory
+from apps.resume.models.work_history import WorkHistory
+from apps.resume.views.home.home_view import HomeView
 
 
 class HomeViewTestCase(TestCase):
@@ -23,6 +24,22 @@ class HomeViewTestCase(TestCase):
             "/",
         )
 
+        self.request.technology_categories = [
+            TechnologyCategory.objects.create(
+                name="technologyCategory1",
+            )
+        ]
+
+        self.request.technologies = [
+            Technology.objects.create(
+                name="technology1",
+                icon="icon.svg",
+                category=TechnologyCategory.objects.get(name="technologyCategory1"),
+                row=1,
+                page=1,
+            )
+        ]
+
         self.request.educations = [
             Education.objects.create(
                 degree="degree",
@@ -36,6 +53,9 @@ class HomeViewTestCase(TestCase):
                 date="date",
                 gpa="gpa",
             ),
+        ]
+
+        self.request.certifications = [
             Certification.objects.create(
                 name="cert",
                 issuer="issuer",
@@ -44,6 +64,9 @@ class HomeViewTestCase(TestCase):
                 url="url",
                 row=1,
             ),
+        ]
+
+        self.request.projects = [
             Project.objects.create(
                 name="project",
                 description="description",
@@ -53,6 +76,9 @@ class HomeViewTestCase(TestCase):
                 row=1,
                 repositories=[{"name": "name", "url": "url"}],
             ),
+        ]
+
+        self.request.work_histories = [
             WorkHistory.objects.create(
                 company_name="company_name",
                 company_name_label="company_name_label",
