@@ -90,3 +90,36 @@ $spacer: 10px;
   max-height: 80px;
   overflow-y: auto;
 }
+
+#theme-toggle {
+  position: relative;
+}
+
+.theme-icon-sun,
+.theme-icon-moon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  pointer-events: none;
+}
+
+[data-mdb-theme="light"] .theme-icon-sun {
+  opacity: 1;
+  transform: scale(1);
+}
+[data-mdb-theme="light"] .theme-icon-moon {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+[data-mdb-theme="dark"] .theme-icon-sun {
+  opacity: 0;
+  transform: scale(0.5);
+}
+[data-mdb-theme="dark"] .theme-icon-moon {
+  opacity: 1;
+  transform: scale(1.1);
+}
