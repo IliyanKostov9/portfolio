@@ -46,4 +46,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  const body = document.body;
+  const toggle = document.getElementById("theme-toggle");
+  const currentTheme = getCookie("theme") || "{{ theme }}"
+
+  if (currentTheme == "dark") {
+    body.classList.add("dark-mode");
+  }
+
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+    const isDark = body.classList.contains("dark-mode");
+    setCookie("theme",isDark ? "dark": "light",365);
+  });
+
 });

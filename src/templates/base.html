@@ -1,7 +1,7 @@
 {% load static compress %}
 
 <!doctype html>
-<html lang="en" data-mdb-theme="dark">
+<html lang="en" data-mdb-theme="{{ theme }}">
   <head>
     <title>Iliyan's portfolio page</title>
     <link rel="browser icon" href="{% static 'favicon.ico' %}" />
@@ -27,6 +27,16 @@
       integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+    (function(){
+      const cookies = document.cookie.split("; ");
+      const themeCookie = cookies.find((c) => c.startsWith("theme="));
+      if (themeCookie && themeCookie.split("=")[1] == "dark"){
+          document.documentElement.classList.add("dark-mode");
+      }
+    })();
+    </script>
 
     {% compress css %}
     <link
@@ -93,15 +103,20 @@
           </ul>
         </div>
 
+        <button id="theme-toggle"
+          type="button" class="btn btn-link btn-floating btn-lg m-1"
+        >
         {% if theme == "light" %}
         <i class="fas fa-sun fa-lg"></i>
         {% else %}
         <i class="fas fa-moon fa-lg"></i>
         {% endif %}
+        </button>
       </div>
     </nav>
 
     {% block content %} {% endblock %}
+    <script src="{% static 'scripts/cookie.js' %}"></script>
     <script src="{% static 'scripts/scroll.js' %}"></script>
     <script src="{% static 'scripts/domContextLoaded.js' %}"></script>
     <script src="{% static 'scripts/lazyload.js' %}"></script>
