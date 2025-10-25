@@ -46,18 +46,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const body = document.body;
+  const html = document.documentElement;
   const toggle = document.getElementById("theme-toggle");
-  const currentTheme = getCookie("theme") || "{{ theme }}"
 
-  if (currentTheme == "dark") {
-    body.classList.add("dark-mode");
-  }
+  const currentTheme = getCookie("theme") || html.getAttribute("data-mdb-theme") || "light";
+  html.setAttribute("data-mdb-theme",currentTheme);
 
   toggle.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-    const isDark = body.classList.contains("dark-mode");
-    setCookie("theme",isDark ? "dark": "light",365);
+    const theme = html.getAttribute("data-mdb-theme") === "dark" ? "light": "dark";
+    html.setAttribute("data-mdb-theme", theme);
+    setCookie("theme", theme, 365);
   });
 
 });
