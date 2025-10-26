@@ -7,9 +7,9 @@ from apps.blogs.views.blogs.the_start_of_something_new_view import (
 from apps.blogs.views.monitor.csp_report_view import CSPReportView
 
 urlpatterns = [
-    path("blogs/", BlogsView.as_view(), name="blogs"),
+    path("", BlogsView.as_view(), name="blogs"),
     path(
-        "blogs/the-start-of-something-new",
+        "the-start-of-something-new",
         TheStartOfSomethingNewView.as_view(),
         name="the_start_of_something_new",
     ),
