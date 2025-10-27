@@ -2,14 +2,15 @@ from typing import Any
 
 from django.http import HttpResponse
 from django.template import loader
+from django.utils.translation import gettext as _
 from django.views import View
 
 from apps.resume.models.certification import Certification
 from apps.resume.models.education import Education
+from apps.resume.models.language import Language
 from apps.resume.models.project import Project
 from apps.resume.models.technology import Technology
 from apps.resume.models.work_history import WorkHistory
-from apps.resume.models.language import Language
 from portfolio.monitor.log import logger
 
 
@@ -32,6 +33,7 @@ class HomeView(View):
         languages = Language().transform()
 
         context: dict[str, Any] = {
+            "sub_title": _("I try to figure out how things work."),
             "technologies": technologies,
             "work_histories": work_histories,
             "educations": educations,

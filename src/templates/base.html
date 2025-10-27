@@ -84,20 +84,39 @@
           </ul>
         </div>
 
+        <form action="{% url 'set_language' %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ redirect_to }}"/>
+
+      <div class="dropdown">
         <button id="lang-toggle"
+          name="next"
+          value="{{ redirect_to }}"
           type="button" class="btn btn-link btn-floating btn-lg m-1 dropdown-toggle"
           data-mdb-dropdown-init
           data-mdb-ripple-init
           arial-expanded="false"
         >
           <i class="fas fa-language fa-lg text-white"></i>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">English</a></li>
-            <li><a class="dropdown-item" href="#">Bulgarian</a></li>
-            <li><a class="dropdown-item" href="#">French</a></li>
-            <li><a class="dropdown-item" href="#">German</a></li>
+            </button>
+
+          <ul class="dropdown-menu" name="lang-toggle">
+            <li>
+              <button type="submit" name="language" value="en" class="dropdown-item">English</button>
+            </li>
+
+            <li>
+              <button type="submit" name="language" value="bg" class="dropdown-item">Bulgarian</button>
+            </li>
+            <li>
+              <button type="submit" name="language" value="fr" class="dropdown-item">French</button>
+            </li>
+            <li>
+              <button type="submit" name="language" value="ge" class="dropdown-item">German</button>
+            </li>
           </ul>
-        </button>
+          </div>
+        </form>
 
         <button id="theme-toggle"
           type="button" class="btn btn-link btn-floating btn-lg m-1"

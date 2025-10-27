@@ -15,15 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from django.conf.urls.i18n import i18n_patterns
 from django.urls import include, path
 
 from portfolio.views.error.error_404 import Error404
 from portfolio.views.error.error_500 import Error500
 
+print(i18n_patterns())
+
 urlpatterns = [
     # path("admin/", admin.site.urls),  # pyre-ignore[16]
     path("", include("apps.resume.urls")),
     path("blogs/", include("apps.blogs.urls")),
+    path("i18n/", include("django.conf.urls.i18n")),
 ]
 
 handler404 = Error404.as_view()
