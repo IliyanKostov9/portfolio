@@ -2,6 +2,7 @@ from typing import Any
 
 from django.http import HttpResponse
 from django.template import loader
+from django.utils.translation import get_language
 from django.utils.translation import gettext as _
 from django.views import View
 
@@ -34,6 +35,7 @@ class HomeView(View):
 
         context: dict[str, Any] = {
             "sub_title": _("I try to figure out how things work."),
+            "language": get_language(),
             "technologies": technologies,
             "work_histories": work_histories,
             "educations": educations,
