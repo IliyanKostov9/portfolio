@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-26 22:30+0100\n"
+"POT-Creation-Date: 2025-10-28 22:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,145 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/apps/resume/views/home/home_view.py:36
+#: src/apps/resume/config/translations.py:3
+msgid "Portfolio"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:4
+msgid "Blogs"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:5
+msgid "Hi"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:6
+msgid "I'm Iliyan"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:7
 msgid "I try to figure out how things work."
 msgstr "Ich versuche herauszufinden, wie die Dinge funktionieren."
+
+#: src/apps/resume/config/translations.py:8
+#: src/apps/resume/config/translations.py:10
+msgid "Scroll down to find out more about me"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:9
+msgid "Continue reading"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:11
+msgid "See less"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:13
+msgid ""
+"As you may have already guessed from the title above, my name is indeed, "
+"Iliyan. I'm born in Bulgaria in a city on the coast of the Black Sea - Varna."
+msgstr ""
+
+#: src/apps/resume/config/translations.py:15
+msgid ""
+"\n"
+"      I have started on my engineering journey back when I was a kid and had "
+"to\n"
+"      constantly fix our family desktop computer from crashing on WindowsXP "
+"and\n"
+"      Windows7, where the issue might be either hardware related - ROM "
+"failed,\n"
+"      motherboard got fried because of the very hot summers we had at the "
+"late\n"
+"      2000s, or I installed a pirated game with additional content (aka\n"
+"      malware). That repetition of breaking and fixing changed my way of\n"
+"      thinking and approaching problems from there on.\n"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:24
+msgid ""
+"\n"
+"      Afterward I joined in a high school for operation of road transport.\n"
+"      Yes, it's not computer related, but it's in the engineering field. I\n"
+"      actually do consider myself more of an <u>engineer</u> than a "
+"computer\n"
+"      scientist.\n"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:30
+msgid ""
+"\n"
+"      Time passed by and then after high school I was working at a grocery\n"
+"      store and like every confused 18 years old, I was wondering what I "
+"was\n"
+"      going to do with my life. Then after looking of all the local Varna\n"
+"      universities, I then stopped at this one, called *Technical "
+"university\n"
+"      of Varna*. I got curious by the technical specialtes - mainly at\n"
+"      computer science and computer technologies and internet. After a bit "
+"of\n"
+"      thinking, I randomly choose the second option. That was by far the\n"
+"      <span class=\"green\">best</span> life changing choice I've made so "
+"far\n"
+"      and at that time I couldn't have imagined how much this decision was\n"
+"      going to change me for the better.\n"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:42
+msgid ""
+"\n"
+"      In there I didn't learn only about technology, I learnt about working\n"
+"      with others, exchanging ideas with passionate people, engaging in\n"
+"      debates with professors and assitants, and most importantly - "
+"becoming\n"
+"      an adult. That's the point of an university, shaping you into a\n"
+"      well-rounded individual, who can be integrated into the professional "
+"and\n"
+"      social environments and being responsible for their actions. I\n"
+"      concretely believe in that statement. I've heard so many pepole\n"
+"      (co-students), that believe that the point of an university is to get "
+"a\n"
+"      job, that person is either delusional or being a stubborn child, that\n"
+"      doesn't want to look at the bigger picture.\n"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:54
+msgid ""
+"\n"
+"      In the third year of my bachelor's degree (2021) I was in an "
+"internship\n"
+"      of a small local financial institution, that we developed legacy "
+"Windows\n"
+"      32bit for WindowsXP systems in Visual Objects community edition (also\n"
+"      called CAVO). In the same year I landed my first actual IT job as a\n"
+"      DevOps engineer as a consultant. The good thing about being a "
+"consultant\n"
+"      is that you can see different companies (clients) with different\n"
+"      architectures and <i>ways-of-working</i> in a very short amount of "
+"time,\n"
+"      but the bad part is that you are not a permanent employee in these\n"
+"      projects and you'll have to learn all of those tedious company's\n"
+"      processes and in-house tools again for the next project. Believe me, "
+"in\n"
+"      time you'll get very irritated by it.\n"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:67
+msgid ""
+"\n"
+"      After some time I've spend working there and becoming more familiar "
+"with\n"
+"      the company, I started to dislike the the company culture and decided "
+"to\n"
+"      go elsewhere. In May 2025, I found another job, which wasn't just a "
+"job,\n"
+"      but a life change. I had to move out to live on the southern region "
+"of\n"
+"      France, Côte d'Azur.\n"
+msgstr ""
+
+#: src/apps/resume/config/translations.py:74
+msgid ""
+"\n"
+"And the story continues...\n"
+msgstr ""

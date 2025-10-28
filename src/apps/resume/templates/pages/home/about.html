@@ -7,18 +7,10 @@
     <h2 class="lazy"><a href="#About">About</a></h2>
       </section>
     <p class="lazy">
-      As you may have already guessed from the title above, my name is indeed
-      Iliyan. I'm born in Bulgaria in a city on the coast of the Black Sea -
-      Varna.
+      {{ tr_about.introduction }}
     </p>
     <p class="lazy">
-      I have started on my engineering journey back when I was a kid and had to
-      constantly fix our family desktop computer from crashing on WindowsXP and
-      Windows7, where the issue might be either hardware related - ROM failed,
-      motherboard got fried because of the very hot summers we had at the late
-      2000s, or I installed a pirated game with additional content (aka
-      malware). That repetition of breaking and fixing changed my way of
-      thinking and approaching problems from there on.
+      {{ tr_about.starting_journey }}
     </p>
 
     <hr class="hr hr-blurry" />
@@ -30,16 +22,13 @@
       aria-expanded="false"
       aria-controls="aboutCollapse"
     >
-      <em>Continue reading</em>
+      <em>{{ tr_about.read_more }}</em>
     </a>
 
     <!-- NOTE: needed for same id in order for the Read more button to dissapear after it being clicked -->
     <div class="collapse" id="aboutCollapse">
       <p>
-        Afterward I joined in a high school for operation of road transport.
-        Yes, it's not computer related, but it's in the engineering field. I
-        actually do consider myself more of an <u>engineer</u> than a computer
-        scientist.
+        {{ tr_about.starting_uni }}
       </p>
       <p>
         Time passed by and then after high school I was working at a grocery
@@ -54,39 +43,16 @@
         going to change me for the better.
       </p>
       <p>
-        In there I didn't learn only about technology, I learnt about working
-        with others, exchanging ideas with passionate people, engaging in
-        debates with professors and assitants, and most importantly - becoming
-        an adult. That's the point of an university, shaping you into a
-        well-rounded individual, who can be integrated into the professional and
-        social environments and being responsible for their actions. I
-        concretely believe in that statement. I've heard so many pepole
-        (co-students), that believe that the point of an university is to get a
-        job, that person is either delusional or being a stubborn child, that
-        doesn't want to look at the bigger picture.
+        {{ tr_about.a_bit_of_dumb_philosophy }}
       </p>
       <p>
-        In the third year of my bachelor's degree (2021) I was in an internship
-        of a small local financial institution, that we developed legacy Windows
-        32bit for WindowsXP systems in Visual Objects community edition (also
-        called CAVO). In the same year I landed my first actual IT job as a
-        DevOps engineer as a consultant. The good thing about being a consultant
-        is that you can see different companies (clients) with different
-        architectures and <i>ways-of-working</i> in a very short amount of time,
-        but the bad part is that you are not a permanent employee in these
-        projects and you'll have to learn all of those tedious company's
-        processes and in-house tools again for the next project. Believe me, in
-        time you'll get very irritated by it.
+        {{ tr_about.starting_work }}
       </p>
       <p>
-        After some time I've spend working there and becoming more familiar with
-        the company, I started to dislike the the company culture and decided to
-        go elsewhere. In May 2025, I found another job, which wasn't just a job,
-        but a life change. I had to move out to live on the southern region of
-        France, Côte d'Azur.
+        {{ tr_about.work_in_france}}
       </p>
       <p>
-        <em>And the story continues...</em>
+        <em>{{ tr_about.cliche_ending }}</em>
       </p>
 
       <hr class="hr hr-blurry" />
@@ -98,7 +64,7 @@
         aria-expanded="true"
         aria-controls="collapseAbout"
       >
-        <em>See less</em>
+        <em>{{ tr_about.read_less }}</em>
       </a>
     </div>
   </div>
