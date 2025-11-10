@@ -1,4 +1,4 @@
-{% load static compress %}
+{% load static compress i18n %}
 
 <!doctype html>
 <html lang="en" data-mdb-theme="{{ theme }}">
@@ -62,7 +62,7 @@
           onclick="window.open('https://github.com/IliyanKostov9/portfolio','_blank')"
         >
           <i class="fab fa-github fa-lg"></i>
-          <p id="github-version" class="d-inline mb-0 fw-bold p-3">Source</p>
+          <p id="github-version" class="d-inline mb-0 fw-bold p-3">{% translate "Source" %}</p>
         </button>
         <div
           class="collapse navbar-collapse justify-content-center"
@@ -71,13 +71,13 @@
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active text-white" aria-current="page" href="/"
-                >Portfolio</a
+              >{% translate "Portfolio" %}</a
               >
             </li>
 
             <li class="nav-item">
               <a class="nav-link active text-white" aria-current="page" href="/blogs/"
-                >Blogs</a
+              >{% translate "Blogs" %}</a
               >
             </li>
 
@@ -102,17 +102,17 @@
 
           <ul class="dropdown-menu" name="lang-toggle">
             <li>
-              <button type="submit" name="language" value="en" class="dropdown-item">English</button>
+                <button type="submit" name="language" value="en" class="dropdown-item">{% translate "English" %}</button>
             </li>
 
             <li>
-              <button type="submit" name="language" value="bg" class="dropdown-item">Bulgarian</button>
+                <button type="submit" name="language" value="bg" class="dropdown-item">{% translate "Bulgarian" %}</button>
             </li>
             <li>
-              <button type="submit" name="language" value="fr" class="dropdown-item">French</button>
+                <button type="submit" name="language" value="fr" class="dropdown-item">{% translate "French" %}</button>
             </li>
             <li>
-              <button type="submit" name="language" value="ge" class="dropdown-item">German</button>
+                <button type="submit" name="language" value="ge" class="dropdown-item">{% translate "German" %}</button>
             </li>
           </ul>
           </div>
@@ -160,9 +160,9 @@
       </div>
 
       <div class="text-center p-3 footer-text">
-        Made with
+        {% translate"Made with" %}
         <a class="text-body" href="https://www.djangoproject.com/">
-          ❤️ by Django</a
+          ❤️ {% translate "by Django" %}</a
         >
       </div>
     </footer>

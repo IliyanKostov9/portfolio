@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 23:40+0100\n"
+"POT-Creation-Date: 2025-11-10 23:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -222,4 +222,36 @@ msgstr ""
 
 #: src/apps/resume/templates/pages/home/work_history.html:8
 msgid "Work history"
+msgstr ""
+
+#: src/templates/base.html:65
+msgid "Source"
+msgstr ""
+
+#: src/templates/base.html:74
+msgid "Portfolio"
+msgstr ""
+
+#: src/templates/base.html:80
+msgid "Blogs"
+msgstr ""
+
+#: src/templates/base.html:105
+msgid "English"
+msgstr ""
+
+#: src/templates/base.html:109
+msgid "Bulgarian"
+msgstr ""
+
+#: src/templates/base.html:112
+msgid "French"
+msgstr ""
+
+#: src/templates/base.html:115
+msgid "German"
+msgstr ""
+
+#: src/templates/base.html:165
+msgid "by Django"
 msgstr ""
