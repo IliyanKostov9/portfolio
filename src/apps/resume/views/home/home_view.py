@@ -5,7 +5,6 @@ import yaml
 from django.http import HttpResponse
 from django.template import loader
 from django.utils.translation import get_language
-from django.utils.translation import gettext as _
 from django.views import View
 
 from apps.resume.models.certification import Certification
@@ -26,7 +25,7 @@ class HomeView(View):
             code=200,
         )
 
-        content = self._read_yaml("page_content.yaml")
+        self._read_yaml("page_content.yaml")
 
         template = loader.get_template("pages/home/index.html")
 
@@ -37,14 +36,7 @@ class HomeView(View):
         projects = Project().transform()
         languages = Language().transform()
 
-        text = self._translate(content["body"]["about"])
-
-        print("This is test> " + str(text))
-
         context: dict[str, Any] = {
-            "headers": self._translate(content["headers"]),
-            "tr_main": self._translate(content["body"]["main"]),
-            "tr_about": self._translate(content["body"]["about"]),
             "language": get_language(),
             "technologies": technologies,
             "work_histories": work_histories,
@@ -70,12 +62,3 @@ class HomeView(View):
 
         with open(os.path.join(parent_dir, file_name), "r") as file:
             return yaml.safe_load(file)
-
-    def _translate(self, obj) -> Any:
-        if isinstance(obj, str):
-            return _(obj)
-        elif isinstance(obj, list):
-            return [self._translate(item) for item in obj]
-        elif isinstance(obj, dict):
-            return {k: self._translate(v) for k, v in obj.items()}
-        return obj
