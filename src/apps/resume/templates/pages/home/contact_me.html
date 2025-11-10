@@ -1,8 +1,10 @@
+{% load i18n %}
+
 <div class="row text-center justify-content-center">
   <div class="col-md-7 lazy d-flex flex-column align-items-center">
 
   <section id="ContactMe">
-    <h2 class="lazy"><a href="#ContactMe">Contact me</a></h2>
+      <h2 class="lazy"><a href="#ContactMe">{% translate "Contact me" %}</a></h2>
     </section>
 
     <div class="card">
@@ -24,7 +26,7 @@
               class="form-control"
               required
             />
-            <label class="form-label" for="name">Name</label>
+          <label class="form-label" for="name">{% translate "Name" %}</label>
           </div>
           </div>
 
@@ -37,7 +39,7 @@
               class="form-control"
               required
             />
-            <label class="form-label" for="email">Email address</label>
+              <label class="form-label" for="email">{% translate "Email address" %}</label>
           </div>
           </div>
 
@@ -51,7 +53,7 @@
               rows="4"
               required
             ></textarea>
-            <label class="form-label" for="message">Message</label>
+          <label class="form-label" for="message">{% translate "Message" %}</label>
           </div>
           </div>
 
@@ -67,8 +69,8 @@
               class="spinner-border spinner-border-sm display-none"
               aria-hidden="true"
             ></span>
-            <span class="visually-hidden">Loading...</span>
-            Send
+            <span class="visually-hidden">{% translate "Loading..." %}</span>
+            {% translate "Send" %}
             <i class="fas fa-paper-plane"></i>
           </button>
         </form>

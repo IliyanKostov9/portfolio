@@ -1,10 +1,10 @@
-{% load static %}
+{% load static i18n %}
 
 <div class="row text-center justify-content-center">
 
   <section id="Certificates">
   <h2 class="lazy">
-    <a href="#Certificates">Certificates</a>
+      <a href="#Certificates">{% translate "Certificates" %}</a>
   </h2>
   </section>
 
@@ -35,7 +35,7 @@
                 data-mdb-ripple-init
                 onclick="window.open('{{ cert.url }}','_blank')"
               >
-                Verify
+              {% translate "Verify" %}
               </button>
             </figcaption>
           </figure>

@@ -70,3 +70,7 @@ translate: ## Translate text into the 4 languages
 	django-admin makemessages -l fr
 	django-admin makemessages -l ge
 	django-admin compilemessages
+
+.PHONY: tr-compile
+tr-compile: ## Complie the translated .po files
+	django-admin compilemessages

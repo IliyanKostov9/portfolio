@@ -1,11 +1,11 @@
-{% load static %}
+{% load static i18n %}
 
 <div class="row text-center justify-content-center">
   <div class="col-md-7 lazy d-flex flex-column align-items-center">
 
   <section id="Education">
-    <h2 class="lazy"><a href="#Education">Education</a></h2>
-    </section>
+    <h2 class="lazy"><a href="#Education">{% translate "Education" %}</a></h2>
+  </section>
 
     {% for education in educations %}
     <div class="card max-width-700">
