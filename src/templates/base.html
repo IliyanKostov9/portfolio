@@ -97,7 +97,33 @@
           data-mdb-ripple-init
           arial-expanded="false"
         >
-              <h6 style="transform: translateY(4px);"> {% blocktranslate with lang=language %} {{ lang }} {% endblocktranslate %} </h6>
+              <h6 style="transform: translateY(4px);">
+                {% if language == "bg" %}
+                {% blocktranslate with lang=language %}
+                {{ lang }}
+                <i class="flag flag-bulgaria"></i>
+                {% endblocktranslate %}
+
+                {% elif language == "en" %}
+                {% blocktranslate with lang=language %}
+                {{ lang }}
+                <i class="flag flag-united-kingdom"></i>
+                {% endblocktranslate %}
+
+                {% elif language == "fr" %}
+                {% blocktranslate with lang=language %}
+                {{ lang }}
+                <i class="flag flag-france"></i>
+                {% endblocktranslate %}
+
+                {% elif language == "ge" %}
+                {% blocktranslate with lang=language %}
+                {{ lang }}
+                <i class="flag flag-germany"></i>
+                {% endblocktranslate %}
+
+                {% endif %}
+              </h6>
             </button>
 
           <ul class="dropdown-menu" name="lang-toggle">
