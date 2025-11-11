@@ -7,18 +7,50 @@ from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
 from apps.resume.models.translation import Translation
+from portfolio.monitor.log import logger
 
 LANGUAGE_LEVEL_PROFICIENCY: Final[dict[str, int]] = {
     "Beginner": 25,
-    "Intermidiate": 50,
+    "Intermediate": 50,
     "Advanced": 75,
     "Fluent": 100,
     "Native": 100,
 }
 
+PROFICIENCY_TRANSLATIONS = {
+    "en": {
+        "Beginner": "Begineer",
+        "Intermediate": "Intermidiate",
+        "Advanced": "Advanced",
+        "Fluent": "Fluent",
+        "Native": "Native",
+    },
+    "bg": {
+        "Beginner": "Начинаещ",
+        "Intermediate": "Междинно ниво",
+        "Advanced": "Силен",
+        "Fluent": "Владее свободно",
+        "Native": "Местен",
+    },
+    "fr": {
+        "Beginner": "Débutant",
+        "Intermediate": "Intermédiaire",
+        "Advanced": "Avancé",
+        "Fluent": "Courant",
+        "Native": "Indigène",
+    },
+    "ge": {
+        "Beginner": "Anfänger",
+        "Intermediate": "Dazwischenliegend",
+        "Advanced": "Fortschrittlich",
+        "Fluent": "Fließend",
+        "Native": "Einheimisch",
+    },
+}
+
 LANGUAGE_LEVEL_COLORS: Final[dict[str, str]] = {
     "Beginner": "bg-danger",
-    "Intermidiate": "bg-warning",
+    "Intermediate": "bg-warning",
     "Advanced": "",
     "Fluent": "bg-success",
     "Native": "bg-success",
@@ -35,6 +67,7 @@ class LanguageProficiency(Portfolio):
         verbose_name="Translated language name",
         on_delete=CASCADE,
     )
+    LOG = logger.bind(module="language_model")
 
     @override
     def get_all(self) -> Any:
@@ -48,16 +81,30 @@ class LanguageProficiency(Portfolio):
 
         rows = {}
         result = []
-        for language in languages_objs:
-            row = language["row"]
-            if row not in rows:
-                rows[row] = {"row": row, "language": []}
-                result.append(rows[row])
-            language.pop("row")
+        try:
+            for language in languages_objs:
+                row = language["row"]
+                if row not in rows:
+                    rows[row] = {"row": row, "language": []}
+                    result.append(rows[row])
+                language.pop("row")
 
-            language["level"] = LANGUAGE_LEVEL_PROFICIENCY.get(language["proficiency"])
-            language["level_color"] = LANGUAGE_LEVEL_COLORS.get(language["proficiency"])
-            rows[row]["language"].append(language)
+                language["level"] = LANGUAGE_LEVEL_PROFICIENCY.get(
+                    language["proficiency"]
+                )
+                language["level_color"] = LANGUAGE_LEVEL_COLORS.get(
+                    language["proficiency"]
+                )
+                rows[row]["language"].append(language)
+
+                proficiency: str = language["proficiency"]
+                language["proficiency"] = PROFICIENCY_TRANSLATIONS[get_language()][
+                    proficiency
+                ]
+        except KeyError:
+            logger.error(
+                "Keyerror when trying to retrieve the translated text for language!"
+            )
 
         return result
 
