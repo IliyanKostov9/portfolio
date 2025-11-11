@@ -115,6 +115,7 @@ apps: list[str] = [
     "apps.resume.apps.ResumeConfig",
     "apps.blogs.apps.BlogsConfig",
     "compressor",
+    "parler",
     "django_bootstrap5",
     # "django.contrib.admin",
     "django.contrib.auth",
@@ -238,6 +239,7 @@ LANGUAGES = [
     ("fr", "French"),
     ("ge", "German"),
 ]
+PARLER_DEFAULT_LANGUAGE_CODE = "en"
 LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

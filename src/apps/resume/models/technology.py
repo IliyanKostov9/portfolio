@@ -51,7 +51,9 @@ class Technology(Portfolio):
             "pages": {
                 page: {
                     "categories": {
-                        category: {"rows": rows}
+                        TechnologyCategory.objects.language("en")
+                        .get(id=category)
+                        .name: {"rows": rows}
                         for category, rows in categories.items()
                     }
                 }
