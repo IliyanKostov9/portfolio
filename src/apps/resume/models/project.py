@@ -1,9 +1,19 @@
 from typing import Any
 
-from django.db.models import BooleanField, CharField, IntegerField, JSONField
+from django.db.models import (
+    CASCADE,
+    BooleanField,
+    CharField,
+    ForeignKey,
+    IntegerField,
+    JSONField,
+)
+from django.forms.models import model_to_dict
+from django.utils.translation import get_language
 from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
+from apps.resume.models.translation import Translation
 
 
 class Project(Portfolio):
@@ -17,16 +27,19 @@ class Project(Portfolio):
     date: CharField = CharField("Date of the project being worked on")
     row: IntegerField = IntegerField("Row number of the project")
     repositories: JSONField = JSONField("Repositories")
+    language: ForeignKey = ForeignKey(
+        Translation,
+        verbose_name="Translated version of project info",
+        on_delete=CASCADE,
+    )
 
     @override
     def get_all(self) -> Any:
-        return list(Project.objects.all().values())
+        return list(Project.objects.filter(language=get_language()))
 
     @override
     def transform(self) -> Any:
-        projects_objs = self.get_all()
-
-        self.clean(projects_objs)
+        projects_objs = [model_to_dict(wh) for wh in self.get_all()]
 
         rows = {}
         result = []

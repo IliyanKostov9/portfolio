@@ -1,9 +1,11 @@
 from typing import Any
 
-from django.db.models import BooleanField, CharField
+from django.db.models import CASCADE, BooleanField, CharField, ForeignKey
+from django.utils.translation import get_language
 from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
+from apps.resume.models.translation import Translation
 
 
 class Education(Portfolio):
@@ -20,15 +22,20 @@ class Education(Portfolio):
     date: CharField = CharField("Date of the education")
     gpa: CharField = CharField("GPA of the education")
 
+    language: ForeignKey = ForeignKey(
+        Translation,
+        verbose_name="Translated education info",
+        on_delete=CASCADE,
+    )
+
     @override
     def get_all(self) -> Any:
-        return list(Education.objects.all().values())
+        return list(Education.objects.filter(language=get_language()))
 
     @override
     def transform(self) -> Any:
         education_objs = self.get_all()
 
-        self.clean(education_objs)
         return education_objs
 
     @override

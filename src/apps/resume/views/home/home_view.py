@@ -1,7 +1,5 @@
-import os
 from typing import Any
 
-import yaml
 from django.http import HttpResponse
 from django.template import loader
 from django.utils.translation import get_language
@@ -9,7 +7,7 @@ from django.views import View
 
 from apps.resume.models.certification import Certification
 from apps.resume.models.education import Education
-from apps.resume.models.language import Language
+from apps.resume.models.language_proficiency import LanguageProficiency
 from apps.resume.models.project import Project
 from apps.resume.models.technology import Technology
 from apps.resume.models.work_history import WorkHistory
@@ -25,8 +23,6 @@ class HomeView(View):
             code=200,
         )
 
-        self._read_yaml("page_content.yaml")
-
         template = loader.get_template("pages/home/index.html")
 
         technologies = Technology().transform()
@@ -34,7 +30,7 @@ class HomeView(View):
         educations = Education().transform()
         certifications = Certification().transform()
         projects = Project().transform()
-        languages = Language().transform()
+        language_proficiencies = LanguageProficiency().transform()
 
         context: dict[str, Any] = {
             "language": get_language(),
@@ -43,7 +39,7 @@ class HomeView(View):
             "educations": educations,
             "certificates": certifications,
             "projects": projects,
-            "languages": languages,
+            "languages": language_proficiencies,
         }
 
         self.LOG.success(
@@ -51,14 +47,3 @@ class HomeView(View):
             code=200,
         )
         return HttpResponse(template.render(context, request))
-
-    def _read_yaml(self, file_name: str) -> Any:
-        if not file_name.endswith((".yaml", ".yml")):
-            raise InterruptedError("File must end with yml or yaml!")
-
-        parent_dir: str = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), "..", "..", "config")
-        )
-
-        with open(os.path.join(parent_dir, file_name), "r") as file:
-            return yaml.safe_load(file)

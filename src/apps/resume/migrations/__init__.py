@@ -1,6 +1,6 @@
 from apps.resume.data_class.certification import Certification
 from apps.resume.data_class.education import Education
-from apps.resume.data_class.language import Language
+from apps.resume.data_class.language_proficiency import LanguageProficiency
 from apps.resume.data_class.project import Project
 from apps.resume.data_class.technology import Technology
 from apps.resume.data_class.technology_category import TechnologyCategory
@@ -17,7 +17,7 @@ def init(apps, schema_editor):
     Education.table_create(apps)
     Certification.table_create(apps)
     Project.table_create(apps)
-    Language.table_create(apps)
+    LanguageProficiency.table_create(apps)
 
 
 def init_reverse(apps, schema_editor):

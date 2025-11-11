@@ -1,10 +1,12 @@
 from typing import Any, Final
 
-from django.db.models import CharField, IntegerField
+from django.db.models import CASCADE, CharField, ForeignKey, IntegerField
+from django.forms.models import model_to_dict
+from django.utils.translation import get_language
 from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
-
+from apps.resume.models.translation import Translation
 
 LANGUAGE_LEVEL_PROFICIENCY: Final[dict[str, int]] = {
     "Beginner": 25,
@@ -23,19 +25,24 @@ LANGUAGE_LEVEL_COLORS: Final[dict[str, str]] = {
 }
 
 
-class Language(Portfolio):
-    name: CharField = CharField("Language", max_length=50)
+class LanguageProficiency(Portfolio):
+    name: CharField = CharField("Name of the language", max_length=50)
     proficiency: CharField = CharField("Proficiency of the language", max_length=50)
     icon: CharField = CharField("Flag of the language", max_length=50)
     row: IntegerField = IntegerField("Row number of the language")
+    language: ForeignKey = ForeignKey(
+        Translation,
+        verbose_name="Translated language name",
+        on_delete=CASCADE,
+    )
 
     @override
     def get_all(self) -> Any:
-        return list(Language.objects.all().values())
+        return list(LanguageProficiency.objects.filter(language=get_language()))
 
     @override
     def transform(self) -> Any:
-        languages_objs = self.get_all()
+        languages_objs = [model_to_dict(wh) for wh in self.get_all()]
 
         self.clean(languages_objs)
 

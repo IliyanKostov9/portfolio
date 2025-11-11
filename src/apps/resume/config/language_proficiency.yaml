@@ -1,0 +1,32 @@
+---
+- en_name: Bulgarian
+  bg_name: Български
+  fr_name: Bulgare
+  ge_name: Bulgarisch
+  proficiency: "Native"
+  row: 1
+  icon: "bulgaria.svg"
+
+- en_name: English
+  bg_name: Английски
+  fr_name: Anglais
+  ge_name: Englisch
+  proficiency: "Fluent"
+  row: 1
+  icon: "united-kingdom.svg"
+
+- en_name: German
+  bg_name: Немски
+  fr_name: Allemand
+  ge_name: Deutsch
+  proficiency: "Beginner"
+  row: 1
+  icon: "germany.svg"
+
+- en_name: French
+  bg_name: Френски
+  fr_name: Français
+  ge_name: Allemand
+  proficiency: "Beginner"
+  row: 1
+  icon: "france.svg"

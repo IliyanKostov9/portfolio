@@ -1,10 +1,12 @@
 from typing import Any
 
 import markdown
-from django.db.models import CharField, JSONField
+from django.db.models import CASCADE, CharField, ForeignKey, JSONField
+from django.utils.translation import get_language
 from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
+from apps.resume.models.translation import Translation
 
 
 class WorkHistory(Portfolio):
@@ -16,15 +18,19 @@ class WorkHistory(Portfolio):
     specialty: CharField = CharField("Specialty name", max_length=100)
     dates: JSONField = JSONField("Dates of work")
     description: CharField = CharField("Description of the work history")
+    language: ForeignKey = ForeignKey(
+        Translation,
+        verbose_name="Translated version of the work history info",
+        on_delete=CASCADE,
+    )
 
     @override
     def get_all(self) -> Any:
-        return list(WorkHistory.objects.all().values())
+        return list(WorkHistory.objects.filter(language=get_language()))
 
     @override
     def transform(self) -> Any:
         work_history_objs = self.get_all()
-        self.clean(work_history_objs)
 
         return work_history_objs
 
