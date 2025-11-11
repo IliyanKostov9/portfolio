@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 23:43+0100\n"
+"POT-Creation-Date: 2025-11-11 11:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/apps/blogs/templates/pages/blogs/index.html:25
+msgid "Read about my latest thoughts"
+msgstr "Прочетете за последните ми мисли"
+
+#: src/apps/blogs/templates/pages/blogs/index.html:53
+#, python-format
+msgid "Read time: %(mins)s minutes"
+msgstr "Време за четене: %(mins)s минути"
 
 #: src/apps/resume/templates/pages/home/about.html:7
 msgid "About"
@@ -162,39 +171,39 @@ msgstr "Следващо"
 
 #: src/apps/resume/templates/pages/home/certification.html:7
 msgid "Certificates"
-msgstr ""
+msgstr "Сертификати"
 
 #: src/apps/resume/templates/pages/home/certification.html:38
 msgid "Verify"
-msgstr ""
+msgstr "Потвърди"
 
 #: src/apps/resume/templates/pages/home/contact_me.html:7
 msgid "Contact me"
-msgstr ""
+msgstr "Свържете се с мен"
 
 #: src/apps/resume/templates/pages/home/contact_me.html:29
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: src/apps/resume/templates/pages/home/contact_me.html:42
 msgid "Email address"
-msgstr ""
+msgstr "Имейл адрес"
 
 #: src/apps/resume/templates/pages/home/contact_me.html:56
 msgid "Message"
-msgstr ""
+msgstr "Съобщение"
 
 #: src/apps/resume/templates/pages/home/contact_me.html:72
 msgid "Loading..."
-msgstr ""
+msgstr "Зареждане..."
 
 #: src/apps/resume/templates/pages/home/contact_me.html:73
 msgid "Send"
-msgstr ""
+msgstr "Изпрати"
 
 #: src/apps/resume/templates/pages/home/education.html:7
 msgid "Education"
-msgstr ""
+msgstr "Образование"
 
 #: src/apps/resume/templates/pages/home/index.html:23
 msgid "Hi"
@@ -210,48 +219,57 @@ msgstr "Опитвам се да разбера как работят нещат
 
 #: src/apps/resume/templates/pages/home/languages.html:6
 msgid "Languages"
-msgstr ""
+msgstr "Езици"
 
 #: src/apps/resume/templates/pages/home/languages.html:21
 msgid "Proficiency"
-msgstr ""
+msgstr "Владеене"
 
 #: src/apps/resume/templates/pages/home/projects.html:6
 msgid "Projects"
-msgstr ""
+msgstr "Проекти"
 
 #: src/apps/resume/templates/pages/home/work_history.html:8
 msgid "Work history"
-msgstr ""
+msgstr "Трудова история"
 
 #: src/templates/base.html:65
 msgid "Source"
-msgstr ""
+msgstr "Източник"
 
 #: src/templates/base.html:74
 msgid "Portfolio"
-msgstr ""
+msgstr "Портфолио"
 
 #: src/templates/base.html:80
 msgid "Blogs"
-msgstr ""
+msgstr "Блогове"
+
+#: src/templates/base.html:100
+#, python-format
+msgid " %(lang)s "
+msgstr " %(lang)s "
 
 #: src/templates/base.html:105
 msgid "English"
-msgstr ""
+msgstr "Английски"
 
 #: src/templates/base.html:109
 msgid "Bulgarian"
-msgstr ""
+msgstr "Български"
 
 #: src/templates/base.html:112
 msgid "French"
-msgstr ""
+msgstr "Френски"
 
 #: src/templates/base.html:115
 msgid "German"
-msgstr ""
+msgstr "Немски"
+
+#: src/templates/base.html:163
+msgid "Made with"
+msgstr "Направено с"
 
 #: src/templates/base.html:165
 msgid "by Django"
-msgstr ""
+msgstr "от Джанго"

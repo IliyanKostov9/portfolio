@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 23:43+0100\n"
+"POT-Creation-Date: 2025-11-11 11:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/apps/blogs/templates/pages/blogs/index.html:25
+msgid "Read about my latest thoughts"
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/index.html:53
+#, python-format
+msgid "Read time: %(mins)s minutes"
+msgstr ""
 
 #: src/apps/resume/templates/pages/home/about.html:7
 msgid "About"
@@ -192,6 +201,11 @@ msgstr ""
 msgid "Blogs"
 msgstr ""
 
+#: src/templates/base.html:100
+#, python-format
+msgid " %(lang)s "
+msgstr ""
+
 #: src/templates/base.html:105
 msgid "English"
 msgstr ""
@@ -206,6 +220,10 @@ msgstr ""
 
 #: src/templates/base.html:115
 msgid "German"
+msgstr ""
+
+#: src/templates/base.html:163
+msgid "Made with"
 msgstr ""
 
 #: src/templates/base.html:165

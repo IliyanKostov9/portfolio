@@ -97,7 +97,7 @@
           data-mdb-ripple-init
           arial-expanded="false"
         >
-              <h6 style="transform: translateY(4px);"> {{ language }} </h6>
+              <h6 style="transform: translateY(4px);"> {% blocktranslate with lang=language %} {{ lang }} {% endblocktranslate %} </h6>
             </button>
 
           <ul class="dropdown-menu" name="lang-toggle">
@@ -160,7 +160,7 @@
       </div>
 
       <div class="text-center p-3 footer-text">
-        {% translate"Made with" %}
+        {% translate "Made with" %}
         <a class="text-body" href="https://www.djangoproject.com/">
           ❤️ {% translate "by Django" %}</a
         >
