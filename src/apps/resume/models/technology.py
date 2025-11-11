@@ -2,6 +2,7 @@ from collections import defaultdict
 from typing import Any
 
 from django.db.models import CASCADE, CharField, ForeignKey, IntegerField
+from django.utils.translation import get_language
 from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
@@ -51,9 +52,9 @@ class Technology(Portfolio):
             "pages": {
                 page: {
                     "categories": {
-                        TechnologyCategory.objects.language("en")
-                        .get(id=category)
-                        .name: {"rows": rows}
+                        TechnologyCategory.objects.get(
+                            mapped_to=category, language=get_language()
+                        ).name: {"rows": rows}
                         for category, rows in categories.items()
                     }
                 }

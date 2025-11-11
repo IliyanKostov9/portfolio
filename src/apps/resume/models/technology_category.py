@@ -1,16 +1,25 @@
 from typing import Any
 
-from django.db.models import CharField
-from django.utils.translation import gettext as _
-from parler.models import TranslatedFields
+from django.db.models import CASCADE, CharField, ForeignKey
 from typing_extensions import override
 
-from apps.resume.models.portfolio_translate import PortfolioTranslate
+from apps.resume.models.portfolio import Portfolio
+from apps.resume.models.translation import Translation
 
 
-class TechnologyCategory(PortfolioTranslate):
-    translations: TranslatedFields = TranslatedFields(
-        name=CharField(_("name"), max_length=50, primary_key=True)
+class TechnologyCategory(Portfolio):
+    name: CharField = CharField(
+        "Name of the technology category", max_length=50, primary_key=True
+    )
+    language: ForeignKey = ForeignKey(
+        Translation,
+        verbose_name="Translated category name of the technology",
+        on_delete=CASCADE,
+    )
+
+    mapped_to: CharField = CharField(
+        "The english equivalent version to map the translated name to",
+        blank=True,
     )
 
     @override
@@ -24,6 +33,3 @@ class TechnologyCategory(PortfolioTranslate):
     @override
     def clean(self) -> None:
         pass
-
-    def __unicode__(self):
-        return self.name

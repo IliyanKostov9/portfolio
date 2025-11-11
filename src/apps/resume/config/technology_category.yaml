@@ -1,0 +1,30 @@
+---
+- en_name: "Programming languages"
+  bg_name: "Езици за програмиране"
+  fr_name: "Langages de programmation"
+  ge_name: "Programmiersprachen"
+
+- en_name: "Frameworks"
+  bg_name: "Фреймлуркс"
+  fr_name: "Cadres"
+  ge_name: "Rahmenwerke"
+
+- en_name: "Containers"
+  bg_name: "Контейнери"
+  fr_name: "Conteneurs"
+  ge_name: "Container"
+
+- en_name: "CI/CD"
+  bg_name: "CI/CD автоматизация"
+  fr_name: "CI/CD automation"
+  ge_name: "CI/CD Automatisierung"
+
+- en_name: "SQL"
+  bg_name: "SQL език"
+  fr_name: "SQL langue"
+  ge_name: "SQL sprache"
+
+- en_name: "Cloud"
+  bg_name: "Облак"
+  fr_name: "Nuage"
+  ge_name: "Wolke"

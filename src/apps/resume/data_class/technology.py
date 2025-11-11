@@ -24,8 +24,8 @@ class Technology(Portfolio):
     @staticmethod
     def table_create(apps):
         technology_model = apps.get_model(Portfolio.app_name, "Technology")
-        technology_category_tr_model = apps.get_model(
-            Portfolio.app_name, "TechnologyCategoryTranslation"
+        technology_category_model = apps.get_model(
+            Portfolio.app_name, "TechnologyCategory"
         )
 
         technology_model.objects.all().delete()
@@ -33,14 +33,14 @@ class Technology(Portfolio):
         technologies: list[Technology] = Technology.from_yaml("technology.yaml")
 
         for technology in technologies:
-            category: Any = technology_category_tr_model.objects.get(
-                name=technology.category, language_code="en"
+            category: Any = technology_category_model.objects.get(
+                name=technology.category
             )
 
             technology_model.objects.create(
                 name=technology.name,
                 icon=technology.icon,
-                category=category.master,
+                category=category,
                 row=technology.row,
                 page=technology.page,
             )
