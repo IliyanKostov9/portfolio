@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-11 14:01+0100\n"
+"POT-Creation-Date: 2025-11-11 23:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -237,6 +237,14 @@ msgstr "Проекти"
 #: src/apps/resume/templates/pages/home/work_history.html:8
 msgid "Work history"
 msgstr "Трудова история"
+
+#: src/apps/resume/views/home/contact_me_view.py:40
+msgid "You have successfully sent an email to Iliyan!"
+msgstr "Успешно изпратихте имейл до Илиян!"
+
+#: src/apps/resume/views/home/contact_me_view.py:55
+msgid "Error in sending your email message. Please try again next time :("
+msgstr "Грешка при изпращането на имейл съобщението ви. Моля, опитайте отново следващия път :("
 
 #: src/templates/base.html:65
 msgid "Source"
