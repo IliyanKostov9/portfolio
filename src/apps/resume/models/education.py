@@ -1,6 +1,7 @@
 from typing import Any
 
 from django.db.models import CASCADE, BooleanField, CharField, ForeignKey
+from django.forms.models import model_to_dict
 from django.utils.translation import get_language
 from typing_extensions import override
 
@@ -34,7 +35,7 @@ class Education(Portfolio):
 
     @override
     def transform(self) -> Any:
-        education_objs = self.get_all()
+        education_objs = [model_to_dict(wh) for wh in self.get_all()]
 
         return education_objs
 

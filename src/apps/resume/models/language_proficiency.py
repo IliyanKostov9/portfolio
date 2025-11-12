@@ -19,7 +19,7 @@ LANGUAGE_LEVEL_PROFICIENCY: Final[dict[str, int]] = {
 
 PROFICIENCY_TRANSLATIONS = {
     "en": {
-        "Beginner": "Begineer",
+        "Beginner": "Beginner",
         "Intermediate": "Intermidiate",
         "Advanced": "Advanced",
         "Fluent": "Fluent",
