@@ -46,7 +46,6 @@
 
           packages = with pkgs; [
             sops
-            gettext
           ];
 
           git-hooks.hooks = {
