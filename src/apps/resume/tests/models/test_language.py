@@ -19,7 +19,6 @@ class LanguageProficiencyTestCase(Portfolio):
 
         for language_dc in languages_dc:
             for lang in self.languages:
-                print(">>>>>>>>>>>>>>>>>>> " + getattr(language_dc, lang + "_name"))
                 language: LanguageProficiency = language_model.objects.get(
                     name=getattr(language_dc, lang + "_name")
                 )

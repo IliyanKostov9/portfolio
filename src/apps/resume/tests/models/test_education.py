@@ -62,7 +62,7 @@ class EducationTestCase(Portfolio):
         education = Education()
         educations = education.transform()
 
-        educations_db = education_model.objects.all().values()
+        educations_db = education_model.objects.get(language_id="en")
         education.clean(educations_db)
 
         self.assertListEqual(educations, list(educations_db))
