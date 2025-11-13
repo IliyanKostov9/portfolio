@@ -4,12 +4,13 @@ from typing import Any
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import redirect
+from django.utils.translation import gettext as _
 from django.views import View
 
+from apps.resume.forms.contact_me_form import ContactMe, ContactMeForm
 from portfolio.helpers.client import get_client_ip
 from portfolio.helpers.email import Email
 from portfolio.monitor.log import logger
-from apps.resume.forms.contact_me_form import ContactMe, ContactMeForm
 
 
 class ContactMeView(View):
@@ -36,7 +37,7 @@ class ContactMeView(View):
                 )
                 messages.success(
                     request,
-                    "You have successfully sent an email to Iliyan!",
+                    _("You have successfully sent an email to Iliyan!"),
                 )
                 self.LOG.success(
                     f"User: {client_ip} has successfully sent an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}",
@@ -50,12 +51,13 @@ class ContactMeView(View):
                 )
                 messages.error(
                     request,
-                    "Error in sending your email message. Please try again next time :(",
+                    _(
+                        "Error in sending your email message. Please try again next time :("
+                    ),
                 )
 
             return redirect("home")
         else:
-            print("Form is invalid for some reason!")
             self.LOG.error(
                 f"User: {client_ip} cannot send an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}, because of an invalid data he put on the form",
                 code=400,

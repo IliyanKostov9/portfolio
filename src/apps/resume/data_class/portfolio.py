@@ -8,6 +8,8 @@ import yaml
 class Portfolio(ABC):
     app_name: Final[str] = "resume"
 
+    languages: Final[list[str]] = ["en", "bg", "fr", "ge"]
+
     @classmethod
     def read_yaml(cls, path: str) -> Any:
         parent_dir: str = os.path.abspath(

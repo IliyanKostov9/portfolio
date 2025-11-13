@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static compress django_bootstrap5 %}
+{% load static compress django_bootstrap5 i18n %}
 {% block extra_head %}
 {% compress css %}
 <link
@@ -20,10 +20,10 @@
   />
 
   <div class="text-start">
-    <h5 class="mt-1 text-secondary lazy">Hi,</h5>
-    <h1 class="mt-1 text-primary display-1 lazy">I'm Iliyan</h1>
+    <h5 class="mt-1 text-secondary lazy">{% translate "Hi" %},</h5>
+    <h1 class="mt-1 text-primary display-1 lazy">{% translate "I'm Iliyan" %}</h1>
     <p class="lead lazy">
-      <em>I try to figure out how things work.</em>
+      <em>{% translate "I try to figure out how things work." %}</em>
     </p>
   </div>
 </div>
@@ -31,7 +31,7 @@
 <p class="about-me-spacing-bot" />
 
 <p class="lead text-center lazy hide-when-scrolling">
-  Scroll down to find out more about me
+  {% translate "Continue reading" %}
 </p>
 
 <div

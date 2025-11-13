@@ -24,6 +24,7 @@ urlpatterns = [
     # path("admin/", admin.site.urls),  # pyre-ignore[16]
     path("", include("apps.resume.urls")),
     path("blogs/", include("apps.blogs.urls")),
+    path("i18n/", include("django.conf.urls.i18n")),
 ]
 
 handler404 = Error404.as_view()

@@ -1,0 +1,281 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-11 23:03+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/apps/blogs/templates/pages/blogs/index.html:20
+#: src/templates/base.html:80
+msgid "Blogs"
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/index.html:25
+msgid "Read about my latest thoughts"
+msgstr "Lesen Sie meine neuesten Gedanken"
+
+#: src/apps/blogs/templates/pages/blogs/index.html:53
+#, python-format
+msgid "Read time: %(mins)s minutes"
+msgstr "Lesezeit: %(min)s Minuten"
+
+#: src/apps/resume/templates/pages/home/about.html:7
+msgid "About"
+msgstr "Um"
+
+#: src/apps/resume/templates/pages/home/about.html:10
+msgid ""
+"As you may have already guessed from the title above, my name is indeed "
+"Iliyan. I'm born in Bulgaria in a city on the coast of the Black Sea - Varna."
+msgstr ""
+"Wie Sie vielleicht schon aus dem Titel erraten haben, heiße ich tatsächlich"
+"Iliyan. Ich bin in Bulgarien in Warna, einer Stadt an der Schwarzmeerküste, geboren."
+
+#: src/apps/resume/templates/pages/home/about.html:17
+msgid ""
+"I have started on my engineering journey back when I was a kid and had to "
+"constantly fix our family desktop computer from crashing on WindowsXP and "
+"Windows7, where the issue might be either hardware related - ROM failed, "
+"motherboard got fried because of the very hot summers we had at the late "
+"2000s, or I installed a pirated game with additional content (aka malware). "
+"That repetition of breaking and fixing changed my way of thinking and "
+"approaching problems from there on."
+msgstr ""
+"Meine Leidenschaft für die Technik begann schon in meiner Kindheit, als ich"
+"ständig unseren Familien-Desktop-PC reparieren musste, der unter Windows XP"
+"und Windows 7 abstürzte. Die Ursache konnte entweder ein Hardwareproblem sein"
+"– ein defektes ROM, ein durch die heißen Sommer der späten 2000er-Jahre durchgebranntes" "Motherboard oder die Installation einer Raubkopie mit zusätzlichen Inhalten (sprich: Malware)."
+"Diese ständige Reparatur und das anschließende Reparieren haben meine Denkweise"
+"und meine Herangehensweise an Probleme von da an verändert."
+
+#: src/apps/resume/templates/pages/home/about.html:37
+#: src/apps/resume/templates/pages/home/index.html:34
+msgid "Continue reading"
+msgstr "Weiterlesen"
+
+#: src/apps/resume/templates/pages/home/about.html:43
+msgid ""
+"Afterward I joined in a high school for operation of road transport. Yes, "
+"it's not computer related, but it's in the engineering field. I actually do "
+"consider myself more of an <u>engineer</u> than a computer scientist."
+msgstr ""
+"Danach besuchte ich eine Schule für Straßenverkehrstechnik. Ja,"
+"das hat zwar nichts mit Informatik zu tun, gehört aber zum Ingenieurwesen."
+"Ich sehe mich tatsächlich eher als Ingenieur denn als Informatiker."
+
+#: src/apps/resume/templates/pages/home/about.html:51
+msgid ""
+"Time passed by and then after high school I was working at a grocery store "
+"and like every confused 18 years old, I was wondering what I was going to do "
+"with my life. Then after looking of all the local Varna universities, I then "
+"stopped at this one, called *Technical university of Varna*. I got curious "
+"by the technical specialtes - mainly at computer science and computer "
+"technologies and internet. After a bit of thinking, I randomly choose the "
+"second option. That was by far the <span class=\"green\">best</span> life "
+"changing choice I've made so far and at that time I couldn't have imagined "
+"how much this decision was going to change me for the better."
+msgstr ""
+"Die Zeit verging, und nach dem Abitur arbeitete ich in einem Supermarkt."
+"Wie jeder orientierungslose 18-Jährige fragte ich mich, was ich mit meinem Leben anfangen"
+"sollte. Nachdem ich mir alle Universitäten in Warna angesehen hatte, blieb ich schließlich"
+"bei der Technischen Universität Warna hängen. Die technischen Studiengänge – "
+"vor allem Informatik, Computertechnologien und Internet – weckten mein Interesse."
+"Nach kurzem Überlegen entschied ich mich spontan für die zweite Option. Das war mit"
+"Abstand die beste Entscheidung meines Lebens, und ich hätte mir damals nicht vorstellen"
+"können, wie sehr diese Entscheidung mich zum Besseren verändern würde."
+
+#: src/apps/resume/templates/pages/home/about.html:65
+msgid ""
+"In there I didn't learn only about technology, I learnt about working with "
+"others, exchanging ideas with passionate people, engaging in debates with "
+"professors and assitants, and most importantly - becoming an adult. That's "
+"the point of an university, shaping you into a well-rounded individual, who "
+"can be integrated into the professional and social environments and being "
+"responsible for their actions. I concretely believe in that statement. I've "
+"heard so many pepole (co-students), that believe that the point of an "
+"university is to get a job, that person is either delusional or being a "
+"stubborn child, that doesn't want to look at the bigger picture."
+msgstr ""
+"Dort habe ich nicht nur etwas über Technologie gelernt, sondern auch, mit anderen"
+"zusammenzuarbeiten, Ideen mit engagierten Menschen auszutauschen, mit Professoren "
+"und Assistenten zu diskutieren und – was am wichtigsten ist – erwachsen zu werden."
+"Genau darum geht es an der Universität: einen zu einer vielseitig gebildeten Persönlichkeit"
+"zu formen, die sich in die Berufs- und Gesellschaftswelt integrieren und Verantwortung "
+"für ihr Handeln übernehmen kann. Ich glaube fest an diese Aussage."
+"Ich habe so viele Kommilitonen gehört, die glauben, der Sinn eines Studiums sei es"
+", einen Job zu bekommen. Diese Person ist entweder realitätsfremd oder ein stures Kind,"
+"das den Blick für das große Ganze verliert."
+
+#: src/apps/resume/templates/pages/home/about.html:79
+msgid ""
+"In the third year of my bachelor's degree (2021) I was in an internship of a "
+"small local financial institution, that we developed legacy Windows 32bit "
+"for WindowsXP systems in Visual Objects community edition (also called "
+"CAVO). In the same year I landed my first actual IT job as a DevOps engineer "
+"as a consultant. The good thing about being a consultant is that you can see "
+"different companies (clients) with different architectures and <i>ways-of-"
+"working</i> in a very short amount of time, but the bad part is that you are "
+"not a permanent employee in these projects and you'll have to learn all of "
+"those tedious company's processes and in-house tools again for the next "
+"project. Believe me, in time you'll get very irritated by it."
+msgstr ""
+"Im dritten Jahr meines Bachelorstudiums (2021) absolvierte ich ein Praktikum bei"
+"einem kleinen lokalen Finanzinstitut. Dort entwickelten wir Legacy-Windows-32-Bit-Systeme"
+"für Windows XP mit Visual Objects Community Edition (auch CAVO genannt). "
+"Im selben Jahr bekam ich meinen ersten richtigen IT-Job als DevOps-Ingenieur"
+"– zunächst als Berater. Der Vorteil an der Beratertätigkeit ist, dass man innerhalb"
+"kürzester Zeit verschiedene Unternehmen (Kunden) mit unterschiedlichen Architekturen"
+"und Arbeitsweisen kennenlernt. Der Nachteil ist jedoch, dass man in diesen Projekten"
+"nicht fest angestellt ist und für jedes neue Projekt die jeweiligen Unternehmensprozesse"
+"und internen Tools erneut erlernen muss. Glaubt mir, mit der Zeit wird euch das sehr nerven."
+
+#: src/apps/resume/templates/pages/home/about.html:94
+msgid ""
+"After some time I've spend working there and becoming more familiar with the "
+"company, I started to dislike the the company culture and decided to go "
+"elsewhere. In May 2025, I found another job, which wasn't just a job, but a "
+"life change. I had to move out to live on the southern region of France, "
+"Côte d'Azur."
+msgstr ""
+"Nachdem ich einige Zeit dort gearbeitet und mich besser mit dem Unternehmen vertraut"
+"gemacht hatte, begann ich die Unternehmenskultur nicht mehr zu mögen und beschloss,"
+"mich anderweitig umzusehen. Im Mai 2025 fand ich eine andere Stelle, die nicht nur ein"
+"Job, sondern eine Lebensveränderung bedeutete. Ich musste umziehen und lebte fortan"
+"in Südfrankreich, an der Côte d’Azur."
+
+#: src/apps/resume/templates/pages/home/about.html:103
+msgid "And the story continues..."
+msgstr "Und die Geschichte geht weiter..."
+
+#: src/apps/resume/templates/pages/home/about.html:115
+msgid "See less"
+msgstr "Weniger anzeigen"
+
+#: src/apps/resume/templates/pages/home/about.html:172
+msgid "Previous"
+msgstr "Vorherige"
+
+#: src/apps/resume/templates/pages/home/about.html:181
+msgid "Next"
+msgstr "Nächste"
+
+#: src/apps/resume/templates/pages/home/certification.html:7
+msgid "Certificates"
+msgstr "Zertifikate"
+
+#: src/apps/resume/templates/pages/home/certification.html:38
+msgid "Verify"
+msgstr "Verifizieren"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:7
+msgid "Contact me"
+msgstr "Kontaktieren Sie mich"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:29
+msgid "Name"
+msgstr "Name"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:42
+msgid "Email address"
+msgstr "E-Mail-Adresse"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:56
+msgid "Message"
+msgstr "Nachricht"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:72
+msgid "Loading..."
+msgstr "Laden..."
+
+#: src/apps/resume/templates/pages/home/contact_me.html:73
+msgid "Send"
+msgstr "Schicken"
+
+#: src/apps/resume/templates/pages/home/education.html:7
+msgid "Education"
+msgstr "Ausbildung"
+
+#: src/apps/resume/templates/pages/home/index.html:23
+msgid "Hi"
+msgstr "Hallo"
+
+#: src/apps/resume/templates/pages/home/index.html:24
+msgid "I'm Iliyan"
+msgstr "Ich bin Iliyan"
+
+#: src/apps/resume/templates/pages/home/index.html:26
+msgid "I try to figure out how things work."
+msgstr "Ich versuche herauszufinden, wie die Dinge funktionieren."
+
+#: src/apps/resume/templates/pages/home/languages.html:6
+msgid "Languages"
+msgstr "Sprachen"
+
+#: src/apps/resume/templates/pages/home/languages.html:21
+msgid "Proficiency"
+msgstr "Kompetenz"
+
+#: src/apps/resume/templates/pages/home/projects.html:6
+msgid "Projects"
+msgstr "Projekte"
+
+#: src/apps/resume/templates/pages/home/work_history.html:8
+msgid "Work history"
+msgstr "Beruflicher Werdegang"
+
+#: src/apps/resume/views/home/contact_me_view.py:40
+msgid "You have successfully sent an email to Iliyan!"
+msgstr "Sie haben erfolgreich eine E-Mail an Iliyan gesendet!"
+
+#: src/apps/resume/views/home/contact_me_view.py:55
+msgid "Error in sending your email message. Please try again next time :("
+msgstr "Fehler beim Senden Ihrer E-Mail. Bitte versuchen Sie es beim nächsten Mal erneut. :("
+
+#: src/templates/base.html:65
+msgid "Source"
+msgstr "Quelle"
+
+#: src/templates/base.html:74
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: src/templates/base.html:100
+#, python-format
+msgid " %(lang)s "
+msgstr " %(lang)s "
+
+#: src/templates/base.html:105
+msgid "English"
+msgstr "Englisch"
+
+#: src/templates/base.html:109
+msgid "Bulgarian"
+msgstr "Bulgarisch"
+
+#: src/templates/base.html:112
+msgid "French"
+msgstr "Französisch"
+
+#: src/templates/base.html:115
+msgid "German"
+msgstr "Deutsch"
+
+#: src/templates/base.html:163
+msgid "Made with"
+msgstr "Hergestellt mit"
+
+#: src/templates/base.html:165
+msgid "by Django"
+msgstr "von Django"

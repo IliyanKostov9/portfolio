@@ -2,22 +2,40 @@
 - company_name: "Sys Consulting"
   company_name_label: "sys-consulting"
   image: "sys_consulting.svg"
-  specialty: "Software Engineer"
+  en_specialty: "Software Engineer"
+  bg_specialty: "Софтуерен инженер"
+  fr_specialty: "Ingénieur logiciel"
+  ge_specialty: "Softwareentwickler"
   dates:
     - "Internship 07-2021 - 12-2021"
-  description: |
+  en_description: |
     The intership consisted of mainaiting a legacy banking system for Balkan clients.
     The system was comprised of a desktop Windows XP compatible application,
     written in CAVO (Visual Objects) programming language.
+  bg_description: |
+    Стажът се състоеше в поддръжка на наследена банкова система за клиенти от Балканите.
+    Системата се състоеше от настолно приложение, съвместимо с Windows XP, написано на
+    езика за програмиране CAVO (Visual Objects).
+  fr_description: |
+    Le stage consistait à assurer la maintenance d'un ancien système bancaire destiné à des clients des Balkans.
+    Ce système était composé d'une application de bureau compatible avec Windows XP,
+    écrite en langage de programmation CAVO (Visual Objects).
+  ge_description: |
+    Das Praktikum umfasste die Wartung eines bestehenden Banksystems für Kunden auf dem Balkan.
+    Das System bestand aus einer Desktop-Anwendung, die mit Windows XP kompatibel war
+    und in der Programmiersprache CAVO (Visual Objects) geschrieben wurde.
 
-- company_name: "DevOps Engineer"
+- company_name: "DXC Technology"
   company_name_label: "dxc-technology"
   image: "dxc_technology.svg"
-  specialty: "DevOps Engineer"
+  en_specialty: "DevOps Engineer"
+  bg_specialty: "DevOps инженер"
+  fr_specialty: "Ingénieur DevOps"
+  ge_specialty: "DevOps-Ingenieur"
   dates:
     - "Mid 04-2023 - 05-2025"
     - "Junior 02-2022 - 04-2023"
-  description: |
+  en_description: |
     My initial project focused on the development of Advanced Driver Assistance Systems (ADAS) for a multinational automotive company.
     Within this project, my role was working as a DevOps Engineer on AWS cloud infrastructure management,
     where we were responsible for maintaining the entire cloud platform, including the deployment of
@@ -53,17 +71,137 @@
 
       6. After all tests are gathered, pytest creates a test execution results file junitxml_report.xml, thats required for the reporting tools to visualize the test results
       We provided 2 different reporting tools: Zephyr Scale Rest API and Allure
+  bg_description: |
+    Първоначалният ми проект се фокусира върху разработването на системи за подпомагане на водача (ADAS) за мултинационална автомобилна компания.
+    В рамките на този проект, моята роля беше като DevOps инженер по управление на облачната инфраструктура на AWS,
+    където отговаряхме за поддръжката на цялата облачна платформа, включително внедряването на клиентски продукти с помощта на рамката AWS ADF, AWS Account-Vending-Machine и персонализирания REST API на AWS Control Tower.
+
+    Отговаряхме и за управлението на облачната платформа, използвайки шаблони за политики на AWS Cloudformation и всички основни ресурси.
+    Автоматизацията на тези процеси беше постигната чрез използването на AWS CDK Infrastructure as Code (IaaC).
+
+    Като част от моя принос към клиентските услуги, внедрих следните решения:
+
+    - известяване за бюджетни разходи на цялата платформа с предварително определен процент на превишен бюджет за изпращане на имейл съобщения до собствениците на бизнеса
+
+    - създаване на допълнителни REST API крайни точки за Control Tower за уточняване кои новосъздадени AWS акаунти принадлежат към кой VPC.
+    Там също написах логиката, при която Lambda функция проверява типа на акаунта и въз основа на това към кой VPC шаблон принадлежи - внедрява AWS CloudFormation StackSet към съответния акаунт.
+
+    - създаване на дизайн на високо ниво на потока от данни и репликация за цялата платформа за данни
+
+    Вторият ми проект се фокусира върху предоставянето на ценна информация за подобряване на пазаруването за клиентите и създаване на програми за лоялност за известна компания от магазини Whole Foods.
+    Бях позициониран като Data Engineer на платформата Azure за осигуряване на целостта на данните и валидиране на данни на нивото „от суровина до източник до подготвен продукт“. За процесите на валидиране на данни разработихме рамка за автоматизация на тестове, изградена върху рамката pytest.
+    Потокът от данни започва, както следва:
+
+    1. Един запис от тестови данни (.avro файл) и конфигурационен файл се копират от суровия слой в Blob Storage.
+
+    2. От това събитие на копирания конфигурационен файл се извиква ADF (Azure Data Factory) конвейер, който от своя страна анализира тези тестови данни към клъстера Azure Databricks.
+
+    3. Този клъстер е отговорен за извършването на малки трансформации на данните, като например конвертиране на типа данни от avro -> parquet, промяна на имената на колоните за целите на съвместимостта и др.
+
+    4. След като трансформациите са извършени, трансформираните тестови данни се копират в изходния слой на Blob Storage.
+
+    5. Тестовата рамка чрез Azure SDK валидира данните на суровия и изходния слой, например: проверки на схемата, проверки на данните, проверки за дублиране, проверки на колоните.
+
+    6. След като всички тестове са събрани, pytest създава файл с резултати от изпълнението на теста junitxml_report.xml, който е необходим за инструментите за отчитане, за да визуализират резултатите от теста.
+    Предоставихме 2 различни инструмента за отчитане: Zephyr Scale Rest API и Allure.
+  fr_description: |
+    Mon premier projet portait sur le développement de systèmes avancés d'aide à la conduite (ADAS) pour une entreprise automobile multinationale.
+    Dans le cadre de ce projet, j'occupais le poste d'ingénieur DevOps et j'étais responsable de la gestion de l'infrastructure cloud AWS.
+    Nous étions chargés de la maintenance de l'ensemble de la plateforme cloud, y compris du déploiement des
+    produits clients à l'aide du framework AWS ADF, d'AWS Account-Vending-Machine et de l'API REST personnalisée d'AWS Control Tower.
+
+    Nous étions également responsables de la gouvernance de la plateforme cloud à l'aide de modèles de politiques AWS CloudFormation et de toutes les ressources essentielles.
+    L'automatisation de ces processus a été réalisée grâce à l'utilisation d'AWS CDK Infrastructure as Code (IaaC).
+
+    Dans le cadre de mes contributions aux services clients, j'ai mis en œuvre les solutions suivantes :
+
+    - Alertes de dépassement de budget sur l'ensemble de la plateforme, avec un pourcentage prédéfini de dépassement de budget déclenchant l'envoi de courriels aux responsables métier.
+
+    - Création de points d'accès API REST supplémentaires pour Control Tower afin de spécifier à quel VPC appartiennent les comptes AWS nouvellement créés.
+    J'ai également développé la logique permettant à une fonction Lambda de vérifier le type de compte et, en fonction du modèle VPC auquel il appartient, de déployer le StackSet AWS CloudFormation sur le compte approprié.
+
+    - Création d'une architecture de haut niveau du flux et de la réplication des données pour l'ensemble de la plateforme de données.
+
+    Mon deuxième projet consistait à fournir des informations précieuses pour améliorer
+    l'expérience d'achat des clients et à mettre en place des programmes de fidélisation pour une chaîne de magasins Whole Foods renommée.
+    J'occupais le poste d'ingénieur de données sur la plateforme Azure et j'étais chargé d'assurer l'intégrité et la validation des données sur les couches « Raw », « Source » et « Prepared ». Pour les processus de validation des données, nous avons développé un framework d'automatisation des tests basé sur le framework pytest. Le flux de données se déroule comme suit :
+
+    1. Un fichier de données de test (.avro) et un fichier de configuration sont copiés depuis la couche de données brutes (raw layer) du stockage Blob.
+
+    2. La copie du fichier de configuration déclenche un pipeline Azure Data Factory (ADF), qui analyse ensuite ces données de test et les transmet à un cluster Azure Databricks.
+
+    3. Ce cluster est chargé d'effectuer des transformations mineures sur les données, telles que la conversion du format de données d'Avro en Parquet, la modification des noms de colonnes à des fins de compatibilité, etc.
+
+    4. Une fois les transformations effectuées, les données de test transformées sont copiées vers la couche source (source layer) du stockage Blob.
+
+    5. Le framework de test, via le SDK Azure, valide les données des couches brutes et source, par exemple : vérification du schéma, vérification des données, vérification des doublons, vérification des colonnes.
+
+    6. Une fois tous les tests exécutés, pytest crée un fichier de résultats d'exécution des tests (junitxml_report.xml), nécessaire aux outils de reporting pour visualiser les résultats.
+    Nous proposons deux outils de reporting différents : l'API REST Zephyr Scale et Allure.
+  ge_description: |
+    Mein erstes Projekt konzentrierte sich auf die Entwicklung von Fahrerassistenzsystemen (ADAS) für ein multinationales Automobilunternehmen.
+    In diesem Projekt war ich als DevOps-Ingenieur im Bereich des AWS-Cloud-Infrastrukturmanagements tätig.
+    Wir waren für die Wartung der gesamten Cloud-Plattform verantwortlich, einschließlich der Bereitstellung von
+    Kundenprodukten mithilfe des AWS ADF-Frameworks, der AWS Account-Vending-Machine und der benutzerdefinierten REST-API von AWS Control Tower.
+
+    Wir waren außerdem für die Verwaltung der Cloud-Plattform mithilfe von AWS CloudFormation-Richtlinienvorlagen und allen wesentlichen Ressourcen verantwortlich.
+    Die Automatisierung dieser Prozesse wurde durch die Verwendung von AWS CDK Infrastructure as Code (IaaC) erreicht.
+
+    Im Rahmen meiner Beiträge zu den Kundenservices habe ich folgende Lösungen implementiert:
+
+    - Budgetkostenwarnungen für die gesamte Plattform mit einem vordefinierten Prozentsatz der Budgetüberschreitung, um E-Mail-Benachrichtigungen an die Geschäftsinhaber zu senden
+
+    - Erstellung zusätzlicher REST-API-Endpunkte für den Control Tower, um festzulegen, welche neu erstellten AWS-Konten zu welcher VPC gehören.
+    Dabei habe ich auch die Logik entwickelt, mit der eine Lambda-Funktion den Kontotyp überprüft und basierend auf der zugehörigen VPC-Vorlage den AWS CloudFormation StackSet im entsprechenden Konto bereitstellt.
+
+    - Erstellung eines übergeordneten Designs des Datenflusses und der Datenreplikation für die gesamte Datenplattform
+
+    Mein zweites Projekt drehte sich um die Bereitstellung wertvoller Erkenntnisse zur Verbesserung
+    des Einkaufserlebnisses für Kunden und die Einrichtung von Kundenbindungsprogrammen für ein renommiertes Unternehmen der Lebensmittelbranche (Whole Foods).
+    Ich war als Dateningenieur auf der Azure-Plattform tätig, um die Datenintegrität und Datenvalidierung auf der
+    Ebene von Rohdaten über Quelldaten bis hin zu aufbereiteten Daten sicherzustellen. Für die Datenvalidierungsprozesse entwickelten wir ein Testautomatisierungs-Framework, das auf dem pytest-Framework basiert. Der Datenfluss beginnt wie folgt:
+
+    1. Eine einzelne Testdatendatei (.avro-Datei) und eine Konfigurationsdatei werden aus der Rohdatenebene im Blob Storage kopiert.
+
+    2. Das Kopieren der Konfigurationsdatei löst eine Azure Data Factory (ADF)-Pipeline aus, die die Testdaten an einen Azure Databricks-Cluster weiterleitet.
+
+    3. Dieser Cluster ist für kleinere Transformationen der Daten verantwortlich, wie z. B. die Konvertierung des Datentyps von Avro in Parquet, die Anpassung von Spaltennamen aus Kompatibilitätsgründen usw.
+
+    4. Nach Abschluss der Transformationen werden die transformierten Testdaten in die Quellschicht des Blob Storage kopiert.
+
+    5. Das Test-Framework validiert die Daten in der Rohdaten- und Quellschicht mithilfe des Azure SDK, beispielsweise durch Schema-, Daten-, Duplikats- und Spaltenprüfungen.
+
+    6. Nachdem alle Testergebnisse erfasst wurden, erstellt pytest eine Testausführungsdatei (junitxml_report.xml), die von den Reporting-Tools zur Visualisierung der Testergebnisse benötigt wird.
+    Wir stellen zwei verschiedene Reporting-Tools zur Verfügung: Zephyr Scale Rest API und Allure.
 
 - company_name: "Alten"
   company_name_label: "alten"
   image: "alten.svg"
-  specialty: "DevOps Engineer"
+  en_specialty: "DevOps Engineer"
+  bg_specialty: "DevOps инженер"
+  fr_specialty: "Ingénieur DevOps"
+  ge_specialty: "DevOps-Ingenieur"
   dates:
     - "Mid 04-2025 - Present"
-  description: |
+  en_description: |
     My first project is a software company, that provides global distribution service to airline companies. These distributions of data products are in the area of the travel industry.
 
     The team I'm in is in the department of ticket reservation. The role I'm currently working is platform engineer and the objective is to maintain,
     operate and develop the data processing pipeline, that is responsible
     for ingesting the raw data, that's sent by the global distribution system,
     process it through multiple layers and finally send it to the customer via various transfer protocols - FTP or S3.
+  bg_description: |
+    Първият ми проект е софтуерна компания, която предоставя глобални дистрибуторски услуги на авиокомпании. Тези дистрибуции на продукти с данни са в областта на туристическата индустрия.
+
+    Екипът, в който съм, е в отдела за резервации на билети. Ролята, която работя в момента, е платформен инженер, а целта е да поддържам, управлявам и развивам процес на обработка на данни, който е отговорен за приемането на суровите данни, изпратени от глобалната дистрибуторска система, обработката им през множество слоеве и накрая изпращането им до клиента чрез различни протоколи за трансфер - FTP или S3.
+  fr_description: |
+    Mon premier projet est une entreprise de logiciels qui fournit des services de distribution mondiale aux compagnies aériennes. Ces services de distribution de produits de données concernent le secteur du voyage.
+
+    L'équipe dont je fais partie travaille au sein du département de réservation de billets. Mon rôle actuel est celui d'ingénieur plateforme et mon objectif est de maintenir,
+    d'exploiter et de développer le pipeline de traitement des données, qui est responsable
+    de l'ingestion des données brutes envoyées par le système de distribution mondial,
+    de leur traitement à travers plusieurs couches et enfin de leur transmission au client via différents protocoles de transfert (FTP ou S3).
+  ge_description: |
+    Mein erstes Projekt ist ein Softwareunternehmen, das globalen Vertriebsservice für Fluggesellschaften anbietet. Diese Datenprodukte werden im Bereich der Reisebranche vertrieben.
+
+    Das Team, in dem ich arbeite, gehört zur Abteilung für Ticketreservierung. Meine aktuelle Position ist Plattformingenieur, und meine Aufgabe besteht darin, die Datenverarbeitungspipeline zu warten, zu betreiben und weiterzuentwickeln. Diese Pipeline ist verantwortlich für die Erfassung der Rohdaten, die vom globalen Vertriebssystem gesendet werden, deren Verarbeitung in mehreren Schritten und die anschließende Übermittlung an den Kunden über verschiedene Übertragungsprotokolle wie FTP oder S3.
