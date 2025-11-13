@@ -1,9 +1,9 @@
-{% load static %}
+{% load static i18n %}
 
 <div class="row text-center justify-content-center">
 
   <section id="Languages">
-  <h2 class="lazy"><a href="#Languages">Languages</a></h2>
+    <h2 class="lazy"><a href="#Languages">{% translate "Languages" %}</a></h2>
   </section>
 
   {% for row in languages %}
@@ -18,7 +18,7 @@
               <h3 class="card-title mb-3">{{ language.name }}</h3>
             </blockquote>
             <figcaption class="blockquote-footer mt-auto">
-              <p>Proficiency</p>
+              <p>{% translate "Proficiency" %}</p>
             </figcaption>
           </figure>
           <div class="d-flex justify-content-center">

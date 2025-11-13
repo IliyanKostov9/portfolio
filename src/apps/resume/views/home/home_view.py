@@ -2,6 +2,7 @@ from typing import Any
 
 from django.http import HttpResponse
 from django.template import loader
+from django.utils.translation import get_language
 from django.views import View
 
 from apps.resume.models.certification import Certification
@@ -9,7 +10,6 @@ from apps.resume.models.education import Education
 from apps.resume.models.project import Project
 from apps.resume.models.technology import Technology
 from apps.resume.models.work_history import WorkHistory
-from apps.resume.models.language import Language
 from portfolio.monitor.log import logger
 
 
@@ -29,15 +29,16 @@ class HomeView(View):
         educations = Education().transform()
         certifications = Certification().transform()
         projects = Project().transform()
-        languages = Language().transform()
+        language_proficiencies = Certification().transform()
 
         context: dict[str, Any] = {
+            "language": get_language(),
             "technologies": technologies,
             "work_histories": work_histories,
             "educations": educations,
             "certificates": certifications,
             "projects": projects,
-            "languages": languages,
+            "languages": language_proficiencies,
         }
 
         self.LOG.success(

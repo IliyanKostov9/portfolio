@@ -20,10 +20,16 @@ class TechonolgyCategoryTestCase(Portfolio):
         )
 
         for technology_category_dc in technology_technologies_dc:
-            technology_category: TechnologyCategory = (
-                technology_category_model.objects.get(name=technology_category_dc.name)
-            )
+            for lang in self.languages:
+                technology_category: TechnologyCategory = (
+                    technology_category_model.objects.get(
+                        name=getattr(technology_category_dc, lang + "_name")
+                    )
+                )
 
-            self.assertEqual(technology_category_dc.name, technology_category.name)
+                self.assertEqual(
+                    getattr(technology_category_dc, lang + "_name"),
+                    technology_category.name,
+                )
 
         super().tearDownClass()

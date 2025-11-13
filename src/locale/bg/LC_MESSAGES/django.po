@@ -1,0 +1,284 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-11 23:03+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/apps/blogs/templates/pages/blogs/index.html:20
+#: src/templates/base.html:80
+msgid "Blogs"
+msgstr "Блогове"
+
+#: src/apps/blogs/templates/pages/blogs/index.html:25
+msgid "Read about my latest thoughts"
+msgstr "Прочетете за последните ми мисли"
+
+#: src/apps/blogs/templates/pages/blogs/index.html:53
+#, python-format
+msgid "Read time: %(mins)s minutes"
+msgstr "Време за четене: %(mins)s минути"
+
+#: src/apps/resume/templates/pages/home/about.html:7
+msgid "About"
+msgstr "Относно"
+
+#: src/apps/resume/templates/pages/home/about.html:10
+msgid ""
+"As you may have already guessed from the title above, my name is indeed "
+"Iliyan. I'm born in Bulgaria in a city on the coast of the Black Sea - Varna."
+msgstr ""
+"Както може би вече се досещате от заглавието по-горе, наистина се казвам "
+"Илиян. Роден съм в България, в град на брега на Черно море - Варна."
+
+#: src/apps/resume/templates/pages/home/about.html:17
+msgid ""
+"I have started on my engineering journey back when I was a kid and had to "
+"constantly fix our family desktop computer from crashing on WindowsXP and "
+"Windows7, where the issue might be either hardware related - ROM failed, "
+"motherboard got fried because of the very hot summers we had at the late "
+"2000s, or I installed a pirated game with additional content (aka malware). "
+"That repetition of breaking and fixing changed my way of thinking and "
+"approaching problems from there on."
+msgstr ""
+"Започнах инженерния си път още от дете и трябваше постоянно да поправям "
+"семейния ни настолен компютър от сривове на Windows XP и Windows 7, където "
+"проблемът можеше да е или хардуерен - ROM не работи, дънната платка се "
+"изгори заради много горещите лета, които имахме в края на 2000-те, или "
+"инсталирах пиратска игра с допълнително съдържание (известно още като "
+"злонамерен софтуер). Това повтаряне на „разбиване и поправяне“ промени "
+"начина ми на мислене и подхода ми към проблемите оттогава нататък."
+
+#: src/apps/resume/templates/pages/home/about.html:37
+#: src/apps/resume/templates/pages/home/index.html:34
+msgid "Continue reading"
+msgstr "Продължете да четете"
+
+#: src/apps/resume/templates/pages/home/about.html:43
+msgid ""
+"Afterward I joined in a high school for operation of road transport. Yes, "
+"it's not computer related, but it's in the engineering field. I actually do "
+"consider myself more of an <u>engineer</u> than a computer scientist."
+msgstr ""
+"След това се записах в гимназия за управление на автомобилен транспорт. Да, "
+"не е свързано с компютри, но е в областта на инженерството. Всъщност се "
+"смятам по-скоро за инженер, отколкото за компютърен специалист."
+
+#: src/apps/resume/templates/pages/home/about.html:51
+msgid ""
+"Time passed by and then after high school I was working at a grocery store "
+"and like every confused 18 years old, I was wondering what I was going to do "
+"with my life. Then after looking of all the local Varna universities, I then "
+"stopped at this one, called *Technical university of Varna*. I got curious "
+"by the technical specialtes - mainly at computer science and computer "
+"technologies and internet. After a bit of thinking, I randomly choose the "
+"second option. That was by far the <span class=\"green\">best</span> life "
+"changing choice I've made so far and at that time I couldn't have imagined "
+"how much this decision was going to change me for the better."
+msgstr ""
+"Времето минаваше и след гимназията работех в магазин за хранителни стоки и "
+"като всеки объркан 18-годишен се чудех какво ще правя с живота си. След като "
+"разгледах всички местни варненски университети, спрях се на този, наречен "
+"*Технически университет Варна*. Заинтригувах се от техническите специалности "
+"- главно компютърни науки и компютърни технологии и интернет. След малко "
+"размисъл, произволно избрах втория вариант. Това беше най-добрият избор, "
+"който промени живота ми досега, и по това време не можех да си представя "
+"колко много ще ме промени това решение към по-добро."
+
+#: src/apps/resume/templates/pages/home/about.html:65
+msgid ""
+"In there I didn't learn only about technology, I learnt about working with "
+"others, exchanging ideas with passionate people, engaging in debates with "
+"professors and assitants, and most importantly - becoming an adult. That's "
+"the point of an university, shaping you into a well-rounded individual, who "
+"can be integrated into the professional and social environments and being "
+"responsible for their actions. I concretely believe in that statement. I've "
+"heard so many pepole (co-students), that believe that the point of an "
+"university is to get a job, that person is either delusional or being a "
+"stubborn child, that doesn't want to look at the bigger picture."
+msgstr ""
+"Там не научих само за технологиите, научих се как да работя с други хора, да "
+"обменям идеи със страстни хора, да участвам в дебати с преподаватели и "
+"асистенти и най-важното - да стана възрастен. Това е смисълът на "
+"университета - да те оформи като всестранно развита личност, която може да "
+"се интегрира в професионалната и социалната среда и да носи отговорност за "
+"действията си. Твърдо вярвам в това твърдение. Чувал съм толкова много хора "
+"(състуденти), които вярват, че смисълът на университета е да си намери "
+"работа, но този човек или е заблуден, или е упорито дете, което не иска да "
+"погледне по-голямата картина."
+
+#: src/apps/resume/templates/pages/home/about.html:79
+msgid ""
+"In the third year of my bachelor's degree (2021) I was in an internship of a "
+"small local financial institution, that we developed legacy Windows 32bit "
+"for WindowsXP systems in Visual Objects community edition (also called "
+"CAVO). In the same year I landed my first actual IT job as a DevOps engineer "
+"as a consultant. The good thing about being a consultant is that you can see "
+"different companies (clients) with different architectures and <i>ways-of-"
+"working</i> in a very short amount of time, but the bad part is that you are "
+"not a permanent employee in these projects and you'll have to learn all of "
+"those tedious company's processes and in-house tools again for the next "
+"project. Believe me, in time you'll get very irritated by it."
+msgstr ""
+"През третата година от бакалавърската ми степен (2021 г.) бях на стаж в "
+"малка местна финансова институция, където разработихме legacy Windows 32bit "
+"за Windows XP системи във Visual Objects community edition (наричан още "
+"CAVO). През същата година получих първата си истинска ИТ работа като DevOps "
+"инженер,като консултант. Хубавото на това да си консултант е, че можеш да "
+"видиш различни компании (клиенти) с различни архитектури и начини на работа "
+"за много кратко време, но лошото е, че не си постоянен служител в тези "
+"проекти и ще трябва да научиш всички тези досадни процеси и вътрешни "
+"инструменти на компанията отново за следващия проект.Повярвайте ми, с "
+"времето ще се дразните много от това."
+
+#: src/apps/resume/templates/pages/home/about.html:94
+msgid ""
+"After some time I've spend working there and becoming more familiar with the "
+"company, I started to dislike the the company culture and decided to go "
+"elsewhere. In May 2025, I found another job, which wasn't just a job, but a "
+"life change. I had to move out to live on the southern region of France, "
+"Côte d'Azur."
+msgstr ""
+"След известно време, прекарано в работа там и запознаване с компанията, "
+"започнах да не харесвам фирмената култура и реших да отида другаде. През май "
+"2025 г. си намерих друга работа, която не беше просто работа, а промяна в "
+"живота. Трябваше да се преместя да живея в южния регион на Франция, Лазурния "
+"бряг."
+
+#: src/apps/resume/templates/pages/home/about.html:103
+msgid "And the story continues..."
+msgstr "И историята продължава..."
+
+#: src/apps/resume/templates/pages/home/about.html:115
+msgid "See less"
+msgstr "Вижте по-малко"
+
+#: src/apps/resume/templates/pages/home/about.html:172
+msgid "Previous"
+msgstr "Предишно"
+
+#: src/apps/resume/templates/pages/home/about.html:181
+msgid "Next"
+msgstr "Следващо"
+
+#: src/apps/resume/templates/pages/home/certification.html:7
+msgid "Certificates"
+msgstr "Сертификати"
+
+#: src/apps/resume/templates/pages/home/certification.html:38
+msgid "Verify"
+msgstr "Потвърди"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:7
+msgid "Contact me"
+msgstr "Свържете се с мен"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:29
+msgid "Name"
+msgstr "Име"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:42
+msgid "Email address"
+msgstr "Имейл адрес"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:56
+msgid "Message"
+msgstr "Съобщение"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:72
+msgid "Loading..."
+msgstr "Зареждане..."
+
+#: src/apps/resume/templates/pages/home/contact_me.html:73
+msgid "Send"
+msgstr "Изпрати"
+
+#: src/apps/resume/templates/pages/home/education.html:7
+msgid "Education"
+msgstr "Образование"
+
+#: src/apps/resume/templates/pages/home/index.html:23
+msgid "Hi"
+msgstr "Здравей"
+
+#: src/apps/resume/templates/pages/home/index.html:24
+msgid "I'm Iliyan"
+msgstr "Аз съм Илиян"
+
+#: src/apps/resume/templates/pages/home/index.html:26
+msgid "I try to figure out how things work."
+msgstr "Опитвам се да разбера как работят нещата."
+
+#: src/apps/resume/templates/pages/home/languages.html:6
+msgid "Languages"
+msgstr "Езици"
+
+#: src/apps/resume/templates/pages/home/languages.html:21
+msgid "Proficiency"
+msgstr "Владеене"
+
+#: src/apps/resume/templates/pages/home/projects.html:6
+msgid "Projects"
+msgstr "Проекти"
+
+#: src/apps/resume/templates/pages/home/work_history.html:8
+msgid "Work history"
+msgstr "Трудова история"
+
+#: src/apps/resume/views/home/contact_me_view.py:40
+msgid "You have successfully sent an email to Iliyan!"
+msgstr "Успешно изпратихте имейл до Илиян!"
+
+#: src/apps/resume/views/home/contact_me_view.py:55
+msgid "Error in sending your email message. Please try again next time :("
+msgstr "Грешка при изпращането на имейл съобщението ви. Моля, опитайте отново следващия път :("
+
+#: src/templates/base.html:65
+msgid "Source"
+msgstr "Източник"
+
+#: src/templates/base.html:74
+msgid "Portfolio"
+msgstr "Портфолио"
+
+#: src/templates/base.html:100
+#, python-format
+msgid " %(lang)s "
+msgstr " %(lang)s "
+
+#: src/templates/base.html:105
+msgid "English"
+msgstr "Английски"
+
+#: src/templates/base.html:109
+msgid "Bulgarian"
+msgstr "Български"
+
+#: src/templates/base.html:112
+msgid "French"
+msgstr "Френски"
+
+#: src/templates/base.html:115
+msgid "German"
+msgstr "Немски"
+
+#: src/templates/base.html:163
+msgid "Made with"
+msgstr "Направено с"
+
+#: src/templates/base.html:165
+msgid "by Django"
+msgstr "от Джанго"

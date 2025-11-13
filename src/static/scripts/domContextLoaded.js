@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const tooltips = document.querySelectorAll("[data-mdb-tooltip-init]");
   const inputs = document.querySelectorAll("[data-mdb-input-init]");
   const scrollspys = document.querySelectorAll("[data-mdb-scrollspy-init]");
+  const dropdowns = document.querySelectorAll("[data-mdb-dropdown-init]");
 
   const contactForm =  document.getElementById("contactForm");
   const card = document.getElementById("theme-card");
@@ -35,6 +36,11 @@ document.addEventListener("DOMContentLoaded", function () {
   tooltips.forEach((tooltip) => {
     new mdb.Tooltip(tooltip);
   });
+
+  dropdowns.forEach((dropdown) => {
+    new mdb.Dropdown(dropdown);
+  });
+
 
   inputs.forEach((formOutline) => {
     const input = formOutline.querySelector("input");

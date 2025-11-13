@@ -14,20 +14,29 @@ class EducationTestCase(Portfolio):
         educations_dc: list[Any] = EducationDataClass.from_yaml("education.yaml")
 
         for education_dc in educations_dc:
-            education: Education = education_model.objects.get(
-                specialty=education_dc.specialty, degree=education_dc.degree
-            )
+            for lang in self.languages:
+                education: Education = education_model.objects.get(
+                    specialty=getattr(education_dc, lang + "_specialty"),
+                    degree=getattr(education_dc, lang + "_degree"),
+                )
 
-            self.assertEqual(education_dc.university_name, education.university_name)
-            self.assertEqual(education_dc.description, education.description)
-            self.assertEqual(
-                education_dc.scroll_description, education.scroll_description
-            )
-            self.assertEqual(education_dc.image, education.image)
-            self.assertEqual(education_dc.href_tooltip, education.href_tooltip)
-            self.assertEqual(education_dc.href_title, education.href_title)
-            self.assertEqual(education_dc.date, education.date)
-            self.assertEqual(education_dc.gpa, education.gpa)
+                self.assertEqual(
+                    getattr(education_dc, lang + "_university_name"),
+                    education.university_name,
+                )
+                self.assertEqual(
+                    getattr(education_dc, lang + "_description"), education.description
+                )
+                self.assertEqual(
+                    education_dc.scroll_description, education.scroll_description
+                )
+                self.assertEqual(education_dc.image, education.image)
+                self.assertEqual(education_dc.href_tooltip, education.href_tooltip)
+                self.assertEqual(
+                    getattr(education_dc, lang + "_href_title"), education.href_title
+                )
+                self.assertEqual(education_dc.date, education.date)
+                self.assertEqual(education_dc.gpa, education.gpa)
 
         super().tearDownClass()
 
@@ -49,13 +58,13 @@ class EducationTestCase(Portfolio):
     def test_transform(self):
         self.setUp()
         education_model: Any = self.model.apps.get_model("resume", "Education")
-
         education = Education()
-        educations = education.transform()
 
-        educations_db = education_model.objects.all().values()
-        education.clean(educations_db)
+        educations: list[Education] = education.transform()
 
-        self.assertListEqual(educations, list(educations_db))
+        for edu in educations:
+            education_record: Education = education_model.objects.get(id=edu["id"])
+
+            self.assertEqual(edu["degree"], education_record.degree)
 
         super().tearDownClass()

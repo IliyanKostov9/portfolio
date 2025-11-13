@@ -1,7 +1,8 @@
 from collections import defaultdict
 from typing import Any
 
-from django.db.models import CASCADE, CharField, ForeignKey, IntegerField
+from django.db.models import PROTECT, CharField, ForeignKey, IntegerField
+from django.utils.translation import get_language
 from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
@@ -16,7 +17,7 @@ class Technology(Portfolio):
     category: ForeignKey = ForeignKey(
         TechnologyCategory,
         verbose_name="Category of the technology",
-        on_delete=CASCADE,
+        on_delete=PROTECT,
     )
 
     @override
@@ -51,7 +52,9 @@ class Technology(Portfolio):
             "pages": {
                 page: {
                     "categories": {
-                        category: {"rows": rows}
+                        TechnologyCategory.objects.get(
+                            mapped_to=category, language=get_language()
+                        ).name: {"rows": rows}
                         for category, rows in categories.items()
                     }
                 }

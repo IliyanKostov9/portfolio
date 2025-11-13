@@ -47,7 +47,7 @@ CSP_POLICY = {
             "'sha256-oxny43U4yMNZqsxffAINTdjzidFj6nAZr/6MrmG+WZA='",
         ],
         "font-src": ["https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
-        "img-src": [SELF],
+        "img-src": [SELF, "https://mdbootstrap.com"],
         "frame-ancestors": [SELF],
         "form-action": [SELF],
         "report-uri": "/monitor/csp-report",
@@ -146,6 +146,7 @@ MIDDLEWARE: list[str] = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.cache.FetchFromCacheMiddleware",  # INFO: Must be last
+    "django.middleware.locale.LocaleMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "csp.middleware.CSPMiddleware",
 ]
@@ -228,12 +229,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "Europe/Paris"
-
 USE_I18N = True
-
 USE_TZ = True
+LANGUAGES = [
+    ("en", "English"),
+    ("bg", "Bulgarian"),
+    ("fr", "French"),
+    ("ge", "German"),
+]
+LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_PORT = 587

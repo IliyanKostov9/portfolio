@@ -16,17 +16,27 @@ class WorkHistoryTestCase(Portfolio):
         )
 
         for work_history_dc in work_histories_dc:
-            work_history: WorkHistory = work_history_model.objects.get(
-                dates=work_history_dc.dates
-            )
+            for lang in self.languages:
+                work_history: WorkHistory = work_history_model.objects.get(
+                    specialty=getattr(work_history_dc, lang + "_specialty"),
+                    dates=work_history_dc.dates,
+                )
 
-            self.assertEqual(work_history_dc.company_name, work_history.company_name)
-            self.assertEqual(
-                work_history_dc.company_name_label, work_history.company_name_label
-            )
-            self.assertEqual(work_history_dc.image, work_history.image)
-            self.assertEqual(work_history_dc.specialty, work_history.specialty)
-            self.assertEqual(work_history_dc.description, work_history.description)
+                self.assertEqual(
+                    work_history_dc.company_name, work_history.company_name
+                )
+                self.assertEqual(
+                    work_history_dc.company_name_label, work_history.company_name_label
+                )
+                self.assertEqual(work_history_dc.image, work_history.image)
+                self.assertEqual(
+                    getattr(work_history_dc, lang + "_specialty"),
+                    work_history.specialty,
+                )
+                self.assertEqual(
+                    getattr(work_history_dc, lang + "_description"),
+                    work_history.description,
+                )
 
         super().tearDownClass()
 
@@ -53,12 +63,12 @@ class WorkHistoryTestCase(Portfolio):
         work_history_transformed = work_history.transform()
 
         for work in work_history_transformed:
-            work_model = work_history_model.objects.get(dates=work["dates"])
+            work_model = work_history_model.objects.get(description=work.description)
 
-            self.assertEqual(work_model.company_name, work["company_name"])
-            self.assertEqual(work_model.company_name_label, work["company_name_label"])
-            self.assertEqual(work_model.image, work["image"])
-            self.assertEqual(work_model.specialty, work["specialty"])
-            self.assertEqual(work_model.description, work["description"])
+            self.assertEqual(work_model.company_name, work.company_name)
+            self.assertEqual(work_model.company_name_label, work.company_name_label)
+            self.assertEqual(work_model.image, work.image)
+            self.assertEqual(work_model.specialty, work.specialty)
+            self.assertEqual(work_model.description, work.description)
 
         super().tearDownClass()
