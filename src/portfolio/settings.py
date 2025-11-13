@@ -47,7 +47,7 @@ CSP_POLICY = {
             "'sha256-oxny43U4yMNZqsxffAINTdjzidFj6nAZr/6MrmG+WZA='",
         ],
         "font-src": ["https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
-        "img-src": [SELF],
+        "img-src": [SELF, "https://mdbootstrap.com"],
         "frame-ancestors": [SELF],
         "form-action": [SELF],
         "report-uri": "/monitor/csp-report",

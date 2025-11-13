@@ -1,6 +1,6 @@
 from typing import Any
 
-from django.db.models import CASCADE, CharField, ForeignKey
+from django.db.models import PROTECT, CharField, ForeignKey
 from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
@@ -14,12 +14,12 @@ class TechnologyCategory(Portfolio):
     language: ForeignKey = ForeignKey(
         Translation,
         verbose_name="Translated category name of the technology",
-        on_delete=CASCADE,
+        on_delete=PROTECT,
+        null=True,
     )
 
     mapped_to: CharField = CharField(
         "The english equivalent version to map the translated name to",
-        blank=True,
     )
 
     @override
