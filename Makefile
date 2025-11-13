@@ -43,9 +43,9 @@ migrate: ## Perform SQL migration
 .PHONY: schema-update
 schema-update: ## Update SQL schema & create an empty migration
 	python3 src/manage.py makemigrations resume
-	python3 src/manage.py makemigrations resume --empty
+	python3 src/manage.py makemigrations resume --empty --name resume_migrate
 	python3 src/manage.py makemigrations blogs
-	python3 src/manage.py makemigrations blogs --empty
+	python3 src/manage.py makemigrations blogs --empty --name blogs_migrate
 	echo "Now copy the following code to the new empty migrated python file like"
 	echo " \
 		from . import init, init_reverse \

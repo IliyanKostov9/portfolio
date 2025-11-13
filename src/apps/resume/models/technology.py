@@ -1,7 +1,7 @@
 from collections import defaultdict
 from typing import Any
 
-from django.db.models import CASCADE, CharField, ForeignKey, IntegerField
+from django.db.models import PROTECT, CharField, ForeignKey, IntegerField
 from django.utils.translation import get_language
 from typing_extensions import override
 
@@ -17,7 +17,7 @@ class Technology(Portfolio):
     category: ForeignKey = ForeignKey(
         TechnologyCategory,
         verbose_name="Category of the technology",
-        on_delete=CASCADE,
+        on_delete=PROTECT,
     )
 
     @override

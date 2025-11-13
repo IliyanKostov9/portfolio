@@ -15,7 +15,7 @@ class Education(Portfolio):
     university_name: CharField = CharField("University name", max_length=50)
     description: CharField = CharField("Description of the education", max_length=300)
     scroll_description: BooleanField = BooleanField(
-        "Whether or not the description should be scrollable or not"
+        "Whether or not the description should be scrollable or not", default=False
     )
     image: CharField = CharField("Image of the education", max_length=30)
     href_tooltip: CharField = CharField("Href tooltip of the education", max_length=30)
