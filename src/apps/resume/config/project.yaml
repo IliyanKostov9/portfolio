@@ -1,7 +1,16 @@
 ---
-- name: "NixOS config"
-  description: |
+- en_name: "NixOS config"
+  bg_name: "Конфигурация на NixOS"
+  fr_name: "Configuration NixOS"
+  ge_name: "NixOS-Konfiguration"
+  en_description: |
     It contains hardware/software configurations for setting up my personal/work machines.
+  bg_description: |
+    Съдържа хардуерни/софтуерни конфигурации за настройване на моите лични/служебни машини.
+  fr_description: |
+    Il contient les configurations matérielles/logicielles nécessaires à la configuration de mes ordinateurs personnels et professionnels.
+  ge_description: |
+    Es enthält Hardware-/Softwarekonfigurationen für die Einrichtung meiner privaten/beruflichen Computer.
   image: "nixos.png"
   date: "06-2024 - Present"
   row: 1
@@ -9,13 +18,33 @@
     - name: ""
       url: "https://github.com/IliyanKostov9/nixos-config"
 
-- name: "Phd portal system"
-  description: |
+- en_name: "Phd portal system"
+  bg_name: "Система за портал за докторанти"
+  fr_name: "Système de portail doctoral"
+  ge_name: "PhD-Portalsystem"
+  en_description: |
     The project develops an engineering solution for digitizing an
     information system for doctoral students and candidates in order
     to be used by higher education institutions, which would
     integrate into the systematic process for the management and
     management of the so -called "digital university".
+  bg_description: |
+    Проектът разработва инженерно решение за дигитализиране на информационна система
+    за докторанти и кандидати, с цел да бъде използвана от висши учебни заведения,
+    която би се интегрирала в системния процес за управление и управление на
+    т.нар. „дигитален университет“.
+  fr_description: |
+    Ce projet développe une solution d'ingénierie pour la numérisation d'un
+    système d'information destiné aux doctorants et candidats au doctorat,
+    afin qu'il puisse être utilisé par les établissements d'enseignement
+    supérieur et s'intégrer au processus systématique de gestion et
+    d'administration de ce que l'on appelle l'« université numérique ».
+  ge_description: |
+    Das Projekt entwickelt eine technische Lösung zur Digitalisierung eines
+    Informationssystems für Doktoranden und Promotionskandidaten, das
+    von Hochschulen genutzt werden kann und sich in den systematischen
+    Prozess für die Verwaltung und Steuerung der sogenannten „digitalen
+    Universität“ integriert.
   scroll_description: true
   image: "tu_varna.png"
   date: "08-2024 - 06-2025"
@@ -28,10 +57,22 @@
     - name: "Infra"
       url: "https://github.com/Tu-Varna-2019/phd-portal-infra"
 
-- name: "Geo Android app"
-  description: |
+- en_name: "Geo Android app"
+  bg_name: "Приложение за географско приложение за Android"
+  fr_name: "Application Android Geo"
+  ge_name: "Geo Android-App"
+  en_description: |
     Information system, which allows users to inspect hazards and
     risks anywhere in the world.
+  bg_description: |
+    Информационна система, която позволява на потребителите да
+    проверяват опасностите и рисковете навсякъде по света.
+  fr_description: |
+    Système d'information permettant aux utilisateurs d'examiner
+    les dangers et les risques partout dans le monde.
+  ge_description: |
+    Informationssystem, das es Nutzern ermöglicht,
+    Gefahren und Risiken überall auf der Welt zu überprüfen.
   image: "tu_varna.png"
   date: "02-2024 - 06-2024"
   row: 1
@@ -41,9 +82,18 @@
     - name: "Client"
       url: "https://github.com/Tu-Varna-2019/geo-client"
 
-- name: "ChatApp mobile app"
-  description: |
+- en_name: "ChatApp mobile app"
+  bg_name: "Мобилно приложение ChatApp"
+  fr_name: "Application mobile ChatApp"
+  ge_name: "ChatApp-Mobil-App"
+  en_description: |
     Mobile application for real time messaging communication
+  bg_description: |
+    Мобилно приложение за комуникация в реално време
+  fr_description: |
+    Application mobile pour la communication par messagerie en temps réel.
+  ge_description: |
+    Mobile Anwendung für Echtzeit-Nachrichtenkommunikation
   image: "tu_varna.png"
   date: "08-2023 - 02-2024"
   row: 2
@@ -53,11 +103,26 @@
     - name: "Client"
       url: "https://github.com/Tu-Varna-2019/chatapp-client"
 
-- name: "Project management with OpenAI"
-  description: |
+- en_name: "Project management with OpenAI"
+  bg_name: "Управление на проекти с OpenAI"
+  fr_name: "Gestion de projet avec OpenAI"
+  ge_name: "Projektmanagement mit OpenAI"
+  en_description: |
     A browser-based project management app, that is integrated with
     ChatGPT-3.5 for supporting the agile team to autogenerate
     tickets.
+  bg_description: |
+    Приложение за управление на проекти, базирано в браузър,
+    интегрирано с ChatGPT-3.5 за подпомагане на agile екипа
+    да генерира автоматично заявки.
+  fr_description: |
+    Une application de gestion de projet basée sur un navigateur web, intégrée à
+    ChatGPT-3.5 pour aider l'équipe agile à générer automatiquement
+    des tickets.
+  ge_description: |
+    Eine browserbasierte Projektmanagement-App, die in ChatGPT-3.5
+    integriert ist, um das agile Team bei der automatischen Generierung
+    von Tickets zu unterstützen.
   scroll_description: true
   image: "tu_varna.png"
   date: "02-2023 - 06-2023"

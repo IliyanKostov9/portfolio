@@ -8,6 +8,7 @@ from apps.resume.models.education import Education
 from apps.resume.models.project import Project
 from apps.resume.models.technology import Technology
 from apps.resume.models.technology_category import TechnologyCategory
+from apps.resume.models.translation import Translation
 from apps.resume.models.work_history import WorkHistory
 from apps.resume.views.home.home_view import HomeView
 
@@ -27,6 +28,7 @@ class HomeViewTestCase(TestCase):
         self.request.technology_categories = [
             TechnologyCategory.objects.create(
                 name="technologyCategory1",
+                language=Translation.objects.get(language="en"),
             )
         ]
 
@@ -52,6 +54,7 @@ class HomeViewTestCase(TestCase):
                 href_title="href_title",
                 date="date",
                 gpa="gpa",
+                language=Translation.objects.get(language="en"),
             ),
         ]
 
@@ -75,6 +78,7 @@ class HomeViewTestCase(TestCase):
                 scroll_description=False,
                 row=1,
                 repositories=[{"name": "name", "url": "url"}],
+                language=Translation.objects.get(language="en"),
             ),
         ]
 
@@ -86,6 +90,7 @@ class HomeViewTestCase(TestCase):
                 specialty="specialty",
                 dates=["date123"],
                 description="description",
+                language=Translation.objects.get(language="en"),
             ),
         ]
 

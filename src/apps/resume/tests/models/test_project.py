@@ -14,15 +14,22 @@ class ProjectTestCase(Portfolio):
         projects_dc: list[Any] = ProjectDataClass.from_yaml("project.yaml")
 
         for project_dc in projects_dc:
-            project: Project = project_model.objects.get(name=project_dc.name)
+            for lang in self.languages:
+                project: Project = project_model.objects.get(
+                    name=getattr(project_dc, lang + "_name")
+                )
 
-            self.assertEqual(project_dc.name, project.name)
-            self.assertEqual(project_dc.description, project.description)
-            self.assertEqual(project_dc.scroll_description, project.scroll_description)
-            self.assertEqual(project_dc.image, project.image)
-            self.assertEqual(project_dc.date, project.date)
-            self.assertEqual(project_dc.row, project.row)
-            self.assertEqual(project_dc.repositories, project.repositories)
+                self.assertEqual(getattr(project_dc, lang + "_name"), project.name)
+                self.assertEqual(
+                    getattr(project_dc, lang + "_description"), project.description
+                )
+                self.assertEqual(
+                    project_dc.scroll_description, project.scroll_description
+                )
+                self.assertEqual(project_dc.image, project.image)
+                self.assertEqual(project_dc.date, project.date)
+                self.assertEqual(project_dc.row, project.row)
+                self.assertEqual(project_dc.repositories, project.repositories)
 
         super().tearDownClass()
 
