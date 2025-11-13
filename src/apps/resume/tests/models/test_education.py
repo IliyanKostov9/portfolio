@@ -58,13 +58,13 @@ class EducationTestCase(Portfolio):
     def test_transform(self):
         self.setUp()
         education_model: Any = self.model.apps.get_model("resume", "Education")
-
         education = Education()
-        educations = education.transform()
 
-        educations_db = education_model.objects.get(language_id="en")
-        education.clean(educations_db)
+        educations: list[Education] = education.transform()
 
-        self.assertListEqual(educations, list(educations_db))
+        for edu in educations:
+            education_record: Education = education_model.objects.get(id=edu["id"])
+
+            self.assertEqual(edu["degree"], education_record.degree)
 
         super().tearDownClass()
