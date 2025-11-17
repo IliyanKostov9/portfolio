@@ -31,12 +31,11 @@ USER ${DOCKER_USER}
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
-	libsass1 \
+	libsass1 gettext \
 	&& rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /opt/.venv /app/.venv
 COPY --chown=${DOCKER_USER}:${DOCKER_USER} src /app/src
-
 
 ENV PYTHONPATH=/app:/app/src/apps:/app/src
 ENV PORTFOLIO_ENV="prod"
@@ -45,12 +44,13 @@ ENV PORTFOLIO_SKIP_SECRET_KEY_CHECK=true
 RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
 	/app/.venv/bin/python3 src/manage.py migrate --noinput && \
 	/app/.venv/bin/python3 src/manage.py collectstatic --noinput && \
-	/app/.venv/bin/python3 src/manage.py compress --force
+	/app/.venv/bin/python3 src/manage.py compress --force && \
+	/app/.venv/bin/python3 -m django compilemessages
 
 EXPOSE 8000
 
 LABEL org.opencontainers.image.source="https://github.com/IliyanKostov9/portfolio" \
-	org.opencontainers.image.version="1.1.0-RELEASE" \
+	org.opencontainers.image.version="2.1.1-RELEASE" \
 	org.opencontainers.image.description="Portfolio app" \
 	org.opencontainers.image.authors="Iliyan Kostov" \
 	org.opencontainers.image.vendor="IliyanKostov" \

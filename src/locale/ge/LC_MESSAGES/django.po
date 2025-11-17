@@ -29,7 +29,7 @@ msgstr "Lesen Sie meine neuesten Gedanken"
 #: src/apps/blogs/templates/pages/blogs/index.html:53
 #, python-format
 msgid "Read time: %(mins)s minutes"
-msgstr "Lesezeit: %(min)s Minuten"
+msgstr "Lesezeit: %(mins)s Minuten"
 
 #: src/apps/resume/templates/pages/home/about.html:7
 msgid "About"
