@@ -101,6 +101,8 @@ class LanguageProficiency(Portfolio):
                 language["proficiency"] = PROFICIENCY_TRANSLATIONS[get_language()][
                     proficiency
                 ]
+                print(f"Proficiency: {proficiency}")
+
         except KeyError:
             logger.error(
                 "Keyerror when trying to retrieve the translated text for language!"
