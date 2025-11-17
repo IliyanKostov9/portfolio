@@ -39,7 +39,7 @@ class HomeView(View):
             "educations": educations,
             "certificates": certifications,
             "projects": projects,
-            "languages": language_proficiencies,
+            "language_proficiencies": language_proficiencies,
         }
 
         self.LOG.success(
