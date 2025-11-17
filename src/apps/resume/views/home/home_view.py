@@ -7,6 +7,7 @@ from django.views import View
 
 from apps.resume.models.certification import Certification
 from apps.resume.models.education import Education
+from apps.resume.models.language_proficiency import LanguageProficiency
 from apps.resume.models.project import Project
 from apps.resume.models.technology import Technology
 from apps.resume.models.work_history import WorkHistory
@@ -29,7 +30,7 @@ class HomeView(View):
         educations = Education().transform()
         certifications = Certification().transform()
         projects = Project().transform()
-        language_proficiencies = Certification().transform()
+        language_proficiencies = LanguageProficiency().transform()
 
         context: dict[str, Any] = {
             "language": get_language(),
@@ -38,7 +39,7 @@ class HomeView(View):
             "educations": educations,
             "certificates": certifications,
             "projects": projects,
-            "languages": language_proficiencies,
+            "language_proficiencies": language_proficiencies,
         }
 
         self.LOG.success(
