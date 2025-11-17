@@ -46,6 +46,7 @@
 
           packages = with pkgs; [
             sops
+            gettext # NOTE: Needed for django-admin compilemessages
           ];
 
           git-hooks.hooks = {

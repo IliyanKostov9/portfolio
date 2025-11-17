@@ -41,8 +41,6 @@ ENV PYTHONPATH=/app:/app/src/apps:/app/src
 ENV PORTFOLIO_ENV="prod"
 ENV PORTFOLIO_SKIP_SECRET_KEY_CHECK=true
 
-RUN gettext -h
-
 RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
 	/app/.venv/bin/python3 src/manage.py migrate --noinput && \
 	/app/.venv/bin/python3 src/manage.py collectstatic --noinput && \
