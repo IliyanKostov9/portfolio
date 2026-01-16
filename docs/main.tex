@@ -1,230 +1,238 @@
 % !TeX spellcheck = en_GB
 % !TeX program = pdflatex
-%
-% LuxSleek-CV 1.1 LaTeX template
-% Author: Andreï V. Kostyrka, University of Luxembourg
-%
-% 1.1: added tracking and letter-spacing for prettier lower caps, added `~` for language levels
-% 1.0: initial release
-%
-% This template fills the gap in the available variety of templates
-% by proposing something that is not a custom class, not using any
-% hard-coded settings deeply hidden in style files, and provides
-% a handful of custom command definitions that are as transparent as it gets.
-% Developed at the University of Luxembourg.
-%
-% *NOTHING IS HARCODED, and never should be.*
-%
-% Target audience: applicants in the IT industry, or business in general
-%
-% The main strength of this template is, it explicitly showcases how
-% to break the flow of text to achieve the most flexible right alignment
-% of dates for multiple configurations.
 
-\documentclass[11pt, a4paper]{article} 
+\documentclass[11pt, a4paper]{article}
 
-\usepackage[T1]{fontenc}     % We are using pdfLaTeX,
-\usepackage[utf8]{inputenc}  % hence this preparation
-\usepackage[british]{babel}  
-\usepackage[left = 0mm, right = 0mm, top = 0mm, bottom = 0mm]{geometry}
-\usepackage[stretch = 25, shrink = 25, tracking=true, letterspace=30]{microtype}  
-\usepackage{graphicx}        % To insert pictures
-\usepackage{xcolor}          % To add colour to the document
-\usepackage{marvosym}        % Provides icons for the contact details
-\usepackage{tikz}            % Rounded image
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[british]{babel}
+\usepackage[margin=8mm]{geometry}
 
-\usepackage{enumitem}        % To redefine spacing in lists
-\setlist{parsep = 0pt, topsep = 0pt, partopsep = 1pt, itemsep = 1pt, leftmargin = 6mm}
+\usepackage[stretch=25, shrink=25, tracking=true, letterspace=20]{microtype}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{marvosym}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{paracol}
 
-\usepackage{FiraSans}        % Change this to use any font, but keep it simple
+\setlist{parsep=0pt, topsep=0pt, partopsep=1pt, itemsep=1pt, leftmargin=6mm}
+
+\usepackage{FiraSans}
 \renewcommand{\familydefault}{\sfdefault}
 
 \definecolor{cvblue}{HTML}{304263}
 
-%%%%%%% USER COMMAND DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% These are the real workhorses of this template
-\newcommand{\dates}[1]{\hfill\mbox{\textbf{#1}}} % Bold stuff that doesn’t got broken into lines
-\newcommand{\is}{\par\vskip.5ex plus .4ex} % Item spacing
+% Custom commands
+\newcommand{\dates}[1]{\hfill\mbox{\textbf{#1}}}
+\newcommand{\is}{\par\vskip.5ex plus .4ex}
 \newcommand{\smaller}[1]{{\small$\diamond$\ #1}}
 \newcommand{\headleft}[1]{\vspace*{3ex}\textsc{\textbf{#1}}\par%
     \vspace*{-1.5ex}\hrulefill\par\vspace*{0.7ex}}
 \newcommand{\headright}[1]{\vspace*{2.5ex}\textsc{\Large\color{cvblue}#1}\par%
      \vspace*{-2ex}{\color{cvblue}\hrulefill}\par}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[colorlinks = true, urlcolor = white, linkcolor = white, hidelinks]{hyperref}
+\usepackage[colorlinks=true, urlcolor=white, linkcolor=white, hidelinks]{hyperref}
+
+% NOTE: Need to import usetikz for running it locally
+\usetikzlibrary{backgrounds, positioning, shapes, calc, fit}
 
 \begin{document}
 
-% Style definitions -- killing the unnecessary space and adding the skips explicitly
-\setlength{\topskip}{0pt}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0pt}
-\setlength{\fboxsep}{0pt}
 \pagestyle{empty}
 \raggedbottom
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5ex}
 
-\begin{minipage}[t]{0.33\textwidth} %% Left column -- outer definition
-%  Left column -- top dark rectangle
-\colorbox{cvblue}{\begin{minipage}[t][5mm][t]{\textwidth}\null\hfill\null\end{minipage}}
+% Column proportions
+\columnratio{0.37,0.63}
+\setlength{\columnsep}{2.5em}
 
-\vspace{-.2ex} % Eliminates the small gap
-\colorbox{cvblue!90}{\color{white}  %% LEFT BOX
-\kern0.09\textwidth\relax% Left margin provided explicitly
-\begin{minipage}[t][293mm][t]{0.82\textwidth}
-\raggedright
-\vspace*{2.5ex}
+\begin{paracol}{2}
 
-\Large Iliyan \textbf{\textsc{Kostov}} \normalsize 
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%% LEFT COLUMN %%%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Centering without extra vertical spacing
-\begin{tikzpicture}
-\clip (0,0) circle (2);
-\node at (0,0) {\includegraphics[width=4cm]{profile.jpg}};
-\end{tikzpicture}
-%\null\hfill\includegraphics[width=0.65\textwidth]{profile.jpg}\hfill\null
+	% Full-height blue background behind left column
+	\begin{tikzpicture}[remember picture, overlay]
+		\begin{scope}[on background layer]
+			\fill[cvblue] (current page.north west) rectangle ([xshift=0.37\paperwidth] current page.south west);
+		\end{scope}
+	\end{tikzpicture}
 
-\vspace*{0.5ex} % Extra space after the picture
+	% Make left column text white
+	\color{white}
 
-\headleft{Profile}
-I'm an experienced DevOps engineer, that has worked in several international projects from different sectors (automotive, food \& beverage, aviation, telecommunications).
+	\begin{center}
+		\begin{tikzpicture}
+			\clip (0,0) circle (2);
+			\node at (0,0) {\includegraphics[width=4cm]{profile.jpg}};
+		\end{tikzpicture}
+	\end{center}
 
-\headleft{Contact details}
-\small % To fit more content
-\MVAt\ {\small iliyan.kostov@email.ikostov.org} \\[0.4ex]
-\Mobilefone\ +33\,780\,857\,077 \\[0.5ex]
-\Mundus\ Nice, France
-\begin{itemize}
-    \item \href{https://github.com/IliyanKostov9}{github.com/IliyanKostov9} \\[0.1ex]
-    \item \href{https://portfolio.ikostov.org/} {portfolio.ikostov.org} \\[0.1ex]
-    \item \href{https://www.linkedin.com/in/iliyan-kostov/} {linkedin/iliyan-kostov} \\[0.1ex]
-\end{itemize}
+	\begin{center}
+		\Large Iliyan \textbf{\textsc{Kostov}}\normalsize
+	\end{center}
+
+	\headleft{Profile}
+	Experienced DevOps engineer, that has worked in several international projects from automotive, telecommunications, aviation, and food \& beverage industries.
+
+	\headleft{Contact details}
+	\small
+	\MVAt\ {\small iliyan.kostov@email.ikostov.org} \\
+	\Mobilefone\ +33\,780\,857\,077 \\
+	\Mundus\ Nice, France
+
+	\begin{itemize}
+		\item \href{https://github.com/IliyanKostov9}{github.com/IliyanKostov9}
+		\item \href{https://portfolio.ikostov.org/}{portfolio.ikostov.org}
+		\item \href{https://www.linkedin.com/in/iliyan-kostov/}{linkedin/iliyan-kostov}
+	\end{itemize}
+
+	\normalsize
+
+	\headleft{Personal information}
+	Languages: \textbf{Bulgarian}~(native), \textbf{English}~(Fluent), \textbf{German}~(Beginner), \textbf{French}~(Beginner)
+
+	\headleft{Skills}
+	\begin{itemize}
+		\item Python, Java, Javascript, Kotlin
+		\item Pytest, Django, AWS Amplify, ReactJS, NextJS, Quarkus, Spring Boot
+		\item AWS, Azure
+		\item Terraform, CDK, Nix
+		\item MySQL, PostgreSQL, NoSQL
+		\item Github actions, Jenkins, Azure Devops
+		\item Linux (Ubuntu, NixOS)
+		\item Docker, Kubernetes
+		\item Agile Methodologies (SAFE)
+	\end{itemize}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%%%%%%%%%%%% RIGHT COLUMN %%%%%%%%%%%
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\switchcolumn
+	\color{black} % make sure right column text is black
+
+	\headright{Experience}
+
+	\begin{center}
+		\includegraphics[width=2.0cm]{alten.png} \\
+	\end{center}
+
+	\textsc{DevOps Engineer} at \textit{Alten (France)} \dates{2025.05--pres.} \\
+
+	\smaller{
+		For my first project, the company provides global distribution services to airline companies. These distributions of data products are in the area of the travel industry. \\
+
+		The team I'm in is in the department of airline ticket reservation. My role (platform engineer) is to support internal teams to deliver the global distribution data to external customers. The orchestration of the jobs are managed through Jenkins (using Groovy as a choice of scripting language). Jenkins runs on CentOS 7 in company data centers, with OS patch management automated using Ansible. \\
+		The data processing is managed by AWS EMR clusters. Due to policy restrictions, the artifacts are stored in S3 bucket and the retrieval of them, depending on the provided release or PR version is made by a custom bash script, that gets called for every job that contain a dependency list file. \\ \\
+
+		My contributions to the project currently include: \\
+		- migrated a legacy Groovy pipeline script to the internal Groovy framework, which automatically handles all application lifecycles: build, test, release, and deploy. \\
+		- rewritten and changed the logic of the feed framework from Bash to Python for delivering data to customers on a daily, weekly or monthly basis, with partial or full deliveries. \\
+		- introduced a new approach to build a development environment for specific applications by using Nix devenv. With having only nix installed, the required dependencies (Python, Groovy, S3 on Localstack) are defined in a .nix file and are automatically installed and available by just entering the project root directory. \\
+		-  developed a custom script to automatically switch EMR instances from spot to on-demand if jobs wait more than 15 minutes, optimizing costs \\
+	}
+
+	\vspace{1.8ex}
+	\vspace{0.5em} % optional vertical spacing
+	\noindent\rule{\linewidth}{0.3pt} % 0.3pt thin line
+	\vspace{0.5em}
+
+	\is
+	\begin{center}
+		\includegraphics[width=2.0cm]{DXC-Full-Color.png} \\
+	\end{center}
+
+	\textsc{DevOps Engineer} at \textit{DXC Technology (Bulgaria)} \dates{2022.02--2025.04} \\
+
+	\textbf{Advanced Driver Assistance Systems (ADAS)} \\
+	\textit{DevOps Engineer (AWS)}
+
+	My initial project focused on the development of Advanced Driver Assistance Systems (ADAS) for a multinational automotive company. \\
+	Within this project, my role was working as a DevOps Engineer on AWS cloud infrastructure management,
+	where we were responsible for maintaining the entire cloud platform, including the deployment of
+	customer products with the help of AWS ADF framework, AWS Account-Vending-Machine and AWS Control Tower custom REST API. \\
+
+	The automation of these processes was achieved through the use of AWS CDK Infrastructure as Code (IaaC). \\
+
+	As part of my contributions to client services, I implemented the following solutions: \\
+	- budget cost alerting on the entire platform with predefined percentage of exceeded budget to fire off email messages to the Business Owners \\
+	- creating additional REST API endpoints for the Control Tower for specifying which newly created AWS accounts belong to which VPC.
+	In there I also wrote the logic where a Lambda Function checks the type of account and based on which VPC template it belongs to - deploys the AWS CloudFormation StackSet to the appropriate account. \\
+	- creating a High level design of data flow and replication for the entire Data platform \\
+
+	\textbf{Food industry} \\
+	\textit{DevOps/Data Engineer (Azure)}
+
+	My second project revolved around delivering valuable insights to enhance
+	the shopping experience for customers and establishing loyalty programs for a renowned Whole Foods store company. \\
+	I was positioned as Data Engineer on the Azure platform for ensuring data integrity and data validation on the
+	Raw to Source to Prepared Layer. For data validation processes, we developed a Test Automation Framework built upon the pytest framework. \\
+
+	\vspace{1.8ex}
+	\vspace{0.5em} % optional vertical spacing
+	\noindent\rule{\linewidth}{0.3pt} % 0.3pt thin line
+	\vspace{0.5em}
+
+	\is
+	\begin{center}
+		\begin{tikzpicture}
+			\clip (0,0) circle (1cm);
+			\node at (0,0) {\includegraphics[width=2.0cm]{sysconsulting.png}};
+		\end{tikzpicture}
+	\end{center}
+
+	\textsc{Software Engineer Intern} at \textit{Sys Consulting Ltd. (Bulgaria)} \dates{2021.07--2021.12} \\
+	\smaller{The intership consisted of maintaining a legacy banking system for Balkan clients.
+		The system was comprised of a desktop Windows XP compatible application,
+		written in CAVO (Visual Objects) programming language.}
+
+	\headright{Education}
+
+	\includegraphics[width=1.0cm]{tu-varna.png} \textsc{Master of Science} Software Engineering \textit{Technical University of Varna} \dates{2025--2023} \\
+	\smaller{Thesis: \textit{Design and implementation of a system for doctoral students admission and training}}
+
+	\is
+	\includegraphics[width=1.0cm]{tu-varna.png} \textsc{Bachelor of Science} Computer science \textit{Technical University of Varna} \dates{2019--2023} \\
+	\smaller{Thesis: \textit{AI-Driven Project management web app with ChatGPT 3.5}}
+
+	\headright{Certificates}
+
+	\href{https://www.credly.com/badges/620c9229-2256-4c1c-8067-18368f84862b/public_url}{AWS Solutions Architect – Associate}
+	\dates{29.07.2022}
+
+	\is
+	\href{https://www.credly.com/badges/a7fc1fb7-e1b6-4473-8453-6c4eff17c10f/public_url}{Azure Data Engineer Associate}
+	\dates{28.04.2022}
+
+	\is
+	\href{https://learn.microsoft.com/en-us/users/kostoviliyan-7522/credentials/5ac1e309f3cd6c25?ref=https%3A%2F%2Fwww.linkedin.com%2F}{Azure DevOps Engineer Expert}
+	\dates{02.10.2023}
+
+	\is
+	\href{https://learn.microsoft.com/en-us/users/kostoviliyan-7522/credentials/4cbfcf5b11b3e4ee?ref=https%3A%2F%2Fwww.linkedin.com%2F}{Azure Developer Associate}
+	\dates{02.10.2023}
+
+	\is
+	\href{https://credentials.databricks.com/b2a0ea97-cbe8-47db-b075-8c833525ef4f#acc.R8i3Nzvg}{Databricks Gen AI \& LLM}
+	\dates{10.04.2024}
+
+	\is
+	\href{https://www.credly.com/badges/d2561920-df6c-4a04-a267-4009de608a8f/linked_in_profile}{AWS Technical Accelerated}
+	\dates{09.2024}
+
+	\is
+	\href{https://www.credly.com/badges/79c50d81-a092-4d64-9abd-c82b74af8836/linked_in_profile}{AWS Migration Acceleration Program}
+	\dates{09.2024}
+
+	\is
+	\href{https://infobulgaria.net/}{A1 German Language Certificate}
+	\dates{10.04.2025}
 
 
-\normalsize
-
-\headleft{Personal information}
-%Year of birth: \textbf{1861} \\[0.5ex]
-Languages: \textbf{Bulgarian}~(native), \textbf{English}~(Fluent), \textbf{German}~(Beginner), \textbf{French}~(Beginner)
-
-\headleft{Skills}
-\begin{itemize}
-\item Python, Java, Javascript, Kotlin
-\item Pytest, Django, AWS Amplify, ReactJS, NextJS, Quarkus, Spring Boot
-\item AWS, Azure
-\item Terraform, CDK, Nix
-\item MySQL, PostgreSQL, NoSQL
-\item Github actions, Jenkins, Azure Devops
-\item Linux (Ubuntu, NixOS)
-\item Docker, Kubernetes
-\item Agile Methodologies (SAFE)
-\end{itemize} 
-
-\end{minipage}%
-\kern0.09\textwidth\relax%%Right margin provided explicitly to stretch the colourbox
-}
-\end{minipage}% Right column
-\hskip2.5em% Left margin for the white area
-\begin{minipage}[t]{0.56\textwidth}
-\setlength{\parskip}{0.8ex}% Adds spaces between paragraphs; use \\ to add new lines without this space. Shrink this amount to fit more data vertically
-
-\vspace{2ex}
-
-\headright{Experience}
-
-\textsc{DevOps Engineer} at \textit{Alten (France).}  \dates{2025.05--pres.} \\
-\smaller{
-My first project is with a software company that provides a global distribution service for airline carriers. \\
-This involves distributing data products within the travel industry. \\
-\\
-I'm part of the ticket reservation department. My current role is platform engineer, where I maintain, operate, and develop the data processing pipeline that ingests raw data from the global distribution system, processes it through multiple layers, and delivers it to customers via transfer protocols such as FTP or S3.
-}
-
-
-\is % Item spacing -- defined in the preamble
-\textsc{DevOps Engineer} at \textit{DXC Technology (Bulgaria).}  \dates{2022.02--2025.04} \\
-\textbf{Project 1: Advanced Driver Assistance Systems (ADAS)} \\
-\textit{Role: DevOps Engineer (AWS)} \\[0.5ex]
-
-My work focused on building ADAS capabilities for a multinational automotive company. I was responsible for maintaining and governing the client's entire AWS cloud platform using AWS ADF, the Account Vending Machine, Control Tower, and custom REST APIs.
-
-Cloud governance and deployments were automated through AWS CDK (IaC) and CloudFormation Policy templates. Key contributions included: 
-
-\begin{itemize}
-  \item Implementing platform-wide budget cost alerting for Business Owners.
-  \item Extending Control Tower with REST API endpoints to map newly created AWS accounts to the correct VPC.
-  \item Designing Lambda-driven logic to deploy CloudFormation StackSets to accounts based on account type and VPC templates.
-  \item Preparing a high-level technical design of data flow and replication for the data platform.
-\end{itemize}
-
-\vspace{1em}
-
-\textbf{Project 2: Customer Data Insights \& Loyalty Programs (Whole Foods)} \\
-\textit{Role: Data Engineer (Azure)} \\[0.5ex]
-
-This project delivered data-driven insights to improve customer shopping experience and loyalty programs for a major Whole Foods retailer. I ensured data integrity and validation across the Raw, Source, and Prepared data layers on Azure using Azure Data Factory, Azure Databricks, and Blob Storage.
-
-To support validation workflows, I co-developed a pytest-based Test Automation Framework for schema, duplication, data quality, and structural checks. The pipeline executed end-to-end validation, including:
-
-\begin{itemize}
-  \item Ingesting test data from Blob Storage.
-  \item Transforming data in Databricks (e.g., Avro $\to$ Parquet, column harmonization).
-  \item Propagating validated datasets to downstream layers for quality checks.
-  \item Producing \texttt{junitxml\_report.xml} test artifacts for automated reporting.
-\end{itemize}
-
-Test results were integrated with Zephyr Scale (via REST API) and Allure to enable visual reporting and result tracking for stakeholders.
-
-
-\is
-\textsc{Software Engineer Intern} at \textit{Sys Consulting Ltd. (Bulgaria).}  \dates{2021.07--2021.12} \\
-\smaller{The intership consisted of mainaiting a legacy banking system for Balkan clients.
-The system was comprised of a desktop Windows XP compatible application,
-written in CAVO (Visual Objects) programming language.}
-
-\headright{Education}
-
-\textsc{Master of Science} Software Engineering \textit{Technical University of Varna}. \dates{2025--2023} \\
-\smaller{Thesis title: \textit{ Design and implementation of a system for doctoral students admission and training}} \\
-
-\is
-\textsc{Bachelor of Science} Computer science \textit{Technical University of Varna}.  \dates{2019--2023} \\
-\smaller{Thesis title: \textit{ AI-Driven Project management web app with ChatGPT 3.5}}
-
-
-\headright{Certificates}
-
-\href{https://www.credly.com/badges/620c9229-2256-4c1c-8067-18368f84862b/public_url}{AWS Solutions Architect – Associate}
-\dates{29.07.2022}
-
-\is
-\href{https://www.credly.com/badges/a7fc1fb7-e1b6-4473-8453-6c4eff17c10f/public_url}{Azure Data Engineer Associate}
-\dates{28.04.2022} 
-
-\is
-\href{https://learn.microsoft.com/en-us/users/kostoviliyan-7522/credentials/5ac1e309f3cd6c25?ref=https%3A%2F%2Fwww.linkedin.com%2F}{Azure DevOps Engineer Expert}
-\dates{02.10.2023} 
-
-\is
-\href{https://learn.microsoft.com/en-us/users/kostoviliyan-7522/credentials/4cbfcf5b11b3e4ee?ref=https%3A%2F%2Fwww.linkedin.com%2F}{Azure Developer Associate}
-\dates{02.10.2023} 
-
-\is
-\href{https://credentials.databricks.com/b2a0ea97-cbe8-47db-b075-8c833525ef4f#acc.R8i3Nzvg}{Databricks Gen AI \&\& LLM}
-\dates{10.04.2024} 
-
-\is
-\href{https://www.credly.com/badges/d2561920-df6c-4a04-a267-4009de608a8f/linked_in_profile}{AWS Technical Accelerated}
-\dates{09.2024} 
-
-\is
-\href{https://www.credly.com/badges/79c50d81-a092-4d64-9abd-c82b74af8836/linked_in_profile}{AWS Migration Acceleration Program}
-\dates{09.2024} 
-
-\is
-\href{https://infobulgaria.net/}{A1 German Language Certificate}
-\dates{10.04.2025} 
-
-\end{minipage}
+\end{paracol}
 
 \end{document}
