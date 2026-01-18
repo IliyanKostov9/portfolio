@@ -1,0 +1,45 @@
+name: Build LaTeX PDF
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build-pdf:
+    name: Compile LaTeX to PDF
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install TeX Live and required packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y && \
+            texlive-xetex && \
+            texlive-fonts-recommended && \
+            texlive-latex-recommended && \
+            texlive-latex-extra && \
+            texlive-bibtex-extra && \
+            biber
+
+      - name: First LaTeX Compilation
+        run: xelatex -interaction=nonstopmode docs/main.tex || true
+
+      - name: Run Biber
+        run: biber main || true
+
+      - name: Second LaTeX Compilation
+        run: xelatex -interaction=nonstopmode docs/main.tex || true
+
+      - name: Final LaTeX Compilation
+        run: xelatex -interaction=nonstopmode docs/main.tex || true
+
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-pdf
+          path: main.pdf
