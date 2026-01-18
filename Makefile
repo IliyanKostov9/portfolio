@@ -74,3 +74,12 @@ translate: ## Translate text into the 4 languages
 .PHONY: tr-compile
 tr-compile: ## Complie the translated .po files
 	django-admin compilemessages
+
+.PHONY: latex-compile
+latex-compile:
+	cd docs && \
+	latexmk -C main.tex && \
+	latexmk -pdf -pvc -interaction=nonstopmode -pv main.tex || true && \
+	zathura main.pdf
+
+
