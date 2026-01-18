@@ -2,14 +2,17 @@ name: Build LaTeX PDF
 
 on:
   push:
+    # paths:
+    #   - "docs/**.tex"
     branches:
-      - master
-  pull_request:
+      - feature/**
 
 jobs:
   build-pdf:
     name: Compile LaTeX to PDF
     runs-on: ubuntu-latest
+    env:
+      working-directory: docs
 
     steps:
       - name: Checkout repository
@@ -18,28 +21,48 @@ jobs:
       - name: Install TeX Live and required packages
         run: |
           sudo apt-get update
-          sudo apt-get install -y && \
-            texlive-xetex && \
-            texlive-fonts-recommended && \
-            texlive-latex-recommended && \
-            texlive-latex-extra && \
-            texlive-bibtex-extra && \
+          sudo apt-get install -y \
+            texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-bibtex-extra \
+            texlive-fonts-extra \
             biber
 
       - name: First LaTeX Compilation
-        run: xelatex -interaction=nonstopmode docs/main.tex || true
+        run: xelatex -interaction=nonstopmode main.tex || true
+        working-directory: ${{ env.working-directory }}
 
       - name: Run Biber
         run: biber main || true
+        working-directory: ${{ env.working-directory }}
 
       - name: Second LaTeX Compilation
-        run: xelatex -interaction=nonstopmode docs/main.tex || true
+        run: xelatex -interaction=nonstopmode main.tex || true
+        working-directory: ${{ env.working-directory }}
 
       - name: Final LaTeX Compilation
-        run: xelatex -interaction=nonstopmode docs/main.tex || true
+        run: xelatex -interaction=nonstopmode main.tex || true
+        working-directory: ${{ env.working-directory }}
+
+      - name: Prepare pdf for upload
+        id: pdf
+        run: |
+          mkdir -p latex/portfolio/cv
+          cp docs/main.pdf latex/portfolio/cv
 
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: main-pdf
-          path: main.pdf
+          path: docs/main.pdf
+
+      - name: Install AWS CLI
+        uses: docker://amazon/aws-cli:2.33.2
+        with:
+          args: s3 sync latex s3://${{ secrets.PORTFOLIO_S3_AWS_BUCKET }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.PORTFOLIO_S3_AWS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY }}
+          AWS_BUCKET: ${{ secrets.PORTFOLIO_S3_AWS_BUCKET }}

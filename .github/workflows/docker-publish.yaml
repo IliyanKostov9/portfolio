@@ -7,6 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
 
 jobs:
   build-and-push-image:
@@ -46,6 +47,8 @@ jobs:
           platforms: linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            RELEASE=${{ env.BRANCH_NAME }}
 
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v3
