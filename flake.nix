@@ -47,6 +47,11 @@
           packages = with pkgs; [
             sops
             gettext # NOTE: Needed for django-admin compilemessages
+            (texlive.combine
+              {
+                inherit (texlive) scheme-full;
+              })
+            zathura # NOTE: pdf viewer for Latex
           ];
 
           git-hooks.hooks = {
@@ -69,6 +74,7 @@
 
             # NOTE: breakes ninja templates
             prettier.enable = false;
+            latexindent.enable = true;
           };
 
           env = {
