@@ -2,10 +2,10 @@ name: Build LaTeX PDF
 
 on:
   push:
-    # paths:
-    #   - "docs/**.tex"
+    paths:
+      - "docs/**.tex"
     branches:
-      - feature/**
+      - master
 
 jobs:
   build-pdf:

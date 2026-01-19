@@ -30,9 +30,6 @@ FROM python:3.14-bookworm
 USER ${DOCKER_USER}
 WORKDIR /app
 
-ARG RELEASE=dev
-ENV RELEASE=$RELEASE
-
 RUN apt-get update && apt-get install -y \
 	libsass1 gettext \
 	&& rm -rf /var/lib/apt/lists/*
