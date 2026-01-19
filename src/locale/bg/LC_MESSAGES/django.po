@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-11 23:03+0100\n"
+"POT-Creation-Date: 2026-01-19 22:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,9 +73,9 @@ msgid ""
 "it's not computer related, but it's in the engineering field. I actually do "
 "consider myself more of an <u>engineer</u> than a computer scientist."
 msgstr ""
-"След това се записах в ПТГ Варна (професионална техническа гимназия). "
-"Не е свързано с компютри, но е в областта на инженерството. Всъщност се "
-"смятам по-скоро за инженер, отколкото за компютърен специалист."
+"След това се записах в ПТГ Варна (професионална техническа гимназия). Не е "
+"свързано с компютри, но е в областта на инженерството. Всъщност се смятам по-"
+"скоро за инженер, отколкото за компютърен специалист."
 
 #: src/apps/resume/templates/pages/home/about.html:51
 msgid ""
@@ -89,13 +89,14 @@ msgid ""
 "changing choice I've made so far and at that time I couldn't have imagined "
 "how much this decision was going to change me for the better."
 msgstr ""
-"След гимназията работех в магазин за хранителни стоки и "
-"като всеки объркан 18-годишен се чудех какво ще правя с живота си. След като "
-"разгледах всички местни варненски университети, накрая се спрях се на един, наречен "
-"*Технически университет Варна*. Заинтригувах се от изписаните специалности "
-"- главно компютърни науки и софтуерни и интернет тегнологии. След малко "
-"мислене аз избрах втората специалност. Това беше най-добрият избор "
-"който промени изцяло живота и бъдещето ми без да осъзная колко много ще ме промени бъдещето за по-добро."
+"След гимназията работех в магазин за хранителни стоки и като всеки объркан "
+"18-годишен се чудех какво ще правя с живота си. След като разгледах всички "
+"местни варненски университети, накрая се спрях се на един, наречен "
+"*Технически университет Варна*. Заинтригувах се от изписаните специалности - "
+"главно компютърни науки и софтуерни и интернет тегнологии. След малко "
+"мислене аз избрах втората специалност. Това беше най-добрият избор който "
+"промени изцяло живота и бъдещето ми без да осъзная колко много ще ме промени "
+"бъдещето за по-добро."
 
 #: src/apps/resume/templates/pages/home/about.html:65
 msgid ""
@@ -109,15 +110,15 @@ msgid ""
 "university is to get a job, that person is either delusional or being a "
 "stubborn child, that doesn't want to look at the bigger picture."
 msgstr ""
-"Там не научих само за технологиите и теоретическата и част, но се научих как да работя с други хора в проекти, да "
-"обменям идеи със мотивирани хора, да общувам с преподаватели и "
-"асистенти по академични теми и най-важното - да стана самостоятелен. Това е смисълът на "
-"университета - да те оформи като пълноценна личност, която може да "
-"се интегрира в професионалната и социалната среда и да носи отговорност за "
-"действията си. Силно вярвам в това твърдение. Чувал съм толкова много хора "
-"(студенти), които вярват, че смисълът на университета е да сe намери "
-"работа, но този човек e или заблуден или инат, който не иска да "
-"погледне по-голямата картина в живота."
+"Там не научих само за технологиите и теоретическата и част, но се научих как "
+"да работя с други хора в проекти, да обменям идеи със мотивирани хора, да "
+"общувам с преподаватели и асистенти по академични теми и най-важното - да "
+"стана самостоятелен. Това е смисълът на университета - да те оформи като "
+"пълноценна личност, която може да се интегрира в професионалната и "
+"социалната среда и да носи отговорност за действията си. Силно вярвам в това "
+"твърдение. Чувал съм толкова много хора (студенти), които вярват, че "
+"смисълът на университета е да сe намери работа, но този човек e или заблуден "
+"или инат, който не иска да погледне по-голямата картина в живота."
 
 #: src/apps/resume/templates/pages/home/about.html:79
 msgid ""
@@ -136,12 +137,12 @@ msgstr ""
 "малка местна финансова институция, където разработвахме legacy Windows 32bit "
 "за Windows XP системи във Visual Objects community edition (наричан още "
 "CAVO). През същата година намерих първата си истинска ИТ работа като DevOps "
-"инженер в консултантска фирма. Хубавото на това да си консултант е, че можеш да "
-"видиш различни компании (клиенти) с различни архитектури и начини на работа "
-"за много кратко време, но лошото е, че не си постоянен служител в тези "
-"проекти и ще трябва да научиш всички тези досадни процеси и вътрешни "
-"инструменти на компанията отново и отново за кратък период от време за следващия проект. Повярвайте ми, с "
-"времето много ще се дразните от това."
+"инженер в консултантска фирма. Хубавото на това да си консултант е, че можеш "
+"да видиш различни компании (клиенти) с различни архитектури и начини на "
+"работа за много кратко време, но лошото е, че не си постоянен служител в "
+"тези проекти и ще трябва да научиш всички тези досадни процеси и вътрешни "
+"инструменти на компанията отново и отново за кратък период от време за "
+"следващия проект. Повярвайте ми, с времето много ще се дразните от това."
 
 #: src/apps/resume/templates/pages/home/about.html:94
 msgid ""
@@ -151,11 +152,11 @@ msgid ""
 "life change. I had to move out to live on the southern region of France, "
 "Côte d'Azur."
 msgstr ""
-"След известно прекарано време там, когато същевременно се запознавам с хората и процесите на компанията, "
-"започваше да не ми харесва фирмената култура и реших да отида другаде. През Май "
-"2025 г. си намерих друга работа, която не беше просто работа, а промяна в "
-"средата. Трябваше да се преместя да живея в южния регион на Франция, лазурния "
-"бряг."
+"След известно прекарано време там, когато същевременно се запознавам с "
+"хората и процесите на компанията, започваше да не ми харесва фирмената "
+"култура и реших да отида другаде. През Май 2025 г. си намерих друга работа, "
+"която не беше просто работа, а промяна в средата. Трябваше да се преместя да "
+"живея в южния регион на Франция, лазурния бряг."
 
 #: src/apps/resume/templates/pages/home/about.html:103
 msgid "And the story continues..."
@@ -198,12 +199,21 @@ msgid "Message"
 msgstr "Съобщение"
 
 #: src/apps/resume/templates/pages/home/contact_me.html:72
+#: src/apps/resume/templates/pages/home/contact_me.html:105
 msgid "Loading..."
 msgstr "Зареждане..."
 
 #: src/apps/resume/templates/pages/home/contact_me.html:73
 msgid "Send"
 msgstr "Изпрати"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:79
+msgid "OR"
+msgstr "ИЛИ"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:106
+msgid "Download my bio"
+msgstr "Изтеглете моята биография"
 
 #: src/apps/resume/templates/pages/home/education.html:7
 msgid "Education"
@@ -221,11 +231,11 @@ msgstr "Аз съм Илиян"
 msgid "I try to figure out how things work."
 msgstr "Опитвам се да разбера как работят нещата."
 
-#: src/apps/resume/templates/pages/home/languages.html:6
+#: src/apps/resume/templates/pages/home/language_proficiencies.html:6
 msgid "Languages"
 msgstr "Езици"
 
-#: src/apps/resume/templates/pages/home/languages.html:21
+#: src/apps/resume/templates/pages/home/language_proficiencies.html:21
 msgid "Proficiency"
 msgstr "Владеене"
 
@@ -238,12 +248,23 @@ msgid "Work history"
 msgstr "Трудова история"
 
 #: src/apps/resume/views/home/contact_me_view.py:40
+#: src/apps/resume/views/home/cv_download_view.py:33
 msgid "You have successfully sent an email to Iliyan!"
 msgstr "Успешно изпратихте имейл до Илиян!"
 
 #: src/apps/resume/views/home/contact_me_view.py:55
 msgid "Error in sending your email message. Please try again next time :("
-msgstr "Грешка при изпращането на имейл съобщението ви. Моля, опитайте отново следващия път :("
+msgstr ""
+"Грешка при изпращането на имейл съобщението ви. Моля, опитайте отново "
+"следващия път :("
+
+#: src/apps/resume/views/home/cv_download_view.py:54
+#, fuzzy
+#| msgid "Error in sending your email message. Please try again next time :("
+msgid "Error in downloading Iliyan's CV. Please try again next time :("
+msgstr ""
+"Грешка при изпращането на имейл съобщението ви. Моля, опитайте отново "
+"следващия път :("
 
 #: src/templates/base.html:65
 msgid "Source"
@@ -253,31 +274,58 @@ msgstr "Източник"
 msgid "Portfolio"
 msgstr "Портфолио"
 
-#: src/templates/base.html:100
-#, python-format
-msgid " %(lang)s "
-msgstr " %(lang)s "
+#: src/templates/base.html:101
+msgid ""
+"\n"
+"                <i class=\"flag flag-bulgaria\"></i>\n"
+"                "
+msgstr ""
 
-#: src/templates/base.html:105
+#: src/templates/base.html:106
+msgid ""
+"\n"
+"                <i class=\"flag flag-united-kingdom\"></i>\n"
+"                "
+msgstr ""
+
+#: src/templates/base.html:111
+msgid ""
+"\n"
+"                <i class=\"flag flag-france\"></i>\n"
+"                "
+msgstr ""
+
+#: src/templates/base.html:116
+msgid ""
+"\n"
+"                <i class=\"flag flag-germany\"></i>\n"
+"                "
+msgstr ""
+
+#: src/templates/base.html:125
 msgid "English"
 msgstr "Английски"
 
-#: src/templates/base.html:109
+#: src/templates/base.html:129
 msgid "Bulgarian"
 msgstr "Български"
 
-#: src/templates/base.html:112
+#: src/templates/base.html:132
 msgid "French"
 msgstr "Френски"
 
-#: src/templates/base.html:115
+#: src/templates/base.html:135
 msgid "German"
 msgstr "Немски"
 
-#: src/templates/base.html:163
+#: src/templates/base.html:183
 msgid "Made with"
 msgstr "Направено с"
 
-#: src/templates/base.html:165
+#: src/templates/base.html:185
 msgid "by Django"
 msgstr "от Джанго"
+
+#, python-format
+#~ msgid " %(lang)s "
+#~ msgstr " %(lang)s "
