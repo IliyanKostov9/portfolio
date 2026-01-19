@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-11 23:03+0100\n"
+"POT-Creation-Date: 2026-01-19 22:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,8 +41,8 @@ msgid ""
 "As you may have already guessed from the title above, my name is indeed "
 "Iliyan. I'm born in Bulgaria in a city on the coast of the Black Sea - Varna."
 msgstr ""
-"Comme vous l'aurez sans doute deviné d'après le titre, je m'appelle Iliyan."
-"Je suis né en Bulgarie, à Varna, une ville côtière de la mer Noire."
+"Comme vous l'aurez sans doute deviné d'après le titre, je m'appelle "
+"Iliyan.Je suis né en Bulgarie, à Varna, une ville côtière de la mer Noire."
 
 #: src/apps/resume/templates/pages/home/about.html:17
 msgid ""
@@ -54,13 +54,14 @@ msgid ""
 "That repetition of breaking and fixing changed my way of thinking and "
 "approaching problems from there on."
 msgstr ""
-"J'ai commencé mon parcours d'ingénieur dès mon enfance, lorsque je devais"
-"constamment réparer l'ordinateur de bureau familial qui plantait sous Windows XP"
-"et Windows 7. Le problème pouvait être d'ordre matériel : une ROM défectueuse, "
-"une carte mère grillée à cause des étés caniculaires de la fin des années 2000,"
-"ou encore l'installation d'un jeu piraté contenant du contenu additionnel "
-"(autrement dit, un logiciel malveillant). Cette répétition de pannes et de "
-"réparations a transformé ma façon de penser et d'aborder les problèmes depuis lors."
+"J'ai commencé mon parcours d'ingénieur dès mon enfance, lorsque je "
+"devaisconstamment réparer l'ordinateur de bureau familial qui plantait sous "
+"Windows XPet Windows 7. Le problème pouvait être d'ordre matériel : une ROM "
+"défectueuse, une carte mère grillée à cause des étés caniculaires de la fin "
+"des années 2000,ou encore l'installation d'un jeu piraté contenant du "
+"contenu additionnel (autrement dit, un logiciel malveillant). Cette "
+"répétition de pannes et de réparations a transformé ma façon de penser et "
+"d'aborder les problèmes depuis lors."
 
 #: src/apps/resume/templates/pages/home/about.html:37
 #: src/apps/resume/templates/pages/home/index.html:34
@@ -73,9 +74,10 @@ msgid ""
 "it's not computer related, but it's in the engineering field. I actually do "
 "consider myself more of an <u>engineer</u> than a computer scientist."
 msgstr ""
-"Ensuite, j'ai intégré un lycée spécialisé dans la conduite des transports routiers. Oui,"
-" ce n'est pas lié à l'informatique, mais c'est dans le domaine de l'ingénierie."
-"En fait, je me considère davantage comme un ingénieur que comme un informaticien."
+"Ensuite, j'ai intégré un lycée spécialisé dans la conduite des transports "
+"routiers. Oui, ce n'est pas lié à l'informatique, mais c'est dans le domaine "
+"de l'ingénierie.En fait, je me considère davantage comme un ingénieur que "
+"comme un informaticien."
 
 #: src/apps/resume/templates/pages/home/about.html:51
 msgid ""
@@ -89,14 +91,15 @@ msgid ""
 "changing choice I've made so far and at that time I couldn't have imagined "
 "how much this decision was going to change me for the better."
 msgstr ""
-"Le temps a passé et après le lycée, je travaillais dans une épicerie."
-"Comme tout jeune de 18 ans un peu perdu, je me demandais ce que j'allais faire de ma vie."
-"Après avoir examiné toutes les universités de Varna, je me suis arrêté sur celle-ci:"
-"l'Université technique de Varna. J'étais intrigué par les spécialités techniques,"
-"notamment l'informatique, les technologies informatiques et Internet. Après un moment"
-"de réflexion, j'ai choisi au hasard la deuxième option. C'était de loin le meilleur"
-"choix que j'aie fait jusqu'à présent, et à ce moment-là, je n'aurais jamais imaginé"
-"à quel point cette décision allait me changer positivement."
+"Le temps a passé et après le lycée, je travaillais dans une épicerie.Comme "
+"tout jeune de 18 ans un peu perdu, je me demandais ce que j'allais faire de "
+"ma vie.Après avoir examiné toutes les universités de Varna, je me suis "
+"arrêté sur celle-ci:l'Université technique de Varna. J'étais intrigué par "
+"les spécialités techniques,notamment l'informatique, les technologies "
+"informatiques et Internet. Après un momentde réflexion, j'ai choisi au "
+"hasard la deuxième option. C'était de loin le meilleurchoix que j'aie fait "
+"jusqu'à présent, et à ce moment-là, je n'aurais jamais imaginéà quel point "
+"cette décision allait me changer positivement."
 
 #: src/apps/resume/templates/pages/home/about.html:65
 msgid ""
@@ -110,14 +113,16 @@ msgid ""
 "university is to get a job, that person is either delusional or being a "
 "stubborn child, that doesn't want to look at the bigger picture."
 msgstr ""
-"Là-bas, je n'ai pas seulement appris la technologie, j'ai appris à travailler"
-"avec les autres, à échanger des idées avec des personnes passionnées, à débattre avec"
-"les professeurs et les assistants, et surtout, à devenir adulte. C'est le but de"
-"l'université : vous former pour devenir une personne équilibrée, capable de s'intégrer"
-"dans les milieux professionnels et sociaux et d'assumer la responsabilité de ses actes."
-"Je crois fermement en cela. J'ai entendu tellement de gens (des camarades) penser que le"
-"but de l'université est de trouver un emploi ; ces personnes sont soit dans l'illusion,"
-"soit des enfants têtus qui refusent de voir les choses dans leur ensemble."
+"Là-bas, je n'ai pas seulement appris la technologie, j'ai appris à "
+"travailleravec les autres, à échanger des idées avec des personnes "
+"passionnées, à débattre avecles professeurs et les assistants, et surtout, à "
+"devenir adulte. C'est le but del'université : vous former pour devenir une "
+"personne équilibrée, capable de s'intégrerdans les milieux professionnels et "
+"sociaux et d'assumer la responsabilité de ses actes.Je crois fermement en "
+"cela. J'ai entendu tellement de gens (des camarades) penser que lebut de "
+"l'université est de trouver un emploi ; ces personnes sont soit dans "
+"l'illusion,soit des enfants têtus qui refusent de voir les choses dans leur "
+"ensemble."
 
 #: src/apps/resume/templates/pages/home/about.html:79
 msgid ""
@@ -132,14 +137,16 @@ msgid ""
 "those tedious company's processes and in-house tools again for the next "
 "project. Believe me, in time you'll get very irritated by it."
 msgstr ""
-"En troisième année de licence (2021), j'ai effectué un stage dans une petite institution"
-"financière locale. Nous développions des applications Windows 32 bits pour Windows XP avec"
-"Visual Objects Community Edition (CAVO). La même année, j'ai décroché mon premier emploi"
-"en informatique comme ingénieur DevOps, en tant que consultant. L'avantage d'être consultant,"
-"c'est de pouvoir découvrir rapidement différentes entreprises (clients) avec des architectures"
-"et des méthodes de travail variées. L'inconvénient, c'est de ne pas être embauché en CDI"
-"et de devoir réapprendre tous les processus et outils internes de l'entreprise pour chaque"
-"nouveau projet. Croyez-moi, à la longue, c'est très agaçant."
+"En troisième année de licence (2021), j'ai effectué un stage dans une petite "
+"institutionfinancière locale. Nous développions des applications Windows 32 "
+"bits pour Windows XP avecVisual Objects Community Edition (CAVO). La même "
+"année, j'ai décroché mon premier emploien informatique comme ingénieur "
+"DevOps, en tant que consultant. L'avantage d'être consultant,c'est de "
+"pouvoir découvrir rapidement différentes entreprises (clients) avec des "
+"architectureset des méthodes de travail variées. L'inconvénient, c'est de ne "
+"pas être embauché en CDIet de devoir réapprendre tous les processus et "
+"outils internes de l'entreprise pour chaquenouveau projet. Croyez-moi, à la "
+"longue, c'est très agaçant."
 
 #: src/apps/resume/templates/pages/home/about.html:94
 msgid ""
@@ -149,10 +156,11 @@ msgid ""
 "life change. I had to move out to live on the southern region of France, "
 "Côte d'Azur."
 msgstr ""
-"Après avoir travaillé quelque temps dans cette entreprise et m'être familiarisé avec elle,"
-"j'ai commencé à ne plus apprécier sa culture et j'ai décidé de partir."
-"En mai 2025, j'ai trouvé un autre emploi, qui n'était pas qu'un simple travail, mais "
-"un véritable changement de vie. J'ai dû déménager pour vivre sur la Côte d'Azur."
+"Après avoir travaillé quelque temps dans cette entreprise et m'être "
+"familiarisé avec elle,j'ai commencé à ne plus apprécier sa culture et j'ai "
+"décidé de partir.En mai 2025, j'ai trouvé un autre emploi, qui n'était pas "
+"qu'un simple travail, mais un véritable changement de vie. J'ai dû déménager "
+"pour vivre sur la Côte d'Azur."
 
 #: src/apps/resume/templates/pages/home/about.html:103
 msgid "And the story continues..."
@@ -195,12 +203,21 @@ msgid "Message"
 msgstr "Message"
 
 #: src/apps/resume/templates/pages/home/contact_me.html:72
+#: src/apps/resume/templates/pages/home/contact_me.html:105
 msgid "Loading..."
 msgstr "Chargement..."
 
 #: src/apps/resume/templates/pages/home/contact_me.html:73
 msgid "Send"
 msgstr "Envoyer"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:79
+msgid "OR"
+msgstr "OU"
+
+#: src/apps/resume/templates/pages/home/contact_me.html:106
+msgid "Download my bio"
+msgstr "Télécharger ma bio"
 
 #: src/apps/resume/templates/pages/home/education.html:7
 msgid "Education"
@@ -218,11 +235,11 @@ msgstr "Je suis Iliyan"
 msgid "I try to figure out how things work."
 msgstr "J'essaie de comprendre comment les choses fonctionnent."
 
-#: src/apps/resume/templates/pages/home/languages.html:6
+#: src/apps/resume/templates/pages/home/language_proficiencies.html:6
 msgid "Languages"
 msgstr "Langages"
 
-#: src/apps/resume/templates/pages/home/languages.html:21
+#: src/apps/resume/templates/pages/home/language_proficiencies.html:21
 msgid "Proficiency"
 msgstr "Compétence"
 
@@ -235,12 +252,23 @@ msgid "Work history"
 msgstr "Parcours professionnel"
 
 #: src/apps/resume/views/home/contact_me_view.py:40
+#: src/apps/resume/views/home/cv_download_view.py:33
 msgid "You have successfully sent an email to Iliyan!"
 msgstr "Vous avez envoyé un e-mail à Iliyan avec succès !"
 
 #: src/apps/resume/views/home/contact_me_view.py:55
 msgid "Error in sending your email message. Please try again next time :("
-msgstr "Erreur lors de l'envoi de votre courriel. Veuillez réessayer la prochaine fois :("
+msgstr ""
+"Erreur lors de l'envoi de votre courriel. Veuillez réessayer la prochaine "
+"fois :("
+
+#: src/apps/resume/views/home/cv_download_view.py:54
+#, fuzzy
+#| msgid "Error in sending your email message. Please try again next time :("
+msgid "Error in downloading Iliyan's CV. Please try again next time :("
+msgstr ""
+"Erreur lors de l'envoi de votre courriel. Veuillez réessayer la prochaine "
+"fois :("
 
 #: src/templates/base.html:65
 msgid "Source"
@@ -250,31 +278,58 @@ msgstr "Source"
 msgid "Portfolio"
 msgstr "Portefeuille"
 
-#: src/templates/base.html:100
-#, python-format
-msgid " %(lang)s "
-msgstr " %(lang)s "
+#: src/templates/base.html:101
+msgid ""
+"\n"
+"                <i class=\"flag flag-bulgaria\"></i>\n"
+"                "
+msgstr ""
 
-#: src/templates/base.html:105
+#: src/templates/base.html:106
+msgid ""
+"\n"
+"                <i class=\"flag flag-united-kingdom\"></i>\n"
+"                "
+msgstr ""
+
+#: src/templates/base.html:111
+msgid ""
+"\n"
+"                <i class=\"flag flag-france\"></i>\n"
+"                "
+msgstr ""
+
+#: src/templates/base.html:116
+msgid ""
+"\n"
+"                <i class=\"flag flag-germany\"></i>\n"
+"                "
+msgstr ""
+
+#: src/templates/base.html:125
 msgid "English"
 msgstr "Anglais"
 
-#: src/templates/base.html:109
+#: src/templates/base.html:129
 msgid "Bulgarian"
 msgstr "Bulgare"
 
-#: src/templates/base.html:112
+#: src/templates/base.html:132
 msgid "French"
 msgstr "Français"
 
-#: src/templates/base.html:115
+#: src/templates/base.html:135
 msgid "German"
 msgstr "Allemand"
 
-#: src/templates/base.html:163
+#: src/templates/base.html:183
 msgid "Made with"
 msgstr "Fabriqué avec"
 
-#: src/templates/base.html:165
+#: src/templates/base.html:185
 msgid "by Django"
 msgstr "par Django"
+
+#, python-format
+#~ msgid " %(lang)s "
+#~ msgstr " %(lang)s "
