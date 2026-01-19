@@ -62,7 +62,7 @@
             data-mdb-ripple-init
             type="submit"
             value="send_contact_me"
-            class="btn btn-primary btn-block mb-4"
+            class="btn btn-primary btn-block mb-1"
           >
             <span
               id="spinnerSubmit"
@@ -73,9 +73,44 @@
             {% translate "Send" %}
             <i class="fas fa-paper-plane"></i>
           </button>
+
+          <div class="d-flex align-items-center my-2">
+            <hr class="flex-grow-1">
+            <span class="mx-2">{% translate "OR" %}</span>
+            <hr class="flex-grow-1">
+          </div>
+
+        </form>
+
+        <form
+          id="cvDownloadForm"
+          action="{% url 'home/cv-download' %}"
+          method="get"
+          class="form-width-50"
+        >
+
+          <div data-mdb-input-init class="form-outline mb-4">
+          <button
+            id="submitCVDownloadBtn"
+            data-mdb-ripple-init
+            type="submit"
+            value="send_cv_download"
+            class="btn btn-secondary btn-block mb-1"
+          >
+            <span
+              id="spinnerCVDownloadSubmit"
+              class="spinner-border spinner-border-sm display-none"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">{% translate "Loading..." %}</span>
+            {% translate "Download my bio" %}
+            <i class="fas fa-book-open-reader"></i>
+          </button>
+            </div>
         </form>
       </div>
     </div>
   </div>
   <p class="spacing-bot-150" />
+
 </div>

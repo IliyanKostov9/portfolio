@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-11 23:03+0100\n"
+"POT-Creation-Date: 2026-01-19 22:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,11 +155,20 @@ msgid "Message"
 msgstr ""
 
 #: src/apps/resume/templates/pages/home/contact_me.html:72
+#: src/apps/resume/templates/pages/home/contact_me.html:105
 msgid "Loading..."
 msgstr ""
 
 #: src/apps/resume/templates/pages/home/contact_me.html:73
 msgid "Send"
+msgstr ""
+
+#: src/apps/resume/templates/pages/home/contact_me.html:79
+msgid "OR"
+msgstr ""
+
+#: src/apps/resume/templates/pages/home/contact_me.html:106
+msgid "Download my bio"
 msgstr ""
 
 #: src/apps/resume/templates/pages/home/education.html:7
@@ -178,11 +187,11 @@ msgstr ""
 msgid "I try to figure out how things work."
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/languages.html:6
+#: src/apps/resume/templates/pages/home/language_proficiencies.html:6
 msgid "Languages"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/languages.html:21
+#: src/apps/resume/templates/pages/home/language_proficiencies.html:21
 msgid "Proficiency"
 msgstr ""
 
@@ -195,11 +204,16 @@ msgid "Work history"
 msgstr ""
 
 #: src/apps/resume/views/home/contact_me_view.py:40
+#: src/apps/resume/views/home/cv_download_view.py:33
 msgid "You have successfully sent an email to Iliyan!"
 msgstr ""
 
 #: src/apps/resume/views/home/contact_me_view.py:55
 msgid "Error in sending your email message. Please try again next time :("
+msgstr ""
+
+#: src/apps/resume/views/home/cv_download_view.py:54
+msgid "Error in downloading Iliyan's CV. Please try again next time :("
 msgstr ""
 
 #: src/templates/base.html:65
@@ -210,31 +224,54 @@ msgstr ""
 msgid "Portfolio"
 msgstr ""
 
-#: src/templates/base.html:100
-#, python-format
-msgid " %(lang)s "
+#: src/templates/base.html:101
+msgid ""
+"\n"
+"                <i class=\"flag flag-bulgaria\"></i>\n"
+"                "
 msgstr ""
 
-#: src/templates/base.html:105
+#: src/templates/base.html:106
+msgid ""
+"\n"
+"                <i class=\"flag flag-united-kingdom\"></i>\n"
+"                "
+msgstr ""
+
+#: src/templates/base.html:111
+msgid ""
+"\n"
+"                <i class=\"flag flag-france\"></i>\n"
+"                "
+msgstr ""
+
+#: src/templates/base.html:116
+msgid ""
+"\n"
+"                <i class=\"flag flag-germany\"></i>\n"
+"                "
+msgstr ""
+
+#: src/templates/base.html:125
 msgid "English"
 msgstr ""
 
-#: src/templates/base.html:109
+#: src/templates/base.html:129
 msgid "Bulgarian"
 msgstr ""
 
-#: src/templates/base.html:112
+#: src/templates/base.html:132
 msgid "French"
 msgstr ""
 
-#: src/templates/base.html:115
+#: src/templates/base.html:135
 msgid "German"
 msgstr ""
 
-#: src/templates/base.html:163
+#: src/templates/base.html:183
 msgid "Made with"
 msgstr ""
 
-#: src/templates/base.html:165
+#: src/templates/base.html:185
 msgid "by Django"
 msgstr ""
