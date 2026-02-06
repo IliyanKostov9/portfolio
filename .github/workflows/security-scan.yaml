@@ -12,7 +12,6 @@ jobs:
   scanning:
     name: Scan for security checks
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' }}
 
     steps:
       - name: Checkout
