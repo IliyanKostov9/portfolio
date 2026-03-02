@@ -104,6 +104,5 @@ make run
 |make sql-init-test|Perform SQL migration|
 |make sql-reset|Perform SQL reset|
 
-
 ### 📃 License
 This product is licensed under [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.en.html)
