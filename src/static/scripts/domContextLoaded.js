@@ -57,8 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const html = document.documentElement;
   const toggle = document.getElementById("theme-toggle");
 
-  const currentTheme =
-    getCookie("theme") || html.getAttribute("data-mdb-theme") || "light";
+  const currentTheme = getCookie("theme") || html.dataset.mdbTheme || "light";
   html.setAttribute("data-mdb-theme", currentTheme);
 
   if (card) {
@@ -67,8 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   toggle.addEventListener("click", () => {
-    const theme =
-      html.getAttribute("data-mdb-theme") === "dark" ? "light" : "dark";
+    const theme = html.dataset.mdbTheme === "dark" ? "light" : "dark";
     html.setAttribute("data-mdb-theme", theme);
     setCookie("theme", theme, 365);
 
