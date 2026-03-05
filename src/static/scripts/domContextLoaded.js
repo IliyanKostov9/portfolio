@@ -1,4 +1,3 @@
-<!-- FIX: Carousel, tab not working without this component -->
 document.addEventListener("DOMContentLoaded", function () {
   const carousels = document.querySelectorAll(".carousel");
   const tabLinks = document.querySelectorAll("[data-mdb-tab-init]");
@@ -8,11 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const scrollspys = document.querySelectorAll("[data-mdb-scrollspy-init]");
   const dropdowns = document.querySelectorAll("[data-mdb-dropdown-init]");
 
-  const contactForm =  document.getElementById("contactForm");
+  const contactForm = document.getElementById("contactForm");
   const card = document.getElementById("theme-card");
 
   if (contactForm) {
-      contactForm.addEventListener("submit", function () {
+    contactForm.addEventListener("submit", function () {
       const btn = document.getElementById("submitBtn");
       const spinner = document.getElementById("spinnerSubmit");
 
@@ -41,42 +40,39 @@ document.addEventListener("DOMContentLoaded", function () {
     new mdb.Dropdown(dropdown);
   });
 
-
   inputs.forEach((formOutline) => {
     const input = formOutline.querySelector("input");
+    console.log(formOutline);
     const mdbInput = new mdb.Input(formOutline);
     mdbInput.update(input);
   });
 
- scrollspys.forEach((scrollspy) => {
+  scrollspys.forEach((scrollspy) => {
     new mdb.ScrollSpy(scrollspy, {
       target: "#scroll-table-contents",
-       offset: 140
+      offset: 140,
     });
   });
 
   const html = document.documentElement;
   const toggle = document.getElementById("theme-toggle");
 
-  const currentTheme = getCookie("theme") || html.getAttribute("data-mdb-theme") || "light";
-  html.setAttribute("data-mdb-theme",currentTheme);
+  const currentTheme = getCookie("theme") || html.dataset.mdbTheme || "light";
+  html.setAttribute("data-mdb-theme", currentTheme);
 
   if (card) {
     card.classList.toggle("text-bg-dark", currentTheme === "light");
     card.classList.toggle("text-bg-light", currentTheme === "dark");
   }
 
-
   toggle.addEventListener("click", () => {
-    const theme = html.getAttribute("data-mdb-theme") === "dark" ? "light": "dark";
+    const theme = html.dataset.mdbTheme === "dark" ? "light" : "dark";
     html.setAttribute("data-mdb-theme", theme);
     setCookie("theme", theme, 365);
 
-  if (card) {
-    card.classList.toggle("text-bg-dark");
-    card.classList.toggle("text-bg-light");
-  }
-
+    if (card) {
+      card.classList.toggle("text-bg-dark");
+      card.classList.toggle("text-bg-light");
+    }
   });
-
 });
