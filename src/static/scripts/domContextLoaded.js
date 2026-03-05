@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   inputs.forEach((formOutline) => {
     const input = formOutline.querySelector("input");
-    console.log(formOutline);
     const mdbInput = new mdb.Input(formOutline);
     mdbInput.update(input);
   });
