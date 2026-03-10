@@ -12,7 +12,7 @@ from portfolio.monitor.log import logger
 class S3:
     LOG = logger.bind(module="s3_module")
     client: Any
-    bucket = str(os.environ.get("PORTFOLIO_S3_AWS_BUCKET")).split()
+    bucket = str(os.environ.get("PORTFOLIO_S3_AWS_BUCKET")).strip()
 
     def __init__(self) -> None:
         check_if_env_vars_are_set(
@@ -25,10 +25,10 @@ class S3:
 
         self.client = boto3.client(
             "s3",
-            aws_access_key_id=str(os.environ.get("PORTFOLIO_S3_AWS_KEY_ID")).split(),
+            aws_access_key_id=str(os.environ.get("PORTFOLIO_S3_AWS_KEY_ID")).strip(),
             aws_secret_access_key=str(
                 os.environ.get("PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY")
-            ).split(),
+            ).strip(),
             region_name="eu-west-1",
         )
 

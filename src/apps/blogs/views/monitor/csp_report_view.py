@@ -42,7 +42,7 @@ class CSPReportView(View):
                 Email.send(
                     subject="CSP has been violated",
                     message=message,
-                    recipient=str(os.environ.get("PORTFOLIO_TO_EMAIL")).split(),
+                    recipient=str(os.environ.get("PORTFOLIO_TO_EMAIL")).strip(),
                 )
             except ValueError as error:
                 self.LOG.error(

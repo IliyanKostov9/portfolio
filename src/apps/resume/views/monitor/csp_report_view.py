@@ -37,12 +37,12 @@ class CSPReportView(View):
             code=200,
         )
 
-        if str(os.environ.get("PORTFOLIO_ENV")).split() != "dev":
+        if str(os.environ.get("PORTFOLIO_ENV")).strip() != "dev":
             try:
                 Email.send(
                     subject="CSP has been violated",
                     message=message,
-                    recipient=str(os.environ.get("PORTFOLIO_TO_EMAIL")).split(),
+                    recipient=str(os.environ.get("PORTFOLIO_TO_EMAIL")).strip(),
                 )
             except ValueError as error:
                 self.LOG.error(
