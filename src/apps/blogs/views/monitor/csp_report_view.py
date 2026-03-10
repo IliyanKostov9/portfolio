@@ -1,16 +1,14 @@
-from django.http import HttpResponse, HttpResponseBadRequest
-from typing import Any
 import os
+from typing import Any
 
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.utils.decorators import method_decorator
-
-
-from portfolio.helpers.email import Email
 from django.views import View
+from django.views.decorators.csrf import csrf_exempt
 
 from portfolio.helpers.client import get_client_ip, get_client_user_agent
+from portfolio.helpers.email import Email
 from portfolio.monitor.log import logger
-from django.views.decorators.csrf import csrf_exempt
 
 
 @method_decorator(csrf_exempt, name="dispatch")
@@ -44,7 +42,7 @@ class CSPReportView(View):
                 Email.send(
                     subject="CSP has been violated",
                     message=message,
-                    recipient=os.environ.get("PORTFOLIO_TO_EMAIL"),
+                    recipient=str(os.environ.get("PORTFOLIO_TO_EMAIL")).split(),
                 )
             except ValueError as error:
                 self.LOG.error(

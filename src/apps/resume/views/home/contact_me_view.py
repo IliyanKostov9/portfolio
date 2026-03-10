@@ -33,7 +33,7 @@ class ContactMeView(View):
                 Email.send(
                     subject=f"{contact_me.email} contacted you from your portfolio 'ContactMe'",
                     message=f"Name: {contact_me.name}\n\n" + contact_me.message,
-                    recipient=os.environ.get("PORTFOLIO_TO_EMAIL"),
+                    recipient=str(os.environ.get("PORTFOLIO_TO_EMAIL")).split(),
                 )
                 messages.success(
                     request,

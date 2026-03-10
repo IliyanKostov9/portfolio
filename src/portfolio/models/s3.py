@@ -2,7 +2,9 @@ import os
 import pathlib
 import shutil
 from typing import Any
+
 import boto3
+
 from portfolio.helpers.utils import check_if_env_vars_are_set
 from portfolio.monitor.log import logger
 
@@ -10,7 +12,7 @@ from portfolio.monitor.log import logger
 class S3:
     LOG = logger.bind(module="s3_module")
     client: Any
-    bucket = os.environ.get("PORTFOLIO_S3_AWS_BUCKET")
+    bucket = str(os.environ.get("PORTFOLIO_S3_AWS_BUCKET")).split()
 
     def __init__(self) -> None:
         check_if_env_vars_are_set(
@@ -23,8 +25,10 @@ class S3:
 
         self.client = boto3.client(
             "s3",
-            aws_access_key_id=os.environ.get("PORTFOLIO_S3_AWS_KEY_ID"),
-            aws_secret_access_key=os.environ.get("PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY"),
+            aws_access_key_id=str(os.environ.get("PORTFOLIO_S3_AWS_KEY_ID")).split(),
+            aws_secret_access_key=str(
+                os.environ.get("PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY")
+            ).split(),
             region_name="eu-west-1",
         )
 

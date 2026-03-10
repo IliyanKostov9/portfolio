@@ -5,7 +5,7 @@ from csp.constants import SELF, UNSAFE_INLINE
 from django.urls import reverse_lazy
 
 BASE_DIR: Path = Path(__file__).resolve().parent.parent
-ALLOWED_HOSTS = [os.environ.get("PORTFOLIO_HOST")]
+ALLOWED_HOSTS = [str(os.environ.get("PORTFOLIO_HOST")).split()]
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
@@ -54,17 +54,17 @@ CSP_POLICY = {
     },
 }
 
-SECRET_KEY = os.environ.get("PORTFOLIO_SECRET_KEY")
+SECRET_KEY = str(os.environ.get("PORTFOLIO_SECRET_KEY")).split()
 if not SECRET_KEY and not bool(
     os.environ.get("PORTFOLIO_SKIP_SECRET_KEY_CHECK", False)
 ):
     raise OSError("SECRET KEY is not set!")
 
-if os.environ.get("PORTFOLIO_ENV") == "prod":
+if str(os.environ.get("PORTFOLIO_ENV")).split() == "prod":
     CONTENT_SECURITY_POLICY = CSP_POLICY
-    ADMINS = [("Iliyan", os.environ.get("PORTFOLIO_TO_EMAIL"))]
-    MANAGERS = [("Iliyan", os.environ.get("PORTFOLIO_TO_EMAIL"))]
-    SERVER_EMAIL = os.environ.get("PORTFOLIO_FROM_EMAIL")
+    ADMINS = [("Iliyan", str(os.environ.get("PORTFOLIO_TO_EMAIL")).split())]
+    MANAGERS = [str(("Iliyan", os.environ.get("PORTFOLIO_TO_EMAIL"))).split()]
+    SERVER_EMAIL = str(os.environ.get("PORTFOLIO_FROM_EMAIL")).split()
 
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SECURE_SSL_REDIRECT = True
@@ -129,7 +129,7 @@ apps: list[str] = [
     "django_migration_linter",
 ]
 
-if os.environ.get("PORTFOLIO_ENV") == "prod":
+if str(os.environ.get("PORTFOLIO_ENV")).split() == "prod":
     apps = apps[: len(apps) - 3]
 
 INSTALLED_APPS = apps
@@ -243,10 +243,10 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = os.environ.get("PORTFOLIO_FROM_EMAIL")
-EMAIL_HOST = os.environ.get("PORTFOLIO_EMAIL_HOST")
-EMAIL_HOST_USER = os.environ.get("PORTFOLIO_EMAIL_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("PORTFOLIO_EMAIL_PASSWORD")
+DEFAULT_FROM_EMAIL = str(os.environ.get("PORTFOLIO_FROM_EMAIL")).split()
+EMAIL_HOST = str(os.environ.get("PORTFOLIO_EMAIL_HOST")).split()
+EMAIL_HOST_USER = str(os.environ.get("PORTFOLIO_EMAIL_USER")).split()
+EMAIL_HOST_PASSWORD = str(os.environ.get("PORTFOLIO_EMAIL_PASSWORD")).split()
 
 
 # Default primary key field type
