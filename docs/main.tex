@@ -1,52 +1,119 @@
 % !TeX spellcheck = en_GB
 % !TeX program = pdflatex
-
-\documentclass[11pt, a4paper]{article}
+\documentclass[10pt, a4paper]{article}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[british]{babel}
-\usepackage[margin=8mm]{geometry}
+\usepackage[margin=1cm, top=1cm]{geometry}
 
-\usepackage[stretch=25, shrink=25, tracking=true, letterspace=20]{microtype}
+\usepackage[stretch=25, shrink=25]{microtype}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{marvosym}
+\usepackage{fontawesome5}
 \usepackage{tikz}
+\usepackage{import}
 \usepackage{enumitem}
 \usepackage{paracol}
+<<<<<<< HEAD
+\usepackage{etoolbox}
+\usepackage{fontspec}
+% \usepackage[sfdefault, light]{FiraSans}
+\usepackage[sfdefault]{FiraSans}
+% \usepackage[T1]{fontenc}
+\usepackage[bulgarian,french,german,english]{babel}
 
-\setlist{parsep=0pt, topsep=0pt, partopsep=1pt, itemsep=1pt, leftmargin=6mm}
+\ifdefined\lang
+\else
+	\newcommand{\lang}{en}
+\fi
 
-\usepackage{FiraSans}
+=======
+\usepackage[sfdefault, light]{FiraSans}
+
+>>>>>>> 809978c (feat: updated cv (#249))
 \renewcommand{\familydefault}{\sfdefault}
 
-\definecolor{cvblue}{HTML}{304263}
+\definecolor{cvblue}{HTML}{2E3E5B}
+\definecolor{lightgray}{HTML}{F0F0F0}
 
 % Custom commands
-\newcommand{\dates}[1]{\hfill\mbox{\textbf{#1}}}
-\newcommand{\is}{\par\vskip.5ex plus .4ex}
-\newcommand{\smaller}[1]{{\small$\diamond$\ #1}}
-\newcommand{\headleft}[1]{\vspace*{3ex}\textsc{\textbf{#1}}\par%
-    \vspace*{-1.5ex}\hrulefill\par\vspace*{0.7ex}}
-\newcommand{\headright}[1]{\vspace*{2.5ex}\textsc{\Large\color{cvblue}#1}\par%
-     \vspace*{-2ex}{\color{cvblue}\hrulefill}\par}
+\newcommand{\dates}[1]{\hfill {\footnotesize #1}}
+\newcommand{\sectionspace}{\vspace{2.5ex}}
 
-\usepackage[colorlinks=true, urlcolor=white, linkcolor=white, hidelinks]{hyperref}
+\newcommand{\headleft}[1]{%
+    \sectionspace%
+    {\large\bfseries\color{white}#1}\par%
+    \vspace{0.5ex}{\color{white}\hrule height 0.4pt}\par\vspace{1ex}
+}
 
-% NOTE: Need to import usetikz for running it locally
-\usetikzlibrary{backgrounds, positioning, shapes, calc, fit}
+\newcommand{\headright}[1]{%
+    \sectionspace%
+    {\large\bfseries\color{cvblue}#1}\par%
+    \vspace{0.5ex}{\color{cvblue}\hrule height 0.4pt}\par\vspace{1ex}
+}
+
+\usepackage{eso-pic}
+\AddToShipoutPictureBG{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[cvblue] (current page.north west) rectangle ([xshift=0.35\paperwidth] current page.south west);
+    \end{tikzpicture}
+}
+
+\newcommand{\jobtitle}[4]{%
+    \noindent\begin{minipage}[t]{0.8\linewidth}
+        \textbf{\large #1} \\
+        \textit{#2}
+    \end{minipage}%
+    \begin{minipage}[t]{0.2\linewidth}
+        \raggedleft \dates{#3}
+    \end{minipage}
+    \ifx&#4& \else \par\vspace{0.5ex} \small #4 \fi
+    \par\vspace{1ex}
+}
+
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 809978c (feat: updated cv (#249))
+\usepackage[colorlinks=true, urlcolor=cyan, linkcolor=cyan, hidelinks]{hyperref}
+\usetikzlibrary{backgrounds}
 
 \begin{document}
 
-\pagestyle{empty}
-\raggedbottom
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{0.5ex}
+<<<<<<< HEAD
+\ifdefstring{\lang}{bg}{
+	\newcommand{\name}{Илиян \textsc{Костов}}
+}{
+	\newcommand{\name}{Iliyan \textsc{Kostov}}
+}
 
-% Column proportions
-\columnratio{0.37,0.63}
-\setlength{\columnsep}{2.5em}
+\ifdefstring{\lang}{fr}{
+	\newcommand{\jobposition}{Ingénieur DevOps / Ingénieur de plateforme}
+	\newcommand{\contact}{Contact}
+	\newcommand{\certificates}{Certificats}
+}{
+	\ifdefstring{\lang}{ge}{
+		\newcommand{\jobposition}{DevOps-Ingenieur / Plattform-Ingenieur}
+		\newcommand{\contact}{Kontakt}
+		\newcommand{\certificates}{Zertifikate}
+	}{
+		\ifdefstring{\lang}{bg}{
+			\newcommand{\jobposition}{Инженер по DevOps / Инженер по платформи}
+			\newcommand{\contact}{Контакти}
+			\newcommand{\certificates}{Сертификати}
+		}{
+			\newcommand{\jobposition}{DevOps Engineer / Platform Engineer}
+			\newcommand{\contact}{Contact}
+			\newcommand{\certificates}{Certificates}
+		}}}
+
+=======
+>>>>>>> 809978c (feat: updated cv (#249))
+\pagestyle{empty}
+\columnratio{0.33, 0.67}
+\setlength{\columnsep}{3em}
 
 \begin{paracol}{2}
 
@@ -54,184 +121,173 @@
 	%%%%%%%%%%%% LEFT COLUMN %%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	% Full-height blue background behind left column
-	\begin{tikzpicture}[remember picture, overlay]
-		\begin{scope}[on background layer]
-			\fill[cvblue] (current page.north west) rectangle ([xshift=0.37\paperwidth] current page.south west);
-		\end{scope}
-	\end{tikzpicture}
-
-	% Make left column text white
 	\color{white}
-
 	\begin{center}
 		\begin{tikzpicture}
-			\clip (0,0) circle (2);
-			\node at (0,0) {\includegraphics[width=4cm]{profile.jpg}};
+			\path[fill=white] (0,0) circle (1.8cm);
+			\clip (0,0) circle (1.75cm);
+			\node at (0,0) {\includegraphics[width=3.5cm]{profile.jpg}};
 		\end{tikzpicture}
+
+		\vspace{1.5ex}
+<<<<<<< HEAD
+		{\LARGE \textbf{\name}} \\
+		\vspace{1ex}
+
+		{\footnotesize \jobposition}
 	\end{center}
 
-	\begin{center}
-		\Large Iliyan \textbf{\textsc{Kostov}}\normalsize
+	\headleft{\contact}
+=======
+		{\LARGE \textbf{Iliyan \textsc{Kostov}}} \\
+		\vspace{1ex}
+		{\footnotesize DevOps Engineer / Platform Engineer}
 	\end{center}
 
-	\headleft{Profile}
-	Experienced DevOps engineer, that has worked in several international projects from automotive, telecommunications, aviation, and food \& beverage industries.
-
-	\headleft{Contact details}
+	\headleft{Contact}
+>>>>>>> 809978c (feat: updated cv (#249))
 	\small
-	\MVAt\ {\small iliyan.kostov@email.ikostov.org} \\
-	\Mobilefone\ +33\,780\,857\,077 \\
-	\Mundus\ Nice, France
+	\noindent\faEnvelope\ \href{mailto:iliyan.kostov@email.ikostov.org}{iliyan.kostov@email.ikostov.org} \\
+	\faPhone\ +33 780 857 077 \\
+	\faMapMarker\ Nice, France \\
+	\faGithub\ \href{https://github.com/IliyanKostov9}{github.com/IliyanKostov9} \\
+	\faGlobe\ \href{https://portfolio.ikostov.org/}{portfolio.ikostov.org} \\
+	\faLinkedin\ \href{https://www.linkedin.com/in/iliyan-kostov/}{linkedin/iliyan-kostov}
 
-	\begin{itemize}
-		\item \href{https://github.com/IliyanKostov9}{github.com/IliyanKostov9}
-		\item \href{https://portfolio.ikostov.org/}{portfolio.ikostov.org}
-		\item \href{https://www.linkedin.com/in/iliyan-kostov/}{linkedin/iliyan-kostov}
-	\end{itemize}
+<<<<<<< HEAD
+	\subimport{langs/\lang/}{languages.tex}
 
-	\normalsize
+	\subimport{langs/\lang/}{skills.tex}
 
-	\headleft{Personal information}
-	Languages: \textbf{Bulgarian}~(native), \textbf{English}~(Fluent), \textbf{German}~(Beginner), \textbf{French}~(Beginner)
+	\headleft{\certificates}
+	\footnotesize
+	\noindent\textbf{Databricks Gen AI \& LLM} \dates{2024} \\
+	\textbf{AWS Migration Sales Essentials} \dates{2024} \\
+	\textbf{AWS Technical Accelerated} \dates{2024} \\
+	\textbf{Azure Developer Assoc.} \dates{2023} \\
+	\textbf{Azure DevOps Expert} \dates{2023} \\
+	\noindent\textbf{AWS Solutions Architect Assoc.} \dates{2022} \\
+	\textbf{Azure Data Engineer Assoc.} \dates{2022}
+=======
+	\headleft{Languages}
+	\noindent\textbf{Bulgarian} (Native) \\
+	\textbf{English} (Fluent) \\
+	\textbf{German} (Beginner) \\
+	\textbf{French} (Beginner)
 
 	\headleft{Skills}
-	\begin{itemize}
-		\item Python, Java, Javascript, Kotlin
-		\item Pytest, Django, AWS Amplify, ReactJS, NextJS, Quarkus, Spring Boot
-		\item AWS, Azure
-		\item Terraform, CDK, Nix
-		\item MySQL, PostgreSQL, NoSQL
-		\item Github actions, Jenkins, Azure Devops
-		\item Linux (Ubuntu, NixOS)
-		\item Docker, Kubernetes
-		\item Agile Methodologies (SAFE)
+	\begin{itemize}[leftmargin=1.2em, itemsep=2pt]
+		\item \textbf{Languages:} Python, Go, Java, Kotlin, JS, Bash
+		\item \textbf{Cloud:} AWS, Azure
+		\item \textbf{IaaC/DevOps:} Git, Terraform, AWS CDK, Nix, Jenkins, GitHub Actions
+		\item \textbf{Containers:} Docker, Kubernetes
+		\item \textbf{Data:} Postgres, NoSQL
+		\item \textbf{Monitoring:} Grafana
+		\item \textbf{Data Quality:} SonarQube
 	\end{itemize}
+>>>>>>> 809978c (feat: updated cv (#249))
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%% RIGHT COLUMN %%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\switchcolumn
-	\color{black} % make sure right column text is black
+	\color{black}
+<<<<<<< HEAD
+	\subimport{langs/\lang/}{summary.tex}
+=======
 
-	\headright{Experience}
+	\headright{Summary}
+	\small
+	Experienced DevOps engineer with 4+ years of experience, having worked on several international projects across the automotive, telecommunications, aviation, and retail industries.
+>>>>>>> 809978c (feat: updated cv (#249))
 
-	\begin{center}
-		\includegraphics[width=2.0cm]{alten.png} \\
-	\end{center}
+	\subimport{langs/\lang/}{experience.tex}
 
-	\textsc{DevOps Engineer} at \textit{Alten (France)} \dates{2025.05--pres.} \\
+<<<<<<< HEAD
+	\subimport{langs/\lang/}{education.tex}
 
-	\smaller{
-		For my first project, the company provides global distribution services to airline companies. These distributions of data products are in the area of the travel industry. \\
+	\subimport{langs/\lang/}{volunteering.tex}
+=======
+	\jobtitle{DevOps Engineer}{Alten (France)}{2025.05 -- 2026.03}{}
+	\small
 
-		The team I'm in is in the department of airline ticket reservation. My role (platform engineer) is to support internal teams to deliver the global distribution data to external customers. The orchestration of the jobs are managed through Jenkins (using Groovy as a choice of scripting language). Jenkins runs on CentOS 7 in company data centers, with OS patch management automated using Ansible. \\
-		The data processing is managed by AWS EMR clusters. Due to policy restrictions, the artifacts are stored in S3 bucket and the retrieval of them, depending on the provided release or PR version is made by a custom bash script, that gets called for every job that contain a dependency list file. \\ \\
+	\noindent \textbf{Amadeus}
+	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
+		\item Migrated legacy Groovy pipeline scripts to an internal framework handling full app lifecycles.
+		\item Rewrote feed framework from \textbf{Bash} to \textbf{Python} for scheduled data deliveries.
+		\item Introduced industry frameworks to automate local dependencies (Localstack, Nix devenv).
+		\item Developed scripts to dynamically switch machine types on EMR clusters from spot to on-demand based on queue latency.
+		\item Overhauled internal documentation for improved clarity and maintainability.
+		\item Designed an HLD for release management, standardizing deployment workflows in accordance with change management requirements.
+	\end{itemize}
 
-		My contributions to the project currently include: \\
-		- migrated a legacy Groovy pipeline script to the internal Groovy framework, which automatically handles all application lifecycles: build, test, release, and deploy. \\
-		- rewritten and changed the logic of the feed framework from Bash to Python for delivering data to customers on a daily, weekly or monthly basis, with partial or full deliveries. \\
-		- introduced a new approach to build a development environment for specific applications by using Nix devenv. With having only nix installed, the required dependencies (Python, Groovy, S3 on Localstack) are defined in a .nix file and are automatically installed and available by just entering the project root directory. \\
-		-  developed a custom script to automatically switch EMR instances from spot to on-demand if jobs wait more than 15 minutes, optimizing costs \\
-	}
+	\vspace{3.0ex}
+	\jobtitle{DevOps Engineer}{DXC Technology (Bulgaria)}{2022.02 -- 2025.04}{}
+	\small
 
-	\vspace{1.8ex}
-	\vspace{0.5em} % optional vertical spacing
-	\noindent\rule{\linewidth}{0.3pt} % 0.3pt thin line
-	\vspace{0.5em}
+	\noindent \textbf{Continental AG (Tires)}
+	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, nosep]
+		\item Led a 5-person team and directly reported project status to the client.
+		\item Optimized data processing logic by migrating legacy Spark batch jobs to Apache Flink streaming pipelines, significantly reducing latency.
+		\item Accelerated project kickoff by resolving critical VPN connectivity issues and automating local development procedures.
+	\end{itemize}
 
-	\is
-	\begin{center}
-		\includegraphics[width=2.0cm]{DXC-Full-Color.png} \\
-	\end{center}
+	\vspace{1em}
+	\noindent \textbf{Nestle}
+	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, nosep]
+		\item Implemented automated structural validation checks for Pull Requests to prevent non-compliant deployments.
+		\item Extended Snowflake dialects in SQLFluff and automated integration in the pre-release step
+		\item Integrated ANTLR parsers into the \textbf{CI/CD} pipeline as a mandatory pre-release validation gate.
+	\end{itemize}
 
-	\textsc{DevOps Engineer} at \textit{DXC Technology (Bulgaria)} \dates{2022.02--2025.04} \\
+	\vspace{1em}
+	\noindent \textbf{Ahold Delhaize}
+	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
+		\item Redesigned the Test Automation Framework into a modular architecture, improving code reusability and reducing onboarding time for QA engineers.
+		\item Collaborated with the QA team in weekly syncs to identify operational bottlenecks, resulting in improved team autonomy.
+		\item Designed an HLD for cross-environment data sharing, that supported the migration of the new cloud ingestion framework (CF2).
+		\item Automated a flow to host Allure reports as static website on Azure Blob Storage with custom authentication middleware.
+		\item Led a technical evaluation of \textbf{SonarQube} for automated code analysis, in order to identify integration requirements for the platform
+	\end{itemize}
 
-	\textbf{Advanced Driver Assistance Systems (ADAS)} \\
-	\textit{DevOps Engineer (AWS)}
+	\vspace{1em}
+	\noindent \textbf{Continental AG (ADAS, codename CAEdge)}
+	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
+		\item Automated a standardized \textbf{VPC} topology for a multi-account AWS setup, integrating it into the Account Vending Machine orchestrator.
+		\item Designed and automated a cloud-cost governance solution across a multi-account AWS organization, implementing budget alerts to prevent overruns.
+		\item Reduced the attack surface of cloud applications by remediating CVEs identified by AWS Inspector reports.
+	\end{itemize}
 
-	My initial project focused on the development of Advanced Driver Assistance Systems (ADAS) for a multinational automotive company. \\
-	Within this project, my role was working as a DevOps Engineer on AWS cloud infrastructure management,
-	where we were responsible for maintaining the entire cloud platform, including the deployment of
-	customer products with the help of AWS ADF framework, AWS Account-Vending-Machine and AWS Control Tower custom REST API. \\
-
-	The automation of these processes was achieved through the use of AWS CDK Infrastructure as Code (IaaC). \\
-
-	As part of my contributions to client services, I implemented the following solutions: \\
-	- budget cost alerting on the entire platform with predefined percentage of exceeded budget to fire off email messages to the Business Owners \\
-	- creating additional REST API endpoints for the Control Tower for specifying which newly created AWS accounts belong to which VPC.
-	In there I also wrote the logic where a Lambda Function checks the type of account and based on which VPC template it belongs to - deploys the AWS CloudFormation StackSet to the appropriate account. \\
-	- creating a High level design of data flow and replication for the entire Data platform \\
-
-	\textbf{Food industry} \\
-	\textit{DevOps/Data Engineer (Azure)}
-
-	My second project revolved around delivering valuable insights to enhance
-	the shopping experience for customers and establishing loyalty programs for a renowned Whole Foods store company. \\
-	I was positioned as Data Engineer on the Azure platform for ensuring data integrity and data validation on the
-	Raw to Source to Prepared Layer. For data validation processes, we developed a Test Automation Framework built upon the pytest framework. \\
-
-	\vspace{1.8ex}
-	\vspace{0.5em} % optional vertical spacing
-	\noindent\rule{\linewidth}{0.3pt} % 0.3pt thin line
-	\vspace{0.5em}
-
-	\is
-	\begin{center}
-		\begin{tikzpicture}
-			\clip (0,0) circle (1cm);
-			\node at (0,0) {\includegraphics[width=2.0cm]{sysconsulting.png}};
-		\end{tikzpicture}
-	\end{center}
-
-	\textsc{Software Engineer Intern} at \textit{Sys Consulting Ltd. (Bulgaria)} \dates{2021.07--2021.12} \\
-	\smaller{The intership consisted of maintaining a legacy banking system for Balkan clients.
-		The system was comprised of a desktop Windows XP compatible application,
-		written in CAVO (Visual Objects) programming language.}
+	\vspace{5.0ex}
+	\jobtitle{Software Engineer Intern}{Sys Consulting Ltd.}{2021.07 -- 2021.12}{}
+	\small
+	Maintained legacy banking systems in CAVO for Windows XP environments.
 
 	\headright{Education}
 
-	\includegraphics[width=1.0cm]{tu-varna.png} \textsc{Master of Science} Software Engineering \textit{Technical University of Varna} \dates{2025--2023} \\
-	\smaller{Thesis: \textit{Design and implementation of a system for doctoral students admission and training}}
+	\textbf{MSc Software Engineering} \dates{2023 -- 2025} \\
+	\textit{Technical University of Varna} \\
+	\footnotesize Thesis: Doctoral students admission and training system. \par
 
-	\is
-	\includegraphics[width=1.0cm]{tu-varna.png} \textsc{Bachelor of Science} Computer science \textit{Technical University of Varna} \dates{2019--2023} \\
-	\smaller{Thesis: \textit{AI-Driven Project management web app with ChatGPT 3.5}}
+	\vspace{1ex}
+	\textbf{BSc Computer Science} \dates{2019 -- 2023} \\
+	\textit{Technical University of Varna} \\
+	\footnotesize Thesis: AI-Driven Project management web app (GPT-3.5).
 
-	\headright{Certificates}
+	\headright{Volunteering}
 
-	\href{https://www.credly.com/badges/620c9229-2256-4c1c-8067-18368f84862b/public_url}{AWS Solutions Architect – Associate}
-	\dates{29.07.2022}
+	\textbf{Donor} \dates{2026 -- present} \\
+	\textit{International Committee of the Red Cross - ICRC} \\
+	\small
+	Provided financial support for the homeless population in Nice, France.
+	\vspace{1ex}
 
-	\is
-	\href{https://www.credly.com/badges/a7fc1fb7-e1b6-4473-8453-6c4eff17c10f/public_url}{Azure Data Engineer Associate}
-	\dates{28.04.2022}
-
-	\is
-	\href{https://learn.microsoft.com/en-us/users/kostoviliyan-7522/credentials/5ac1e309f3cd6c25?ref=https%3A%2F%2Fwww.linkedin.com%2F}{Azure DevOps Engineer Expert}
-	\dates{02.10.2023}
-
-	\is
-	\href{https://learn.microsoft.com/en-us/users/kostoviliyan-7522/credentials/4cbfcf5b11b3e4ee?ref=https%3A%2F%2Fwww.linkedin.com%2F}{Azure Developer Associate}
-	\dates{02.10.2023}
-
-	\is
-	\href{https://credentials.databricks.com/b2a0ea97-cbe8-47db-b075-8c833525ef4f#acc.R8i3Nzvg}{Databricks Gen AI \& LLM}
-	\dates{10.04.2024}
-
-	\is
-	\href{https://www.credly.com/badges/d2561920-df6c-4a04-a267-4009de608a8f/linked_in_profile}{AWS Technical Accelerated}
-	\dates{09.2024}
-
-	\is
-	\href{https://www.credly.com/badges/79c50d81-a092-4d64-9abd-c82b74af8836/linked_in_profile}{AWS Migration Acceleration Program}
-	\dates{09.2024}
-
-	\is
-	\href{https://infobulgaria.net/}{A1 German Language Certificate}
-	\dates{10.04.2025}
-
+	\textbf{Software Developer} \dates{2025} \\
+	\textit{TVT Innovation} \\
+	\small
+	Participated in a hackathon in Toulon, France (TOU01): Identifying and treating pollution in ports. Developed a platform to detect and anticipate port pollution.
+>>>>>>> 809978c (feat: updated cv (#249))
 
 \end{paracol}
 

@@ -62,7 +62,6 @@
               enable = false;
               excludes = ["docker-publish.yaml"];
             };
-            checkmake.enable = true;
 
             # Python specific
             black.enable = true;

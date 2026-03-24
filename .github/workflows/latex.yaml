@@ -2,10 +2,10 @@ name: Build LaTeX PDF
 
 on:
   push:
-    paths:
-      - "docs/**.tex"
-    branches:
-      - master
+    # paths:
+    #   - "docs/**.tex"
+    # branches:
+    #   - master
 
 jobs:
   build-pdf:
@@ -13,7 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       working-directory: docs
-
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ["en", "fr", "bg", "ge"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -25,32 +28,27 @@ jobs:
             texlive-xetex \
             texlive-fonts-recommended \
             texlive-latex-recommended \
+            texlive-lang-french \
+            texlive-lang-german \
+            texlive-lang-cyrillic \
             texlive-latex-extra \
             texlive-bibtex-extra \
             texlive-fonts-extra \
-            biber
+            biber \
+            latexmk
 
-      - name: First LaTeX Compilation
-        run: xelatex -interaction=nonstopmode main.tex || true
-        working-directory: ${{ env.working-directory }}
-
-      - name: Run Biber
-        run: biber main || true
-        working-directory: ${{ env.working-directory }}
-
-      - name: Second LaTeX Compilation
-        run: xelatex -interaction=nonstopmode main.tex || true
-        working-directory: ${{ env.working-directory }}
-
-      - name: Final LaTeX Compilation
-        run: xelatex -interaction=nonstopmode main.tex || true
+      - name: LaTeX Compilation
+        run: |
+          latexmk -pdf -interaction=nonstopmode \
+            -pdflatex="xelatex -interaction=nonstopmode '\def\lang{${{ matrix.language }}}\input{%S}'" \
+            main.tex
         working-directory: ${{ env.working-directory }}
 
       - name: Prepare pdf for upload
         id: pdf
         run: |
-          mkdir -p latex/portfolio/cv
-          cp docs/main.pdf latex/portfolio/cv
+          mkdir -p latex/portfolio/cv-${{ matrix.language }}
+          cp docs/main.pdf latex/portfolio/cv-${{ matrix.language }}
 
       - name: Upload PDF
         uses: actions/upload-artifact@v7
