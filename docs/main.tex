@@ -104,11 +104,13 @@
 
 	\headleft{Skills}
 	\begin{itemize}[leftmargin=1.2em, itemsep=2pt]
-		\item \textbf{Languages:} Python, Java, Kotlin, JS
+		\item \textbf{Languages:} Python, Go, Java, Kotlin, JS, Bash
 		\item \textbf{Cloud:} AWS, Azure
-		\item \textbf{IaaC/DevOps:} Terraform, Nix, Jenkins, Github Actions
+		\item \textbf{IaaC/DevOps:} Git, Terraform, AWS CDK, Nix, Jenkins, Github Actions
 		\item \textbf{Containers:} Docker, Kubernetes
-		\item \textbf{Data:} Postgres, , NoSQL
+		\item \textbf{Data:} Postgres, NoSQL
+		\item \textbf{Monitoring} Grafana
+		\item \textbf{Data Quality} SonarQube
 	\end{itemize}
 
 	\headleft{Certificates}
@@ -135,12 +137,16 @@
 	\headright{Experience}
 
 	\jobtitle{DevOps Engineer}{Alten (France)}{2025.05 -- 2026.03}{}
-	{\large \textbf{Amadeus}}
+	\small
+
+	\noindent \textbf{Amadeus}
 	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
-		\item \textbf{CI/CD Migration:} Migrated legacy Groovy pipelines to an internal framework handling full app lifecycles.
-		\item \textbf{Data Orchestration:} Refactored feed framework from Bash to \textbf{Python} for complex scheduled data deliveries.
-		\item \textbf{Local Dev:} Introduced \textbf{Nix devenv} to automate local dependencies (Localstack, S3, Groovy).
-		\item \textbf{Cost Optimization:} Developed scripts to dynamically switch EMR instances from spot to on-demand based on queue latency.
+		\item Migrated legacy Groovy pipeline scripts to an internal framework handling full app lifecycles.
+		\item Rewritten feed framework from Bash to \textbf{Python} for scheduled data deliveries.
+		\item Introduced industry frameworks to automate local dependencies (Localstack, Nix devenv).
+		\item Developed scripts to dynamically switch machine types on EMR clusters from spot to on-demand based on queue latency.
+		\item Remade the entire internal documentation for better clarity
+		\item Desigend an HLD for release management, that standardized the deployment workflows in accordance with the change management requirements
 	\end{itemize}
 
 	\vspace{1.5ex}
@@ -149,28 +155,35 @@
 
 	\noindent \textbf{Continental AG (Tires)}
 	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, nosep]
-		\item Managed global AWS infrastructure using \textbf{CDK} and Control Tower.
-		\item Implemented custom REST API endpoints for VPC-account mapping and automated Lambda-based networking.
+		\item Led a 5 people team and directly reported our status to the client
+		\item Optimized the data processing logic by migrating legacy Spark batch jobs to Apache Flink streaming pipelines, resulting in reducing latency
+		\item Accelerated project kickoff by resolving a VPN issue and automated the local development procedure
 	\end{itemize}
 
 	\vspace{1em}
-
 	\noindent \textbf{Nestle}
 	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, nosep]
-		\item Data Engineer ensuring integrity from Raw to Prepared layers.
-		\item Built a Test Automation Framework using \textbf{Pytest}.
+		\item Implemented automated structural validation checks for Pull requests to maintain repository integrity and prevent non-compliant deployments
+		\item Extended Snowflake dialects inSQLFluff \& automated it in the pre-release step, in order to meet the client's delivirables
+		\item Integrated ANTLR parsers into the CI/CD pipeline in the pre-release step
 	\end{itemize}
 
-	\textbf{Ahold Delhaize}
+	\vspace{1em}
+	\noindent \textbf{Ahold Delhaize}
 	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
-		\item Data Engineer ensuring integrity from Raw to Prepared layers.
-		\item Built a Test Automation Framework using \textbf{Pytest}.
+		\item Redesigned the Test Automation Framework into modules, significantly improving the code reusability and greatly reducing the onboarding/test case development for QA engineers
+		\item Collaborated with the QA team in weekly syncs to identify operational bottlenecks, that resulted in improving the team's autonomy and framework maintainability
+		\item Designed a High-Level-Diagram for cross-environment data sharing within the new ingestion framework, that resulted in eliminating the technical ambiguities and contirbuting to the migration of the new ingestion framework
+		\item Architected and automated pipeline to generate and host Python Allure reports as a secure static website on Azure Blob Storage, implementing a custom middleware function to enforce authenticated client access
+		\item Led a technical evaluation of SonarQube for automated code analysis, identified integration requirements and informing the organization tooling strategy
 	\end{itemize}
 
-	\textbf{Continental AG (ADAS, codename CAEdge)}
+	\vspace{1em}
+	\noindent \textbf{Continental AG (ADAS, codename CAEdge)}
 	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
-		\item Managed global AWS infrastructure using \textbf{CDK} and Control Tower.
-		\item Implemented custom REST API endpoints for VPC-account mapping and automated Lambda-based networking.
+		\item Automated a standardized VPC topoloy for multi-account AWS setup, by integrating it into the Account-Vending-machine orchestrator
+		\item Designed and automated cloud-cost governance solution across multi-account AWS organization by implementing budget alerts to prevent budget overruns and to better manage the costs
+		\item Reduced the attack surface of cloud applications by identifying and resolving CVEs, based on AWS Inspector reports
 	\end{itemize}
 
 	\vspace{1.5ex}
