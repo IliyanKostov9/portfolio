@@ -11,13 +11,13 @@
 \usepackage[stretch=25, shrink=25, tracking=true, letterspace=20]{microtype}
 \usepackage{graphicx}
 \usepackage{xcolor}
-\usepackage{marvosym} % For icons
-\usepackage{fontawesome5} % More modern icons
+\usepackage{marvosym}
+\usepackage{fontawesome5}
 \usepackage{tikz}
 \usepackage{enumitem}
 \usepackage{paracol}
-
 \usepackage[sfdefault, light]{FiraSans}
+
 \renewcommand{\familydefault}{\sfdefault}
 
 \definecolor{cvblue}{HTML}{2E3E5B}
@@ -30,13 +30,20 @@
 \newcommand{\headleft}[1]{%
     \sectionspace%
     {\large\bfseries\color{white}#1}\par%
-    \vspace{0.5ex}{\color{white}\hrule height 0.4pt}\par\vspace{1ex}%
+    \vspace{0.5ex}{\color{white}\hrule height 0.4pt}\par\vspace{1ex}
 }
 
-\newcommand{\headright}[1]{
+\newcommand{\headright}[1]{%
     \sectionspace%
-    {\Large\bfseries\color{cvblue}\textsc{#1}}\par%
-    \vspace{0.5ex}{\color{cvblue}\hrule height 1pt}\par\vspace{1ex}%
+    {\large\bfseries\color{cvblue}#1}\par%
+    \vspace{0.5ex}{\color{cvblue}\hrule height 0.4pt}\par\vspace{1ex}
+}
+
+\usepackage{eso-pic}
+\AddToShipoutPictureBG{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \fill[cvblue] (current page.north west) rectangle ([xshift=0.35\paperwidth] current page.south west);
+    \end{tikzpicture}
 }
 
 \newcommand{\jobtitle}[4]{%
@@ -65,12 +72,6 @@
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%% LEFT COLUMN %%%%%%%%%%%%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\begin{tikzpicture}[remember picture, overlay]
-		\begin{scope}[on background layer]
-			\fill[cvblue] (current page.north west) rectangle ([xshift=0.35\paperwidth] current page.south west);
-		\end{scope}
-	\end{tikzpicture}
 
 	\color{white}
 	\begin{center}
@@ -105,11 +106,11 @@
 	\begin{itemize}[leftmargin=1.2em, itemsep=2pt]
 		\item \textbf{Languages:} Python, Go, Java, Kotlin, JS, Bash
 		\item \textbf{Cloud:} AWS, Azure
-		\item \textbf{IaaC/DevOps:} Git, Terraform, AWS CDK, Nix, Jenkins, Github Actions
+		\item \textbf{IaaC/DevOps:} Git, Terraform, AWS CDK, Nix, Jenkins, GitHub Actions
 		\item \textbf{Containers:} Docker, Kubernetes
 		\item \textbf{Data:} Postgres, NoSQL
-		\item \textbf{Monitoring} Grafana
-		\item \textbf{Data Quality} SonarQube
+		\item \textbf{Monitoring:} Grafana
+		\item \textbf{Data Quality:} SonarQube
 	\end{itemize}
 
 	\headleft{Certificates}
@@ -131,7 +132,7 @@
 
 	\headright{Summary}
 	\small
-	Experienced DevOps engineer with 4+ years of experience, that has worked in several international projects from automotive, telecommunications, aviation and retail industries.
+	Experienced DevOps engineer with 4+ years of experience, having worked on several international projects across the automotive, telecommunications, aviation, and retail industries.
 
 	\headright{Experience}
 
@@ -141,51 +142,51 @@
 	\noindent \textbf{Amadeus}
 	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
 		\item Migrated legacy Groovy pipeline scripts to an internal framework handling full app lifecycles.
-		\item Rewritten feed framework from Bash to \textbf{Python} for scheduled data deliveries.
+		\item Rewrote feed framework from Bash to \textbf{Python} for scheduled data deliveries.
 		\item Introduced industry frameworks to automate local dependencies (Localstack, Nix devenv).
 		\item Developed scripts to dynamically switch machine types on EMR clusters from spot to on-demand based on queue latency.
-		\item Remade the entire internal documentation for better clarity
-		\item Desigend an HLD for release management, that standardized the deployment workflows in accordance with the change management requirements
+		\item Overhauled internal documentation for improved clarity and maintainability.
+		\item Designed an HLD for release management, standardizing deployment workflows in accordance with change management requirements.
 	\end{itemize}
 
-	\vspace{1.5ex}
+	\vspace{3.0ex}
 	\jobtitle{DevOps Engineer}{DXC Technology (Bulgaria)}{2022.02 -- 2025.04}{}
 	\small
 
 	\noindent \textbf{Continental AG (Tires)}
 	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, nosep]
-		\item Led a 5 people team and directly reported our status to the client
-		\item Optimized the data processing logic by migrating legacy Spark batch jobs to Apache Flink streaming pipelines, resulting in reducing latency
-		\item Accelerated project kickoff by resolving a VPN issue and automated the local development procedure
+		\item Led a 5-person team and directly reported project status to the client.
+		\item Optimized data processing logic by migrating legacy Spark batch jobs to Apache Flink streaming pipelines, significantly reducing latency.
+		\item Accelerated project kickoff by resolving critical VPN connectivity issues and automating local development procedures.
 	\end{itemize}
 
 	\vspace{1em}
 	\noindent \textbf{Nestle}
 	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, nosep]
-		\item Implemented automated structural validation checks for Pull requests to maintain repository integrity and prevent non-compliant deployments
-		\item Extended Snowflake dialects inSQLFluff \& automated it in the pre-release step, in order to meet the client's delivirables
-		\item Integrated ANTLR parsers into the CI/CD pipeline in the pre-release step
+		\item Implemented automated structural validation checks for Pull Requests to maintain repository integrity and prevent non-compliant deployments.
+		\item Extended Snowflake dialects in SQLFluff and automated integration in the pre-release step to meet client deliverables.
+		\item Integrated ANTLR parsers into the CI/CD pipeline as a mandatory pre-release validation gate.
 	\end{itemize}
 
 	\vspace{1em}
 	\noindent \textbf{Ahold Delhaize}
 	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
-		\item Redesigned the Test Automation Framework into modules, significantly improving the code reusability and greatly reducing the onboarding/test case development for QA engineers
-		\item Collaborated with the QA team in weekly syncs to identify operational bottlenecks, that resulted in improving the team's autonomy and framework maintainability
-		\item Designed a High-Level-Diagram for cross-environment data sharing within the new ingestion framework, that resulted in eliminating the technical ambiguities and contirbuting to the migration of the new ingestion framework
-		\item Architected and automated pipeline to generate and host Python Allure reports as a secure static website on Azure Blob Storage, implementing a custom middleware function to enforce authenticated client access
-		\item Led a technical evaluation of SonarQube for automated code analysis, identified integration requirements and informing the organization tooling strategy
+		\item Redesigned the Test Automation Framework into a modular architecture, improving code reusability and reducing onboarding time for QA engineers.
+		\item Collaborated with the QA team in weekly syncs to identify operational bottlenecks, resulting in improved team autonomy.
+		\item Designed an HLD for cross-environment data sharing, eliminating technical ambiguities and contributing to the migration of the new ingestion framework.
+		\item Architected an automated pipeline to host Python Allure reports as a secure static website on Azure Blob Storage with custom authentication middleware.
+		\item Led a technical evaluation of SonarQube for automated code analysis, identifying integration requirements to inform the organization's tooling strategy.
 	\end{itemize}
 
 	\vspace{1em}
 	\noindent \textbf{Continental AG (ADAS, codename CAEdge)}
 	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
-		\item Automated a standardized VPC topoloy for multi-account AWS setup, by integrating it into the Account-Vending-machine orchestrator
-		\item Designed and automated cloud-cost governance solution across multi-account AWS organization by implementing budget alerts to prevent budget overruns and to better manage the costs
-		\item Reduced the attack surface of cloud applications by identifying and resolving CVEs, based on AWS Inspector reports
+		\item Automated a standardized VPC topology for a multi-account AWS setup, integrating it into the Account Vending Machine orchestrator.
+		\item Designed and automated a cloud-cost governance solution across a multi-account AWS organization, implementing budget alerts to prevent overruns.
+		\item Reduced the attack surface of cloud applications by remediating CVEs identified by AWS Inspector reports.
 	\end{itemize}
 
-	\vspace{1.5ex}
+	\vspace{5.0ex}
 	\jobtitle{Software Engineer Intern}{Sys Consulting Ltd.}{2021.07 -- 2021.12}{}
 	\small
 	Maintained legacy banking systems in CAVO for Windows XP environments.
@@ -206,14 +207,13 @@
 	\textbf{Donor} \dates{2026 -- present} \\
 	\textit{International Committee of the Red Cross - ICRC} \\
 	\small
-	I have provided financial support for the homeless population in Nice, France
+	Provided financial support for the homeless population in Nice, France.
 	\vspace{1ex}
 
-	\textbf{Software developer} \dates{2025} \\
+	\textbf{Software Developer} \dates{2025} \\
 	\textit{TVT Innovation} \\
 	\small
-	I participated a hackaton in Toulon, France TOU01: Identifying and treating pollution in ports.
-	The outcome was creating a platform,that detects and anticipates pollution in the port, tracking its progress and triggering clean-up operations.
+	Participated in a hackathon in Toulon, France (TOU01): Identifying and treating pollution in ports. Developed a platform to detect and anticipate port pollution.
 
 \end{paracol}
 
