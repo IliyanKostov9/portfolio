@@ -17,7 +17,6 @@
 \usepackage{enumitem}
 \usepackage{paracol}
 
-% Font choice: Fira Sans for a modern tech look
 \usepackage[sfdefault, light]{FiraSans}
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -34,7 +33,7 @@
     \vspace{0.5ex}{\color{white}\hrule height 0.4pt}\par\vspace{1ex}%
 }
 
-\newcommand{\headright}[1]{%
+\newcommand{\headright}[1]{
     \sectionspace%
     {\Large\bfseries\color{cvblue}\textsc{#1}}\par%
     \vspace{0.5ex}{\color{cvblue}\hrule height 1pt}\par\vspace{1ex}%
@@ -69,7 +68,7 @@
 
 	\begin{tikzpicture}[remember picture, overlay]
 		\begin{scope}[on background layer]
-			\fill[cvblue] (current page.north west) rectangle ([xshift=0.33\paperwidth] current page.south west);
+			\fill[cvblue] (current page.north west) rectangle ([xshift=0.35\paperwidth] current page.south west);
 		\end{scope}
 	\end{tikzpicture}
 
