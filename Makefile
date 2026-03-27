@@ -1,4 +1,10 @@
 ##########################
+# VARIABLES
+# #######################
+
+LATEX_LANG ?= en
+
+##########################
 # TARGET
 # #######################
 
@@ -79,7 +85,8 @@ tr-compile: ## Complie the translated .po files
 latex-compile:
 	cd docs && \
 	latexmk -C main.tex && \
-	latexmk -pdf -pvc -interaction=nonstopmode -pv main.tex || true && \
+	latexmk -pdf -pvc -interaction=nonstopmode -pdflatex="xelatex -interaction=nonstopmode '\def\lang{$(LATEX_LANG)}\input{main.tex}'" \
+	main.tex || true && \
 	zathura main.pdf
 
 
