@@ -15,12 +15,9 @@
 \usepackage{import}
 \usepackage{enumitem}
 \usepackage{paracol}
-<<<<<<< HEAD
 \usepackage{etoolbox}
 \usepackage{fontspec}
-% \usepackage[sfdefault, light]{FiraSans}
 \usepackage[sfdefault]{FiraSans}
-% \usepackage[T1]{fontenc}
 \usepackage[bulgarian,french,german,english]{babel}
 
 \ifdefined\lang
@@ -28,10 +25,6 @@
 	\newcommand{\lang}{en}
 \fi
 
-=======
-\usepackage[sfdefault, light]{FiraSans}
-
->>>>>>> 809978c (feat: updated cv (#249))
 \renewcommand{\familydefault}{\sfdefault}
 
 \definecolor{cvblue}{HTML}{2E3E5B}
@@ -41,30 +34,30 @@
 \newcommand{\dates}[1]{\hfill {\footnotesize #1}}
 \newcommand{\sectionspace}{\vspace{2.5ex}}
 
-\newcommand{\headleft}[1]{%
-    \sectionspace%
-    {\large\bfseries\color{white}#1}\par%
+\newcommand{\headleft}[1]{
+    \sectionspace
+    {\large\bfseries\color{white}#1}\par
     \vspace{0.5ex}{\color{white}\hrule height 0.4pt}\par\vspace{1ex}
 }
 
-\newcommand{\headright}[1]{%
-    \sectionspace%
-    {\large\bfseries\color{cvblue}#1}\par%
+\newcommand{\headright}[1]{
+    \sectionspace
+    {\large\bfseries\color{cvblue}#1}\par
     \vspace{0.5ex}{\color{cvblue}\hrule height 0.4pt}\par\vspace{1ex}
 }
 
 \usepackage{eso-pic}
-\AddToShipoutPictureBG{%
+\AddToShipoutPictureBG{
     \begin{tikzpicture}[remember picture, overlay]
         \fill[cvblue] (current page.north west) rectangle ([xshift=0.35\paperwidth] current page.south west);
     \end{tikzpicture}
 }
 
-\newcommand{\jobtitle}[4]{%
+\newcommand{\jobtitle}[4]{
     \noindent\begin{minipage}[t]{0.8\linewidth}
         \textbf{\large #1} \\
         \textit{#2}
-    \end{minipage}%
+    \end{minipage}
     \begin{minipage}[t]{0.2\linewidth}
         \raggedleft \dates{#3}
     \end{minipage}
@@ -72,17 +65,13 @@
     \par\vspace{1ex}
 }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 809978c (feat: updated cv (#249))
 \usepackage[colorlinks=true, urlcolor=cyan, linkcolor=cyan, hidelinks]{hyperref}
 \usetikzlibrary{backgrounds}
 
 \begin{document}
 
-<<<<<<< HEAD
 \ifdefstring{\lang}{bg}{
 	\newcommand{\name}{Илиян \textsc{Костов}}
 }{
@@ -109,8 +98,6 @@
 			\newcommand{\certificates}{Certificates}
 		}}}
 
-=======
->>>>>>> 809978c (feat: updated cv (#249))
 \pagestyle{empty}
 \columnratio{0.33, 0.67}
 \setlength{\columnsep}{3em}
@@ -130,7 +117,6 @@
 		\end{tikzpicture}
 
 		\vspace{1.5ex}
-<<<<<<< HEAD
 		{\LARGE \textbf{\name}} \\
 		\vspace{1ex}
 
@@ -138,14 +124,6 @@
 	\end{center}
 
 	\headleft{\contact}
-=======
-		{\LARGE \textbf{Iliyan \textsc{Kostov}}} \\
-		\vspace{1ex}
-		{\footnotesize DevOps Engineer / Platform Engineer}
-	\end{center}
-
-	\headleft{Contact}
->>>>>>> 809978c (feat: updated cv (#249))
 	\small
 	\noindent\faEnvelope\ \href{mailto:iliyan.kostov@email.ikostov.org}{iliyan.kostov@email.ikostov.org} \\
 	\faPhone\ +33 780 857 077 \\
@@ -154,7 +132,6 @@
 	\faGlobe\ \href{https://portfolio.ikostov.org/}{portfolio.ikostov.org} \\
 	\faLinkedin\ \href{https://www.linkedin.com/in/iliyan-kostov/}{linkedin/iliyan-kostov}
 
-<<<<<<< HEAD
 	\subimport{langs/\lang/}{languages.tex}
 
 	\subimport{langs/\lang/}{skills.tex}
@@ -168,24 +145,6 @@
 	\textbf{Azure DevOps Expert} \dates{2023} \\
 	\noindent\textbf{AWS Solutions Architect Assoc.} \dates{2022} \\
 	\textbf{Azure Data Engineer Assoc.} \dates{2022}
-=======
-	\headleft{Languages}
-	\noindent\textbf{Bulgarian} (Native) \\
-	\textbf{English} (Fluent) \\
-	\textbf{German} (Beginner) \\
-	\textbf{French} (Beginner)
-
-	\headleft{Skills}
-	\begin{itemize}[leftmargin=1.2em, itemsep=2pt]
-		\item \textbf{Languages:} Python, Go, Java, Kotlin, JS, Bash
-		\item \textbf{Cloud:} AWS, Azure
-		\item \textbf{IaaC/DevOps:} Git, Terraform, AWS CDK, Nix, Jenkins, GitHub Actions
-		\item \textbf{Containers:} Docker, Kubernetes
-		\item \textbf{Data:} Postgres, NoSQL
-		\item \textbf{Monitoring:} Grafana
-		\item \textbf{Data Quality:} SonarQube
-	\end{itemize}
->>>>>>> 809978c (feat: updated cv (#249))
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%%%%%%%%%%%% RIGHT COLUMN %%%%%%%%%%%
@@ -193,101 +152,13 @@
 
 	\switchcolumn
 	\color{black}
-<<<<<<< HEAD
 	\subimport{langs/\lang/}{summary.tex}
-=======
-
-	\headright{Summary}
-	\small
-	Experienced DevOps engineer with 4+ years of experience, having worked on several international projects across the automotive, telecommunications, aviation, and retail industries.
->>>>>>> 809978c (feat: updated cv (#249))
 
 	\subimport{langs/\lang/}{experience.tex}
 
-<<<<<<< HEAD
 	\subimport{langs/\lang/}{education.tex}
 
 	\subimport{langs/\lang/}{volunteering.tex}
-=======
-	\jobtitle{DevOps Engineer}{Alten (France)}{2025.05 -- 2026.03}{}
-	\small
-
-	\noindent \textbf{Amadeus}
-	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
-		\item Migrated legacy Groovy pipeline scripts to an internal framework handling full app lifecycles.
-		\item Rewrote feed framework from \textbf{Bash} to \textbf{Python} for scheduled data deliveries.
-		\item Introduced industry frameworks to automate local dependencies (Localstack, Nix devenv).
-		\item Developed scripts to dynamically switch machine types on EMR clusters from spot to on-demand based on queue latency.
-		\item Overhauled internal documentation for improved clarity and maintainability.
-		\item Designed an HLD for release management, standardizing deployment workflows in accordance with change management requirements.
-	\end{itemize}
-
-	\vspace{3.0ex}
-	\jobtitle{DevOps Engineer}{DXC Technology (Bulgaria)}{2022.02 -- 2025.04}{}
-	\small
-
-	\noindent \textbf{Continental AG (Tires)}
-	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, nosep]
-		\item Led a 5-person team and directly reported project status to the client.
-		\item Optimized data processing logic by migrating legacy Spark batch jobs to Apache Flink streaming pipelines, significantly reducing latency.
-		\item Accelerated project kickoff by resolving critical VPN connectivity issues and automating local development procedures.
-	\end{itemize}
-
-	\vspace{1em}
-	\noindent \textbf{Nestle}
-	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, nosep]
-		\item Implemented automated structural validation checks for Pull Requests to prevent non-compliant deployments.
-		\item Extended Snowflake dialects in SQLFluff and automated integration in the pre-release step
-		\item Integrated ANTLR parsers into the \textbf{CI/CD} pipeline as a mandatory pre-release validation gate.
-	\end{itemize}
-
-	\vspace{1em}
-	\noindent \textbf{Ahold Delhaize}
-	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
-		\item Redesigned the Test Automation Framework into a modular architecture, improving code reusability and reducing onboarding time for QA engineers.
-		\item Collaborated with the QA team in weekly syncs to identify operational bottlenecks, resulting in improved team autonomy.
-		\item Designed an HLD for cross-environment data sharing, that supported the migration of the new cloud ingestion framework (CF2).
-		\item Automated a flow to host Allure reports as static website on Azure Blob Storage with custom authentication middleware.
-		\item Led a technical evaluation of \textbf{SonarQube} for automated code analysis, in order to identify integration requirements for the platform
-	\end{itemize}
-
-	\vspace{1em}
-	\noindent \textbf{Continental AG (ADAS, codename CAEdge)}
-	\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
-		\item Automated a standardized \textbf{VPC} topology for a multi-account AWS setup, integrating it into the Account Vending Machine orchestrator.
-		\item Designed and automated a cloud-cost governance solution across a multi-account AWS organization, implementing budget alerts to prevent overruns.
-		\item Reduced the attack surface of cloud applications by remediating CVEs identified by AWS Inspector reports.
-	\end{itemize}
-
-	\vspace{5.0ex}
-	\jobtitle{Software Engineer Intern}{Sys Consulting Ltd.}{2021.07 -- 2021.12}{}
-	\small
-	Maintained legacy banking systems in CAVO for Windows XP environments.
-
-	\headright{Education}
-
-	\textbf{MSc Software Engineering} \dates{2023 -- 2025} \\
-	\textit{Technical University of Varna} \\
-	\footnotesize Thesis: Doctoral students admission and training system. \par
-
-	\vspace{1ex}
-	\textbf{BSc Computer Science} \dates{2019 -- 2023} \\
-	\textit{Technical University of Varna} \\
-	\footnotesize Thesis: AI-Driven Project management web app (GPT-3.5).
-
-	\headright{Volunteering}
-
-	\textbf{Donor} \dates{2026 -- present} \\
-	\textit{International Committee of the Red Cross - ICRC} \\
-	\small
-	Provided financial support for the homeless population in Nice, France.
-	\vspace{1ex}
-
-	\textbf{Software Developer} \dates{2025} \\
-	\textit{TVT Innovation} \\
-	\small
-	Participated in a hackathon in Toulon, France (TOU01): Identifying and treating pollution in ports. Developed a platform to detect and anticipate port pollution.
->>>>>>> 809978c (feat: updated cv (#249))
 
 \end{paracol}
 
