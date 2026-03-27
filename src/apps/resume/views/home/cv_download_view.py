@@ -6,6 +6,7 @@ from django.http import FileResponse, HttpResponseBadRequest
 from django.utils.translation import gettext as _
 from django.views import View
 
+from django.utils.translation import get_language
 from portfolio.helpers.client import get_client_ip
 from portfolio.monitor.log import logger
 from portfolio.models.s3 import S3
@@ -13,10 +14,10 @@ from botocore.exceptions import ClientError
 
 
 class CVDownloadView(View):
-    CV_S3_KEY_PATH: Final[str] = "portfolio/cv/main.pdf"
     LOG = logger.bind(module="cv_download_view")
 
     def get(self, request: Any) -> FileResponse | HttpResponseBadRequest:
+        CV_S3_KEY_PATH: Final[str] = f"portfolio/cv-{get_language()}/main.pdf"
         client_ip: str = get_client_ip(request)
 
         self.LOG.info(
@@ -26,14 +27,14 @@ class CVDownloadView(View):
 
         s3 = S3()
         try:
-            file_obj = BytesIO(s3.download(self.CV_S3_KEY_PATH))
+            file_obj = BytesIO(s3.download(CV_S3_KEY_PATH))
 
             messages.success(
                 request,
                 _("You have successfully sent an email to Iliyan!"),
             )
             self.LOG.success(
-                f"User: {client_ip} has successfully downloaded a file: {self.CV_S3_KEY_PATH}",
+                f"User: {client_ip} has successfully downloaded a file: {CV_S3_KEY_PATH}",
                 code=200,
             )
 
@@ -46,7 +47,7 @@ class CVDownloadView(View):
 
         except ClientError as error:
             self.LOG.error(
-                f"Application error: Cannot download a file {self.CV_S3_KEY_PATH} with error: {error} .Aborting downloading for user: {client_ip}",
+                f"Application error: Cannot download a file {CV_S3_KEY_PATH} with error: {error} .Aborting downloading for user: {client_ip}",
                 code=500,
             )
             messages.error(

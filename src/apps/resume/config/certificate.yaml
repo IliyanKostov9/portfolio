@@ -34,7 +34,7 @@
   url: "https://learn.microsoft.com/en-us/users/kostoviliyan-7522/credentials/4cbfcf5b11b3e4ee?ref=https%3A%2F%2Fwww.linkedin.com%2F"
   row: 2
 
-- name: "DevOps Engineer Expert"
+- name: "Azure DevOps Engineer Expert"
   issuer: "Microsoft"
   image: "microsoft_expert.png"
   date: "02.10.2023 - 03.10.2026"
@@ -48,7 +48,7 @@
   url: "https://www.credly.com/badges/a7fc1fb7-e1b6-4473-8453-6c4eff17c10f/public_url"
   row: 3
 
-- name: "Solutions Architect – Associate"
+- name: "AWS Solutions Architect – Associate"
   issuer: "Amazon Web Services (AWS)"
   image: "aws_saa.png"
   date: "29.07.2022 - 29.07.2025"
