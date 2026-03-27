@@ -53,7 +53,7 @@ jobs:
       - name: Upload PDF
         uses: actions/upload-artifact@v7
         with:
-          name: main-pdf
+          name: main-${{ matrix.language }}-pdf
           path: docs/main.pdf
 
       - name: Install AWS CLI
