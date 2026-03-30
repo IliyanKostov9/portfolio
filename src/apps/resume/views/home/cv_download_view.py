@@ -86,7 +86,7 @@ class CVDownloadView(View):
 
             except ClientError as error:
                 self.LOG.error(
-                    f"Application error: Cannot download a file {CV_S3_KEY_PATH} with error: {error} .Aborting downloading",
+                    f"Application error: Cannot download a file {CV_S3_KEY_PATH} with error: {error}. Aborting downloading...",
                     code=500,
                 )
             except ValueError as error:

@@ -83,7 +83,7 @@ class ContactMeView(View):
 
         else:
             self.LOG.error(
-                f"User cannot send an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}, because of an invalid data he put on the form",
+                f"User cannot send an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}, because of invalid data he put on the form",
                 code=400,
             )
 
@@ -108,7 +108,7 @@ class ContactMeView(View):
 
         except ValueError as error:
             self.LOG.error(
-                f"Application error: Cannot send an email,{error}. Aborting email send",
+                f"Application error: Cannot send an email,{error}. Aborting email send...",
                 code=500,
             )
             messages.error(
