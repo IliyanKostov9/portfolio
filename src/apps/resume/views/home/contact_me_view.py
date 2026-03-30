@@ -7,8 +7,10 @@ from django.shortcuts import redirect
 from django.utils.translation import gettext as _
 from django.views import View
 
+from django.utils.translation import get_language
 from apps.resume.forms.contact_me_form import ContactMe, ContactMeForm
 from portfolio.helpers.email import Email
+from portfolio.helpers.security_manager import SecurityManager
 from portfolio.monitor.log import logger
 
 
@@ -27,9 +29,58 @@ class ContactMeView(View):
             contact_me: ContactMe = ContactMe.from_form(form)
 
             if request.POST.get("submitContactmeBtn"):
-                return self.__send_email_to_iliyan(contact_me, request)
+                return self.__send_email_to_iliyan(
+                    request,
+                    f"{contact_me.email} contacted you from your portfolio 'ContactMe'",
+                    f"Name: {contact_me.name}</br>Message: {contact_me.message}",
+                    _("You have successfully sent an email to Iliyan!"),
+                )
             elif request.POST.get("submitCVDownloadBtn"):
-                self.__send_cv_download_request_email_to_iliyan(contact_me, request)
+                token: str = SecurityManager.generate_token(
+                    os.environ.get("PORTFOLIO_TO_EMAIL")
+                )
+
+                http_protocol: str = (
+                    "https" if os.environ.get("SECURE_SSL_REDIRECT") else "http"
+                )
+
+                host: str = os.environ.get("PORTFOLIO_HOST")
+                if host == "localhost":
+                    host += ":8000"
+
+                url_yes: str = (
+                    f"{http_protocol}://{host}/home/cv-download/{token}/?choice=yes&email={contact_me.email}&language={get_language()}"
+                )
+                url_no: str = (
+                    f"{http_protocol}://{host}/home/cv-download/{token}/?choice=no&email={contact_me.email}&language={get_language()}"
+                )
+
+                Email.send(
+                    subject=_("Thanks for contacting Iliyan!"),
+                    message=_(
+                        "We've contacted Iliyan with your request to download his CV. Please make sure to watch your email box for the status of this request\n\nThanks and have a nice day!"
+                    ),
+                    recipient=contact_me.email,
+                )
+
+                return self.__send_email_to_iliyan(
+                    request,
+                    f"{contact_me.email} has made a request to download your CV",
+                    f"Name: {contact_me.name}</br>Message: {contact_me.message}</br></br>Accept/Refuse: (<a href='{url_yes}'>Yes</a>/<a href='{url_no}'>No</a>)",
+                    _(
+                        "You have successfully sent a CV download request to Iliyan!\n Please wait for him to either accept/refuse your request.\n\nPlease make sure to look at your junk folder, that's where the email may end up in.\nWe'll make sure to update you regarding the status in your email box :)"
+                    ),
+                )
+            else:
+                self.LOG.error(
+                    "Unrecognized POST request: Incorrect button id!",
+                    code=400,
+                )
+                messages.error(
+                    request,
+                    _("Application error! Sorry for the inconvenience!"),
+                )
+
         else:
             self.LOG.error(
                 f"User cannot send an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}, because of an invalid data he put on the form",
@@ -39,16 +90,14 @@ class ContactMeView(View):
             return HttpResponseBadRequest()
 
     def __send_email_to_iliyan(
-        self,
-        request,
-        contact_me: ContactMe,
-        success_message: str = "You have successfully sent an email to Iliyan!",
+        self, request: Any, subject: str, message: str, success_message: str
     ) -> HttpResponse:
         try:
             Email.send(
-                subject=f"{contact_me.email} contacted you from your portfolio 'ContactMe'",
-                message=f"Name: {contact_me.name}\n\n" + contact_me.message,
+                subject=subject,
+                message=message,
                 recipient=os.environ.get("PORTFOLIO_TO_EMAIL"),
+                send_as_html=True,
             )
 
             self.LOG.success(
@@ -68,20 +117,3 @@ class ContactMeView(View):
             )
 
         return redirect("home")
-
-    def __send_cv_download_request_email_to_iliyan(
-        self, request, contact_me: ContactMe
-    ) -> None:
-        self.__send_email_to_iliyan(
-            request,
-            contact_me,
-            "You have successfully sent a CV download request to Iliyan!\n Please wait for him to either accept/refuse your request. We'll make sure to update you regarding the status in your email box :)",
-        )
-        self.LOG.success(
-            f"User has successfully sent an email to {os.environ.get('PORTFOLIO_TO_EMAIL')}",
-            code=200,
-        )
-        messages.success(
-            request,
-            _("You have successfully sent an email to Iliyan!"),
-        )

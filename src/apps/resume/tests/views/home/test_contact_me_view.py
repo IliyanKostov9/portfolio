@@ -23,6 +23,7 @@ class ContactMeTestCase(TestCase):
                 "name": "dummy",
                 "email": "dummy.dummy@mail.com",
                 "message": "This is a dummy message by dummy from dummy",
+                "submitContactmeBtn": "Submit",
             },
             follow=True,
         )
