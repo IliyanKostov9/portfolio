@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-19 22:20+0100\n"
+"POT-Creation-Date: 2026-03-30 21:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,21 +154,21 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:72
-#: src/apps/resume/templates/pages/home/contact_me.html:105
+#: src/apps/resume/templates/pages/home/contact_me.html:73
+#: src/apps/resume/templates/pages/home/contact_me.html:98
 msgid "Loading..."
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:73
+#: src/apps/resume/templates/pages/home/contact_me.html:74
 msgid "Send"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:79
+#: src/apps/resume/templates/pages/home/contact_me.html:80
 msgid "OR"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:106
-msgid "Download my bio"
+#: src/apps/resume/templates/pages/home/contact_me.html:99
+msgid "Make a request to download my bio"
 msgstr ""
 
 #: src/apps/resume/templates/pages/home/education.html:7
@@ -203,17 +203,56 @@ msgstr ""
 msgid "Work history"
 msgstr ""
 
-#: src/apps/resume/views/home/contact_me_view.py:40
-#: src/apps/resume/views/home/cv_download_view.py:33
+#: src/apps/resume/views/home/contact_me_view.py:36
 msgid "You have successfully sent an email to Iliyan!"
 msgstr ""
 
 #: src/apps/resume/views/home/contact_me_view.py:55
+msgid "Thanks for contacting Iliyan!"
+msgstr ""
+
+#: src/apps/resume/views/home/contact_me_view.py:57
+msgid ""
+"We've contacted Iliyan with your request to download his CV. Please make "
+"sure to watch your email box for the status of this request\n"
+"\n"
+"Thanks and have a nice day!"
+msgstr ""
+
+#: src/apps/resume/views/home/contact_me_view.py:67
+msgid ""
+"You have successfully sent a CV download request to Iliyan!\n"
+" Please wait for him to either accept/refuse your request.\n"
+"\n"
+"Please make sure to look at your junk folder, that's where the email may end "
+"up in.\n"
+"We'll make sure to update you regarding the status in your email box :)"
+msgstr ""
+
+#: src/apps/resume/views/home/contact_me_view.py:77
+msgid "Application error! Sorry for the inconvenience!"
+msgstr ""
+
+#: src/apps/resume/views/home/contact_me_view.py:110
 msgid "Error in sending your email message. Please try again next time :("
 msgstr ""
 
-#: src/apps/resume/views/home/cv_download_view.py:54
-msgid "Error in downloading Iliyan's CV. Please try again next time :("
+#: src/apps/resume/views/home/cv_download_view.py:49
+#, python-brace-format
+msgid "{email} has accepted to share his CV to you!"
+msgstr ""
+
+#: src/apps/resume/views/home/cv_download_view.py:52
+msgid "Good news! Iliyan agreed to have shared his CV to you!"
+msgstr ""
+
+#: src/apps/resume/views/home/cv_download_view.py:67
+#, python-brace-format
+msgid "{email} has refused to share his CV to you"
+msgstr ""
+
+#: src/apps/resume/views/home/cv_download_view.py:70
+msgid "Iliyan has refused to share his CV to you. Sorry :("
 msgstr ""
 
 #: src/templates/base.html:65
