@@ -58,7 +58,8 @@
           </div>
 
           <button
-            id="submitBtn"
+            id="submitContactmeBtn"
+            name="submitContactmeBtn"
             data-mdb-ripple-init
             type="submit"
             value="send_contact_me"
@@ -80,18 +81,10 @@
             <hr class="flex-grow-1">
           </div>
 
-        </form>
-
-        <form
-          id="cvDownloadForm"
-          action="{% url 'home/cv-download' %}"
-          method="get"
-          class="form-width-50"
-        >
-
           <div class="form-outline mb-4">
           <button
             id="submitCVDownloadBtn"
+            name="submitCVDownloadBtn"
             data-mdb-ripple-init
             type="submit"
             value="send_cv_download"
@@ -107,6 +100,7 @@
             <i class="fas fa-book-open-reader"></i>
           </button>
             </div>
+
         </form>
       </div>
     </div>
