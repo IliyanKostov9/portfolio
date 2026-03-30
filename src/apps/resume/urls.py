@@ -8,6 +8,10 @@ from apps.resume.views.home.cv_download_view import CVDownloadView
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path("home/contact-me/", ContactMeView.as_view(), name="home/contact-me"),
-    path("home/cv-download/", CVDownloadView.as_view(), name="home/cv-download"),
+    path(
+        "home/cv-download/<str:token>/",
+        CVDownloadView.as_view(),
+        name="home/cv-download",
+    ),
     path("monitor/csp-report", CSPReportView.as_view(), name="csp-report"),
 ]
