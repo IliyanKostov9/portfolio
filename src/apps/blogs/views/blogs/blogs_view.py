@@ -21,8 +21,6 @@ class BlogsView(View):
         template = loader.get_template("pages/blogs/index.html")
 
         blogs = Blog().transform()
-        print(blogs)
-
         context: dict[str, Any] = {"blogs": blogs}
 
         self.LOG.success(

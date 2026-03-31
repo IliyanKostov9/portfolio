@@ -19,6 +19,7 @@ log_handler: LokiLoggerHandler = LokiLoggerHandler(
     default_formatter=LoguruFormatter(),
 )
 
+
 logger.configure(handlers=[{"sink": log_handler, "serialize": True}])
 
 __all__ = ["logger"]
