@@ -308,7 +308,6 @@ msgid "{email} has refused to share his CV to you"
 msgstr "{email} отказа да сподели автобиографията си с вас"
 
 #: src/apps/resume/views/home/cv_download_view.py:70
-#, fuzzy
 #| msgid "Iliyan has refused to share his email address to you. Sorry :("
 msgid "Iliyan has refused to share his CV to you. Sorry :("
 msgstr "Илиян отказа да ви сподели автобиографията си. Съжалявам :("

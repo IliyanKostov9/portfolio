@@ -1,7 +1,6 @@
 {% load static i18n %}
 
 <div class="row text-center justify-content-center">
-
   <section id="Projects">
     <h2 class="lazy"><a href="#Projects">{% translate "Projects" %}</a></h2>
   </section>
@@ -31,9 +30,7 @@
                 </figcaption>
               </figure>
               <p
-                class="card-text"
-                {% if project.scroll_description %}scroll-text
-                {% endif %}
+                class="card-text"{% if project.scroll_description%}scroll-text{% endif %}
               >
                 {{ project.description }}
               </p>
