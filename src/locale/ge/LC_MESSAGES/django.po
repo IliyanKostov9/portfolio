@@ -316,7 +316,6 @@ msgstr ""
 "{email} hat sich geweigert, Ihnen seinen Lebenslauf zukommen zu lassen."
 
 #: src/apps/resume/views/home/cv_download_view.py:70
-#, fuzzy
 #| msgid "Iliyan has refused to share his email address to you. Sorry :("
 msgid "Iliyan has refused to share his CV to you. Sorry :("
 msgstr "Iliyan hat sich geweigert, Ihnen seinen Lebenslauf zukommen zu lassen. Tut mir leid :("
