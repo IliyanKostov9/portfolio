@@ -21,7 +21,9 @@
 
   <div class="text-start">
     <h5 class="mt-1 text-secondary lazy">{% translate "Hi" %},</h5>
-    <h1 class="mt-1 text-primary display-1 lazy">{% translate "I'm Iliyan" %}</h1>
+    <h1 class="mt-1 text-primary display-1 lazy">
+      {% translate "I'm Iliyan" %}
+    </h1>
     <p class="lead lazy">
       <em>{% translate "I try to figure out how things work." %}</em>
     </p>
@@ -35,7 +37,8 @@
 </p>
 
 <div
-  class="d-flex justify-content-center align-items-center lazy hide-when-scrolling">
+  class="d-flex justify-content-center align-items-center lazy hide-when-scrolling"
+>
   <a href="#About">
     <i class="fas fa-arrow-down-long align-items-center"></i>
   </a>
@@ -43,7 +46,6 @@
 <hr class="hr hr-blurry hide-when-scrolling" />
 
 <div class="container text-center">
-
   {% include 'home/about.html' %}
   <p class="spacing-bot-200" />
 
