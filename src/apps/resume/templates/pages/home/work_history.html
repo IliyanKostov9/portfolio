@@ -2,11 +2,10 @@
 
 <div class="row text-center justify-content-center">
   <div class="col-md-6 lazy">
-
-  <section id="WorkHistory">
-    <h2 class="lazy">
-      <a href="#WorkHistory">{% translate "Work history" %}</a>
-    </h2>
+    <section id="WorkHistory">
+      <h2 class="lazy">
+        <a href="#WorkHistory">{% translate "Work history" %}</a>
+      </h2>
     </section>
 
     <ul class="nav nav-tabs nav-justified mb-3" id="projects-tab">
@@ -22,8 +21,7 @@
           aria-controls="{{ work_history.company_name_label|slice:'1:' }}"
           aria-selected=" {% if forloop.first %}true{% else %}false{% endif %}"
         >
-          {% include 'icons/'|add:work_history.image %}
-          {{ work_history.company_name }}
+          {% include 'icons/'|add:work_history.image %} {{ work_history.company_name }}
         </a>
       </li>
 
