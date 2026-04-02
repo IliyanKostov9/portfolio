@@ -12,7 +12,7 @@ from django.utils.translation import gettext as _, override
 from portfolio.helpers.email import Email
 from portfolio.helpers.security_manager import SecurityManager
 from portfolio.monitor.log import logger
-from portfolio.models.s3 import S3
+from portfolio.models.aws.s3 import S3
 from botocore.exceptions import ClientError
 
 
