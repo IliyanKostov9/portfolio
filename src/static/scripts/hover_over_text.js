@@ -1,24 +1,42 @@
+import { getCookie } from "./cookie.js";
+
 document.addEventListener("DOMContentLoaded", () => {
-  const voiceBtn = document.createElement("button");
+  const createdBtn = document.createElement("button");
 
-  voiceBtn.innerHTML = "<i class='fas fa-microphone'></i>";
-  voiceBtn.className = "btn btn-lg btn-rounded btn-primary shadow-sm";
-  voiceBtn.style.display = "none";
-  voiceBtn.style.padding = "2px 8px";
+  createdBtn.innerHTML = "<i class='fas fa-microphone'></i>";
+  createdBtn.className = "btn btn-lg btn-rounded btn-primary shadow-sm";
+  createdBtn.style.display = "none";
+  createdBtn.style.padding = "2px 8px";
 
-  const targets = document.querySelectorAll(".hover-target");
+  const voiceBtns = document.querySelectorAll(".hover-target");
+  const csrfToken = getCookie("csrftoken");
 
-  targets.forEach((target) => {
-    target.style.display = "flex";
-    target.style.alignItems = "center";
-    target.style.width = "fit-content";
+  voiceBtns.forEach((voiceBtn) => {
+    voiceBtn.style.display = "flex";
+    voiceBtn.style.alignItems = "center";
+    voiceBtn.style.width = "fit-content";
 
-    target.addEventListener("mouseenter", () => {
-      target.appendChild(voiceBtn);
-      voiceBtn.style.display = "inline-block";
+    voiceBtn.addEventListener("click", () => {
+      const targetId = createdBtn.getAttribute("data-current-target");
+      fetch("home/voice/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrfToken,
+        },
+        body: JSON.stringify({
+          target_id: targetId,
+          action: "voice_requested",
+        }),
+      }).then(() => console.log("Ok"));
     });
-    target.addEventListener("mouseleave", () => {
-      voiceBtn.style.display = "none";
+
+    voiceBtn.addEventListener("mouseenter", () => {
+      voiceBtn.appendChild(createdBtn);
+      createdBtn.style.display = "inline-block";
+    });
+    voiceBtn.addEventListener("mouseleave", () => {
+      createdBtn.style.display = "none";
     });
   });
 });

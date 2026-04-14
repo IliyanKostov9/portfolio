@@ -12,7 +12,7 @@ class Polly:
     client: Any
     bucket = os.environ.get("PORTFOLIO_S3_AWS_POLLY_BUCKET")
 
-    def __int__(self) -> None:
+    def __init__(self) -> None:
         check_if_env_vars_are_set(
             [
                 "PORTFOLIO_S3_AWS_KEY_ID",
@@ -29,8 +29,6 @@ class Polly:
         )
 
     def start(self, input: str) -> None:
-        print(get_language())
-
         if get_language() == "fr":
             language_code = "fr-FR"
         elif get_language() == "ge":
@@ -45,7 +43,7 @@ class Polly:
             LanguageCode=language_code,
             OutputFormat="mp3",
             OutputS3BucketName=self.bucket,
-            OutputS3Prefix="portfolio",
+            OutputS3KeyPrefix="portfolio",
             Text=input,
             TextType="text",
             VoiceId="Joanna",
