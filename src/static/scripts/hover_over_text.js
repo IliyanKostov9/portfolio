@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     voiceBtn.style.width = "fit-content";
 
     voiceBtn.addEventListener("click", () => {
-      const targetId = createdBtn.getAttribute("data-current-target");
+      const text = voiceBtn.textContent;
       fetch("home/voice/", {
         method: "POST",
         headers: {
@@ -25,10 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
           "X-CSRFToken": csrfToken,
         },
         body: JSON.stringify({
-          target_id: targetId,
-          action: "voice_requested",
+          text: text,
         }),
-      }).then(() => console.log("Ok"));
+      }).then((audioFilePath) => new Audio(audioFilePath).play());
     });
 
     voiceBtn.addEventListener("mouseenter", () => {

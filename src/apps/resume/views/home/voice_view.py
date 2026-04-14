@@ -1,17 +1,43 @@
-from django.http import HttpResponse
+import json
+import os
+from django.http import HttpResponse, HttpResponseBadRequest
+
+from django.contrib import messages
 from typing import Any
 from django.views import View
 
 from portfolio.monitor.log import logger
 
 from portfolio.models.aws.polly import Polly
+from portfolio.models.aws.s3 import S3
 
 
 class VoiceView(View):
     LOG = logger.bind(module="voice_view")
 
     def post(self, request: Any) -> HttpResponse:
-        polly = Polly()
-        polly.start("test")
+        try:
+            response: Any = json.loads(request.body)
+            polly = Polly(os.environ.get("PORTFOLIO_S3_AWS_POLLY_BUCKET"))
+            text: str = response.get("text").strip()
 
-        return HttpResponse()
+            self.LOG.info(
+                f"Received a request to do text-to-voice for text: {text}",
+            )
+
+            mp3_file: str = polly.convert(text)
+            _ = S3(polly.bucket).download(mp3_file)
+
+            self.LOG.success(
+                f"I have successfully converted text-to-speech for mp3 file {mp3_file}",
+                code=200,
+            )
+
+            return HttpResponse(S3.TMP_FILE + "/" + mp3_file, content_type="text/plain")
+
+        except json.JSONDecodeError:
+            messages.error(
+                request,
+                _("Application error! Sorry for the inconvenience!"),
+            )
+            return HttpResponseBadRequest()

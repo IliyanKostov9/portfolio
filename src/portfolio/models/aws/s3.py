@@ -1,18 +1,19 @@
 import os
 import pathlib
-import shutil
-from typing import Any
+from typing import Any, Final
 import boto3
 from portfolio.helpers.utils import check_if_env_vars_are_set
 from portfolio.monitor.log import logger
 
 
 class S3:
-    LOG = logger.bind(module="s3_module")
     client: Any
-    bucket = os.environ.get("PORTFOLIO_S3_AWS_BUCKET")
+    bucket: str
 
-    def __init__(self) -> None:
+    LOG = logger.bind(module="s3_module")
+    TMP_FILE: Final[str] = "tmp"
+
+    def __init__(self, bucket: str) -> None:
         check_if_env_vars_are_set(
             [
                 "PORTFOLIO_S3_AWS_KEY_ID",
@@ -21,6 +22,7 @@ class S3:
             ]
         )
 
+        self.bucket = bucket
         self.client = boto3.client(
             "s3",
             aws_access_key_id=os.environ.get("PORTFOLIO_S3_AWS_KEY_ID"),
@@ -28,15 +30,15 @@ class S3:
             region_name="eu-west-1",
         )
 
-    def download(self, key: str) -> bytes:
-        file_name: str = key.split("/")[2]
+    def download(self, key: str, get_raw_bytes: bool = False) -> bytes | None:
+        file_name: str = os.path.basename(key)
 
         if "." not in file_name:
             raise ValueError(f"File must have an extension: {file_name}")
 
-        os.makedirs("tmp", exist_ok=True)
-        self.client.download_file(self.bucket, key, "tmp/" + file_name)
-        file_obj = pathlib.Path("tmp/" + file_name).read_bytes()
-        shutil.rmtree("tmp")
+        os.makedirs(self.TMP_FILE, exist_ok=True)
+        if not os.path.exists(self.TMP_FILE + "/" + file_name):
+            self.client.download_file(self.bucket, key, self.TMP_FILE + "/" + file_name)
 
-        return file_obj
+        if get_raw_bytes:
+            return pathlib.Path(self.TMP_FILE + "/" + file_name).read_bytes()

@@ -22,7 +22,7 @@ class CVDownloadView(View):
     def get(
         self, request: Any, token: str
     ) -> HttpResponse | HttpResponseForbidden | HttpResponseServerError:
-        s3 = S3()
+        s3 = S3(os.environ.get("PORTFOLIO_S3_AWS_BUCKET"))
 
         is_user_iliyan: bool = SecurityManager.verify_token(token)
         does_iliyan_want_to_share_his_cv: bool = (
@@ -36,7 +36,7 @@ class CVDownloadView(View):
         if is_user_iliyan:
             try:
                 if does_iliyan_want_to_share_his_cv:
-                    file_obj = BytesIO(s3.download(CV_S3_KEY_PATH))
+                    file_obj = BytesIO(s3.download(CV_S3_KEY_PATH, get_raw_bytes=True))
 
                     self.LOG.success(
                         f"I have successfully downloaded a file: {CV_S3_KEY_PATH}",
