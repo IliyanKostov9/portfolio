@@ -27,7 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({
           text: text,
         }),
-      }).then((audioFilePath) => new Audio(audioFilePath).play());
+      })
+        .then((response) => response.text())
+        .then((audioFilePath) => {
+          console.log(audioFilePath);
+          new Audio(audioFilePath).play();
+        });
     });
 
     voiceBtn.addEventListener("mouseenter", () => {

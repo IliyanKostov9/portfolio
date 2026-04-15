@@ -4,6 +4,7 @@ from typing import Any, Final
 import boto3
 from portfolio.helpers.utils import check_if_env_vars_are_set
 from portfolio.monitor.log import logger
+from botocore.exceptions import ClientError
 
 
 class S3:
@@ -42,3 +43,16 @@ class S3:
 
         if get_raw_bytes:
             return pathlib.Path(self.TMP_FILE + "/" + file_name).read_bytes()
+
+    def upload(self, key: str, content: str) -> None:
+        self.client.put_object(Bucket=self.bucket, Key=key, Body=content)
+
+    def exists(self, key: str) -> bool:
+        try:
+            self.client.head_object(Bucket=self.bucket, Key=key)
+            return True
+        except ClientError as err:
+            if err.response["Error"]["Code"] == "404":
+                self.LOG.error(f"Key not found: {key} in bucket: {self.bucket}")
+                return False
+            raise

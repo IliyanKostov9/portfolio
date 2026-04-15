@@ -1,8 +1,10 @@
+import hashlib
 import os
 from typing import Any
 from portfolio.helpers.utils import check_if_env_vars_are_set
 import boto3
 
+from portfolio.models.aws.s3 import S3
 from django.utils.translation import get_language
 from portfolio.monitor.log import logger
 
@@ -33,6 +35,8 @@ class Polly:
         """
         Convert text to speech and return the mp3 file
         """
+        s3 = S3(self.bucket)
+
         if get_language() == "fr":
             language_code = "fr-FR"
         elif get_language() == "ge":
@@ -42,20 +46,27 @@ class Polly:
         else:
             language_code = "arb"
 
-        mp3_file: str = os.path.basename(
-            self.client.start_speech_synthesis_task(
+        mp3_file: str = (
+            hashlib.sha256(f"{language_code}_{input}".encode("utf-8")).hexdigest()
+            + ".mp3"
+        )
+
+        if s3.exists(mp3_file):
+            if not os.path.exists(s3.TMP_FILE + "/" + mp3_file):
+                s3.download(mp3_file)
+        else:
+            stream = self.client.synthesize_speech(
                 Engine="neural",
                 LanguageCode=language_code,
                 OutputFormat="mp3",
-                OutputS3BucketName=self.bucket,
-                OutputS3KeyPrefix="portfolio",
                 Text=input,
                 TextType="text",
                 VoiceId="Joanna",
-            )["SynthesisTask"]["OutputUri"]
-        )
+            )["AudioStream"].read()
 
-        return mp3_file
+            s3.upload(mp3_file, stream)
+
+        return S3.TMP_FILE + "/" + mp3_file
 
     def close(self) -> None:
         self.client.close()

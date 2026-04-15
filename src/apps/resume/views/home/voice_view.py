@@ -6,10 +6,10 @@ from django.contrib import messages
 from typing import Any
 from django.views import View
 
+from django.utils.translation import gettext as _
 from portfolio.monitor.log import logger
 
 from portfolio.models.aws.polly import Polly
-from portfolio.models.aws.s3 import S3
 
 
 class VoiceView(View):
@@ -22,18 +22,17 @@ class VoiceView(View):
             text: str = response.get("text").strip()
 
             self.LOG.info(
-                f"Received a request to do text-to-voice for text: {text}",
+                f"Received a request to perform text-to-voice for text: {text}",
             )
 
             mp3_file: str = polly.convert(text)
-            _ = S3(polly.bucket).download(mp3_file)
 
             self.LOG.success(
                 f"I have successfully converted text-to-speech for mp3 file {mp3_file}",
                 code=200,
             )
 
-            return HttpResponse(S3.TMP_FILE + "/" + mp3_file, content_type="text/plain")
+            return HttpResponse(mp3_file, content_type="text/plain")
 
         except json.JSONDecodeError:
             messages.error(
