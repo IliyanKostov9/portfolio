@@ -28,6 +28,7 @@ CSP_REPORTS_SAVE = False
 CSP_POLICY = {
     "DIRECTIVES": {
         "default-src": [SELF],
+        "media-src": [SELF, "blob:"],
         "connect-src": [SELF, "https://api.github.com"],
         "script-src": [
             SELF,

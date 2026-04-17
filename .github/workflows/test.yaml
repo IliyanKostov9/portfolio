@@ -123,6 +123,7 @@ jobs:
       - name: Black
         run: |
           . .venv/bin/activate
+          black --version
           black --check .
 
       - name: Flake8

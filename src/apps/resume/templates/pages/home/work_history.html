@@ -39,15 +39,15 @@
       >
         <figure>
           <blockquote class="blockquote">
-            <h2>{{ work_history.specialty }}</h2>
+            <h2 class="hover-target">{{ work_history.specialty }}</h2>
           </blockquote>
           <figcaption class="blockquote-footer">
             {% for date in work_history.dates %}
-            <p>{{ date }}</p>
+            <p class="hover-target">{{ date }}</p>
             {% endfor %}
           </figcaption>
         </figure>
-        <div class="text-start">{{ work_history.description|linebreaks }}</div>
+        <div class="text-start hover-target">{{ work_history.description|linebreaks }}</div>
       </div>
       {% endfor %}
     </div>

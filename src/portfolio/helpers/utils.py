@@ -1,7 +1,7 @@
 import os
 
 
-def check_if_env_vars_are_set(env_vars: list[str]) -> None:
+def check_if_env_vars_are_set(env_vars: list[str]) -> None | ValueError:
     """
     Check if environment variable is set and raise an error if that's not the case
 
