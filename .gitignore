@@ -177,3 +177,4 @@ docs/*.aux
 docs/*.fdb_latexmk
 docs/*.log
 docs/*.out
+tmp/**
