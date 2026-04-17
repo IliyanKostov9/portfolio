@@ -37,7 +37,7 @@
         devenv.shells.default = {
           languages.python = {
             enable = true;
-            version = "3.11.9";
+            version = "3.14.3";
             uv = {
               enable = true;
               sync.enable = true;

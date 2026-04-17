@@ -4,7 +4,6 @@ from loki_logger_handler.loki_logger_handler import LokiLoggerHandler
 from loki_logger_handler.formatters.loguru_formatter import LoguruFormatter
 from loguru import logger
 
-
 LABELS: Final[dict[str, str]] = {
     "app": "portfolio",
     "env": os.environ.get("PORTFOLIO_ENV", "dev"),
