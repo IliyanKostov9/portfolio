@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m venv /opt/.venv \
-	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel uv==0.8.13
+	&& /opt/.venv/bin/pip install --upgrade pip setuptools wheel uv==0.11.6
 # dotenv django_test_migrations django_migration_linter
 
 RUN mkdir /wheels \
