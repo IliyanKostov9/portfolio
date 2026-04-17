@@ -1,10 +1,12 @@
 import os
-import pathlib
+from pathlib import Path
 from typing import Any, Final
 import boto3
 from portfolio.helpers.utils import check_if_env_vars_are_set
 from portfolio.monitor.log import logger
 from botocore.exceptions import ClientError
+
+REGION: Final[str] = "eu-west-1"
 
 
 class S3:
@@ -19,7 +21,6 @@ class S3:
             [
                 "PORTFOLIO_S3_AWS_KEY_ID",
                 "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY",
-                "PORTFOLIO_S3_AWS_BUCKET",
             ]
         )
 
@@ -28,7 +29,7 @@ class S3:
             "s3",
             aws_access_key_id=os.environ.get("PORTFOLIO_S3_AWS_KEY_ID"),
             aws_secret_access_key=os.environ.get("PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY"),
-            region_name="eu-west-1",
+            region_name=REGION,
         )
 
     def download(self, key: str, get_raw_bytes: bool = False) -> bytes | None:
@@ -36,13 +37,16 @@ class S3:
 
         if "." not in file_name:
             raise ValueError(f"File must have an extension: {file_name}")
+        elif not self.exists(key):
+            self.LOG.error(f"Key does not exist: {key}!")
+            raise ValueError(f"Key does not exist: {key}!")
 
         os.makedirs(self.TMP_FILE, exist_ok=True)
         if not os.path.exists(self.TMP_FILE + "/" + file_name):
             self.client.download_file(self.bucket, key, self.TMP_FILE + "/" + file_name)
 
         if get_raw_bytes:
-            return pathlib.Path(self.TMP_FILE + "/" + file_name).read_bytes()
+            return Path(self.TMP_FILE + "/" + file_name).read_bytes()
 
     def upload(self, key: str, *, content: str = "", file: str = "") -> None:
 
