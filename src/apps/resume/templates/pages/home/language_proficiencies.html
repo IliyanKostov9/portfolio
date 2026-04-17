@@ -14,10 +14,10 @@
         <div class="card-body d-flex flex-column">
           <figure class="d-flex flex-column flex-grow-1">
             <blockquote class="blockquote">
-              <h3 class="card-title mb-3">{{ language.name }}</h3>
+              <h3 class="card-title mb-3 hover-target">{{ language.name }}</h3>
             </blockquote>
             <figcaption class="blockquote-footer mt-auto">
-              <p>{% translate "Proficiency" %}</p>
+              <p class="hover-target">{% translate "Proficiency" %}</p>
             </figcaption>
           </figure>
           <div class="d-flex justify-content-center">
@@ -25,7 +25,7 @@
               class="progress progress-circular my-2 progress-bar-{{ language.level }}"
             >
               <div class="progress-bar {{ language.level_color }}"></div>
-              <div class="progress-label">{{ language.proficiency }}</div>
+              <div class="progress-label hover-target">{{ language.proficiency }}</div>
             </div>
           </div>
         </div>
