@@ -24,15 +24,9 @@ class VoiceView(View):
             self.LOG.info(
                 f"Received a request to perform text-to-voice for text: {text}",
             )
+            stream: bytes = polly.generate(text)
 
-            mp3_file: str = polly.convert(text)
-
-            self.LOG.success(
-                f"I have successfully converted text-to-speech for mp3 file {mp3_file}",
-                code=200,
-            )
-
-            return HttpResponse(mp3_file, content_type="text/plain")
+            return HttpResponse(stream, content_type="application/octet-stream")
 
         except json.JSONDecodeError:
             messages.error(

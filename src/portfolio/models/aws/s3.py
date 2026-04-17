@@ -44,8 +44,12 @@ class S3:
         if get_raw_bytes:
             return pathlib.Path(self.TMP_FILE + "/" + file_name).read_bytes()
 
-    def upload(self, key: str, content: str) -> None:
-        self.client.put_object(Bucket=self.bucket, Key=key, Body=content)
+    def upload(self, key: str, *, content: str = "", file: str = "") -> None:
+
+        if content:
+            self.client.put_object(Bucket=self.bucket, Key=key, Body=content)
+        elif file:
+            self.client.upload_file(file, self.bucket, key)
 
     def exists(self, key: str) -> bool:
         try:

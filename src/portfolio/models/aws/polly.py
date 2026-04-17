@@ -1,5 +1,6 @@
 import hashlib
 import os
+from pathlib import Path
 from typing import Any
 from portfolio.helpers.utils import check_if_env_vars_are_set
 import boto3
@@ -31,7 +32,7 @@ class Polly:
             region_name="eu-west-1",
         )
 
-    def convert(self, input: str) -> str:
+    def generate(self, text: str) -> bytes:
         """
         Convert text to speech and return the mp3 file
         """
@@ -47,26 +48,42 @@ class Polly:
             language_code = "arb"
 
         mp3_file: str = (
-            hashlib.sha256(f"{language_code}_{input}".encode("utf-8")).hexdigest()
+            hashlib.sha256(f"{language_code}_{text}".encode("utf-8")).hexdigest()
             + ".mp3"
         )
 
         if s3.exists(mp3_file):
-            if not os.path.exists(s3.TMP_FILE + "/" + mp3_file):
+            if not os.path.isfile(
+                str(Path(__file__).resolve().parents[4])
+                + "/"
+                + s3.TMP_FILE
+                + "/"
+                + mp3_file
+            ):
                 s3.download(mp3_file)
+
+            with open(S3.TMP_FILE + "/" + mp3_file, "rb") as file:
+                stream: bytes = file.read()
         else:
-            stream = self.client.synthesize_speech(
+            stream: bytes = self.client.synthesize_speech(
                 Engine="neural",
                 LanguageCode=language_code,
                 OutputFormat="mp3",
-                Text=input,
+                Text=text,
                 TextType="text",
                 VoiceId="Joanna",
             )["AudioStream"].read()
 
-            s3.upload(mp3_file, stream)
+            with open(S3.TMP_FILE + "/" + mp3_file, "wb") as file:
+                file.write(stream)
+            s3.upload(mp3_file, file=S3.TMP_FILE + "/" + mp3_file)
 
-        return S3.TMP_FILE + "/" + mp3_file
+            self.LOG.success(
+                f"I have successfully converted text-to-speech for mp3 file: {mp3_file}",
+                code=200,
+            )
+
+        return stream
 
     def close(self) -> None:
         self.client.close()

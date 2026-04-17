@@ -28,10 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
           text: text,
         }),
       })
-        .then((response) => response.text())
-        .then((audioFilePath) => {
-          console.log(audioFilePath);
-          new Audio(audioFilePath).play();
+        .then((response) => response.blob())
+        .then((blob) => {
+          new Audio(URL.createObjectURL(blob)).play();
         });
     });
 
