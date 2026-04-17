@@ -23,7 +23,6 @@ class Polly:
             [
                 "PORTFOLIO_S3_AWS_KEY_ID",
                 "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY",
-                "PORTFOLIO_S3_AWS_POLLY_BUCKET",
             ]
         )
 
