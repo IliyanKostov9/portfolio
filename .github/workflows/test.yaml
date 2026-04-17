@@ -44,7 +44,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python_version: ["3.11.9"]
+        python_version: ["3.14.3"]
     steps:
       - name: Download repo artifact
         uses: actions/download-artifact@v8
@@ -95,7 +95,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python_version: ["3.11.9"]
+        python_version: ["3.14.3"]
     steps:
       - name: Set up Python
         uses: actions/setup-python@v6
