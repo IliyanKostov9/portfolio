@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   voiceBtns.forEach((voiceBtn) => {
     voiceBtn.addEventListener("click", () => {
       const text = voiceBtn.textContent;
-      fetch("home/voice/", {
+      fetch("/home/voice/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
