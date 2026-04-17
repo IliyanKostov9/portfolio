@@ -1,3 +1,5 @@
+import { getCookie, setCookie } from "./cookie.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const carousels = document.querySelectorAll(".carousel");
   const tabLinks = document.querySelectorAll("[data-mdb-tab-init]");

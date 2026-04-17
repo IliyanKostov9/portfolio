@@ -4,6 +4,7 @@ from apps.resume.views.home.contact_me_view import ContactMeView
 from apps.resume.views.home.home_view import HomeView
 from apps.resume.views.monitor.csp_report_view import CSPReportView
 from apps.resume.views.home.cv_download_view import CVDownloadView
+from apps.resume.views.home.voice_view import VoiceView
 
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
@@ -12,6 +13,11 @@ urlpatterns = [
         "home/cv-download/<str:token>/",
         CVDownloadView.as_view(),
         name="home/cv-download",
+    ),
+    path(
+        "home/voice/",
+        VoiceView.as_view(),
+        name="home/voice",
     ),
     path("monitor/csp-report", CSPReportView.as_view(), name="csp-report"),
 ]

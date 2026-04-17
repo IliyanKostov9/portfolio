@@ -118,3 +118,12 @@ $spacer: 10px;
   right: 0px;
   width: 400px;
 }
+.hover-target {
+  position: relative;
+  cursor: pointer;
+}
+
+.hover-target:hover {
+  color: #0d6efd !important;
+  text-decoration: underline;
+}
