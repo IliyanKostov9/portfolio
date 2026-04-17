@@ -12,9 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const csrfToken = getCookie("csrftoken");
 
   voiceBtns.forEach((voiceBtn) => {
-    voiceBtn.style.display = "flex";
-    voiceBtn.style.alignItems = "center";
-    voiceBtn.style.width = "fit-content";
+    // NOTE: Breaks text position
+    // voiceBtn.style.display = "flex";
 
     voiceBtn.addEventListener("click", () => {
       const text = voiceBtn.textContent;
