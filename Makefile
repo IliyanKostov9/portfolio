@@ -19,9 +19,9 @@ run: ## Run Django app
 	python3 -m uvicorn src.portfolio.asgi:application --reload
 
 test: ## Test Django app
-	# python3 -Wa ./src/manage.py test apps.resume.tests -v 3
-	# python3 -Wa ./src/manage.py test apps.blogs.tests -v 3
 	python3 -Wa ./src/manage.py test portfolio.tests -v 3
+	python3 -Wa ./src/manage.py test apps.resume.tests -v 3
+	python3 -Wa ./src/manage.py test apps.blogs.tests -v 3
 
 clean:
 	echo "clean"

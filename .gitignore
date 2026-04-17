@@ -178,3 +178,4 @@ docs/*.fdb_latexmk
 docs/*.log
 docs/*.out
 tmp/**
+.env**

@@ -1,7 +1,9 @@
 import os
-from typing import Final
+from typing import Final, List
 import boto3
 from pathlib import Path
+
+from django.utils.translation import override
 from unittest import TestCase
 from unittest.mock import patch
 from portfolio.models.aws.polly import Polly
@@ -9,6 +11,13 @@ from portfolio.models.aws.s3 import S3
 from moto import mock_aws
 
 
+@patch.dict(
+    os.environ,
+    {
+        "PORTFOLIO_S3_AWS_KEY_ID": "123",
+        "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY": "123",
+    },
+)
 @mock_aws
 class TestPolly(TestCase):
     BUCKET: Final[str] = "bucket123"
@@ -31,11 +40,54 @@ class TestPolly(TestCase):
         Polly(self.BUCKET)
 
     def test_generate(self) -> None:
-        self.setUp()
-
         polly = Polly(self.BUCKET)
-        polly.generate("This is a test")
+        stream: bytes = polly.generate("This is a test")
 
-        self.assertTrue(
-            os.path.isdir(str(Path(__file__).resolve().parents[5]) + "/" + S3.TMP_FILE)
-        )
+        matches: List[str] = [
+            file
+            for file in os.listdir(
+                str(Path(__file__).resolve().parents[5]) + "/" + S3.TMP_FILE
+            )
+            if file.endswith("mp3")
+        ]
+
+        self.assertIsInstance(stream, bytes)
+        self.assertTrue(matches)
+
+        language_configs = {
+            "en": {
+                "language_code": "en-US",
+                "voice": "Joanna",
+                "engine": "neural",
+            },
+            "fr": {
+                "language_code": "fr-FR",
+                "voice": "Lea",
+                "engine": "neural",
+            },
+            "ge": {
+                "language_code": "de-DE",
+                "voice": "Vicki",
+                "engine": "neural",
+            },
+            "bg": {
+                "language_code": "ru-RU",
+                "voice": "Tatyana",
+                "engine": "standard",
+            },
+            "blablabla": {
+                "language_code": "arb",
+                "voice": "Joanna",
+                "engine": "neural",
+            },
+        }
+        langs = ["en", "fr", "ge", "bg", "blablabla"]
+
+        for lang in langs:
+            with override(lang):
+                polly = Polly(self.BUCKET)
+                config = language_configs[lang]
+
+                self.assertEqual(polly.language_code, config["language_code"])
+                self.assertEqual(polly.voice, config["voice"])
+                self.assertEqual(polly.engine, config["engine"])

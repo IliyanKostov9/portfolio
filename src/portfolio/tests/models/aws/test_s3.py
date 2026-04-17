@@ -8,6 +8,13 @@ from portfolio.models.aws.s3 import S3
 from moto import mock_aws
 
 
+@patch.dict(
+    os.environ,
+    {
+        "PORTFOLIO_S3_AWS_KEY_ID": "123",
+        "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY": "123",
+    },
+)
 @mock_aws
 class TestS3(TestCase):
     BUCKET: Final[str] = "bucket123"
@@ -34,10 +41,8 @@ class TestS3(TestCase):
         S3(self.BUCKET)
 
     def test_upload(self):
-        self.setUp()
-
-        key: str = "test.txt"
         s3 = S3(self.BUCKET)
+        key: str = s3.TMP_FILE + "/test.txt"
 
         s3.upload(key, file=key)
 
@@ -51,20 +56,18 @@ class TestS3(TestCase):
         )
 
     def test_download(self):
-        self.setUp()
-
-        key: str = "test.txt"
         s3 = S3(self.BUCKET)
+        key: str = s3.TMP_FILE + "/test.txt"
 
         with self.assertRaises(ValueError):
             s3.download("oaeaoe")
             s3.download(key)
 
+        with open(key, "wb") as file:
+            file.write(b"aeaoeaoe")
         s3.upload(key, file=key)
         s3.download(key)
 
         self.assertTrue(
-            os.path.isfile(
-                str(Path(__file__).resolve().parents[5]) + "/" + s3.TMP_FILE + "/" + key
-            )
+            os.path.isfile(str(Path(__file__).resolve().parents[5]) + "/" + key)
         )

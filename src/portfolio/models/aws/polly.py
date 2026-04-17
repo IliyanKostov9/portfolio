@@ -93,6 +93,7 @@ class Polly:
                 VoiceId=self.voice,
             )["AudioStream"].read()
 
+            os.makedirs(S3.TMP_FILE, exist_ok=True)
             with open(S3.TMP_FILE + "/" + mp3_file, "wb") as file:
                 file.write(stream)
             s3.upload(mp3_file, file=S3.TMP_FILE + "/" + mp3_file)
