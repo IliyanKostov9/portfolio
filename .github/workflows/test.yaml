@@ -124,7 +124,7 @@ jobs:
         run: |
           . .venv/bin/activate
           black --version
-          black --check .
+          black --check --diff .
 
       - name: Flake8
         run: |
