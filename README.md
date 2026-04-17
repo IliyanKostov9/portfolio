@@ -48,7 +48,7 @@ For maintenance it uses [Grafana](https://grafana.com/), that the application se
 
 ### ✅ Prerequisites
 
-In order to build & run the app, make sure you have installed [Python 3.11](https://www.python.org/downloads/release/python-3110/).
+In order to build & run the app, make sure you have installed [Python 3.14](https://www.python.org/downloads/release/python-3140/).
 
 > If you are using Nix or NixOS you can install it in flake.nix via *devenv*
 
