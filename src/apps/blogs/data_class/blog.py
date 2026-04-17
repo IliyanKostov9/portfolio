@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import date
+import datetime
 from typing import Any
 
 from typing_extensions import override
@@ -12,7 +12,7 @@ class Blog(Portfolio):
     title: str
     description: str
     image_preview: str
-    date: date
+    date: datetime.date
     url: str
     read_time_mins: int
     category: int
