@@ -19,6 +19,7 @@ class VoiceView(View):
         try:
             response: Any = json.loads(request.body)
             polly = Polly(os.environ.get("PORTFOLIO_S3_AWS_POLLY_BUCKET"))
+
             text: str = response.get("text").strip()
 
             self.LOG.info(
@@ -29,7 +30,10 @@ class VoiceView(View):
 
             return HttpResponse(stream, content_type="application/octet-stream")
 
-        except json.JSONDecodeError:
+        except (json.JSONDecodeError, AttributeError) as err:
+            self.LOG.error(
+                f"No text is found on the post request: {request}: {err}!",
+            )
             messages.error(
                 request,
                 _("Application error! Sorry for the inconvenience!"),
