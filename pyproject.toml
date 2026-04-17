@@ -42,6 +42,7 @@ test = [
     "fb-sapp>=0.5.9",
     "flake8>=7.3.0",
     "pylint>=3.3.8",
+    # NOTE: Broken for 3.14
     # "pyre-check>=0.9.25",
     "setuptools-rust>=1.11.1",
 ]
