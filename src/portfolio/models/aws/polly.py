@@ -14,6 +14,9 @@ class Polly:
     LOG = logger.bind(module="polly_module")
     client: Any
     bucket: str
+    language_code: str
+    voice: str
+    engine: str
 
     def __init__(self, bucket: str) -> None:
         check_if_env_vars_are_set(
@@ -32,23 +35,40 @@ class Polly:
             region_name="eu-west-1",
         )
 
+        if get_language() in ["bg"]:
+            self.engine = "standard"
+        else:
+            self.engine = "neural"
+
+        match get_language():
+            case "fr":
+                self.language_code = "fr-FR"
+                self.voice = "Lea"
+
+            case "ge":
+                self.language_code = "de-DE"
+                self.voice = "Vicki"
+
+            case "en":
+                self.language_code = "en-US"
+                self.voice = "Joanna"
+
+            case "bg":
+                self.language_code = "ru-RU"  # NOTE: Bulgarian is not available
+                self.voice = "Tatyana"
+
+            case _:
+                self.language_code = "arb"
+                self.voice = "Joanna"
+
     def generate(self, text: str) -> bytes:
         """
         Convert text to speech and return the mp3 file
         """
         s3 = S3(self.bucket)
 
-        if get_language() == "fr":
-            language_code = "fr-FR"
-        elif get_language() == "ge":
-            language_code = "de-DE"
-        elif get_language() == "en":
-            language_code = "en-US"
-        else:
-            language_code = "arb"
-
         mp3_file: str = (
-            hashlib.sha256(f"{language_code}_{text}".encode("utf-8")).hexdigest()
+            hashlib.sha256(f"{self.language_code}_{text}".encode("utf-8")).hexdigest()
             + ".mp3"
         )
 
@@ -66,12 +86,12 @@ class Polly:
                 stream: bytes = file.read()
         else:
             stream: bytes = self.client.synthesize_speech(
-                Engine="neural",
-                LanguageCode=language_code,
+                Engine=self.engine,
+                LanguageCode=self.language_code,
                 OutputFormat="mp3",
                 Text=text,
                 TextType="text",
-                VoiceId="Joanna",
+                VoiceId=self.voice,
             )["AudioStream"].read()
 
             with open(S3.TMP_FILE + "/" + mp3_file, "wb") as file:

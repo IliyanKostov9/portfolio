@@ -25,6 +25,7 @@ class VoiceView(View):
                 f"Received a request to perform text-to-voice for text: {text}",
             )
             stream: bytes = polly.generate(text)
+            polly.close()
 
             return HttpResponse(stream, content_type="application/octet-stream")
 

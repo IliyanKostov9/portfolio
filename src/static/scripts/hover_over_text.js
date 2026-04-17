@@ -1,20 +1,17 @@
 import { getCookie } from "./cookie.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const createdBtn = document.createElement("button");
+  const createdVoiceBtn = document.createElement("button");
 
-  createdBtn.innerHTML = "<i class='fas fa-microphone'></i>";
-  createdBtn.className = "btn btn-lg btn-rounded btn-primary shadow-sm";
-  createdBtn.style.display = "none";
-  createdBtn.style.padding = "2px 8px";
+  createdVoiceBtn.innerHTML = "<i class='fas fa-microphone'></i>";
+  createdVoiceBtn.className = "btn btn-lg btn-rounded btn-primary shadow-sm";
+  createdVoiceBtn.style.display = "none";
+  createdVoiceBtn.style.padding = "2px 8px";
 
   const voiceBtns = document.querySelectorAll(".hover-target");
   const csrfToken = getCookie("csrftoken");
 
   voiceBtns.forEach((voiceBtn) => {
-    // NOTE: Breaks text position
-    // voiceBtn.style.display = "flex";
-
     voiceBtn.addEventListener("click", () => {
       const text = voiceBtn.textContent;
       fetch("home/voice/", {
@@ -34,11 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     voiceBtn.addEventListener("mouseenter", () => {
-      voiceBtn.appendChild(createdBtn);
-      createdBtn.style.display = "inline-block";
+      voiceBtn.appendChild(createdVoiceBtn);
+      createdVoiceBtn.style.display = "inline-block";
     });
     voiceBtn.addEventListener("mouseleave", () => {
-      createdBtn.style.display = "none";
+      createdVoiceBtn.style.display = "none";
     });
   });
 });
