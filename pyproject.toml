@@ -39,11 +39,12 @@ test = [
     "black>=25.1.0",
     "django-migration-linter>=5.2.0",
     "django-test-migrations>=1.5.0",
-    "fb-sapp>=0.5.9",
     "flake8>=7.3.0",
     "moto>=5.1.22",
     "pylint>=3.3.8",
     # NOTE: Broken for 3.14
     # "pyre-check>=0.9.25",
+    # BUG: Version 0.5.9 is vulnarable
+    # "fb-sapp>=0.5.9",
     "setuptools-rust>=1.11.1",
 ]
