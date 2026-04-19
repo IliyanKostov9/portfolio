@@ -177,5 +177,15 @@ docs/*.aux
 docs/*.fdb_latexmk
 docs/*.log
 docs/*.out
+
+# Other
 tmp/**
 .env**
+
+# Terraform
+.terraform/
+infra/iac/.terraform.lock.hcl
+infra/iac/terraform.tfstate
+.terraform.tfstate.backup
+*.tfvars
+infra/iac/terraform.tfstate.backup
