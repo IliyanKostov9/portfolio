@@ -3,6 +3,8 @@
 # #######################
 
 LATEX_LANG ?= en
+APP_PATH ?= infra/iac/apps/portfolio
+VAR_FILE_PATH ?= infra/iac/env/prod
 
 # ########################
 # TARGET
@@ -90,4 +92,9 @@ latex-compile:
 	main.tex || true && \
 	zathura main.pdf
 
-
+.PHONY: tf-deploy
+tf-deploy: ## Deploy infa via Terraform
+	cd "$(APP_PATH)"
+	# terraform init
+	# terraform validate
+	terraform plan -var-file="$(VAR_FILE_PATH)"

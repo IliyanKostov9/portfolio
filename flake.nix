@@ -12,6 +12,7 @@
       url = "github:cachix/nixpkgs-python";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-terraform.url = "github:stackbuilders/nixpkgs-terraform";
   };
 
   outputs = inputs @ {
@@ -34,13 +35,26 @@
         system,
         ...
       }: {
+        # NOTE: Unfree packages
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
         devenv.shells.default = {
-          languages.python = {
-            enable = true;
-            version = "3.14.3";
-            uv = {
+          languages = {
+            python = {
               enable = true;
-              sync.enable = true;
+              version = "3.14.3";
+              uv = {
+                enable = true;
+                sync.enable = true;
+              };
+            };
+            terraform = {
+              enable = true;
+              lsp.enable = true;
+              version = "1.9.8";
             };
           };
 
