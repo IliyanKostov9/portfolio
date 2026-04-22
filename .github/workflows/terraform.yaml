@@ -28,11 +28,8 @@ jobs:
 
       - name: Decrypt terraform.tfvars
         run: |
-          echo "$AGE_KEY" > age-key.txt
-          age --decrypt -i age-key.txt terraform.tfvars.age > terraform.tfvars
+          echo "${{ secrets.PORTFOLIO_AGE_KEY }}" | age --decrypt -i - terraform.tfvars.age > terraform.tfvars
         working-directory: infra/iac/env/prod
-        env:
-          AGE_KEY: ${{ secrets.PORTFOLIO_AGE_KEY }}
 
       - name: Setup terraform
         uses: hashicorp/setup-terraform@5e8dbf3c6d9deaf4193ca7a8fb23f2ac83bb6c85 #v4
