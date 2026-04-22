@@ -28,7 +28,7 @@ jobs:
 
       - name: Decrypt terraform.tfvars
         run: |
-          echo "$AGE_KEY" >> age-key.txt
+          echo "$AGE_KEY" > age-key.txt
           age --decrypt -i age-key.txt terraform.tfvars.age > terraform.tfvars
         working-directory: infra/iac/env/prod
         env:
