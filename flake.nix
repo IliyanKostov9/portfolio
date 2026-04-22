@@ -59,7 +59,7 @@
           };
 
           packages = with pkgs; [
-            sops
+            age
             gettext # NOTE: Needed for django-admin compilemessages
             (texlive.combine
               {

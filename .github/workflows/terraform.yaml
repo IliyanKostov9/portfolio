@@ -23,6 +23,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Setup Age
+        uses: AnimMouse/setup-age@v1
+
+      - name: Decrypt terraform.tfvars
+        run: |
+          echo "${{ secrets.PORTFOLIO_AGE_KEY }}" >> age-key.txt
+          age --decrypt -i age-key.txt terraform.tfvars.age > terraform.tfvars
+        working-directory: infra/iac/env/prod
+
       - name: Setup terraform
         uses: hashicorp/setup-terraform@5e8dbf3c6d9deaf4193ca7a8fb23f2ac83bb6c85 #v4
         with:
