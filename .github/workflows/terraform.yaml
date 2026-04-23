@@ -1,0 +1,54 @@
+name: Terraform workflow
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - infra/iac/**
+  workflow_dispatch:
+
+jobs:
+  terraform:
+    name: Terraform job
+    permissions:
+      contents: read
+      pull-requests: write
+    env:
+      TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Age
+        uses: AnimMouse/setup-age@d7fa8779bcb38294334a3aa753c7171e8da5067e # v1.2
+
+      - name: Decrypt terraform.tfvars
+        run: |
+          echo "$AGE_KEY" > /tmp/age-key.txt
+          age --decrypt -i /tmp/age-key.txt terraform.tfvars.age > terraform.tfvars
+          rm /tmp/age-key.txt
+        working-directory: infra/iac/env/prod
+        env:
+          AGE_KEY: ${{ secrets.PORTFOLIO_AGE_KEY }}
+
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@5e8dbf3c6d9deaf4193ca7a8fb23f2ac83bb6c85 #v4
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+          terraform_version: "1.9"
+
+      - name: Initialize
+        run: make tf-init
+
+      - name: Validate
+        if: success() || failure()
+        run: make tf-validate
+
+      - name: Plan
+        run: make tf-plan
+
+      - name: Apply
+        run: make tf-apply
