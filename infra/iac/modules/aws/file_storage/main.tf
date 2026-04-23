@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    github = {
+      source = "integrations/github"
+    }
+  }
+}
+
 locals {
   uppercase_name_without_dash = upper(strcontains(var.name, "-") ? replace(var.name, "-", "_") : var.name)
 }
@@ -66,7 +74,7 @@ resource "github_actions_secret" "aws_access_key_id" {
 
 resource "github_actions_secret" "aws_secret_access_key" {
   repository      = "portfolio"
-  secret_name     = format("PORTFOLIO_S3_%s_%s_ACCESS_KEY_ID", local.uppercase_name_without_dash, upper(var.env))
+  secret_name     = format("PORTFOLIO_S3_%s_%s_SECRET_ACESS_KEY", local.uppercase_name_without_dash, upper(var.env))
   plaintext_value = aws_iam_access_key.current.secret
 }
 
