@@ -14,31 +14,30 @@ resource "aws_s3_bucket_public_access_block" "disable_public_access" {
   restrict_public_buckets = true
 }
 
+data "aws_iam_policy_document" "deny_http_access" {
+  statement {
+    sid    = "HTTPSOnly"
+    effect = "Deny"
+    principals {
+      type        = "AWS"
+      identifiers = ["*"]
+    }
+    actions = ["s3:*"]
+    resources = [
+      aws_s3_bucket.current.arn,
+      "${aws_s3_bucket.current.arn}/*"
+    ]
+    condition {
+      test     = "Bool"
+      variable = "aws:SecureTransport"
+      values   = ["false"]
+    }
+  }
+}
+
 resource "aws_s3_bucket_policy" "deny_https_access" {
   bucket = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Id      = "Block HTTP access"
-    Statements = [
-      {
-        Sid    = "HTTPSOnly"
-        Effect = "Deny"
-        Principal = {
-          "AWS" : "*"
-        }
-        Action = ["s3:*"]
-        Resource = [
-          aws_s3_bucket.current.arn,
-          "${aws_s3_bucket.current.arn}/*"
-        ]
-        Condition = {
-          Bool = {
-            "aws:SecureTransport" : "false"
-          }
-        }
-      }
-    ]
-  })
+  policy = data.aws_iam_policy_document.deny_http_access.json
 }
 
 resource "aws_iam_user" "current" {
