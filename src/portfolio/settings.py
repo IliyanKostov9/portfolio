@@ -62,6 +62,7 @@ if not SECRET_KEY and not bool(
     raise OSError("SECRET KEY is not set!")
 
 if os.environ.get("PORTFOLIO_ENV") == "prod":
+    DEBUG = True
     CONTENT_SECURITY_POLICY = CSP_POLICY
     ADMINS = [("Iliyan", os.environ.get("PORTFOLIO_TO_EMAIL"))]
     MANAGERS = [("Iliyan", os.environ.get("PORTFOLIO_TO_EMAIL"))]
