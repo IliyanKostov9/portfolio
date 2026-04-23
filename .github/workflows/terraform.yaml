@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - feature/terraform
     paths:
       - infra/iac/**
   workflow_dispatch:
