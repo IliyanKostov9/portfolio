@@ -85,8 +85,6 @@ resource "github_actions_secret" "aws_bucket_name" {
 }
 
 
-
-
 data "aws_iam_policy_document" "current" {
   statement {
     effect = "Allow"
