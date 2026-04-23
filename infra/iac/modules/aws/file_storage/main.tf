@@ -78,6 +78,14 @@ resource "github_actions_secret" "aws_secret_access_key" {
   plaintext_value = aws_iam_access_key.current.secret
 }
 
+resource "github_actions_secret" "aws_bucket_name" {
+  repository      = "portfolio"
+  secret_name     = format("PORTFOLIO_S3_%s_%s_BUCKET", local.uppercase_name_without_dash, upper(var.env))
+  plaintext_value = aws_s3_bucket.current.id
+}
+
+
+
 
 data "aws_iam_policy_document" "current" {
   statement {
