@@ -24,5 +24,6 @@ provider "aws" {
 }
 
 provider "github" {
+  owner = "IliyanKostov9"
   token = var.github_token
 }
