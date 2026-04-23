@@ -11,8 +11,8 @@ from moto import mock_aws
 @patch.dict(
     os.environ,
     {
-        "PORTFOLIO_S3_AWS_KEY_ID": "123",
-        "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY": "123",
+        "PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID": "123",
+        "PORTFOLIO_S3_MAIN_PROD_SECRET_ACESS_KEY": "123",
     },
 )
 @mock_aws
@@ -28,20 +28,13 @@ class TestS3(TestCase):
         self.client.create_bucket(Bucket=self.BUCKET)
 
     def test_envs(self) -> None:
-        with patch.dict(
-            os.environ,
-            {
-                "PORTFOLIO_S3_AWS_KEY_ID": "",
-                "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY": "",
-            },
-        ):
-            with self.assertRaises(ValueError):
-                S3(self.BUCKET)
+        with self.assertRaises(ValueError):
+            S3(self.BUCKET)
 
-        S3(self.BUCKET)
+        S3(self.BUCKET, "123", "456")
 
     def test_upload(self):
-        s3 = S3(self.BUCKET)
+        s3 = S3(self.BUCKET, "123", "456")
         key: str = s3.TMP_FILE + "/test.txt"
 
         s3.upload(key, file=key)
@@ -56,7 +49,7 @@ class TestS3(TestCase):
         )
 
     def test_download(self):
-        s3 = S3(self.BUCKET)
+        s3 = S3(self.BUCKET, "123", "456")
         key: str = s3.TMP_FILE + "/test.txt"
 
         with self.assertRaises(ValueError):
