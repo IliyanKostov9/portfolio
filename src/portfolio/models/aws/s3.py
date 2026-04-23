@@ -19,16 +19,18 @@ class S3:
     def __init__(self, bucket: str) -> None:
         check_if_env_vars_are_set(
             [
-                "PORTFOLIO_S3_AWS_KEY_ID",
-                "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY",
+                "PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID",
+                "PORTFOLIO_S3_MAIN_PROD_SECRET_ACESS_KEY",
             ]
         )
 
         self.bucket = bucket
         self.client = boto3.client(
             "s3",
-            aws_access_key_id=os.environ.get("PORTFOLIO_S3_AWS_KEY_ID"),
-            aws_secret_access_key=os.environ.get("PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY"),
+            aws_access_key_id=os.environ.get("PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID"),
+            aws_secret_access_key=os.environ.get(
+                "PORTFOLIO_S3_MAIN_PROD_SECRET_ACESS_KEY"
+            ),
             region_name=REGION,
         )
 

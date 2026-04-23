@@ -11,8 +11,8 @@ from moto import mock_aws
 @patch.dict(
     os.environ,
     {
-        "PORTFOLIO_S3_AWS_KEY_ID": "123",
-        "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY": "123",
+        "PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID": "123",
+        "PORTFOLIO_S3_MAIN_PROD_SECRET_ACESS_KEY": "123",
     },
 )
 @mock_aws
@@ -31,8 +31,8 @@ class TestS3(TestCase):
         with patch.dict(
             os.environ,
             {
-                "PORTFOLIO_S3_AWS_KEY_ID": "",
-                "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY": "",
+                "PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID": "",
+                "PORTFOLIO_S3_MAIN_PROD_SECRET_ACESS_KEY": "",
             },
         ):
             with self.assertRaises(ValueError):

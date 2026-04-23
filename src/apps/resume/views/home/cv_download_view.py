@@ -22,7 +22,7 @@ class CVDownloadView(View):
     def get(
         self, request: Any, token: str
     ) -> HttpResponse | HttpResponseForbidden | HttpResponseServerError:
-        s3 = S3(os.environ.get("PORTFOLIO_S3_AWS_BUCKET"))
+        s3 = S3(os.environ.get("PORTFOLIO_S3_MAIN_PROD_BUCKET"))
 
         is_user_iliyan: bool = SecurityManager.verify_token(token)
         does_iliyan_want_to_share_his_cv: bool = (
