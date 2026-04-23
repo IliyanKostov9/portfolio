@@ -1,3 +1,7 @@
+locals {
+  uppercase_name_without_dash = upper(strcontains(var.name, "-") ? replace(var.name, "-", "_") : var.name)
+}
+
 data "aws_caller_identity" "current" {}
 resource "aws_s3_bucket" "current" {
   bucket = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
@@ -53,10 +57,31 @@ resource "aws_iam_user" "current" {
 resource "aws_iam_access_key" "current" {
   user = aws_iam_user.current.name
 }
+
+resource "github_actions_secret" "aws_access_key_id" {
+  repository      = "portfolio"
+  secret_name     = format("PORTFOLIO_S3_%s_%s_ACCESS_KEY_ID", local.uppercase_name_without_dash, upper(var.env))
+  plaintext_value = aws_iam_access_key.current.id
+}
+
+resource "github_actions_secret" "aws_secret_access_key" {
+  repository      = "portfolio"
+  secret_name     = format("PORTFOLIO_S3_%s_%s_ACCESS_KEY_ID", local.uppercase_name_without_dash, upper(var.env))
+  plaintext_value = aws_iam_access_key.current.secret
+}
+
+
 data "aws_iam_policy_document" "current" {
   statement {
-    effect  = "Allow"
-    actions = ["s3:*"]
+    effect = "Allow"
+    actions = [
+      "s3:PutObject",
+      "s3:GetObject",
+      "s3:GetBucketLocation",
+      "s3:ListBucket",
+      "s3:DeleteObject",
+      "s3:DeleteObjectVersion",
+    ]
     resources = [
       aws_s3_bucket.current.arn,
       "${aws_s3_bucket.current.arn}/*"
@@ -65,7 +90,7 @@ data "aws_iam_policy_document" "current" {
 }
 
 resource "aws_iam_user_policy" "current" {
-  name   = format("ses-policy-%s", var.env)
+  name   = format("portfolio-policy-%s-%s", var.name, var.env)
   user   = aws_iam_user.current.name
   policy = data.aws_iam_policy_document.current.json
 }

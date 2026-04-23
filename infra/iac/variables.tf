@@ -25,3 +25,8 @@ variable "ses_identity_email" {
   description = "Identity email for the SES"
   type        = string
 }
+
+variable "github_token" {
+  description = "Github token to authenticate"
+  type        = string
+}
