@@ -23,7 +23,7 @@ dependencies = [
     "django-csp>=4.0",
     "loguru>=0.7.3",
     "loki-logger-handler>=1.1.2",
-    "requests>=2.32.5",
+    "requests>=2.33.1",
     "psycopg2-binary>=2.9.11",
     "boto3>=1.42.30",
 ]
