@@ -22,7 +22,7 @@ class Polly:
         check_if_env_vars_are_set(
             [
                 "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID",
-                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACESS_KEY",
+                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACCESS_KEY",
             ]
         )
 
@@ -33,7 +33,7 @@ class Polly:
                 "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID"
             ),
             aws_secret_access_key=os.environ.get(
-                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACESS_KEY"
+                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACCESS_KEY"
             ),
             region_name="eu-west-1",
         )
@@ -71,7 +71,7 @@ class Polly:
         s3 = S3(
             self.bucket,
             os.environ.get("PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID"),
-            os.environ.get("PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACESS_KEY"),
+            os.environ.get("PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACCESS_KEY"),
         )
 
         mp3_file: str = (
