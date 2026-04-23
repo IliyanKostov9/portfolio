@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Setup Age
-        uses: AnimMouse/setup-age@v1
+        uses: AnimMouse/setup-age@d7fa8779bcb38294334a3aa753c7171e8da5067e # v1.2
 
       - name: Decrypt terraform.tfvars
         run: |
