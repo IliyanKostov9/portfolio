@@ -18,7 +18,7 @@ class VoiceView(View):
     def post(self, request: Any) -> HttpResponse:
         try:
             response: Any = json.loads(request.body)
-            polly = Polly(os.environ.get("PORTFOLIO_S3_AWS_POLLY_BUCKET"))
+            polly = Polly(os.environ.get("PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_BUCKET"))
 
             text: str = response.get("text").strip()
 

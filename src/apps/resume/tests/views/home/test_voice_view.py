@@ -13,9 +13,9 @@ BUCKET: Final[str] = "bucket123"
 @patch.dict(
     os.environ,
     {
-        "PORTFOLIO_S3_AWS_KEY_ID": "123",
-        "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY": "123",
-        "PORTFOLIO_S3_AWS_POLLY_BUCKET": BUCKET,
+        "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID": "123",
+        "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACESS_KEY": "123",
+        "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_BUCKET": BUCKET,
     },
 )
 @mock_aws
