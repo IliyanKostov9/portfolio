@@ -3,6 +3,8 @@
 # #######################
 
 LATEX_LANG ?= en
+APP_PATH ?= ./infra/iac
+VAR_FILE_PATH ?= ./env/prod
 
 # ########################
 # TARGET
@@ -90,4 +92,40 @@ latex-compile:
 	main.tex || true && \
 	zathura main.pdf
 
+.PHONY: tf-init
+tf-init: ## Initialize infa via Terraform
+	terraform -chdir=$(APP_PATH) \
+		init \
+		-var-file="$(VAR_FILE_PATH)/terraform.tfvars" \
+		-no-color
 
+.PHONY: tf-validate
+tf-validate: ## Validate infa via Terraform
+	terraform -chdir=$(APP_PATH) \
+		validate \
+		-no-color
+
+.PHONY: tf-plan
+tf-plan: ## Plan infa via Terraform
+	terraform -chdir=$(APP_PATH) \
+		plan \
+		-var-file="$(VAR_FILE_PATH)/terraform.tfvars" \
+		-no-color
+
+.PHONY: tf-apply
+tf-apply: ## Apply infa via Terraform
+	terraform -chdir=$(APP_PATH) \
+		apply \
+		-var-file="$(VAR_FILE_PATH)/terraform.tfvars" \
+		-no-color \
+		-auto-approve \
+		-input=false
+
+.PHONY: tf-destroy
+tf-destroy: ## Apply infa via Terraform
+	terraform -chdir=$(APP_PATH) \
+		destroy \
+		-var-file="$(VAR_FILE_PATH)/terraform.tfvars" \
+		-no-color \
+		-auto-approve \
+		-input=false

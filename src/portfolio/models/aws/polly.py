@@ -21,16 +21,20 @@ class Polly:
     def __init__(self, bucket: str) -> None:
         check_if_env_vars_are_set(
             [
-                "PORTFOLIO_S3_AWS_KEY_ID",
-                "PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY",
+                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID",
+                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACESS_KEY",
             ]
         )
 
         self.bucket = bucket
         self.client = boto3.client(
             "polly",
-            aws_access_key_id=os.environ.get("PORTFOLIO_S3_AWS_KEY_ID"),
-            aws_secret_access_key=os.environ.get("PORTFOLIO_S3_AWS_SECRET_ACCESS_KEY"),
+            aws_access_key_id=os.environ.get(
+                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID"
+            ),
+            aws_secret_access_key=os.environ.get(
+                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACESS_KEY"
+            ),
             region_name="eu-west-1",
         )
 
@@ -64,7 +68,11 @@ class Polly:
         """
         Convert text to speech and return the mp3 file
         """
-        s3 = S3(self.bucket)
+        s3 = S3(
+            self.bucket,
+            os.environ.get("PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID"),
+            os.environ.get("PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACESS_KEY"),
+        )
 
         mp3_file: str = (
             hashlib.sha256(f"{self.language_code}_{text}".encode("utf-8")).hexdigest()
