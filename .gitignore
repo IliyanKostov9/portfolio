@@ -179,7 +179,6 @@ docs/*.out
 
 # Other
 tmp/**
-.env**
 
 # Terraform
 .terraform/
