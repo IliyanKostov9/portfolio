@@ -5,8 +5,8 @@ on:
     branches:
       - master
       - feature/terraform
-    # paths:
-    #   - infra/iac/**
+    paths:
+      - infra/iac/**
   workflow_dispatch:
 
 jobs:
