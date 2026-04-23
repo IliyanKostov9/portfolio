@@ -68,7 +68,11 @@ class Polly:
         """
         Convert text to speech and return the mp3 file
         """
-        s3 = S3(self.bucket)
+        s3 = S3(
+            self.bucket,
+            os.environ.get("PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID"),
+            os.environ.get("PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACESS_KEY"),
+        )
 
         mp3_file: str = (
             hashlib.sha256(f"{self.language_code}_{text}".encode("utf-8")).hexdigest()

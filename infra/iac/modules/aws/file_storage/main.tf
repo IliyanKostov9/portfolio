@@ -85,7 +85,7 @@ resource "github_actions_secret" "aws_bucket_name" {
 }
 
 
-data "aws_iam_policy_document" "current" {
+data "aws_iam_policy_document" "base" {
   statement {
     effect = "Allow"
     actions = [
@@ -103,8 +103,25 @@ data "aws_iam_policy_document" "current" {
   }
 }
 
+data "aws_iam_policy_document" "additional" {
+  dynamic "statement" {
+    for_each = var.iam_user_policy_additional_statements
+    content {
+      sid       = statement.value.sid
+      effect    = statement.value.effect
+      actions   = statement.value.actions
+      resources = statement.value.resources
+    }
+  }
+}
+
+data "aws_iam_policy_document" "combined" {
+  source_policy_documents   = [data.aws_iam_policy_document.base.json]
+  override_policy_documents = [data.aws_iam_policy_document.additional.json]
+}
+
 resource "aws_iam_user_policy" "current" {
   name   = format("portfolio-policy-%s-%s", var.name, var.env)
   user   = aws_iam_user.current.name
-  policy = data.aws_iam_policy_document.current.json
+  policy = data.aws_iam_policy_document.combined.json
 }

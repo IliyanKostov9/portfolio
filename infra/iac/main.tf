@@ -8,7 +8,16 @@ module "s3_polly" {
   source = "./modules/aws/file_storage"
   env    = var.env
   name   = "text-to-speech"
+  iam_user_policy_additional_statements = [
+    {
+      sid       = "AllowPollyActions"
+      effect    = "Allow"
+      actions   = ["polly:SynthesizeSpeech", "polly:DescribeVoices"]
+      resources = ["*"]
+    }
+  ]
 }
+
 
 module "ses_email_identity_one" {
   source             = "./modules/aws/send_email"

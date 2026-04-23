@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 from typing import Any, Final
 import boto3
-from portfolio.helpers.utils import check_if_env_vars_are_set
 from portfolio.monitor.log import logger
 from botocore.exceptions import ClientError
 
@@ -16,21 +15,22 @@ class S3:
     LOG = logger.bind(module="s3_module")
     TMP_FILE: Final[str] = "tmp"
 
-    def __init__(self, bucket: str) -> None:
-        check_if_env_vars_are_set(
-            [
-                "PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID",
-                "PORTFOLIO_S3_MAIN_PROD_SECRET_ACESS_KEY",
-            ]
-        )
+    def __init__(
+        self,
+        bucket: str,
+        access_key_id: str | None = None,
+        secret_access_key: str | None = None,
+    ) -> None:
+        if access_key_id is None or secret_access_key is None:
+            raise ValueError(
+                "Environment variable ACCESS_KEY_ID or SECRET_ACESS_KEY are NOT SET!"
+            )
 
         self.bucket = bucket
         self.client = boto3.client(
             "s3",
-            aws_access_key_id=os.environ.get("PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID"),
-            aws_secret_access_key=os.environ.get(
-                "PORTFOLIO_S3_MAIN_PROD_SECRET_ACESS_KEY"
-            ),
+            aws_access_key_id=access_key_id,
+            aws_secret_access_key=secret_access_key,
             region_name=REGION,
         )
 
