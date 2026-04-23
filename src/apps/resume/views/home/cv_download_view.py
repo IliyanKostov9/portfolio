@@ -25,7 +25,7 @@ class CVDownloadView(View):
         s3 = S3(
             os.environ.get("PORTFOLIO_S3_MAIN_PROD_BUCKET"),
             os.environ.get("PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID"),
-            os.environ.get("PORTFOLIO_S3_MAIN_PROD_SECRET_ACESS_KEY"),
+            os.environ.get("PORTFOLIO_S3_MAIN_PROD_SECRET_ACCESS_KEY"),
         )
 
         is_user_iliyan: bool = SecurityManager.verify_token(token)

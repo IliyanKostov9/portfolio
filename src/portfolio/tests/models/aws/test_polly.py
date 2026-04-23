@@ -15,7 +15,7 @@ from moto import mock_aws
     os.environ,
     {
         "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID": "123",
-        "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACESS_KEY": "123",
+        "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACCESS_KEY": "123",
     },
 )
 @mock_aws
@@ -31,7 +31,7 @@ class TestPolly(TestCase):
             os.environ,
             {
                 "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID": "",
-                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACESS_KEY": "",
+                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACCESS_KEY": "",
             },
         ):
             with self.assertRaises(ValueError):

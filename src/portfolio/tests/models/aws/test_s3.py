@@ -12,7 +12,7 @@ from moto import mock_aws
     os.environ,
     {
         "PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID": "123",
-        "PORTFOLIO_S3_MAIN_PROD_SECRET_ACESS_KEY": "123",
+        "PORTFOLIO_S3_MAIN_PROD_SECRET_ACCESS_KEY": "123",
     },
 )
 @mock_aws

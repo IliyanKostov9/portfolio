@@ -23,7 +23,7 @@ class S3:
     ) -> None:
         if access_key_id is None or secret_access_key is None:
             raise ValueError(
-                "Environment variable ACCESS_KEY_ID or SECRET_ACESS_KEY are NOT SET!"
+                "Environment variable ACCESS_KEY_ID or SECRET_ACCESS_KEY are NOT SET!"
             )
 
         self.bucket = bucket
