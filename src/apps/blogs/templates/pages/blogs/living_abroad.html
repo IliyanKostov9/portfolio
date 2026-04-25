@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static compress django_bootstrap5 %}
+{% load static i18n compress django_bootstrap5 %}
 {% block extra_head %}
 {% compress css %}
 <link
@@ -12,10 +12,27 @@
 {% endblock %}
 {% block content %}
 
-<p class="spacing-bot-50" />
-<div class="d-flex justify-content-center">
-  <p class="spacing-bot-1000" />
-  <h1>Work in progress</h1>
-  <i class="fas fa-hammer"></i>
+
+<div class="container text-center">
+<div class="row justify-content-center">
+  <div class="col-md-6">
+  <p class="spacing-bot-50" />
+          <figure class="d-flex flex-column flex-grow-1">
+            <blockquote class="blockquote">
+              <h3 class="card-title hover-target">Moving from Bulgaria to France ✈️</h3>
+            </blockquote>
+            <figcaption class="blockquote-footer mt-auto">
+              <p class="hover-target">2026</p>
+            </figcaption>
+          </figure>
+<img
+  src="https://www.cia-france.com/media/342/nice-ville_1100x700.jpg"
+  class="img-fluid shadow-2-strong"
+  alt="Nice, France"
+        style="height: 100%; object-fit: cover;"
+  />
+</div>
+</div>
+      <p class="spacing-bot-1000" />
 </div>
 {% endblock %}
