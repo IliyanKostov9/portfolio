@@ -1,5 +1,6 @@
 from typing import Any, Final
 
+from django.utils.translation import get_language
 from django.http import HttpResponse
 from django.template import loader
 from django.views import View
@@ -20,9 +21,12 @@ class LivingAbroadView(View):
         )
 
         template = loader.get_template(f"pages/blogs/{PAGE_NAME}.html")
+        context: dict[str, Any] = {
+            "language": get_language(),
+        }
 
         self.LOG.success(
             f"Page load for {PAGE_NAME} view was successful for user {get_client_ip(request)}",
             code=200,
         )
-        return HttpResponse(template.render({}, request))
+        return HttpResponse(template.render(context, request))
