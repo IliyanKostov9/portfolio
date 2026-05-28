@@ -1,9 +1,49 @@
 \headright{Education}
 \textbf{MSc Software Engineering} \dates{2023 -- 2025} \\
 \textit{Technical University of Varna} \\
-\footnotesize Thesis: Doctoral students admission and training system. \par
+\footnotesize Thesis: Doctoral students admission and training system. \\
+\textbf{Supervisor:} Velislav Kolesnichenko \\
+\textbf{Abstract:} Developed an academic management platform to digitalize the administrative tasks of doctoral programs. The system is made with the purpose of it being used by candidates, active students, faculty committees and university administrators. \\
+\textbf{Contributions:}
+\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, nosep]
+	\item \textbf{Access control} Implemented an RBAC hierarchical authorization mechanism for the five different users (phd candiate, phd student, committee member, expert/head of doctoral center, administrator)
+	\item \textbf{User actions:} Created all of the needed actions for a phd student to register for an application, create a custom made curriculum and passively change the phd candidate statuses based on expert/head of doctoral center's decision if they're allowed for an exam.
+	\item \textbf{Resource \& Data Management:} Developed a centralized calendar for exam tracking, committee assignments and the creation of annual performance reports of the ph student.
+\end{itemize}
+
+
+\noindent \textbf{Technical stacks:}
+\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
+	\item Front-end: Javascript, NextJS, ReactJS
+	\item Back-end: Java, Quarkus
+	\item Containerization: Docker, K8S
+	\item Storage: AWS S3, ElasticSearch
+	\item SAAS: AWS SES
+	\item Automation: Github actions, GNU Make, Nix
+	\item Database: PostgreSQL
+	\item Authentication: Azure Active directory
+\end{itemize}
 
 \vspace{1ex}
 \textbf{BSc Computer Science} \dates{2019 -- 2023} \\
 \textit{Technical University of Varna} \\
-\footnotesize Thesis: AI-Driven Project management web app (GPT-3.5).
+\footnotesize Thesis: AI-Driven Project management web app (GPT-3.5). \\
+\textbf{Supervisor:} Viktor Maskhov \\
+\textbf{Abstract:} Created a project management system, that integrates generative AI (ChatGPT3.5) to optimize the daily work of the members in a project team. The system automates several tasks, including contextual ticket summarization, task generation based on type and cross-lingual translation of project requirements. \\
+\textbf{Contributions:}
+\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, nosep]
+	\item Integrated GitHub API for real-time tracking of pull requests
+	\item Implemented an RBAC for two different type of users (administrators and standard users) to manage project iterations and agile sprints.
+	\item Automated the deployment of the application using AWS Amplify's native services for authentication, storage, database management and CI/CD.
+\end{itemize}
+
+\noindent \textbf{Technical stacks:}
+\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em]
+	\item Front-end: Javascript, ReactJS, AWS Amplify
+	\item Back-end: Python
+	\item Containerization: Docker
+	\item Storage: AWS S3
+	\item Database: NoSQL
+	\item Authentication: AWS Cognito
+\end{itemize}
+
