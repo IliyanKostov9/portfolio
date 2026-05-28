@@ -11,11 +11,13 @@ terraform {
     }
   }
 
-  cloud {
-    organization = "iliyan-personal"
-    workspaces {
-      name = "portfolio"
-    }
+  backend "s3" {
+    bucket = "tf-state-portfolio1-405466951648"
+    key    = "states/prod/terraform.tfstate"
+    region = "eu-west-1"
+
+    dynamodb_table = "terraform-state-locks"
+    encrypt        = true
   }
 }
 
