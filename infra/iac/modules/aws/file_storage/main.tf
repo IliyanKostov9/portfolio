@@ -11,6 +11,7 @@ locals {
 }
 
 data "aws_caller_identity" "current" {}
+
 resource "aws_s3_bucket" "current" {
   bucket = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
   tags = {

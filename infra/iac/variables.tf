@@ -30,3 +30,8 @@ variable "github_token" {
   description = "Github token to authenticate"
   type        = string
 }
+
+variable "account_id" {
+  description = "AWS account id"
+  type        = string
+}
