@@ -2,10 +2,10 @@ name: Terraform workflow
 
 on:
   push:
-    # branches:
-    #   - master
-    # paths:
-    #   - infra/iac/**
+    branches:
+      - master
+    paths:
+      - infra/iac/**
   workflow_dispatch:
 
 jobs:
