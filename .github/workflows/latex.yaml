@@ -6,6 +6,7 @@ on:
       - "docs/**.tex"
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   build-pdf:
