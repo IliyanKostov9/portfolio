@@ -7,7 +7,6 @@ resource "aws_iam_user" "current" {
   }
 }
 
-
 resource "aws_iam_access_key" "current" {
   user = aws_iam_user.current.name
 }
