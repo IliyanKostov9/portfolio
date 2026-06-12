@@ -123,3 +123,22 @@ $spacer: 10px;
   opacity: 1;
   transform: scale(1.1);
 }
+
+.add-space-on-top-70 {
+  padding-top: 70px;
+}
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.light-glow:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.padding-left-by-1 {
+  padding: 0.5rem 1.5rem;
+}
