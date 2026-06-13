@@ -139,6 +139,12 @@ $spacer: 10px;
   transition: background-color 0.3s ease;
 }
 
-.padding-left-by-1 {
-  padding: 0.5rem 1.5rem;
+.move-to-right-by-20 {
+  padding: 0.5rem;
+  margin-left: 20.5rem;
+}
+
+.move-to-left-by-20 {
+  padding: 0.5rem;
+  margin-right: 20.5rem;
 }
