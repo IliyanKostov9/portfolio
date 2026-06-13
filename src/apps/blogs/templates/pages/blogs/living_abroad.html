@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static i18n compress django_bootstrap5 %}
+{% block extra_head %}
+{% compress css %}
+<link
+  href="{% static 'style/blogs.scss' %}"
+  rel="stylesheet"
+  type="text/x-scss"
+/>
+
+{% endcompress %}
+{% endblock %}
+{% block content %}
+
+  <div class="container-fluid text-center">
+  <p class="spacing-bot-50" />
+        <figure class="d-flex flex-column flex-grow-1">
+          <blockquote class="blockquote">
+            <h3 class="card-title hover-target">Moving from Bulgaria to France</h3>
+          </blockquote>
+          <figcaption class="blockquote-footer mt-auto">
+            <p class="hover-target">June 13th, 2026</p>
+          </figcaption>
+        </figure>
+  <img
+    class="img-fluid shadow-2-strong hover-overlay rounded"
+    src="{% static 'images/blogs/nice-ville.jpg' %}"
+    alt="Nice, France"
+    />
+
+  <p class="spacing-bot-50" />
+  <p>
+    This is kinda cool
+  </p>
+
+</div>
+{% endblock %}
