@@ -124,6 +124,30 @@ $spacer: 10px;
   transform: scale(1.1);
 }
 
+[data-mdb-theme="light"] nav.navbar {
+  background-color: #121212;
+
+  .nav-link,
+  .navbar-brand,
+  p,
+  i,
+  a {
+    color: #ffffff !important;
+  }
+}
+
+[data-mdb-theme="dark"] nav.navbar {
+  background-color: #ffffff;
+
+  .nav-link,
+  .navbar-brand,
+  p,
+  i,
+  a {
+    color: #121212 !important;
+  }
+}
+
 .add-space-on-top-70 {
   padding-top: 70px;
 }
