@@ -31,10 +31,15 @@
     </div>
 
   <div class="col-md-10 text-center">
+  <div class="bg-image hover-overlay hover-zoom hover-shadow ripple d-inline-block">
   <img
     class="img-fluid shadow-2-strong hover-overlay rounded"
     src="{% static 'images/blogs/nice-ville.jpg' %}"
     alt="Nice, France"/>
+    <a href="#">
+      <div class="mask" style="background-color: hsla(195, 83%, 58%, 0.2)"></div>
+    </a>
+  </div>
   </div>
 
   <div class="col-md-6 text-start">
@@ -76,7 +81,7 @@
 
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
-      At that time I didn't really know anyone close to me to help me find an IT job abroad. I didn't want to work remotely, since that'll kill the idea of living in another country, so I had to specifically look for companies, <abbr title="Lucky for me, Bulgaria (my home country) is part of EU, so I didn't have to deal with getting a visa. Companies, that hire professionals from abroad will most likely prefer candidates, that have an EU citizenship, rather than going through the paperwork involved in sponsoring a visa. As unfair as it sounds, it's the ugly truth.">that are willing to take the risk and hire someone from another country.</abbr>
+      At that time I didn't really know anyone close to me to help me find an IT job abroad. I didn't want to work remotely, since that'll kill the idea of living in another country, so I had to specifically look for companies, <a href="#" data-mdb-tooltip-init title="Lucky for me, Bulgaria (my home country) is part of EU, so I didn't have to deal with getting a visa. Companies, that hire professionals from abroad will most likely prefer candidates, that have an EU citizenship, rather than going through the paperwork involved in sponsoring a visa. As unfair as it sounds, it's the ugly truth.">that are willing to take the risk and hire someone from another country.</a>
       {% endblocktranslate %}
     </p>
 
@@ -118,10 +123,12 @@
   <div class="d-flex align-items-start gap-3">
 
   <figure class="mb-2">
+    <div class="bg-image hover-zoom" data-mdb-ripple-init>
     <img
       class="img-fluid shadow-2-strong hover-overlay rounded"
       src="{% static 'images/blogs/varna-beach.jpg' %}"
       alt="Varna, Bulgaria"/>
+        </div>
         <figcaption class="text-center mt-1 blockquote-footer">
           <small>{% translate "Beach alley of Varna, Bulgaria, that I've frequently had a stroll" %}</small>
           </figcaption>
