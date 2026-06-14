@@ -17,6 +17,7 @@
         <figure class="d-flex flex-column flex-grow-1">
           <blockquote class="blockquote">
             <h3 class="card-title hover-target">Moving from Bulgaria to France</h3>
+            <h3 class="card-title hover-target">Stupidity or adventure ?</h3>
           </blockquote>
           <figcaption class="blockquote-footer mt-auto">
             <p class="hover-target">June 13th, 2026</p>
@@ -25,13 +26,21 @@
   <img
     class="img-fluid shadow-2-strong hover-overlay rounded"
     src="{% static 'images/blogs/nice-ville.jpg' %}"
-    alt="Nice, France"
-    />
+    alt="Nice, France"/>
 
   <p class="spacing-bot-50" />
-  <p>
-    This is kinda cool
-  </p>
+    <hr class="hr hr-blurry" />
 
-</div>
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+       I'm sure that everyone has dreamed of living in another country - whether the reason is to escape or to experience something new.
+
+
+      {% endblocktranslate %}
+    </p>
+    <section id="About">
+      <h2 class="lazy"><a class="text-center" href="#About">{% translate "About" %}</a></h2>
+    </section>
+
+  </div>
 {% endblock %}
