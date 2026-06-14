@@ -12,7 +12,8 @@
 {% endblock %}
 {% block content %}
 
-  <div class="container-fluid text-center">
+<div class="row justify-content-center">
+  <div class="col-md-10 text-center">
   <p class="spacing-bot-50" />
         <figure class="d-flex flex-column flex-grow-1">
           <blockquote class="blockquote">
@@ -23,24 +24,63 @@
             <p class="hover-target">June 13th, 2026</p>
           </figcaption>
         </figure>
+    </div>
+
+  <div class="col-md-6 text-start">
+    <hr class="hr hr-blurry" />
+    </div>
+
+  <div class="col-md-10 text-center">
   <img
     class="img-fluid shadow-2-strong hover-overlay rounded"
     src="{% static 'images/blogs/nice-ville.jpg' %}"
     alt="Nice, France"/>
+  </div>
 
-  <p class="spacing-bot-50" />
+  <div class="col-md-6 text-start">
     <hr class="hr hr-blurry" />
+  <p class="spacing-bot-50" />
+
+    <p class="lazy hover-target text-start">
+      {% blocktranslate trimmed %}
+       I'm sure that everyone has dreamed of living in another country - whether the reason is to escape or to experience something new.
+       However it's much more complicated than just buying a cheap ticket plane on WizzAir (or any other low-cost airline service) and erase all of your problems like that.
+       You not only have to be mentally prepared to leave all of your friends and family from your home country, but also be willing to accept that, like it or not, you'll have
+       to adapt to the environment, integrate with the culture and "act" like the locals.
+      {% endblocktranslate %}
+    </p>
 
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
-       I'm sure that everyone has dreamed of living in another country - whether the reason is to escape or to experience something new.
-
-
+      Every gesture they make, the way they dress, the way they speak, the way they handle themselves, whether they speak loudly or quietly - you have to *be* like them. That's how you actually integrate.
       {% endblocktranslate %}
     </p>
+
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+      If you are currently thinking about living abroad - more specifically, living away from your own people and culture to explore a whole new world, where the people there speak an unknown (and quite funny) language and with different interests, then I think this blog post will help you make the decision.
+      It's not to scare or reassure you if you should or should not try to live abroad, but I want to share with you my personal experience and make you draw conclusions of your own.
+      {% endblocktranslate %}
+    </p>
+
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+       I don't have the decision for you my dear reader - nobody knows what's best for you better than you do.
+      {% endblocktranslate %}
+    </p>
+
+  <p class="spacing-bot-50" />
     <section id="About">
-      <h2 class="lazy"><a class="text-center" href="#About">{% translate "About" %}</a></h2>
+      <h2 class="lazy"><a class="text-center" href="#Should-you-move-when-you-find-job-there?">{% translate "Should you move when you find job there?" %}</a></h2>
     </section>
+
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+      Generally you'll be in an advantage if there is already a job waiting for you. The environment is already
+      {% endblocktranslate %}
+    </p>
+
+  </div>
 
   </div>
 {% endblock %}
