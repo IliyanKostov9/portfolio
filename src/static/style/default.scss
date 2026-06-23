@@ -77,6 +77,10 @@ $spacer: 10px;
   margin-bottom: 50px;
 }
 
+.spacing-bot-20 {
+  margin-bottom: 20;
+}
+
 .spacing-bot-1000 {
   margin-bottom: 1000px;
 }
@@ -122,4 +126,70 @@ $spacer: 10px;
 [data-mdb-theme="dark"] .theme-icon-moon {
   opacity: 1;
   transform: scale(1.1);
+}
+
+[data-mdb-theme="light"] nav.navbar {
+  background-color: #121212;
+
+  .nav-link,
+  .navbar-brand,
+  p,
+  i,
+  a {
+    color: #ffffff !important;
+  }
+}
+
+[data-mdb-theme="dark"] nav.navbar {
+  background-color: #ffffff;
+
+  .nav-link,
+  .navbar-brand,
+  p,
+  i,
+  a {
+    color: #121212 !important;
+  }
+}
+
+.add-space-on-top-70 {
+  padding-top: 70px;
+}
+
+[data-mdb-theme="light"] nav.navbar {
+  .light-glow:hover,
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+}
+
+[data-mdb-theme="dark"] nav.navbar {
+  .light-glow:hover,
+  .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.move-to-right-by-20 {
+  padding: 0.5rem;
+  margin-left: 20.5rem;
+}
+
+.move-to-left-by-20 {
+  padding: 0.5rem;
+  margin-right: 20.5rem;
+}
+
+.hover-target {
+  position: relative;
+  cursor: pointer;
+}
+
+.hover-target:hover {
+  color: #0d6efd !important;
+  text-decoration: underline;
 }
