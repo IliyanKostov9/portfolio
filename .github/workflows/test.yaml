@@ -55,7 +55,7 @@ jobs:
           path: .
 
       - name: Restore venv
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         id: cache-venv
         with:
           path: .venv
@@ -83,7 +83,7 @@ jobs:
           make test
 
       - name: Save venv
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         if: steps.cache-venv.outputs.cache-hit != 'true'
         with:
           path: .venv
@@ -111,7 +111,7 @@ jobs:
           path: .
 
       - name: Restore venv
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ github.run_id }}
@@ -134,7 +134,7 @@ jobs:
           flake8 .
 
       - name: Restore Pyre cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         if: env.PYRE_SKIP == 'false'
         with:
           path: .pyre
@@ -153,7 +153,7 @@ jobs:
           pyre --noninteractive analyze --no-verify --use-cache --output-format json
 
       - name: Save Pyre cache
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         if: env.PYRE_SKIP == 'false'
         with:
           path: .pyre
@@ -180,7 +180,7 @@ jobs:
           path: .
 
       - name: Restore venv
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ github.run_id }}
