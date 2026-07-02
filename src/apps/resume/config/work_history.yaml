@@ -1,29 +1,53 @@
 ---
-- company_name: "Sys Consulting"
-  company_name_label: "sys-consulting"
-  image: "sys_consulting.svg"
-  en_specialty: "Software Engineer"
-  bg_specialty: "Софтуерен инженер"
-  fr_specialty: "Ingénieur logiciel"
-  ge_specialty: "Softwareentwickler"
+- company_name: "Experian"
+  company_name_label: "experian"
+  image: "experian.svg"
+  en_specialty: "Site reliability engineer"
+  bg_specialty: "Инженер по надеждност на обекта"
+  fr_specialty: "Ingénieur en fiabilité des sites"
+  ge_specialty: "Zuverlässigkeitsingenieur"
   dates:
-    - "Internship 07-2021 - 12-2021"
+    - "Mid 06-2026 - Present"
   en_description: |
-    The intership consisted of mainaiting a legacy banking system for Balkan clients.
-    The system was comprised of a desktop Windows XP compatible application,
-    written in CAVO (Visual Objects) programming language.
+    The company is about maintaining customer credit histories and scores used by lenders. It also sells fraud detection, risk assessment, and business decision-making tools to companies, and offers direct-to-consumer tools like credit monitoring.
   bg_description: |
-    Стажът се състоеше в поддръжка на наследена банкова система за клиенти от Балканите.
-    Системата се състоеше от настолно приложение, съвместимо с Windows XP, написано на
-    езика за програмиране CAVO (Visual Objects).
+    Компанията се занимава с поддържане на кредитните истории и рейтинги на клиентите, използвани от кредиторите. Тя също така продава инструменти за откриване на измами, оценка на риска и вземане на бизнес решения на компании, както и предлага инструменти за директно ползване от потребителите, като например мониторинг на кредити.
   fr_description: |
-    Le stage consistait à assurer la maintenance d'un ancien système bancaire destiné à des clients des Balkans.
-    Ce système était composé d'une application de bureau compatible avec Windows XP,
-    écrite en langage de programmation CAVO (Visual Objects).
+    L'entreprise se spécialise dans la gestion des historiques et des scores de crédit des clients utilisés par les organismes prêteurs. Elle propose également aux entreprises des outils de détection de fraude, d'évaluation des risques et d'aide à la décision, ainsi que des services de surveillance du crédit destinés directement aux consommateurs.
   ge_description: |
-    Das Praktikum umfasste die Wartung eines bestehenden Banksystems für Kunden auf dem Balkan.
-    Das System bestand aus einer Desktop-Anwendung, die mit Windows XP kompatibel war
-    und in der Programmiersprache CAVO (Visual Objects) geschrieben wurde.
+    Das Unternehmen beschäftigt sich mit der Pflege von Kundenkredithistorien und -scores, die von Kreditgebern genutzt werden. Es verkauft außerdem Betrugserkennungs-, Risikobewertungs- und Geschäftsentscheidungstools an Unternehmen und bietet Direktkunden Tools wie Kreditüberwachung an.
+
+- company_name: "Alten"
+  company_name_label: "alten"
+  image: "alten.svg"
+  en_specialty: "DevOps Engineer"
+  bg_specialty: "DevOps инженер"
+  fr_specialty: "Ingénieur DevOps"
+  ge_specialty: "DevOps-Ingenieur"
+  dates:
+    - "Mid 05-2025 - 04-2026"
+  en_description: |
+    My first project is a software company, that provides global distribution service to airline companies. These distributions of data products are in the area of the travel industry.
+
+    The team I'm in is in the department of ticket reservation. The role I'm currently working is platform engineer and the objective is to maintain,
+    operate and develop the data processing pipeline, that is responsible
+    for ingesting the raw data, that's sent by the global distribution system,
+    process it through multiple layers and finally send it to the customer via various transfer protocols - FTP or S3.
+  bg_description: |
+    Първият ми проект е софтуерна компания, която предоставя глобални дистрибуторски услуги на авиокомпании. Тези дистрибуции на продукти с данни са в областта на туристическата индустрия.
+
+    Екипът, в който съм, е в отдела за резервации на билети. Ролята, която работя в момента, е платформен инженер, а целта е да поддържам, управлявам и развивам процес на обработка на данни, който е отговорен за приемането на суровите данни, изпратени от глобалната дистрибуторска система, обработката им през множество слоеве и накрая изпращането им до клиента чрез различни протоколи за трансфер - FTP или S3.
+  fr_description: |
+    Mon premier projet est une entreprise de logiciels qui fournit des services de distribution mondiale aux compagnies aériennes. Ces services de distribution de produits de données concernent le secteur du voyage.
+
+    L'équipe dont je fais partie travaille au sein du département de réservation de billets. Mon rôle actuel est celui d'ingénieur plateforme et mon objectif est de maintenir,
+    d'exploiter et de développer le pipeline de traitement des données, qui est responsable
+    de l'ingestion des données brutes envoyées par le système de distribution mondial,
+    de leur traitement à travers plusieurs couches et enfin de leur transmission au client via différents protocoles de transfert (FTP ou S3).
+  ge_description: |
+    Mein erstes Projekt ist ein Softwareunternehmen, das globalen Vertriebsservice für Fluggesellschaften anbietet. Diese Datenprodukte werden im Bereich der Reisebranche vertrieben.
+
+    Das Team, in dem ich arbeite, gehört zur Abteilung für Ticketreservierung. Meine aktuelle Position ist Plattformingenieur, und meine Aufgabe besteht darin, die Datenverarbeitungspipeline zu warten, zu betreiben und weiterzuentwickeln. Diese Pipeline ist verantwortlich für die Erfassung der Rohdaten, die vom globalen Vertriebssystem gesendet werden, deren Verarbeitung in mehreren Schritten und die anschließende Übermittlung an den Kunden über verschiedene Übertragungsprotokolle wie FTP oder S3.
 
 - company_name: "DXC Technology"
   company_name_label: "dxc-technology"
@@ -174,34 +198,28 @@
     6. Nachdem alle Testergebnisse erfasst wurden, erstellt pytest eine Testausführungsdatei (junitxml_report.xml), die von den Reporting-Tools zur Visualisierung der Testergebnisse benötigt wird.
     Wir stellen zwei verschiedene Reporting-Tools zur Verfügung: Zephyr Scale Rest API und Allure.
 
-- company_name: "Alten"
-  company_name_label: "alten"
-  image: "alten.svg"
-  en_specialty: "DevOps Engineer"
-  bg_specialty: "DevOps инженер"
-  fr_specialty: "Ingénieur DevOps"
-  ge_specialty: "DevOps-Ingenieur"
+- company_name: "Sys Consulting"
+  company_name_label: "sys-consulting"
+  image: "sys_consulting.svg"
+  en_specialty: "Software Engineer"
+  bg_specialty: "Софтуерен инженер"
+  fr_specialty: "Ingénieur logiciel"
+  ge_specialty: "Softwareentwickler"
   dates:
-    - "Mid 04-2025 - Present"
+    - "Internship 07-2021 - 12-2021"
   en_description: |
-    My first project is a software company, that provides global distribution service to airline companies. These distributions of data products are in the area of the travel industry.
-
-    The team I'm in is in the department of ticket reservation. The role I'm currently working is platform engineer and the objective is to maintain,
-    operate and develop the data processing pipeline, that is responsible
-    for ingesting the raw data, that's sent by the global distribution system,
-    process it through multiple layers and finally send it to the customer via various transfer protocols - FTP or S3.
+    The intership consisted of mainaiting a legacy banking system for Balkan clients.
+    The system was comprised of a desktop Windows XP compatible application,
+    written in CAVO (Visual Objects) programming language.
   bg_description: |
-    Първият ми проект е софтуерна компания, която предоставя глобални дистрибуторски услуги на авиокомпании. Тези дистрибуции на продукти с данни са в областта на туристическата индустрия.
-
-    Екипът, в който съм, е в отдела за резервации на билети. Ролята, която работя в момента, е платформен инженер, а целта е да поддържам, управлявам и развивам процес на обработка на данни, който е отговорен за приемането на суровите данни, изпратени от глобалната дистрибуторска система, обработката им през множество слоеве и накрая изпращането им до клиента чрез различни протоколи за трансфер - FTP или S3.
+    Стажът се състоеше в поддръжка на наследена банкова система за клиенти от Балканите.
+    Системата се състоеше от настолно приложение, съвместимо с Windows XP, написано на
+    езика за програмиране CAVO (Visual Objects).
   fr_description: |
-    Mon premier projet est une entreprise de logiciels qui fournit des services de distribution mondiale aux compagnies aériennes. Ces services de distribution de produits de données concernent le secteur du voyage.
-
-    L'équipe dont je fais partie travaille au sein du département de réservation de billets. Mon rôle actuel est celui d'ingénieur plateforme et mon objectif est de maintenir,
-    d'exploiter et de développer le pipeline de traitement des données, qui est responsable
-    de l'ingestion des données brutes envoyées par le système de distribution mondial,
-    de leur traitement à travers plusieurs couches et enfin de leur transmission au client via différents protocoles de transfert (FTP ou S3).
+    Le stage consistait à assurer la maintenance d'un ancien système bancaire destiné à des clients des Balkans.
+    Ce système était composé d'une application de bureau compatible avec Windows XP,
+    écrite en langage de programmation CAVO (Visual Objects).
   ge_description: |
-    Mein erstes Projekt ist ein Softwareunternehmen, das globalen Vertriebsservice für Fluggesellschaften anbietet. Diese Datenprodukte werden im Bereich der Reisebranche vertrieben.
-
-    Das Team, in dem ich arbeite, gehört zur Abteilung für Ticketreservierung. Meine aktuelle Position ist Plattformingenieur, und meine Aufgabe besteht darin, die Datenverarbeitungspipeline zu warten, zu betreiben und weiterzuentwickeln. Diese Pipeline ist verantwortlich für die Erfassung der Rohdaten, die vom globalen Vertriebssystem gesendet werden, deren Verarbeitung in mehreren Schritten und die anschließende Übermittlung an den Kunden über verschiedene Übertragungsprotokolle wie FTP oder S3.
+    Das Praktikum umfasste die Wartung eines bestehenden Banksystems für Kunden auf dem Balkan.
+    Das System bestand aus einer Desktop-Anwendung, die mit Windows XP kompatibel war
+    und in der Programmiersprache CAVO (Visual Objects) geschrieben wurde.
