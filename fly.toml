@@ -1,16 +1,16 @@
-# fly.toml app configuration file generated for iliyankostov-portfolio on 2026-06-28T15:35:34+02:00
+# fly.toml app configuration file generated for iliyankostov-portfolio-white-tree-8379 on 2026-07-02T23:16:05+03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'iliyankostov-portfolio'
+app = 'iliyankostov-portfolio-white-tree-8379'
 primary_region = 'cdg'
-console_command = '/code/manage.py shell'
+console_command = '/app/.venv/bin/python3 src/manage.py shell'
 
 [build]
 
 [deploy]
-  release_command = 'python manage.py migrate --noinput'
+  release_command = '/app/.venv/bin/python3 src/manage.py migrate --noinput'
 
 [env]
   PORT = '8000'
@@ -29,5 +29,5 @@ console_command = '/code/manage.py shell'
   cpus = 2
 
 [[statics]]
-  guest_path = '/code/static'
+  guest_path = '/var/www/portfolio.ikostov.org/static'
   url_prefix = '/static/'
