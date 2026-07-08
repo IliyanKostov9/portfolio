@@ -25,7 +25,7 @@ dependencies = [
     "loki-logger-handler>=1.1.2",
     "requests>=2.34.2",
     "psycopg2-binary>=2.9.12",
-    "boto3>=1.42.30",
+    "boto3>=1.43.40",
 ]
 requires-python = "==3.14.*"
 readme = "README.md"
