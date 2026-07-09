@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:32+0200\n"
+"POT-Creation-Date: 2026-07-09 20:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,31 +18,251 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/apps/blogs/templates/pages/blogs/index.html:20
-#: src/templates/base.html:80
+#: src/apps/blogs/templates/pages/blogs/index.html:21
+#: src/templates/base.html:88
 msgid "Blogs"
 msgstr ""
 
-#: src/apps/blogs/templates/pages/blogs/index.html:25
+#: src/apps/blogs/templates/pages/blogs/index.html:28
 msgid "Read about my latest thoughts"
 msgstr ""
 
-#: src/apps/blogs/templates/pages/blogs/index.html:53
+#: src/apps/blogs/templates/pages/blogs/index.html:55
 #, python-format
 msgid "Read time: %(mins)s minutes"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/about.html:7
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:20
+msgid "Moving from Bulgaria to France"
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:21
+msgid "Stupidity or adventure ?"
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:24
+msgid "June"
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:50
+msgid ""
+"I'm sure that everyone has dreamed of living in another country - whether "
+"the reason is to escape or to experience something new. However it's much "
+"more complicated than just buying a cheap ticket plane on WizzAir (or any "
+"other low-cost airline service) and erase all of your problems like that. "
+"You not only have to be <mark>mentally prepared</mark> to leave all of your "
+"friends and family from your home country, but also be <mark>willing to "
+"accept</mark> that, like it or not, you'll have to adapt to the environment, "
+"integrate with the culture and \"act\" like the locals."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:59
+msgid ""
+"Every gesture they make, the way they dress, the way they speak, the way "
+"they handle themselves, whether they speak loudly or quietly - you have to "
+"<strong>be</strong> like them. That's how you actually integrate."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:65
+msgid ""
+"If you are currently thinking about living abroad - more specifically, "
+"living away from your own people and culture to explore a whole new world, "
+"where the people there speak an unknown (and quite funny) language and with "
+"different interests, then I think this blog post will help you make the "
+"decision. It's not to scare or reassure you if you should or should not try "
+"to live abroad, but I want to share with you my personal experience and make "
+"you draw conclusions of your own."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:72
+msgid ""
+"I don't have the decision for you my dear reader - nobody knows what's best "
+"for you better than you do."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:78
+msgid "Finding work in another country was tough to say the least..."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:81
+msgid ""
+"At that time I didn't really know anyone close to me to help me find an IT "
+"job abroad. I didn't want to work remotely, since that'll kill the idea of "
+"living in another country, so I had to specifically look for companies, <a "
+"href=\"#\" data-mdb-tooltip-init title=\"Lucky for me, Bulgaria (my home "
+"country) is part of EU, so I didn't have to deal with getting a visa. "
+"Companies, that hire professionals from abroad will most likely prefer "
+"candidates, that have an EU citizenship, rather than going through the "
+"paperwork involved in sponsoring a visa. As unfair as it sounds, it's the "
+"ugly truth.\">that are willing to take the risk and hire someone from "
+"another country.</a>"
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:87
+msgid ""
+"We talked with an italian friend about it and we realised of how ungrateful "
+"we are of being in the EU - we can travel and live to almost anywhere by "
+"just handing over our ID cards to the border control officiers. So if your "
+"home country is within the EU, then great! You'll have higher chances of "
+"finding a job, but if you're outside, then you'll have to make sure you're "
+"the best candidate the company can find and that they'll definitely miss out "
+"if they don't hire you now, as another company might <em>steal</em> you from "
+"them."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:93
+msgid ""
+"Coming back to my story. As I said, I didn't really know anyone, that can "
+"help me find work abroad. In reality, I really didn't have a lot of friends "
+"or people to just talk to. At that time I was in the middle of completing my "
+"Master's degree and I also had a full time job. I didn't have much time to "
+"socialize, let alone find international friends. When I recall about my past "
+"situation, sometimes I'm wondering if I was lying to myself just to feel "
+"better and to say that it wasn't my fault for being in this situation, that "
+"I was just too focused on my career and education and that I've "
+"intentionally delayed the fun activities (like socializing, going to bars) "
+"for later, maybe after I get a good job with a good salary and finished my "
+"education. And yet, at that time I really didn't believe myself."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:99
+msgid ""
+"Then in late February 2025, a random HR person messaged me on Linked in. "
+"This was usual to me, as I have already updated my status to <a href=\"#\" "
+"class=\"text-decoration-none\">#Open to work</a> But this message was "
+"different from the rest. Something caught my eye. The position wasn't in "
+"Bulgaria or being completely remote as most job offers I received - the job "
+"was actually in France, more specifically in Nice."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:107
+msgid ""
+"Honestly, at that time I have never heard of a city called Nice. How do you "
+"pronounce it ? Do you pronounce it like the word Nice literally or Niece ? "
+"What a ridicilous name the colonizers gave to this city. Since this message "
+"caught my curiosity, I agreed with her to get on a call for next week. At "
+"that time I was actively searching for a job and all of them rejected me. So "
+"I was actually expecting to fail on this interview as well. I didn't really "
+"care. I just wanted to try my luck."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:131
+msgid "Beach alley of Varna, Bulgaria, that I've frequently had a stroll"
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:136
+msgid ""
+"A week pases and we are in the end of February, we get in a call. I "
+"expalined to her my situation, that I want to live abroad and that I'm also "
+"finishing my Master's degree. I wanted to be completely transparent with "
+"her. We got along really well, surprisingly. I did present myself of "
+"pretending to be a normal human being, that is able to form coherent "
+"sentences. She was also really surprised of how well I was speaking English. "
+"The reason was that before this interview I had many other interviews like "
+"this, where I primarily spoke English and therefore I greatly improved my "
+"presentation skills. But outside of work if I dared to speak English with "
+"another person, that was kind of a disaster to me."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:150
+msgid ""
+"After this meeting, <abbr title=\"Human resources\">Beatrice</abbr> was "
+"quite excited to meet me in person and she immediatly wanted me to move to "
+"the next interview's step to have an interview with the <a href=\"#\" data-"
+"mdb-tooltip-init title=\"aka my future manager\">Business manager</a>. By "
+"the way, every interview I had was scheduled weekly, meaning that I had "
+"enough time to prepare. If you are wondering how I was preparing, then I "
+"couldn't be able to answer you - because I don't realy remember."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:162
+msgid ""
+"<strong>Advice:</strong> The most important advice I can give you (at least "
+"for IT related jobs), is that you have to be better at your presentation "
+"skills than your technical skills. Honestly that's how I'm able to find IT "
+"jobs. At the end of the day it doesn't really matter how much you know, it "
+"matters how you present yourself, so that you can convince the person that "
+"is interviewing you of what a great candidate you are and that you won't be "
+"bothered if they potentially reject your application. This skill is mainly a "
+"social skill. What that means is that for you to prepare for an interview - "
+"you just have to socialize and not sit in front of the screen 8 hours a day. "
+"It's a bit inlogical, I know, but in my case the DevOps position mainly "
+"revolves around people and processes, not purely writing code like a "
+"developer."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:173
+msgid ""
+"One week later and now I'm in the meeting with the business manager. She "
+"seems like a nice lady. We had a good conversation, nothing out of the "
+"ordinary. She then told me that there is one more interview left - <a "
+"href=\"#\" data-mdb-tooltip-init title=\"I don't know why, but I'm always "
+"getting nervous about technical interviews, because I'm scared that if I say "
+"something wrong, then that's it. Game over. I mean I have spent 3 weeks "
+"(including the tech interview) already to come to this point. It'll be pity "
+"if I failed on the very last step, which should naturally be my easiest "
+"interview, but I digress.\" >the technical interview.</a> Then the time "
+"comes. I have a meeting with a man, that is around my age. <a href=\"#\" "
+"data-mdb-tooltip-init title=\"That was obviously an advantage for me\">He "
+"didn't seem very experienced in conducting interviews.</a> Since I was "
+"worried that this interview will end the same way as the previous ones, I "
+"started talking most of the time - about my previous projects, about what "
+"I've done, about the technologies. I was trying to flood the interviewer's "
+"head with too much information, <a href=\"#\" data-mdb-tooltip-init "
+"title=\"as I said, I had an advantage\">that he didn't even ask.</a> After "
+"bothering him for 1 hour, he finally gives up and told me after 2 minutes "
+"after that I'm accepted 🎉."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:186
+msgid ""
+"Finally, after <a href=\"#\" data-mdb-tooltip-init title=\"I'm exaggerating "
+"ofcourse. I didn't actually count\">50+ interviews</a> I finally got an "
+"offer, and on top of it it's in a different country. Exactly what I wanted! "
+"One thing that I didn't mention, is that the company is dealing with "
+"consulting, meaning that they work with clients. So I had one more interview "
+"to succeed to make it a home run. If that interview failed, they will still "
+"hire me nonetheless, but cmon, I'll be in a very good start if the interview "
+"with the client went the same way as this."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:206
+msgid ""
+"Me trying to smile after hearing the good news! That's why I'm not an actor"
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:215
+msgid "The final interview"
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:218
+msgid ""
+"Now finally on the 21st of March 2025 I had a call with the manager and a "
+"technical person for the final interview. I was honestly scared and before "
+"that day late at the evening, I actually <a href=\"#\" data-mdb-tooltip-init "
+"title=\"Yes, I know, please don't make fun of me\">prayed</a>."
+msgstr ""
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:225
+msgid ""
+"Long story short, they liked me - at that time after the meeting I had a "
+"feeling in my stomach that they've already accepted me, because we finished "
+"later than expected and the tech guy kept asking me questions and was "
+"enjoying my <a href=\"#\" data-mdb-tooltip-init title=\"I guess..."
+"\">nerdiness</a>."
+msgstr ""
+
+#: src/apps/resume/templates/pages/home/about.html:6
 msgid "About"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/about.html:10
+#: src/apps/resume/templates/pages/home/about.html:9
 msgid ""
 "As you may have already guessed from the title above, my name is indeed "
 "Iliyan. I'm born in Bulgaria in a city on the coast of the Black Sea - Varna."
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/about.html:17
+#: src/apps/resume/templates/pages/home/about.html:16
 msgid ""
 "I have started on my engineering journey back when I was a kid and had to "
 "constantly fix our family desktop computer from crashing on WindowsXP and "
@@ -53,19 +273,19 @@ msgid ""
 "approaching problems from there on."
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/about.html:37
-#: src/apps/resume/templates/pages/home/index.html:34
+#: src/apps/resume/templates/pages/home/about.html:36
+#: src/apps/resume/templates/pages/home/index.html:39
 msgid "Continue reading"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/about.html:43
+#: src/apps/resume/templates/pages/home/about.html:42
 msgid ""
 "Afterward I joined in a high school for operation of road transport. Yes, "
 "it's not computer related, but it's in the engineering field. I actually do "
 "consider myself more of an <u>engineer</u> than a computer scientist."
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/about.html:51
+#: src/apps/resume/templates/pages/home/about.html:50
 msgid ""
 "Time passed by and then after high school I was working at a grocery store "
 "and like every confused 18 years old, I was wondering what I was going to do "
@@ -130,11 +350,11 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/certification.html:7
+#: src/apps/resume/templates/pages/home/certification.html:6
 msgid "Certificates"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/certification.html:38
+#: src/apps/resume/templates/pages/home/certification.html:37
 msgid "Verify"
 msgstr ""
 
@@ -142,64 +362,64 @@ msgstr ""
 msgid "Contact me"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:29
+#: src/apps/resume/templates/pages/home/contact_me.html:31
 msgid "Name"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:42
+#: src/apps/resume/templates/pages/home/contact_me.html:46
 msgid "Email address"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:56
+#: src/apps/resume/templates/pages/home/contact_me.html:62
 msgid "Message"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:73
-#: src/apps/resume/templates/pages/home/contact_me.html:98
+#: src/apps/resume/templates/pages/home/contact_me.html:80
+#: src/apps/resume/templates/pages/home/contact_me.html:105
 msgid "Loading..."
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:74
+#: src/apps/resume/templates/pages/home/contact_me.html:81
 msgid "Send"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:80
+#: src/apps/resume/templates/pages/home/contact_me.html:87
 msgid "OR"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/contact_me.html:99
+#: src/apps/resume/templates/pages/home/contact_me.html:106
 msgid "Make a request to download my bio"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/education.html:7
+#: src/apps/resume/templates/pages/home/education.html:6
 msgid "Education"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/index.html:23
+#: src/apps/resume/templates/pages/home/index.html:25
 msgid "Hi"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/index.html:24
+#: src/apps/resume/templates/pages/home/index.html:28
 msgid "I'm Iliyan"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/index.html:26
+#: src/apps/resume/templates/pages/home/index.html:31
 msgid "I try to figure out how things work."
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/language_proficiencies.html:6
+#: src/apps/resume/templates/pages/home/language_proficiencies.html:5
 msgid "Languages"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/language_proficiencies.html:21
+#: src/apps/resume/templates/pages/home/language_proficiencies.html:20
 msgid "Proficiency"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/projects.html:6
+#: src/apps/resume/templates/pages/home/projects.html:5
 msgid "Projects"
 msgstr ""
 
-#: src/apps/resume/templates/pages/home/work_history.html:8
+#: src/apps/resume/templates/pages/home/work_history.html:7
 msgid "Work history"
 msgstr ""
 
@@ -207,11 +427,11 @@ msgstr ""
 msgid "You have successfully sent an email to Iliyan!"
 msgstr ""
 
-#: src/apps/resume/views/home/contact_me_view.py:55
+#: src/apps/resume/views/home/contact_me_view.py:59
 msgid "Thanks for contacting Iliyan!"
 msgstr ""
 
-#: src/apps/resume/views/home/contact_me_view.py:57
+#: src/apps/resume/views/home/contact_me_view.py:61
 msgid ""
 "We've contacted Iliyan with your request to download his CV. Please make "
 "sure to watch your email box for the status of this request\n"
@@ -219,7 +439,7 @@ msgid ""
 "Thanks and have a nice day!"
 msgstr ""
 
-#: src/apps/resume/views/home/contact_me_view.py:67
+#: src/apps/resume/views/home/contact_me_view.py:71
 msgid ""
 "You have successfully sent a CV download request to Iliyan!\n"
 " Please wait for him to either accept/refuse your request.\n"
@@ -229,88 +449,89 @@ msgid ""
 "We'll make sure to update you regarding the status in your email box :)"
 msgstr ""
 
-#: src/apps/resume/views/home/contact_me_view.py:77
+#: src/apps/resume/views/home/contact_me_view.py:81
+#: src/portfolio/helpers/voice.py:32
 msgid "Application error! Sorry for the inconvenience!"
 msgstr ""
 
-#: src/apps/resume/views/home/contact_me_view.py:110
+#: src/apps/resume/views/home/contact_me_view.py:116
 msgid "Error in sending your email message. Please try again next time :("
 msgstr ""
 
-#: src/apps/resume/views/home/cv_download_view.py:49
+#: src/apps/resume/views/home/cv_download_view.py:53
 #, python-brace-format
 msgid "{email} has accepted to share his CV to you!"
 msgstr ""
 
-#: src/apps/resume/views/home/cv_download_view.py:52
+#: src/apps/resume/views/home/cv_download_view.py:56
 msgid "Good news! Iliyan agreed to have shared his CV to you!"
 msgstr ""
 
-#: src/apps/resume/views/home/cv_download_view.py:67
+#: src/apps/resume/views/home/cv_download_view.py:71
 #, python-brace-format
 msgid "{email} has refused to share his CV to you"
 msgstr ""
 
-#: src/apps/resume/views/home/cv_download_view.py:70
+#: src/apps/resume/views/home/cv_download_view.py:74
 msgid "Iliyan has refused to share his CV to you. Sorry :("
 msgstr ""
 
-#: src/templates/base.html:65
+#: src/templates/base.html:70
 msgid "Source"
 msgstr ""
 
-#: src/templates/base.html:74
+#: src/templates/base.html:80
 msgid "Portfolio"
-msgstr ""
-
-#: src/templates/base.html:101
-msgid ""
-"\n"
-"                <i class=\"flag flag-bulgaria\"></i>\n"
-"                "
-msgstr ""
-
-#: src/templates/base.html:106
-msgid ""
-"\n"
-"                <i class=\"flag flag-united-kingdom\"></i>\n"
-"                "
 msgstr ""
 
 #: src/templates/base.html:111
 msgid ""
 "\n"
-"                <i class=\"flag flag-france\"></i>\n"
-"                "
+"              <i class=\"flag flag-bulgaria\"></i>\n"
+"              "
 msgstr ""
 
-#: src/templates/base.html:116
+#: src/templates/base.html:115
 msgid ""
 "\n"
-"                <i class=\"flag flag-germany\"></i>\n"
-"                "
+"              <i class=\"flag flag-united-kingdom\"></i>\n"
+"              "
 msgstr ""
 
-#: src/templates/base.html:125
+#: src/templates/base.html:119
+msgid ""
+"\n"
+"              <i class=\"flag flag-france\"></i>\n"
+"              "
+msgstr ""
+
+#: src/templates/base.html:123
+msgid ""
+"\n"
+"              <i class=\"flag flag-germany\"></i>\n"
+"              "
+msgstr ""
+
+#: src/templates/base.html:137
 msgid "English"
 msgstr ""
 
-#: src/templates/base.html:129
+#: src/templates/base.html:148
 msgid "Bulgarian"
 msgstr ""
 
-#: src/templates/base.html:132
+#: src/templates/base.html:158
 msgid "French"
 msgstr ""
 
-#: src/templates/base.html:135
+#: src/templates/base.html:168
 msgid "German"
 msgstr ""
 
-#: src/templates/base.html:183
+#: src/templates/base.html:233
 msgid "Made with"
 msgstr ""
 
-#: src/templates/base.html:185
+#: src/templates/base.html:235
 msgid "by Django"
 msgstr ""

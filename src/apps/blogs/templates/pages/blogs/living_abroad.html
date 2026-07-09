@@ -17,11 +17,11 @@
   <p class="spacing-bot-50" />
         <figure class="d-flex flex-column flex-grow-1">
           <blockquote class="blockquote">
-            <h3 class="card-title hover-target">Moving from Bulgaria to France</h3>
-            <h3 class="card-title hover-target">Stupidity or adventure ?</h3>
+        <h1 class="card-title hover-target">{% translate "Moving from Bulgaria to France" %}</h1>
+        <h1 class="card-title hover-target">{% translate "Stupidity or adventure ?" %}</h1>
           </blockquote>
           <figcaption class="blockquote-footer mt-auto">
-            <p class="hover-target">June 13th, 2026</p>
+        <p class="hover-target">{% translate "June" %} 13, 2026</p>
           </figcaption>
         </figure>
     </div>
@@ -75,9 +75,7 @@
     </p>
 
   <p class="spacing-bot-50" />
-    <section id="About">
       <h2 class="lazy"><a class="text-center" href="#Finding work in another country was tough to say the least">{% translate "Finding work in another country was tough to say the least..." %}</a></h2>
-    </section>
 
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
@@ -209,18 +207,27 @@
           </figcaption>
     </figure>
   </div>
-  </div>
 
+  </div>
   <p class="spacing-bot-20" />
 
   <div class="col-md-6 text-start">
+    <h3 class="lazy"><a class="text-center" href="#The_final_interview">{% translate "The final interview" %}</a></h3>
+
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
-
+      Now finally on the 21st of March 2025 I had a call with the manager and a technical person for the final interview.
+      I was honestly scared and before that day late at the evening, I actually <a href="#" data-mdb-tooltip-init title="Yes, I know, please don't make fun of me">prayed</a>.
       {% endblocktranslate %}
     </p>
-  </div>
+
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+      Long story short, they liked me - at that time after the meeting I had a feeling in my stomach that they've already accepted me, because we finished later than expected and the tech guy kept asking me questions and was enjoying my <a href="#" data-mdb-tooltip-init title="I guess...">nerdiness</a>.
+      {% endblocktranslate %}
+    </p>
 
   </div>
 
+  </div>
 {% endblock %}
