@@ -668,7 +668,7 @@ test = [
     { name = "django-test-migrations", specifier = ">=1.5.0" },
     { name = "flake8", specifier = ">=7.3.0" },
     { name = "moto", specifier = ">=5.1.22" },
-    { name = "pylint", specifier = ">=4.0.5" },
+    { name = "pylint", specifier = ">=4.0.6" },
     { name = "setuptools-rust", specifier = ">=1.11.1" },
 ]
 
