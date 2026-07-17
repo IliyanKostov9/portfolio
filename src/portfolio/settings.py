@@ -116,7 +116,6 @@ apps: list[str] = [
     "apps.resume.apps.ResumeConfig",
     "apps.blogs.apps.BlogsConfig",
     "compressor",
-    "django_bootstrap5",
     # "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
