@@ -46,5 +46,5 @@ test = [
     # "pyre-check>=0.9.25",
     # BUG: Version 0.5.9 is vulnarable
     # "fb-sapp>=0.5.9",
-    "setuptools-rust>=1.11.1",
+    "setuptools-rust>=1.13.0",
 ]
