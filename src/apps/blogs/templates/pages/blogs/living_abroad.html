@@ -44,10 +44,7 @@
         alt="Nice, France"
       />
       <a href="#">
-        <div
-          class="mask"
-          style="background-color: hsla(195, 83%, 58%, 0.2)"
-        ></div>
+        <div class="mask disco-color"></div>
       </a>
     </div>
   </div>
@@ -103,8 +100,7 @@
       <a
         class="text-center"
         href="#Finding work in another country was tough to say the least"
-        >{% translate "Finding work in another country was tough to say the least..." %}</a
-      >
+        >{% translate "Finding work in another country was tough to say the least..." %}</a>
     </h2>
 
     <p class="lazy hover-target">
@@ -194,7 +190,8 @@
         </div>
         <figcaption class="text-center mt-1 blockquote-footer">
           <small
-            >{% translate "Beach alley of Varna, Bulgaria, that I've frequently had a stroll" %}</small>
+            >{% translate "Beach alley of Varna, Bulgaria, that I've frequently had a stroll" %}</small
+          >
         </figcaption>
       </figure>
 
@@ -238,23 +235,23 @@
   <div class="col-md-6 text-start note note-info mb-3">
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
-      <strong><i class="fas fa-check"></i>Advice:</strong> The most important advice I can give you (at
-      least for IT related jobs), is that you have to be better at your
-      presentation skills than your technical skills. Honestly that's how I'm
-      able to find IT jobs. At the end of the day it doesn't really matter how
-      much you know, it matters how you present yourself, so that you can
-      convince the person that is interviewing you of what a great candidate you
-      are and that you won't be bothered if they potentially reject your
-      application.
+      <strong><i class="fas fa-check"></i>Advice:</strong> The most important
+      advice I can give you (at least for IT related jobs), is that you have to
+      be better at your presentation skills than your technical skills. Honestly
+      that's how I'm able to find IT jobs. At the end of the day it doesn't
+      really matter how much you know, it matters how you present yourself, so
+      that you can convince the person that is interviewing you of what a great
+      candidate you are and that you won't be bothered if they potentially
+      reject your application.
       {% endblocktranslate %}
     </p>
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
-      This skill is mainly a social skill. What that means is that
-      for you to prepare for an interview - you just have to socialize and not
-      sit in front of the screen 8 hours a day. It's a bit inlogical, I know,
-      but in my case the DevOps position mainly revolves around people and
-      processes, not purely writing code like a developer.
+      This skill is mainly a social skill. What
+      that means is that for you to prepare for an interview - you just have to
+      socialize and not sit in front of the screen 8 hours a day. It's a bit
+      inlogical, I know, but in my case the DevOps position mainly revolves
+      around people and processes, not purely writing code like a developer.
       {% endblocktranslate %}
     </p>
   </div>
@@ -316,9 +313,8 @@
     <div class="d-flex align-items-start gap-3">
       <figure class="mb-2">
         <img
-          class="img-fluid shadow-2-strong hover-overlay rounded"
+          class="img-fluid shadow-2-strong hover-overlay rounded max-width-50"
           src="{% static 'images/blogs/me_in_march_2025.jpg' %}"
-          style="max-width: 50%"
           alt="Me in 2025"
         />
         <figcaption class="text-center mt-1 blockquote-footer">
@@ -340,101 +336,125 @@
 
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
-      Now that the most important part is already handled (getting a job), I had several chores that I needed to take care of:
+      Now that the most important part is already
+      handled (getting a job), I had several chores that I needed to take care
+      of:
       {% endblocktranslate %}
     </p>
 
-      <ul class="list-unstyled">
+    <ul class="list-unstyled">
+      <li class="mb-1">
+        <p class="lazy hover-target">
+          <i class="fas fa-1 me-2 text-info"></i>
+          {% blocktranslate trimmed %}
+          Inform my landlord that I'll leave her
+          flat
+          {% endblocktranslate %}
+        </p>
+      </li>
 
-        <li class="mb-1">
-          <p class="lazy hover-target">
-            <i class="fas fa-1 me-2 text-info"></i>
-            {% blocktranslate trimmed %}
-              Inform my landlord that I'll leave her flat
-            {% endblocktranslate %}
-          </p>
-        </li>
+      <li class="mb-1">
+        <p class="lazy hover-target">
+          <i class="fas fa-2 me-2 text-info"></i>
+          {% blocktranslate trimmed %}
+          Move my furniture somewhere
+          {% endblocktranslate %}
+        </p>
+      </li>
 
-        <li class="mb-1">
-          <p class="lazy hover-target">
-            <i class="fas fa-2 me-2 text-info"></i>
-            {% blocktranslate trimmed %}
-              Move my furniture somewhere
-            {% endblocktranslate %}
-          </p>
-        </li>
+      <li class="mb-1">
+        <p class="lazy hover-target">
+          <i class="fas fa-3 me-2 text-info"></i>
+          {% blocktranslate trimmed %}
+          Prepare my luggage
+          {% endblocktranslate %}
+        </p>
+      </li>
 
-        <li class="mb-1">
-          <p class="lazy hover-target">
-            <i class="fas fa-3 me-2 text-info"></i>
-            {% blocktranslate trimmed %}
-              Prepare my luggage
-            {% endblocktranslate %}
-          </p>
-        </li>
+      <li class="mb-1">
+        <p class="lazy hover-target">
+          <i class="fas fa-4 me-2 text-info"></i>
+          {% blocktranslate trimmed %}
+          Find a flat in France
+          {% endblocktranslate %}
+        </p>
+      </li>
 
-        <li class="mb-1">
-          <p class="lazy hover-target">
-            <i class="fas fa-4 me-2 text-info"></i>
-            {% blocktranslate trimmed %}
-              Find a flat in France
-            {% endblocktranslate %}
-          </p>
-        </li>
+      <li class="mb-1">
+        <p class="lazy hover-target">
+          <i class="fas fa-5 me-2 text-info"></i>
+          {% blocktranslate trimmed %}
+          Plan these activites in a timely manner
+          {% endblocktranslate %}
+        </p>
+      </li>
+    </ul>
 
-        <li class="mb-1">
-          <p class="lazy hover-target">
-            <i class="fas fa-5 me-2 text-info"></i>
-            {% blocktranslate trimmed %}
-              Plan these activites in a timely manner
-            {% endblocktranslate %}
-          </p>
-        </li>
-      </ul>
+    <hr class="hr hr-blurry hide-when-scrolling" />
 
-  <hr class="hr hr-blurry hide-when-scrolling" />
-
-      <p class="lazy hover-target">
-        {% blocktranslate trimmed %}
-        Since at the moment of the company informing me that I've been accepted against the starting date, that they're expecting me to come (1st of May), I actually had less than a month, meaning that I was in the mercy of my landlord to understand my situation and make an
-        <a
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+      Since at the moment of the company informing
+      me that I've been accepted against the starting date, that they're
+      expecting me to come (1st of May), I actually had less than a month,
+      meaning that I was in the mercy of my landlord to understand my situation
+      and make an
+      <a
         href="#"
         data-mdb-tooltip-init
         title="These kinds of situation would never ever happen in western Europe. You can be only dreaming about such gesture. People there are quite strict about following rules"
-        >exception</a>
-        for me.
-        {% endblocktranslate %}
-      </p>
+        >exception</a
+      >
+      for me.
+      {% endblocktranslate %}
+    </p>
 
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+      Alas, I was lucky enough that she was
+      understandable and let me leave early (about 20-ish of August). So chore
+      number <i class="fas fa-1 me-2 text-info"></i> was completed!
+      {% endblocktranslate %}
+    </p>
+
+    <div class="text-start note note-info mb-3">
       <p class="lazy hover-target">
         {% blocktranslate trimmed %}
-          Alas, I was lucky enough that she was understandable and let me leave early (about 20-ish of August). So chore number   <i class="fas fa-1 me-2 text-info"></i> was completed!
+        <strong><i class="fas fa-check"></i>Advice:</strong>
+        If your home country is in Eastern Europe or some other place, where the
+        rules are quite flexible and are not strictly followed by the book, then
+        you'll for sure be surprised that in the Western side you'll have to
+        follow the country's rules, where at the start you won't even know what
+        the rules are, so that you can comply to them accordingly. But please,
+        do not immediatly think that the new place sucks and that you should be
+        soon packing your bags because it's so different. Different doesn't
+        necessarily mean bad - it's a new experience, which will make you grow
+        into a better person.
         {% endblocktranslate %}
       </p>
-
-  <div class="text-start note note-info mb-3">
-    <p class="lazy hover-target">
-      {% blocktranslate trimmed %}
-      <strong><i class="fas fa-check"></i>Advice:</strong>
-        If your home country is in Eastern Europe or some other place, where the rules are quite flexible and are not strictly followed by the book, then you'll for sure be surprised that in the Western side you'll have to follow the country's rules, where at the start you won't even know what the rules are, so that you can comply to them accordingly.
-        But please, do not immediatly think that the new place sucks and that you should be soon packing your bags because it's so different.
-        Different doesn't necessarily mean bad - it's a new experience, which will make you grow into a better person.
-      {% endblocktranslate %}
-    </p>
-  </div>
+    </div>
 
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
-        As for number <i class="fas fa-2 me-2 text-info"></i>, the person I wanted to "gift" all of my stuff is my mother. You see, she is not in a good financial position and she's living paycheck to paycheck. I wanted to help her somehow... and what better way than to make it more convinient for her to make an omlette for example, or to be able to clean her house with a vacuum cleaner.
+      As for number
+      <i class="fas fa-2 me-2 text-info"></i>, the person I wanted to "gift" all
+      of my stuff is my mother. You see, she is not in a good financial position
+      and she's living paycheck to paycheck. I wanted to help her somehow... and
+      what better way than to make it more convinient for her to make an omlette
+      for example, or to be able to clean her house with a vacuum cleaner.
       {% endblocktranslate %}
     </p>
 
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
-      Since it was my first time hiring movers, I had no idea which one should I choose, that are reliable and won't decide to steal my stuff. Moreover, I also had to travel to meet my mother before departure. And in fact she lives quite far away - I had to take 2 trains from my home city to her place - in total that would be 10-11 hours in total just for pure traveling.
+      Since it was my first time hiring movers, I
+      had no idea which one should I choose, that are reliable and won't decide
+      to steal my stuff. Moreover, I also had to travel to meet my mother before
+      departure. And in fact she lives quite far away - I had to take 2 trains
+      from my home city to her place - in total that would be 10-11 hours in
+      total just for pure traveling.
       {% endblocktranslate %}
     </p>
-
   </div>
 
   <p class="spacing-bot-50" />
@@ -452,31 +472,41 @@
         </div>
         <figcaption class="text-center mt-1 blockquote-footer">
           <small
-            >{% translate "A drive with the movers towards my mother's place. It had passed about 2-3 hours from our departure and we had about 6 more hours left to arrive" %}</small>
+            >{% translate "A drive with the movers towards my mother's place. It had passed about 2-3 hours from our departure and we had about 6 more hours left to arrive" %}</small
+          >
         </figcaption>
       </figure>
 
       <p class="lazy hover-target">
         {% blocktranslate trimmed %}
-        Luck was still on my side. The movers were very kind to me and decided to give me a ride towars my mother's place, which I was truly thankful to them. They even gave me a sandwich when we were on a break. They were a couple in their late 40s - early 50s. The wife was the navigator and the husband was the driver. They are a good team!
-        If you're searching for movers in Varna, Bulgaria, then I cannot recommend you enough to use their service.
-      <a
-        href="#"
-        data-mdb-tooltip-init
-        title="This is not an ad. They didn't pay me to write this."
-        >You won't regret it!</a>
+        Luck was still on my side. The movers were
+        very kind to me and decided to give me a ride towars my mother's place,
+        which I was truly thankful to them. They even gave me a sandwich when we
+        were on a break. They were a couple in their late 40s - early 50s. The
+        wife was the navigator and the husband was the driver. They are a good
+        team! If you're searching for movers in Varna, Bulgaria, then I cannot
+        recommend you enough to use their service.
+        <a
+          href="#"
+          data-mdb-tooltip-init
+          title="This is not an ad. They didn't pay me to write this."
+          >You won't regret it!</a
+        >
         {% endblocktranslate %}
-        <a href="https://hamalikrasi.bg/" target="_blank">https://hamalikrasi.bg/</a>
+        <a href="https://hamalikrasi.bg/" target="_blank"
+          >https://hamalikrasi.bg/</a
+        >
       </p>
-
     </div>
 
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
-        On number <i class="fas fa-3 me-2 text-info"></i>, it was quite straightforward as you can imagine - I had 2 small luggages from my brother and somehow that was enough for me to put all of my clothes there.
+      On number
+      <i class="fas fa-3 me-2 text-info"></i>, it was quite straightforward as
+      you can imagine - I had 2 small luggages from my brother and somehow that
+      was enough for me to put all of my clothes there.
       {% endblocktranslate %}
     </p>
-
   </div>
 
   <p class="spacing-bot-20" />
@@ -484,51 +514,81 @@
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
       <strong><i class="fas fa-brain"></i>Mental note:</strong>
-      If you feel like you've become attached to certain items, then moving to another country is a great way to leave them and live with less. I've found during the move that I felt quite lost when I left my city and I felt guilty about leaving. I do not know why, it felt like I was making a foolish decision, that I'm throwing all of what I've built (<a href="#" data-mdb-tooltip-init title="even though not many"
-        >connections</a>, career, risking my Master's degree) just because I was so bored and wanted to have a new experience.
-      Now looking back at it, I've learned way more for 1 year than what I've learned from 18 years old till 25. It's surprising how much you can learn just in a relatively short amount of time. Leaving out of your comfort zone makes you vulnerable, for sure, but you'll become stronger (mentally) and just better overall.
+      If you feel like you've become attached to certain items, then moving to
+      another country is a great way to leave them and live with less. I've
+      found during the move that I felt quite lost when I left my city and I
+      felt guilty about leaving. I do not know why, it felt like I was making a
+      foolish decision, that I'm throwing all of what I've built (<a
+        href="#"
+        data-mdb-tooltip-init
+        title="even though not many"
+        >connections</a
+      >, career, risking my Master's degree) just because I was so bored and
+      wanted to have a new experience. Now looking back at it, I've learned way
+      more for 1 year than what I've learned from 18 years old till 25. It's
+      surprising how much you can learn just in a relatively short amount of
+      time. Leaving out of your comfort zone makes you vulnerable, for sure, but
+      you'll become stronger (mentally) and just better overall.
       {% endblocktranslate %}
     </p>
     <p class="lazy hover-target">
       {% blocktranslate trimmed %}
-      That is actually why, when I'm currently writing this, that I miss living in a foreign country, not necessarily missing France, but living somewhere elsewhere where it's not my home country - where it's not Bulgaria. I miss the experience of exploring the place, of having to understand the culture all over again, having the incredible difficulty understanding the locals of what the hell they're trying to tell me. It's not an obsticle, it's a new experience - and I miss it 🙁.
+      That is actually why, when I'm currently
+      writing this, that I miss living in a foreign country, not necessarily
+      missing France, but living somewhere elsewhere where it's not my home
+      country - where it's not Bulgaria. I miss the experience of exploring the
+      place, of having to understand the culture all over again, having the
+      incredible difficulty understanding the locals of what the hell they're
+      trying to tell me. It's not an obsticle, it's a new experience - and I
+      miss it 🙁.
       {% endblocktranslate %}
     </p>
   </div>
 
   <p class="spacing-bot-20" />
   <div class="col-md-6 text-start">
-  <p class="lazy hover-target">
-    {% blocktranslate trimmed %}
-      For the quest on completing number <i class="fas fa-4 me-2 text-info"></i>, thankfully the company provided me an real estate agent, who on behalf of me searched an apartment for me. She is one of the nicest people I've met. She did her best in finding an apartment for me and was recording the apartments from inside in Whatsapp.
-    {% endblocktranslate %}
-  </p>
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+      For the quest on completing number
+      <i class="fas fa-4 me-2 text-info"></i>, thankfully the company provided
+      me an real estate agent, who on behalf of me searched an apartment for me.
+      She is one of the nicest people I've met. She did her best in finding an
+      apartment for me and was recording the apartments from inside in Whatsapp.
+      {% endblocktranslate %}
+    </p>
 
-  <p class="lazy hover-target">
-    {% blocktranslate trimmed %}
-    Thankfully after just 2 weeks of searching, we found an apartment, that was just for me. When I saw it I imagined myself of living there (that's usually good hint that you've found the right apartment for you). One thing to keep in mind is that in Western Europe the rents are
-        <a
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+      Thankfully after just 2 weeks of searching,
+      we found an apartment, that was just for me. When I saw it I imagined
+      myself of living there (that's usually good hint that you've found the
+      right apartment for you). One thing to keep in mind is that in Western
+      Europe the rents are
+      <a
         href="#"
         data-mdb-tooltip-init
         title="Depending on where you'll live, ofcourse"
-        >quite high</a>, especially in the southern in France, but I was sorta expecting this.
-    {% endblocktranslate %}
-  </p>
+        >quite high</a
+      >, especially in the southern in France, but I was sorta expecting this.
+      {% endblocktranslate %}
+    </p>
 
-  <p class="lazy hover-target">
-    {% blocktranslate trimmed %}
-    Just for a comparison - the rent I had in Varna was 200 euros vs the apartment which I'll be moving in southern France (Cagnes-sur-mer) was 875 euros per month. That is one of the lowest rents that I was able to find. I mean not only that, but it's way smaller - moving from 55 square meters to 34 square meters. Ouch.
-    {% endblocktranslate %}
-  </p>
-
-</div>
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+      Just for a comparison - the rent I had in
+      Varna was 200 euros vs the apartment which I'll be moving in southern
+      France (Cagnes-sur-mer) was 875 euros per month. That is one of the lowest
+      rents that I was able to find. I mean not only that, but it's way smaller
+      - moving from 55 square meters to 34 square meters. Ouch.
+      {% endblocktranslate %}
+    </p>
+  </div>
 
   <p class="spacing-bot-20" />
 
   <div class="col-md-6">
     <hr class="hr hr-blurry" />
     <div class="row">
-
       <div class="col-6">
         <div class="bg-image hover-zoom" data-mdb-ripple-init>
           <img
@@ -537,7 +597,7 @@
             alt="Varna, Bulgaria"
           />
         </div>
-        </div>
+      </div>
 
       <div class="col-6">
         <div class="bg-image hover-zoom" data-mdb-ripple-init>
@@ -547,12 +607,10 @@
             alt="Varna, Bulgaria"
           />
         </div>
-        </div>
-
-        </div>
+      </div>
+    </div>
 
     <div class="row">
-
       <div class="col-6">
         <div class="bg-image hover-zoom" data-mdb-ripple-init>
           <img
@@ -561,7 +619,7 @@
             alt="Varna, Bulgaria"
           />
         </div>
-        </div>
+      </div>
 
       <div class="col-6">
         <div class="bg-image hover-zoom" data-mdb-ripple-init>
@@ -571,12 +629,10 @@
             alt="Varna, Bulgaria"
           />
         </div>
-        </div>
-
-        </div>
+      </div>
+    </div>
 
     <div class="row">
-
       <div class="col-6">
         <div class="bg-image hover-zoom" data-mdb-ripple-init>
           <img
@@ -585,7 +641,7 @@
             alt="Varna, Bulgaria"
           />
         </div>
-        </div>
+      </div>
 
       <div class="col-6">
         <div class="bg-image hover-zoom" data-mdb-ripple-init>
@@ -595,30 +651,38 @@
             alt="Varna, Bulgaria"
           />
         </div>
-        </div>
-
-        </div>
-        </div>
+      </div>
+    </div>
+  </div>
 
   <hr class="hr hr-blurry hide-when-scrolling" />
   <p class="spacing-bot-50" />
   <div class="col-md-6 text-start">
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+      And lastly for
+      <i class="fas fa-5 me-2 text-info"></i> the planning for dates was a bit
+      random - it was my first time moving out and I didn't know what I was
+      doing and if I'm making the right choice, but I must admit - I was
+      enjoying the chaos I was in.
+      {% endblocktranslate %}
+    </p>
 
-  <p class="lazy hover-target">
-    {% blocktranslate trimmed %}
-    And lastly for <i class="fas fa-5 me-2 text-info"></i> the planning for dates was a bit random - it was my first time moving out and I didn't know what I was doing and if I'm making the right choice, but I must admit - I was enjoying the chaos I was in.
-    {% endblocktranslate %}
-  </p>
-
-  <p class="lazy hover-target">
-    {% blocktranslate trimmed %}
-    It gives you a real independence and responsability to your own actions - if you screw up, then it's all on you and nobody will shout at you or
-    <a href="#" data-mdb-tooltip-init title="Talking from a real life experience here">belittle you.</a>
-    Thankfully I managed to finish everything right on time and on 28th of April I hopped in a plane at 6:00 AM and after 2 hours I was in Nice!
-    {% endblocktranslate %}
-  </p>
-
-
+    <p class="lazy hover-target">
+      {% blocktranslate trimmed %}
+      It gives you a real independence and
+      responsability to your own actions - if you screw up, then it's all on you
+      and nobody will shout at you or
+      <a
+        href="#"
+        data-mdb-tooltip-init
+        title="Talking from a real life experience here"
+        >belittle you.</a
+      >
+      Thankfully I managed to finish everything right on time and on 28th of
+      April I hopped in a plane at 6:00 AM and after 2 hours I was in Nice!
+      {% endblocktranslate %}
+    </p>
   </div>
 
   <p class="spacing-bot-20" />
@@ -626,28 +690,20 @@
     <hr class="hr hr-blurry" />
 
     <div class="d-flex align-items-start gap-3">
-      <figure class="mb-6">
-        <video
-            class="w-50 rounded shadow-2-strong"
-            controls
-            muted
-            loop
-            >
-            <source src="{% static 'images/blogs/landing_in_Nice.mp4' %}" type="video/mp4">
-            Your browser doesn't support video
-        </video>
-        <figcaption class="text-center mt-1 blockquote-footer">
-          <small
-            >{% translate "Landing in Nice!" %}</small
+        <div class="ratio ratio-16x9">
+          <iframe
+            src="https://www.youtube.com/embed/H3qWXdWRyIQ"
+            title="Landing in Nice"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
           >
-        </figcaption>
-      </figure>
-    </div>
-
+        </iframe>
+        </div>
   </div>
   <p class="spacing-bot-20" />
 
-    <hr class="hr hr-blurry" />
+  <hr class="hr hr-blurry" />
 
   <div class="col-md-6 text-center">
     <a
@@ -657,11 +713,10 @@
       aria-expanded="false"
       aria-controls="stayTunedForMore"
     >
-      <em>{% translate "Stay tuned for more updates and new content coming soon!" %}</em>
+      <em>{% translate "Stay tuned for more updates and new content coming soon!"%}</em>
     </a>
   </div>
 
   <p class="spacing-bot-50" />
-
 </div>
 {% endblock %}
