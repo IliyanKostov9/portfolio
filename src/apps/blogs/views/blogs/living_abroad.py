@@ -1,17 +1,18 @@
-from typing import Any
+from typing import Any, Final
 
+from django.utils.translation import get_language
 from django.http import HttpResponse
 from django.template import loader
 from django.views import View
 
-from django.utils.translation import get_language
-from apps.blogs.models.blog import Blog
 from portfolio.helpers.client import get_client_ip
 from portfolio.monitor.log import logger
 
+PAGE_NAME: Final[str] = "living_abroad"
 
-class BlogsView(View):
-    LOG = logger.bind(module="blogs_view")
+
+class LivingAbroadView(View):
+    LOG = logger.bind(module=PAGE_NAME)
 
     def get(self, request: Any) -> HttpResponse:
         self.LOG.info(
@@ -19,17 +20,13 @@ class BlogsView(View):
             code=200,
         )
 
-        template = loader.get_template("pages/blogs/index.html")
-
-        blogs = Blog().transform()
+        template = loader.get_template(f"pages/blogs/{PAGE_NAME}.html")
         context: dict[str, Any] = {
-            "blogs": blogs,
             "language": get_language(),
         }
 
         self.LOG.success(
-            f"Page load for blogs view was successful for user {get_client_ip(request)}",
+            f"Page load for {PAGE_NAME} view was successful for user {get_client_ip(request)}",
             code=200,
         )
-
         return HttpResponse(template.render(context, request))

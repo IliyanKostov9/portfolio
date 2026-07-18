@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static compress django_bootstrap5 i18n %}
+{% load static compress i18n %}
 {% block extra_head %}
 {% compress css %}
 <link
@@ -13,11 +13,13 @@
 {% block content %}
 
 <div class="d-flex justify-content-center align-items-center initial-content">
-  <img
-    src="{% static 'images/profile.jpg' %}"
-    class="profile-img img-fluid rounded-circle me-4 lazy"
-    alt="profile"
-  />
+  <div class="bg-image hover-zoom rounded-circle overflow-hidden me-4" data-mdb-ripple-init data-mdb-ripple-centered="true">
+    <img
+      src="{% static 'images/profile.jpeg' %}"
+      class="profile-img img-fluid rounded-circle lazy"
+      alt="profile"
+    />
+  </div>
 
   <div class="text-start">
     <h5 class="mt-1 text-secondary lazy hover-target">{% translate "Hi" %},

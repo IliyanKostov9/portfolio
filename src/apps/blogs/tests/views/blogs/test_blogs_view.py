@@ -31,7 +31,7 @@ class BlogsTestCase(TestCase):
                 description="Description of a blog",
                 image_preview="image.png",
                 date="2025-01-01",
-                url="the-start-of-something-new",
+                url="living-abroad",
                 read_time_mins=3,
                 row=1,
                 category=blog_category1,
