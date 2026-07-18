@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 21:32+0200\n"
+"POT-Creation-Date: 2026-07-18 16:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,25 +17,571 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/apps/blogs/templates/pages/blogs/index.html:20
-#: src/templates/base.html:80
+#: src/apps/blogs/templates/pages/blogs/index.html:21
+#: src/templates/base.html:88
 msgid "Blogs"
 msgstr "Blogs"
 
-#: src/apps/blogs/templates/pages/blogs/index.html:25
+#: src/apps/blogs/templates/pages/blogs/index.html:28
 msgid "Read about my latest thoughts"
 msgstr "Lesen Sie meine neuesten Gedanken"
 
-#: src/apps/blogs/templates/pages/blogs/index.html:53
+#: src/apps/blogs/templates/pages/blogs/index.html:55
 #, python-format
 msgid "Read time: %(mins)s minutes"
 msgstr "Lesezeit: %(mins)s Minuten"
 
-#: src/apps/resume/templates/pages/home/about.html:7
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:21
+msgid "Moving from Bulgaria to France"
+msgstr "Umzug von Bulgarien nach Frankreich"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:24
+msgid "Stupidity or adventure ?"
+msgstr "Dummheit oder Abenteuer?"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:28
+msgid "June"
+msgstr "Juni"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:57
+msgid ""
+"I'm sure that everyone has dreamed of living in another country - whether "
+"the reason is to escape or to experience something new. However it's much "
+"more complicated than just buying a cheap ticket plane on WizzAir (or any "
+"other low-cost airline service) and erase all of your problems like that. "
+"You not only have to be <mark>mentally prepared</mark> to leave all of your "
+"friends and family from your home country, but also be <mark>willing to "
+"accept</mark> that, like it or not, you'll have to adapt to the environment, "
+"integrate with the culture and \"act\" like the locals."
+msgstr ""
+"Ich bin sicher, jeder hat schon einmal davon geträumt, in einem anderen Land "
+"zu leben – sei es, um zu fliehen oder etwas Neues zu erleben. Es ist jedoch "
+"viel komplizierter, als einfach ein billiges Flugticket bei Wizz Air (oder "
+"einer anderen Billigfluggesellschaft) zu kaufen und damit alle Probleme zu "
+"vergessen. Man muss nicht nur mental darauf vorbereitet sein, Freunde und "
+"Familie aus der Heimat zurückzulassen, sondern auch bereit sein, zu "
+"akzeptieren, dass man sich – ob man will oder nicht – an die Umgebung "
+"anpassen, sich in die Kultur integrieren und sich wie die Einheimischen "
+"verhalten muss."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:71
+msgid ""
+"Every gesture they make, the way they dress, the way they speak, the way "
+"they handle themselves, whether they speak loudly or quietly - you have to "
+"<strong>be</strong> like them. That's how you actually integrate."
+msgstr ""
+"Jede Geste, die sie machen, ihre Kleidung, ihre Art zu sprechen, ihr ganzes "
+"Auftreten, ob sie laut oder leise sprechen – du musst so sein wie sie. Nur "
+"so integriert man sich wirklich."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:80
+msgid ""
+"If you are currently thinking about living abroad - more specifically, "
+"living away from your own people and culture to explore a whole new world, "
+"where the people there speak an unknown (and quite funny) language and with "
+"different interests, then I think this blog post will help you make the "
+"decision. It's not to scare or reassure you if you should or should not try "
+"to live abroad, but I want to share with you my personal experience and make "
+"you draw conclusions of your own."
+msgstr ""
+"Wenn du gerade darüber nachdenkst, im Ausland zu leben – genauer gesagt, "
+"deine Heimat und Kultur hinter dir zu lassen, um eine ganz neue Welt zu "
+"entdecken, wo die Menschen eine unbekannte (und ziemlich lustige) Sprache "
+"sprechen und andere Interessen haben, dann wird dir dieser Blogbeitrag bei "
+"deiner Entscheidung helfen. Es geht nicht darum, dich zu verunsichern oder "
+"dir einzureden, ob du es versuchen solltest oder nicht, im Ausland zu leben, "
+"sondern ich möchte meine persönlichen Erfahrungen mit dir teilen und dir "
+"helfen, deine eigenen Schlüsse zu ziehen."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:92
+msgid ""
+"I don't have the decision for you my dear reader - nobody knows what's best "
+"for you better than you do."
+msgstr ""
+"Ich kann Ihnen die Entscheidung nicht abnehmen, lieber Leser – niemand weiß "
+"besser als Sie selbst, was das Beste für Sie ist."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:103
+msgid "Finding work in another country was tough to say the least..."
+msgstr ""
+"In einem anderen Land Arbeit zu finden, war, gelinde gesagt, schwierig…"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:107
+msgid ""
+"At that time I didn't really know anyone close to me to help me find an IT "
+"job abroad. I didn't want to work remotely, since that'll kill the idea of "
+"living in another country, so I had to specifically look for companies, <a "
+"href=\"#\" data-mdb-tooltip-init title=\"Lucky for me, Bulgaria (my home "
+"country) is part of EU, so I didn't have to deal with getting a visa. "
+"Companies, that hire professionals from abroad will most likely prefer "
+"candidates, that have an EU citizenship, rather than going through the "
+"paperwork involved in sponsoring a visa. As unfair as it sounds, it's the "
+"ugly truth.\" >that are willing to take the risk and hire someone from "
+"another country.</a >"
+msgstr ""
+"Damals kannte ich niemanden in meinem Umfeld, der mir dabei helfen konnte, "
+"einen IT-Job im Ausland zu finden. Ich wollte nicht im Homeoffice arbeiten, "
+"da das den Sinn des Lebens in einem anderen Land zunichte machen würde, also "
+"musste ich gezielt nach Unternehmen suchen, <a href=\"#\" data-mdb-tooltip-"
+"init title=\"Zu meinem Glück gehört Bulgarien (mein Heimatland) zur EU, "
+"sodass ich mich nicht um ein Visum kümmern musste. Unternehmen, die "
+"Fachkräfte aus dem Ausland einstellen, werden höchstwahrscheinlich Bewerber "
+"bevorzugen, die eine EU-Staatsbürgerschaft besitzen, anstatt den Papierkram "
+"zu bewältigen, der mit der Beantragung eines Visums verbunden ist. So unfair "
+"das auch klingen mag, es ist die hässliche Wahrheit.\">die bereit sind, das "
+"Risiko einzugehen und jemanden aus einem anderen Land einzustellen.</a>"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:123
+msgid ""
+"We talked with an italian friend about it and we realised of how ungrateful "
+"we are of being in the EU - we can travel and live to almost anywhere by "
+"just handing over our ID cards to the border control officiers. So if your "
+"home country is within the EU, then great! You'll have higher chances of "
+"finding a job, but if you're outside, then you'll have to make sure you're "
+"the best candidate the company can find and that they'll definitely miss out "
+"if they don't hire you now, as another company might <em>steal</em> you from "
+"them."
+msgstr ""
+"Wir haben mit einem italienischen Freund darüber gesprochen und dabei "
+"erkannt, wie undankbar wir dafür sind, in der EU zu leben – wir können fast "
+"überall hinreisen und leben, indem wir den Grenzbeamten einfach unseren "
+"Personalausweis vorzeigen. Wenn dein Heimatland also in der EU liegt, dann "
+"ist das großartig! Du hast bessere Chancen, einen Job zu finden, aber wenn "
+"du außerhalb der EU lebst, musst du sicherstellen, dass du der beste "
+"Kandidat bist, den das Unternehmen finden kann, und dass es definitiv eine "
+"Chance verpasst, wenn es dich jetzt nicht einstellt, da ein anderes "
+"Unternehmen dich <em>stehlen</em> könnte."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:136
+msgid ""
+"Coming back to my story. As I said, I didn't really know anyone, that can "
+"help me find work abroad. In reality, I really didn't have a lot of friends "
+"or people to just talk to. At that time I was in the middle of completing my "
+"Master's degree and I also had a full time job. I didn't have much time to "
+"socialize, let alone find international friends. When I recall about my past "
+"situation, sometimes I'm wondering if I was lying to myself just to feel "
+"better and to say that it wasn't my fault for being in this situation, that "
+"I was just too focused on my career and education and that I've "
+"intentionally delayed the fun activities (like socializing, going to bars) "
+"for later, maybe after I get a good job with a good salary and finished my "
+"education. And yet, at that time I really didn't believe myself."
+msgstr ""
+"Zurück zu meiner Geschichte. Wie gesagt, ich kannte niemanden, der mir dabei "
+"helfen konnte, im Ausland Arbeit zu finden. Tatsächlich hatte ich nicht "
+"wirklich viele Freunde oder Leute, mit denen ich einfach nur reden konnte. "
+"Zu dieser Zeit war ich gerade dabei, meinen Master-Abschluss zu machen, und "
+"hatte außerdem einen Vollzeitjob. Ich hatte nicht viel Zeit, um Kontakte zu "
+"knüpfen, geschweige denn internationale Freunde zu finden. Wenn ich an meine "
+"damalige Situation zurückdenke, frage ich mich manchmal, ob ich mir selbst "
+"etwas vorgemacht habe, nur um mich besser zu fühlen und mir einzureden, dass "
+"es nicht meine Schuld war, in dieser Situation zu sein, dass ich einfach zu "
+"sehr auf meine Karriere und meine Ausbildung konzentriert war und dass ich "
+"die unterhaltsamen Aktivitäten (wie Ausgehen, in Bars gehen) absichtlich auf "
+"später verschoben habe, vielleicht bis ich einen guten Job mit gutem Gehalt "
+"habe und meine Ausbildung abgeschlossen habe. Und doch habe ich mir damals "
+"selbst nicht wirklich geglaubt."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:153
+msgid ""
+"Then in late February 2025, a random HR person messaged me on Linked in. "
+"This was usual to me, as I have already updated my status to <a href=\"#\" "
+"class=\"text-decoration-none\">#Open to work</a> But this message was "
+"different from the rest. Something caught my eye. The position wasn't in "
+"Bulgaria or being completely remote as most job offers I received - the job "
+"was actually in France, more specifically in Nice."
+msgstr ""
+"Dann, Ende Februar 2025, schrieb mir ein zufälliger Personaler auf LinkedIn "
+"eine Nachricht. Das war für mich nichts Ungewöhnliches, da ich meinen Status "
+"bereits auf <a href=\"#\" class=\"text-decoration-none\">#Offen für neue "
+"Aufgaben</a> aktualisiert hatte. Aber diese Nachricht war anders als die "
+"anderen. Etwas fiel mir ins Auge. Die Stelle war weder in Bulgarien noch "
+"vollständig im Homeoffice, wie die meisten Stellenangebote, die ich erhielt "
+"– die Stelle befand sich tatsächlich in Frankreich, genauer gesagt in Nizza."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:165
+msgid ""
+"Honestly, at that time I have never heard of a city called Nice. How do you "
+"pronounce it ? Do you pronounce it like the word Nice literally or Niece ? "
+"What a ridicilous name the colonizers gave to this city. Since this message "
+"caught my curiosity, I agreed with her to get on a call for next week. At "
+"that time I was actively searching for a job and all of them rejected me. So "
+"I was actually expecting to fail on this interview as well. I didn't really "
+"care. I just wanted to try my luck."
+msgstr ""
+"Ehrlich gesagt hatte ich damals noch nie von einer Stadt namens Nizza "
+"gehört. Wie spricht man das aus? Spricht man es wörtlich wie das Wort ‚Nice‘ "
+"aus oder eher wie ‚Niece‘? Was für einen lächerlichen Namen die "
+"Kolonialherren dieser Stadt gegeben haben. Da diese Nachricht meine Neugier "
+"geweckt hatte, vereinbarte ich mit ihr ein Telefonat für nächste Woche. Zu "
+"dieser Zeit war ich aktiv auf Jobsuche, und bei allen Bewerbungen wurde ich "
+"abgelehnt. Daher rechnete ich eigentlich damit, auch bei diesem "
+"Vorstellungsgespräch durchzufallen. Es war mir eigentlich egal. Ich wollte "
+"einfach mein Glück versuchen."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:193
+msgid "Beach alley of Varna, Bulgaria, that I've frequently had a stroll"
+msgstr ""
+"Strandallee von Warna, Bulgarien, wo ich schon oft spazieren gegangen bin"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:199
+msgid ""
+"A week pases and we are in the end of February, we get in a call. I "
+"expalined to her my situation, that I want to live abroad and that I'm also "
+"finishing my Master's degree. I wanted to be completely transparent with "
+"her. We got along really well, surprisingly. I did present myself of "
+"pretending to be a normal human being, that is able to form coherent "
+"sentences. She was also really surprised of how well I was speaking English. "
+"The reason was that before this interview I had many other interviews like "
+"this, where I primarily spoke English and therefore I greatly improved my "
+"presentation skills. But outside of work if I dared to speak English with "
+"another person, that was kind of a disaster to me."
+msgstr ""
+"Eine Woche vergeht, Ende Februar, und wir bekommen ein Telefonat. Ich "
+"erkläre ihr meine Situation, dass ich im Ausland leben möchte und dass ich "
+"außerdem mein Masterstudium abschließe. Ich wollte ihr gegenüber völlig "
+"offen sein. Wir haben uns überraschenderweise sehr gut verstanden. Ich habe "
+"mich so präsentiert, als ob ich ein normaler Mensch wäre, der "
+"zusammenhängende Sätze bilden kann. Sie war auch sehr überrascht, wie gut "
+"ich Englisch spreche. Der Grund dafür war, dass ich vor diesem "
+"Vorstellungsgespräch viele ähnliche Gespräche geführt hatte, in denen ich "
+"hauptsächlich Englisch gesprochen habe und meine Präsentationsfähigkeiten "
+"dadurch stark verbessert hatte. Aber außerhalb der Arbeit war es für mich "
+"eine Katastrophe, Englisch mit anderen Menschen zu sprechen."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:220
+msgid ""
+"After this meeting, <abbr title=\"Human resources\">Beatrice</abbr> was "
+"quite excited to meet me in person and she immediatly wanted me to move to "
+"the next interview's step to have an interview with the <a href=\"#\" data-"
+"mdb-tooltip-init title=\"aka my future manager\" >Business manager</a >. By "
+"the way, every interview I had was scheduled weekly, meaning that I had "
+"enough time to prepare. If you are wondering how I was preparing, then I "
+"couldn't be able to answer you - because I don't realy remember."
+msgstr ""
+"Nach diesem Treffen war <abbr title=\"Personalabteilung\">Beatrice</abbr> "
+"sehr begeistert, mich persönlich kennenzulernen, und sie wollte sofort, dass "
+"ich zur nächsten Stufe des Bewerbungsprozesses übergehe, um ein "
+"Vorstellungsgespräch mit dem <a href=\"#\" data-mdb-tooltip-init "
+"title=\"alias mein zukünftiger Vorgesetzter\">Business Manager</a>. Übrigens "
+"fanden alle meine Vorstellungsgespräche im wöchentlichen Rhythmus statt, was "
+"bedeutete, dass ich genügend Zeit zur Vorbereitung hatte. Falls ihr euch "
+"fragt, wie ich mich vorbereitet habe, dann könnte ich euch darauf keine "
+"Antwort geben – denn ich kann mich nicht wirklich daran erinnern."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:237
+msgid ""
+"<strong><i class=\"fas fa-check\"></i>Advice:</strong> The most important "
+"advice I can give you (at least for IT related jobs), is that you have to be "
+"better at your presentation skills than your technical skills. Honestly "
+"that's how I'm able to find IT jobs. At the end of the day it doesn't really "
+"matter how much you know, it matters how you present yourself, so that you "
+"can convince the person that is interviewing you of what a great candidate "
+"you are and that you won't be bothered if they potentially reject your "
+"application."
+msgstr ""
+"<strong>Ratschlag:</strong> Der wichtigste Rat, den ich dir geben kann "
+"(zumindest für Jobs im IT-Bereich), ist, dass deine Präsentationsfähigkeiten "
+"besser sein müssen als deine technischen Fähigkeiten. Ehrlich gesagt, genau "
+"so finde ich meine IT-Jobs. Letztendlich kommt es nicht wirklich darauf an, "
+"wie viel du weißt, sondern darauf, wie du dich präsentierst, damit du die "
+"Person, die das Vorstellungsgespräch führt, davon überzeugen kannst, was für "
+"ein großartiger Kandidat du bist, und dass es dich nicht stört, wenn sie "
+"deine Bewerbung möglicherweise ablehnen. Diese Fähigkeit ist hauptsächlich "
+"eine soziale Kompetenz. Das bedeutet, dass du dich auf ein "
+"Vorstellungsgespräch vorbereiten musst – indem du einfach unter Leute gehst "
+"und nicht acht Stunden am Tag vor dem Bildschirm sitzt. Ich weiß, das klingt "
+"ein bisschen unlogisch, aber in meinem Fall dreht sich die DevOps-Position "
+"hauptsächlich um Menschen und Prozesse und nicht nur darum, Code zu "
+"schreiben wie ein Entwickler."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:249
+msgid ""
+"This skill is mainly a social skill. What that means is that for you to "
+"prepare for an interview - you just have to socialize and not sit in front "
+"of the screen 8 hours a day. It's a bit inlogical, I know, but in my case "
+"the DevOps position mainly revolves around people and processes, not purely "
+"writing code like a developer."
+msgstr ""
+"Diese Fähigkeit ist hauptsächlich eine soziale Kompetenz. Das bedeutet, dass Sie sich, um sich auf ein Vorstellungsgespräch vorzubereiten, einfach nur unterhalten und nicht acht Stunden am Tag vor dem Bildschirm sitzen müssen. Es klingt etwas paradox, ich weiß, aber in meinem Fall dreht sich die DevOps-Position hauptsächlich um Menschen und Prozesse, nicht nur um das reine Programmieren wie ein Entwickler."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:262
+msgid ""
+"One week later and now I'm in the meeting with the business manager. She "
+"seems like a nice lady. We had a good conversation, nothing out of the "
+"ordinary. She then told me that there is one more interview left - <a "
+"href=\"#\" data-mdb-tooltip-init title=\"I don't know why, but I'm always "
+"getting nervous about technical interviews, because I'm scared that if I say "
+"something wrong, then that's it. Game over. I mean I have spent 3 weeks "
+"(including the tech interview) already to come to this point. It'll be pity "
+"if I failed on the very last step, which should naturally be my easiest "
+"interview, but I digress.\" >the technical interview.</a > Then the time "
+"comes. I have a meeting with a man, that is around my age. <a href=\"#\" "
+"data-mdb-tooltip-init title=\"That was obviously an advantage for me\" >He "
+"didn't seem very experienced in conducting interviews.</a > Since I was "
+"worried that this interview will end the same way as the previous ones, I "
+"started talking most of the time - about my previous projects, about what "
+"I've done, about the technologies. I was trying to flood the interviewer's "
+"head with too much information, <a href=\"#\" data-mdb-tooltip-init "
+"title=\"as I said, I had an advantage\" >that he didn't even ask.</a > After "
+"bothering him for 1 hour, he finally gives up and told me after 2 minutes "
+"after that I'm accepted 🎉."
+msgstr ""
+"Eine Woche später sitze ich nun im Gespräch mit der Geschäftsleiterin. Sie "
+"scheint eine nette Dame zu sein. Wir hatten ein gutes Gespräch, nichts "
+"Außergewöhnliches. Dann sagte sie mir, dass noch ein Vorstellungsgespräch "
+"ansteht – <a href=\"#\" data-mdb-tooltip-init title=\"Ich weiß nicht warum, "
+"aber bei technischen Vorstellungsgesprächen werde ich immer nervös, weil ich "
+"Angst habe, dass es vorbei ist, wenn ich etwas Falsches sage. Game over. Ich "
+"meine, ich habe bereits drei Wochen (einschließlich des technischen "
+"Vorstellungsgesprächs) gebraucht, um an diesen Punkt zu kommen. Es wäre "
+"schade, wenn ich am allerletzten Schritt scheitern würde, der eigentlich "
+"mein einfachstes Vorstellungsgespräch sein sollte, aber ich schweife ab."
+"\">das technische Vorstellungsgespräch.</a> Dann ist es soweit. Ich habe ein "
+"Gespräch mit einem Mann, der ungefähr in meinem Alter ist. <a href=\"#\" "
+"data-mdb-tooltip-init title=\"Das war offensichtlich ein Vorteil für "
+"mich\">Er schien nicht besonders erfahren darin zu sein, "
+"Vorstellungsgespräche zu führen.</a> Da ich befürchtete, dass dieses "
+"Vorstellungsgespräch genauso enden würde wie die vorherigen, habe ich die "
+"meiste Zeit geredet – über meine bisherigen Projekte, darüber, was ich "
+"bisher gemacht habe, über die Technologien. Ich habe versucht, den Kopf des "
+"Interviewers mit zu vielen Informationen zu überfluten, <a href=\"#\" data-"
+"mdb-tooltip-init title=\"wie gesagt, ich hatte einen Vorteil\">nach denen er "
+"gar nicht gefragt hatte.</a> Nachdem ich ihn eine Stunde lang genervt hatte, "
+"gab er schließlich auf und teilte mir zwei Minuten später mit, dass ich "
+"angenommen bin 🎉."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:296
+msgid ""
+"Finally, after <a href=\"#\" data-mdb-tooltip-init title=\"I'm exaggerating "
+"ofcourse. I didn't actually count\" >50+ interviews</a > I finally got an "
+"offer, and on top of it - it's in a different country. Exactly what I wanted!"
+msgstr ""
+"Endlich, nach <a href=\"#\" data-mdb-tooltip-init title=\"Ich übertreibe natürlich. Ich habe nicht mitgezählt\" >über 50 Vorstellungsgesprächen</a > habe ich endlich ein Angebot bekommen, und obendrein – in einem anderen Land. Genau das, was ich wollte!"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:322
+msgid ""
+"Me trying to smile after hearing the good news! That's why I'm not an actor"
+msgstr ""
+"Ich versuche zu lächeln, nachdem ich die gute Nachricht gehört habe! Deshalb "
+"bin ich kein Schauspieler."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:333
+msgid "The BIG move"
+msgstr "Der GROSSE Schritt"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:338
+msgid ""
+"Now that the most important part is already handled (getting a job), I had "
+"several chores that I needed to take care of:"
+msgstr ""
+"Nachdem der wichtigste Teil (die Jobsuche) nun erledigt war, hatte ich noch einige Dinge zu erledigen:"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:349
+msgid "Inform my landlord that I'll leave her flat"
+msgstr "Informiere meine Vermieterin, dass ich ihre Wohnung verlassen werde"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:359
+msgid "Move my furniture somewhere"
+msgstr "Stell meine Möbel woanders hin"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:368
+msgid "Prepare my luggage"
+msgstr "Bereite mein Gepäck vor"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:377
+msgid "Find a flat in France"
+msgstr "Finde eine Wohnung in Frankreich"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:386
+msgid "Plan these activites in a timely manner"
+msgstr "Planen Sie diese Aktivitäten rechtzeitig"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:396
+msgid ""
+"Since at the moment of the company informing me that I've been accepted "
+"against the starting date, that they're expecting me to come (1st of May), I "
+"actually had less than a month, meaning that I was in the mercy of my "
+"landlord to understand my situation and make an <a href=\"#\" data-mdb-"
+"tooltip-init title=\"These kinds of situation would never ever happen in "
+"western Europe. You can be only dreaming about such gesture. People there "
+"are quite strict about following rules\" >exception</a > for me."
+msgstr ""
+"Da mir die Firma zu dem Zeitpunkt mitteilte, dass ich angenommen wurde und der Arbeitsbeginn am 1. Mai erwartet wird, hatte ich tatsächlich weniger als einen Monat Zeit. Das bedeutete, dass ich auf das Verständnis meines Vermieters angewiesen war, um eine Ausnahme für mich zu machen."
+"Solche Situationen wären in Westeuropa undenkbar. Von so einer Geste kann man nur träumen. Die Leute dort sind sehr streng, was die Einhaltung von Regeln angeht."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:413
+msgid ""
+"Alas, I was lucky enough that she was understandable and let me leave early "
+"(about 20-ish of August). So chore number <i class=\"fas fa-1 me-2 text-"
+"info\"></i> was completed!"
+msgstr ""
+"Leider hatte ich das Glück, dass sie Verständnis zeigte und mich früher gehen ließ"
+"(etwa am 20. August). Damit war Aufgabe Nummer <i class=\"fas fa-1 me-2 text-"
+"info\"></i> erledigt!"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:422
+msgid ""
+"<strong><i class=\"fas fa-check\"></i>Advice:</strong> If your home country "
+"is in Eastern Europe or some other place, where the rules are quite flexible "
+"and are not strictly followed by the book, then you'll for sure be surprised "
+"that in the Western side you'll have to follow the country's rules, where at "
+"the start you won't even know what the rules are, so that you can comply to "
+"them accordingly. But please, do not immediatly think that the new place "
+"sucks and that you should be soon packing your bags because it's so "
+"different. Different doesn't necessarily mean bad - it's a new experience, "
+"which will make you grow into a better person."
+msgstr ""
+"<strong><i class=\"fas fa-check\"></i>Tipp:</strong> Wenn Ihr Heimatland in Osteuropa oder anderswo liegt, wo die Regeln recht flexibel sind und nicht so streng befolgt werden, werden Sie sicher überrascht sein, dass Sie im Westen die Regeln des jeweiligen Landes befolgen müssen, obwohl Sie diese anfangs vielleicht gar nicht kennen. Aber denken Sie bitte nicht gleich, dass der neue Ort schrecklich ist und Sie Ihre Koffer packen sollten, weil er so anders ist. Anders heißt nicht unbedingt schlecht – es ist eine neue Erfahrung, die Sie zu einem besseren Menschen machen wird."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:438
+msgid ""
+"As for number <i class=\"fas fa-2 me-2 text-info\"></i>, the person I wanted "
+"to \"gift\" all of my stuff is my mother. You see, she is not in a good "
+"financial position and she's living paycheck to paycheck. I wanted to help "
+"her somehow... and what better way than to make it more convinient for her "
+"to make an omlette for example, or to be able to clean her house with a "
+"vacuum cleaner."
+msgstr ""
+"Was die Nummer <i class=\"fas fa-2 me-2 text-info\"></i> betrifft, die Person, der ich all meine Sachen schenken wollte, ist meine Mutter. Sie ist nämlich finanziell nicht in guter Lage und lebt von Gehaltsscheck zu Gehaltsscheck. Ich wollte ihr irgendwie helfen... und was wäre da besser geeignet, als ihr das Leben zu erleichtern, zum Beispiel ein Omelett zuzubereiten oder ihr Haus mit einem Staubsauger zu reinigen."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:449
+msgid ""
+"Since it was my first time hiring movers, I had no idea which one should I "
+"choose, that are reliable and won't decide to steal my stuff. Moreover, I "
+"also had to travel to meet my mother before departure. And in fact she lives "
+"quite far away - I had to take 2 trains from my home city to her place - in "
+"total that would be 10-11 hours in total just for pure traveling."
+msgstr ""
+"Da ich zum ersten Mal ein Umzugsunternehmen beauftragte, hatte ich keine Ahnung, welches ich wählen sollte, welches zuverlässig ist und nicht beschließt, meine Sachen zu stehlen. Außerdem musste ich vor der Abreise noch zu meiner Mutter fahren. Und sie wohnt ziemlich weit weg – ich musste zwei Züge von meiner Heimatstadt zu ihr nehmen – insgesamt dauerte die reine Fahrt 10-11 Stunden."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:475
+msgid ""
+"A drive with the movers towards my mother's place. It had passed about 2-3 "
+"hours from our departure and we had about 6 more hours left to arrive"
+msgstr ""
+"Eine Fahrt mit den Umzugshelfern zu meiner Mutter. Es waren etwa 2-3 "
+"Stunden seit unserer Abfahrt vergangen und wir hatten noch etwa 6 Stunden bis zur Ankunft."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:481
+msgid ""
+"Luck was still on my side. The movers were very kind to me and decided to "
+"give me a ride towars my mother's place, which I was truly thankful to them. "
+"They even gave me a sandwich when we were on a break. They were a couple in "
+"their late 40s - early 50s. The wife was the navigator and the husband was "
+"the driver. They are a good team! If you're searching for movers in Varna, "
+"Bulgaria, then I cannot recommend you enough to use their service. <a "
+"href=\"#\" data-mdb-tooltip-init title=\"This is not an ad. They didn't pay "
+"me to write this.\" >You won't regret it!</a >"
+msgstr ""
+"Ich hatte immer noch Glück. Die Umzugshelfer waren sehr nett zu mir und beschlossen, mich zu meiner Mutter zu fahren, wofür ich ihnen sehr dankbar war. "
+"Sie gaben mir sogar ein Sandwich, als wir eine Pause machten. Sie waren ein Paar, Ende 40, Anfang 50. Die Frau navigierte und der Mann fuhr. Sie sind ein gutes Team! Wenn Sie in Varna, Bulgarien, nach Umzugshelfern suchen, kann ich Ihnen ihren Service wärmstens empfehlen. Sie werden es nicht bereuen!"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:503
+msgid ""
+"On number <i class=\"fas fa-3 me-2 text-info\"></i>, it was quite "
+"straightforward as you can imagine - I had 2 small luggages from my brother "
+"and somehow that was enough for me to put all of my clothes there."
+msgstr ""
+"Am Tag der Ankunft <i class=\"fas fa-3 me-2 text-info\"></i> war es ganz einfach, wie Sie sich vorstellen können – ich hatte zwei kleine Koffer von meinem Bruder dabei, und das reichte irgendwie, um meine gesamte Kleidung darin zu verstauen."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:515
+msgid ""
+"<strong><i class=\"fas fa-brain\"></i>Mental note:</strong> If you feel like "
+"you've become attached to certain items, then moving to another country is a "
+"great way to leave them and live with less. I've found during the move that "
+"I felt quite lost when I left my city and I felt guilty about leaving. I do "
+"not know why, it felt like I was making a foolish decision, that I'm "
+"throwing all of what I've built (<a href=\"#\" data-mdb-tooltip-init "
+"title=\"even though not many\" >connections</a >, career, risking my "
+"Master's degree) just because I was so bored and wanted to have a new "
+"experience. Now looking back at it, I've learned way more for 1 year than "
+"what I've learned from 18 years old till 25. It's surprising how much you "
+"can learn just in a relatively short amount of time. Leaving out of your "
+"comfort zone makes you vulnerable, for sure, but you'll become stronger "
+"(mentally) and just better overall."
+msgstr ""
+"<strong><i class=\"fas fa-brain\"></i>Merke:</strong> Wenn du das Gefühl hast, an bestimmten Dingen zu hängen, dann ist ein Umzug in ein anderes Land eine "
+"gute Möglichkeit, sie hinter sich zu lassen und mit weniger zu leben. Ich habe während des Umzugs festgestellt, dass ich mich ziemlich verloren fühlte, als ich meine Stadt verließ, und ich hatte Schuldgefühle deswegen. Ich weiß nicht, warum, aber es fühlte sich an, als würde ich eine dumme Entscheidung treffen, als würde ich "
+"alles, was ich mir aufgebaut hatte (<a href=\"#\" data-mdb-tooltip-init "
+"title=\"auch wenn es nicht viele\" >Kontakte</a >, meine Karriere, meinen "
+"Master-Abschluss riskieren), nur weil ich so gelangweilt war und eine neue "
+"Erfahrung machen wollte. Jetzt, im Rückblick, habe ich in einem Jahr viel mehr gelernt als in den Jahren zwischen 18 und 25. Es ist erstaunlich, wie viel man in relativ kurzer Zeit lernen kann. Seine Komfortzone zu verlassen, macht einen zwar verletzlich, aber man wird dadurch mental stärker und insgesamt einfach besser."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:535
+msgid ""
+"That is actually why, when I'm currently writing this, that I miss living in "
+"a foreign country, not necessarily missing France, but living somewhere "
+"elsewhere where it's not my home country - where it's not Bulgaria. I miss "
+"the experience of exploring the place, of having to understand the culture "
+"all over again, having the incredible difficulty understanding the locals of "
+"what the hell they're trying to tell me. It's not an obsticle, it's a new "
+"experience - and I miss it 🙁."
+msgstr ""
+"Genau deshalb vermisse ich, während ich das hier schreibe, das Leben in einem fremden Land. Ich vermisse nicht unbedingt Frankreich, sondern eher das Leben an einem anderen Ort, wo es nicht mein Heimatland ist – wo es nicht Bulgarien ist. Ich vermisse es, einen Ort zu erkunden, die Kultur neu zu verstehen, die unglaubliche Schwierigkeit, die Einheimischen zu verstehen und zu begreifen, was zum Teufel sie mir sagen wollen. Es ist kein Hindernis, es ist eine neue Erfahrung – und ich vermisse sie 🙁."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:551
+msgid ""
+"For the quest on completing number <i class=\"fas fa-4 me-2 text-info\"></"
+"i>, thankfully the company provided me an real estate agent, who on behalf "
+"of me searched an apartment for me. She is one of the nicest people I've "
+"met. She did her best in finding an apartment for me and was recording the "
+"apartments from inside in Whatsapp."
+msgstr ""
+"Für die Aufgabe, die Nummer <i class=\"fas fa-4 me-2 text-info\"></"
+"i> abzuschließen, hat mir die Firma glücklicherweise eine Immobilienmaklerin zur Verfügung gestellt, die in meinem Namen eine Wohnung für mich gesucht hat. Sie ist eine der nettesten Personen, die ich je kennengelernt habe. Sie hat ihr Bestes gegeben, um eine Wohnung für mich zu finden und hat die Wohnungen von innen in WhatsApp gefilmt."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:561
+msgid ""
+"Thankfully after just 2 weeks of searching, we found an apartment, that was "
+"just for me. When I saw it I imagined myself of living there (that's usually "
+"good hint that you've found the right apartment for you). One thing to keep "
+"in mind is that in Western Europe the rents are <a href=\"#\" data-mdb-"
+"tooltip-init title=\"Depending on where you'll live, ofcourse\" >quite high</"
+"a >, especially in the southern in France, but I was sorta expecting this."
+msgstr ""
+"Zum Glück haben wir nach nur zwei Wochen Suche eine Wohnung gefunden, die genau das Richtige für mich war. Als ich sie sah, stellte ich mir vor, wie es wäre, dort zu wohnen (das ist normalerweise ein gutes Zeichen dafür, dass man die richtige Wohnung gefunden hat). Man sollte bedenken, dass die Mieten in Westeuropa recht hoch sind, insbesondere in Südfrankreich, aber das hatte ich schon erwartet."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:577
+msgid ""
+"Just for a comparison - the rent I had in Varna was 200 euros vs the "
+"apartment which I'll be moving in southern France (Cagnes-sur-mer) was 875 "
+"euros per month. That is one of the lowest rents that I was able to find. I "
+"mean not only that, but it's way smaller - moving from 55 square meters to "
+"34 square meters. Ouch."
+msgstr ""
+"Nur mal zum Vergleich: Meine Miete in Varna betrug 200 Euro, während die Wohnung, in die ich in Südfrankreich (Cagnes-sur-Mer) ziehe, 875 Euro pro Monat kostet. Das ist eine der niedrigsten Mieten, die ich finden konnte. Und nicht nur das, sie ist auch viel kleiner – von 55 Quadratmetern auf 34 Quadratmeter. Autsch."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:662
+msgid ""
+"And lastly for <i class=\"fas fa-5 me-2 text-info\"></i> the planning for "
+"dates was a bit random - it was my first time moving out and I didn't know "
+"what I was doing and if I'm making the right choice, but I must admit - I "
+"was enjoying the chaos I was in."
+msgstr ""
+"Und schließlich für <i class=\"fas fa-5 me-2 text-info\"></i> war die Planung für "
+"Dates etwas willkürlich – es war mein erster Auszug und ich wusste nicht, "
+"was ich tat und ob ich die richtige Entscheidung traf, aber ich muss zugeben – ich habe das Chaos genossen."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:672
+msgid ""
+"It gives you a real independence and responsability to your own actions - if "
+"you screw up, then it's all on you and nobody will shout at you or <a "
+"href=\"#\" data-mdb-tooltip-init title=\"Talking from a real life experience "
+"here\" >belittle you.</a > Thankfully I managed to finish everything right "
+"on time and on 28th of April I hopped in a plane at 6:00 AM and after 2 "
+"hours I was in Nice!"
+msgstr ""
+"Es gibt dir echte Unabhängigkeit und Verantwortung für dein eigenes Handeln – wenn du Mist baust, bist du selbst dafür verantwortlich und niemand wird dich anschreien oder dich herabsetzen. Glücklicherweise habe ich alles rechtzeitig geschafft und bin am 28. April um 6:00 Uhr morgens ins Flugzeug gestiegen und nach 2 Stunden war ich in Nizza!"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:716
+msgid "Stay tuned for more updates and new content coming soon!"
+msgstr "Bleiben Sie dran für weitere Updates und neue Inhalte, die bald erscheinen!"
+
+#: src/apps/resume/templates/pages/home/about.html:6
 msgid "About"
 msgstr "Um"
 
-#: src/apps/resume/templates/pages/home/about.html:10
+#: src/apps/resume/templates/pages/home/about.html:9
 msgid ""
 "As you may have already guessed from the title above, my name is indeed "
 "Iliyan. I'm born in Bulgaria in a city on the coast of the Black Sea - Varna."
@@ -44,7 +590,7 @@ msgstr ""
 "tatsächlichIliyan. Ich bin in Bulgarien in Warna, einer Stadt an der "
 "Schwarzmeerküste, geboren."
 
-#: src/apps/resume/templates/pages/home/about.html:17
+#: src/apps/resume/templates/pages/home/about.html:16
 msgid ""
 "I have started on my engineering journey back when I was a kid and had to "
 "constantly fix our family desktop computer from crashing on WindowsXP and "
@@ -63,12 +609,12 @@ msgstr ""
 "anschließende Reparieren haben meine Denkweiseund meine Herangehensweise an "
 "Probleme von da an verändert."
 
-#: src/apps/resume/templates/pages/home/about.html:37
-#: src/apps/resume/templates/pages/home/index.html:34
+#: src/apps/resume/templates/pages/home/about.html:36
+#: src/apps/resume/templates/pages/home/index.html:39
 msgid "Continue reading"
 msgstr "Weiterlesen"
 
-#: src/apps/resume/templates/pages/home/about.html:43
+#: src/apps/resume/templates/pages/home/about.html:42
 msgid ""
 "Afterward I joined in a high school for operation of road transport. Yes, "
 "it's not computer related, but it's in the engineering field. I actually do "
@@ -78,7 +624,7 @@ msgstr ""
 "nichts mit Informatik zu tun, gehört aber zum Ingenieurwesen.Ich sehe mich "
 "tatsächlich eher als Ingenieur denn als Informatiker."
 
-#: src/apps/resume/templates/pages/home/about.html:51
+#: src/apps/resume/templates/pages/home/about.html:50
 msgid ""
 "Time passed by and then after high school I was working at a grocery store "
 "and like every confused 18 years old, I was wondering what I was going to do "
@@ -178,11 +724,11 @@ msgstr "Vorherige"
 msgid "Next"
 msgstr "Nächste"
 
-#: src/apps/resume/templates/pages/home/certification.html:7
+#: src/apps/resume/templates/pages/home/certification.html:6
 msgid "Certificates"
 msgstr "Zertifikate"
 
-#: src/apps/resume/templates/pages/home/certification.html:38
+#: src/apps/resume/templates/pages/home/certification.html:37
 msgid "Verify"
 msgstr "Verifizieren"
 
@@ -190,64 +736,64 @@ msgstr "Verifizieren"
 msgid "Contact me"
 msgstr "Kontaktieren Sie mich"
 
-#: src/apps/resume/templates/pages/home/contact_me.html:29
+#: src/apps/resume/templates/pages/home/contact_me.html:31
 msgid "Name"
 msgstr "Name"
 
-#: src/apps/resume/templates/pages/home/contact_me.html:42
+#: src/apps/resume/templates/pages/home/contact_me.html:46
 msgid "Email address"
 msgstr "E-Mail-Adresse"
 
-#: src/apps/resume/templates/pages/home/contact_me.html:56
+#: src/apps/resume/templates/pages/home/contact_me.html:62
 msgid "Message"
 msgstr "Nachricht"
 
-#: src/apps/resume/templates/pages/home/contact_me.html:73
-#: src/apps/resume/templates/pages/home/contact_me.html:98
+#: src/apps/resume/templates/pages/home/contact_me.html:80
+#: src/apps/resume/templates/pages/home/contact_me.html:105
 msgid "Loading..."
 msgstr "Laden..."
 
-#: src/apps/resume/templates/pages/home/contact_me.html:74
+#: src/apps/resume/templates/pages/home/contact_me.html:81
 msgid "Send"
 msgstr "Schicken"
 
-#: src/apps/resume/templates/pages/home/contact_me.html:80
+#: src/apps/resume/templates/pages/home/contact_me.html:87
 msgid "OR"
 msgstr "ODER"
 
-#: src/apps/resume/templates/pages/home/contact_me.html:99
+#: src/apps/resume/templates/pages/home/contact_me.html:106
 msgid "Make a request to download my bio"
 msgstr "Fordern Sie den Download meiner Biografie an."
 
-#: src/apps/resume/templates/pages/home/education.html:7
+#: src/apps/resume/templates/pages/home/education.html:6
 msgid "Education"
 msgstr "Ausbildung"
 
-#: src/apps/resume/templates/pages/home/index.html:23
+#: src/apps/resume/templates/pages/home/index.html:25
 msgid "Hi"
 msgstr "Hallo"
 
-#: src/apps/resume/templates/pages/home/index.html:24
+#: src/apps/resume/templates/pages/home/index.html:28
 msgid "I'm Iliyan"
 msgstr "Ich bin Iliyan"
 
-#: src/apps/resume/templates/pages/home/index.html:26
+#: src/apps/resume/templates/pages/home/index.html:31
 msgid "I try to figure out how things work."
 msgstr "Ich versuche herauszufinden, wie die Dinge funktionieren."
 
-#: src/apps/resume/templates/pages/home/language_proficiencies.html:6
+#: src/apps/resume/templates/pages/home/language_proficiencies.html:5
 msgid "Languages"
 msgstr "Sprachen"
 
-#: src/apps/resume/templates/pages/home/language_proficiencies.html:21
+#: src/apps/resume/templates/pages/home/language_proficiencies.html:20
 msgid "Proficiency"
 msgstr "Kompetenz"
 
-#: src/apps/resume/templates/pages/home/projects.html:6
+#: src/apps/resume/templates/pages/home/projects.html:5
 msgid "Projects"
 msgstr "Projekte"
 
-#: src/apps/resume/templates/pages/home/work_history.html:8
+#: src/apps/resume/templates/pages/home/work_history.html:7
 msgid "Work history"
 msgstr "Beruflicher Werdegang"
 
@@ -255,11 +801,11 @@ msgstr "Beruflicher Werdegang"
 msgid "You have successfully sent an email to Iliyan!"
 msgstr "Sie haben erfolgreich eine E-Mail an Iliyan gesendet!"
 
-#: src/apps/resume/views/home/contact_me_view.py:55
+#: src/apps/resume/views/home/contact_me_view.py:59
 msgid "Thanks for contacting Iliyan!"
 msgstr "Vielen Dank für Ihre Kontaktaufnahme mit Iliyan!"
 
-#: src/apps/resume/views/home/contact_me_view.py:57
+#: src/apps/resume/views/home/contact_me_view.py:61
 msgid ""
 "We've contacted Iliyan with your request to download his CV. Please make "
 "sure to watch your email box for the status of this request\n"
@@ -271,7 +817,7 @@ msgstr ""
 "den Status dieser Anfrage zu erfahren.\n"
 "Vielen Dank und einen schönen Tag!"
 
-#: src/apps/resume/views/home/contact_me_view.py:67
+#: src/apps/resume/views/home/contact_me_view.py:71
 msgid ""
 "You have successfully sent a CV download request to Iliyan!\n"
 " Please wait for him to either accept/refuse your request.\n"
@@ -288,97 +834,151 @@ msgstr ""
 "sein.\n"
 "Wir halten Sie über den Status in Ihrem E-Mail-Postfach auf dem Laufenden :)"
 
-#: src/apps/resume/views/home/contact_me_view.py:77
+#: src/apps/resume/views/home/contact_me_view.py:81
+#: src/portfolio/helpers/voice.py:32
 msgid "Application error! Sorry for the inconvenience!"
 msgstr "Anwendungsfehler! Wir entschuldigen uns für die Unannehmlichkeiten!"
 
-#: src/apps/resume/views/home/contact_me_view.py:110
+#: src/apps/resume/views/home/contact_me_view.py:116
 msgid "Error in sending your email message. Please try again next time :("
 msgstr ""
 "Fehler beim Senden Ihrer E-Mail. Bitte versuchen Sie es beim nächsten Mal "
 "erneut. :("
 
-#: src/apps/resume/views/home/cv_download_view.py:49
-#| msgid "{email} has accepted to share his CV to you!"
+#: src/apps/resume/views/home/cv_download_view.py:53
+#, python-brace-format
 msgid "{email} has accepted to share his CV to you!"
 msgstr "{email} hat zugestimmt, Ihnen seinen Lebenslauf zukommen zu lassen!"
 
-#: src/apps/resume/views/home/cv_download_view.py:52
+#: src/apps/resume/views/home/cv_download_view.py:56
 msgid "Good news! Iliyan agreed to have shared his CV to you!"
 msgstr ""
 "Gute Neuigkeiten! Iliyan hat zugestimmt, Ihnen seinen Lebenslauf zukommen zu "
 "lassen!"
 
-#: src/apps/resume/views/home/cv_download_view.py:67
+#: src/apps/resume/views/home/cv_download_view.py:71
 #, python-brace-format
 msgid "{email} has refused to share his CV to you"
 msgstr ""
 "{email} hat sich geweigert, Ihnen seinen Lebenslauf zukommen zu lassen."
 
-#: src/apps/resume/views/home/cv_download_view.py:70
-#| msgid "Iliyan has refused to share his email address to you. Sorry :("
+#: src/apps/resume/views/home/cv_download_view.py:74
 msgid "Iliyan has refused to share his CV to you. Sorry :("
-msgstr "Iliyan hat sich geweigert, Ihnen seinen Lebenslauf zukommen zu lassen. Tut mir leid :("
+msgstr ""
+"Iliyan hat sich geweigert, Ihnen seinen Lebenslauf zukommen zu lassen. Tut "
+"mir leid :("
 
-#: src/templates/base.html:65
+#: src/templates/base.html:70
 msgid "Source"
 msgstr "Quelle"
 
-#: src/templates/base.html:74
+#: src/templates/base.html:80
 msgid "Portfolio"
 msgstr "Portfolio"
-
-#: src/templates/base.html:101
-msgid ""
-"\n"
-"                <i class=\"flag flag-bulgaria\"></i>\n"
-"                "
-msgstr ""
-
-#: src/templates/base.html:106
-msgid ""
-"\n"
-"                <i class=\"flag flag-united-kingdom\"></i>\n"
-"                "
-msgstr ""
 
 #: src/templates/base.html:111
 msgid ""
 "\n"
-"                <i class=\"flag flag-france\"></i>\n"
-"                "
+"              <i class=\"flag flag-bulgaria\"></i>\n"
+"              "
 msgstr ""
 
-#: src/templates/base.html:116
+#: src/templates/base.html:115
 msgid ""
 "\n"
-"                <i class=\"flag flag-germany\"></i>\n"
-"                "
+"              <i class=\"flag flag-united-kingdom\"></i>\n"
+"              "
 msgstr ""
 
-#: src/templates/base.html:125
+#: src/templates/base.html:119
+msgid ""
+"\n"
+"              <i class=\"flag flag-france\"></i>\n"
+"              "
+msgstr ""
+
+#: src/templates/base.html:123
+msgid ""
+"\n"
+"              <i class=\"flag flag-germany\"></i>\n"
+"              "
+msgstr ""
+
+#: src/templates/base.html:137
 msgid "English"
 msgstr "Englisch"
 
-#: src/templates/base.html:129
+#: src/templates/base.html:148
 msgid "Bulgarian"
 msgstr "Bulgarisch"
 
-#: src/templates/base.html:132
+#: src/templates/base.html:158
 msgid "French"
 msgstr "Französisch"
 
-#: src/templates/base.html:135
+#: src/templates/base.html:168
 msgid "German"
 msgstr "Deutsch"
 
-#: src/templates/base.html:183
+#: src/templates/base.html:233
 msgid "Made with"
 msgstr "Hergestellt mit"
 
-#: src/templates/base.html:185
+#: src/templates/base.html:235
 msgid "by Django"
 msgstr "von Django"
+
+#~ msgid ""
+#~ "Finally, after <a href=\"#\" data-mdb-tooltip-init title=\"I'm "
+#~ "exaggerating ofcourse. I didn't actually count\">50+ interviews</a> I "
+#~ "finally got an offer, and on top of it it's in a different country. "
+#~ "Exactly what I wanted! One thing that I didn't mention, is that the "
+#~ "company is dealing with consulting, meaning that they work with clients. "
+#~ "So I had one more interview to succeed to make it a home run. If that "
+#~ "interview failed, they will still hire me nonetheless, but cmon, I'll be "
+#~ "in a very good start if the interview with the client went the same way "
+#~ "as this."
+#~ msgstr ""
+#~ "Endlich, nach <a href=\"#\" data-mdb-tooltip-init title=\"Ich übertreibe "
+#~ "natürlich – ich habe sie ja nicht wirklich gezählt\">über 50 "
+#~ "Vorstellungsgesprächen</a> habe ich endlich ein Angebot bekommen, und "
+#~ "obendrein ist es in einem anderen Land. Genau das, was ich wollte! Eine "
+#~ "Sache, die ich noch nicht erwähnt habe, ist, dass das Unternehmen im "
+#~ "Bereich Beratung tätig ist, was bedeutet, dass es mit Kunden arbeitet. "
+#~ "Also hatte ich noch ein weiteres Vorstellungsgespräch , um den "
+#~ "Volltreffer zu landen. Wenn dieses Vorstellungsgespräch schiefgehen "
+#~ "sollte, würden sie mich zwar trotzdem einstellen, aber mal ehrlich, ich "
+#~ "hätte einen sehr guten Start, wenn das Vorstellungsgespräch mit dem "
+#~ "Kunden genauso verlaufen würde wie dieses hier."
+
+#~ msgid "The final interview"
+#~ msgstr "Das letzte Interview"
+
+#~ msgid ""
+#~ "Now finally on the 21st of March 2025 I had a call with the manager and a "
+#~ "technical person for the final interview. I was honestly scared and "
+#~ "before that day late at the evening, I actually <a href=\"#\" data-mdb-"
+#~ "tooltip-init title=\"Yes, I know, please don't make fun of me\">prayed</"
+#~ "a>."
+#~ msgstr ""
+#~ "Nun fand am 21. März 2025 endlich ein Telefonat mit dem Manager und einem "
+#~ "technischen Mitarbeiter für das abschließende Vorstellungsgespräch statt. "
+#~ "Ich hatte ehrlich gesagt Angst, und vor diesem Tag, spät am Abend, habe "
+#~ "ich tatsächlich <a href=\"#\" data-mdb-tooltip-init title=\"Ja, ich weiß, "
+#~ "bitte macht euch nicht über mich lustig\">gebetet</a>."
+
+#~ msgid ""
+#~ "Long story short, they liked me - at that time after the meeting I had a "
+#~ "feeling in my stomach that they've already accepted me, because we "
+#~ "finished later than expected and the tech guy kept asking me questions "
+#~ "and was enjoying my <a href=\"#\" data-mdb-tooltip-init title=\"I guess..."
+#~ "\">nerdiness</a>."
+#~ msgstr ""
+#~ "Kurz gesagt: Ich kam bei ihnen gut an – damals, nach dem Treffen, hatte "
+#~ "ich das Gefühl im Bauch, dass sie mich bereits angenommen hatten, denn "
+#~ "wir waren später als erwartet fertig geworden, und der Techniker stellte "
+#~ "mir immer wieder Fragen und hatte Spaß an meiner <a href=\"#\" data-mdb-"
+#~ "tooltip-init title=\"Ich schätze mal... \">Nerdigkeit</a>."
 
 #~ msgid "Download my bio"
 #~ msgstr "Laden Sie meine Biografie herunter"

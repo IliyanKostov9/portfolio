@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputs = document.querySelectorAll("[data-mdb-input-init]");
   const scrollspys = document.querySelectorAll("[data-mdb-scrollspy-init]");
   const dropdowns = document.querySelectorAll("[data-mdb-dropdown-init]");
+  const ripples = document.querySelectorAll("[data-mdb-ripple-init]");
 
   const contactForm = document.getElementById("contactForm");
   const card = document.getElementById("theme-card");
@@ -40,6 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   dropdowns.forEach((dropdown) => {
     new mdb.Dropdown(dropdown);
+  });
+
+  ripples.forEach((ripple) => {
+    new mdb.Ripple(ripple);
   });
 
   inputs.forEach((formOutline) => {
