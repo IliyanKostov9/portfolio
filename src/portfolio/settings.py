@@ -47,6 +47,13 @@ CSP_POLICY = {
             # NOTE: For Error 404 && 500
             "'sha256-oxny43U4yMNZqsxffAINTdjzidFj6nAZr/6MrmG+WZA='",
         ],
+        "frame-src": [
+            "'self'",
+            "https://youtube.com",
+            "https://www.youtube.com",
+            "https://youtube-nocookie.com",
+            "https://www.youtube-nocookie.com",
+        ],
         "font-src": ["https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
         "img-src": [SELF, "https://mdbootstrap.com"],
         "frame-ancestors": [SELF],
@@ -116,7 +123,6 @@ apps: list[str] = [
     "apps.resume.apps.ResumeConfig",
     "apps.blogs.apps.BlogsConfig",
     "compressor",
-    "django_bootstrap5",
     # "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -161,6 +167,7 @@ TEMPLATES = [
         "DIRS": [
             f"{BASE_DIR}/apps/resume/templates/pages",
             f"{BASE_DIR}/apps/resume/templates",
+            f"{BASE_DIR}/apps/blogs/templates/pages",
             f"{BASE_DIR}/apps/blogs/templates",
             BASE_DIR / "templates",
         ],
