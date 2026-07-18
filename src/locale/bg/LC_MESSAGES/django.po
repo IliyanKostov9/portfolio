@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 20:02+0300\n"
+"POT-Creation-Date: 2026-07-18 16:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,19 +32,19 @@ msgstr "Прочетете за последните ми мисли"
 msgid "Read time: %(mins)s minutes"
 msgstr "Време за четене: %(mins)s минути"
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:20
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:21
 msgid "Moving from Bulgaria to France"
 msgstr "Преместване от България във Франция"
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:21
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:24
 msgid "Stupidity or adventure ?"
 msgstr "Глупост или приключение?"
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:24
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:28
 msgid "June"
 msgstr "Юни"
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:50
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:57
 msgid ""
 "I'm sure that everyone has dreamed of living in another country - whether "
 "the reason is to escape or to experience something new. However it's much "
@@ -65,7 +65,7 @@ msgstr ""
 "трябва да се адаптирате към средата, да се интегрирате с културата и да се "
 "„държате“ като местните."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:59
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:71
 msgid ""
 "Every gesture they make, the way they dress, the way they speak, the way "
 "they handle themselves, whether they speak loudly or quietly - you have to "
@@ -75,7 +75,7 @@ msgstr ""
 "говорят, начинът, по който се държат, независимо дали говорят силно или тихо "
 "- трябва да <strong>бъдете</strong> като тях. Така всъщност се интегрирате."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:65
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:80
 msgid ""
 "If you are currently thinking about living abroad - more specifically, "
 "living away from your own people and culture to explore a whole new world, "
@@ -93,7 +93,7 @@ msgstr ""
 "живеете в чужбина, а искам да споделя с вас личния си опит и да ви накарам "
 "да си направите свои собствени заключения."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:72
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:92
 msgid ""
 "I don't have the decision for you my dear reader - nobody knows what's best "
 "for you better than you do."
@@ -101,11 +101,11 @@ msgstr ""
 "Не знам решението вместо теб, скъпи читателю - никой не знае кое е най-добро "
 "за теб по-добре от теб."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:78
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:103
 msgid "Finding work in another country was tough to say the least..."
 msgstr "Намирането на работа в друга държава беше меко казано трудно..."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:81
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:107
 msgid ""
 "At that time I didn't really know anyone close to me to help me find an IT "
 "job abroad. I didn't want to work remotely, since that'll kill the idea of "
@@ -115,8 +115,8 @@ msgid ""
 "Companies, that hire professionals from abroad will most likely prefer "
 "candidates, that have an EU citizenship, rather than going through the "
 "paperwork involved in sponsoring a visa. As unfair as it sounds, it's the "
-"ugly truth.\">that are willing to take the risk and hire someone from "
-"another country.</a>"
+"ugly truth.\" >that are willing to take the risk and hire someone from "
+"another country.</a >"
 msgstr ""
 "По това време не познавах никого близък, който да ми помогне да си намеря "
 "работа в областта на информационните технологии в чужбина. Не исках да "
@@ -130,7 +130,7 @@ msgstr ""
 "несправедливо да звучи, това е горчивата истина.\">които са готови да поемат "
 "риска и да наемат някой от друга държава.</a>"
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:87
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:123
 msgid ""
 "We talked with an italian friend about it and we realised of how ungrateful "
 "we are of being in the EU - we can travel and live to almost anywhere by "
@@ -150,7 +150,7 @@ msgstr ""
 "пропуснат, ако не ви наемат сега, тъй като друга компания може да ви "
 "<em>открадне</em> от тях."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:93
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:136
 msgid ""
 "Coming back to my story. As I said, I didn't really know anyone, that can "
 "help me find work abroad. In reality, I really didn't have a lot of friends "
@@ -177,7 +177,7 @@ msgstr ""
 "след като си намеря добра работа с добра заплата и завърша образованието си. "
 "И все пак, по това време наистина не си вярвах."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:99
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:153
 msgid ""
 "Then in late February 2025, a random HR person messaged me on Linked in. "
 "This was usual to me, as I have already updated my status to <a href=\"#\" "
@@ -194,7 +194,7 @@ msgstr ""
 "предложения за работа, които получавах - работата всъщност беше във Франция, "
 "по-точно в Ница."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:107
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:165
 msgid ""
 "Honestly, at that time I have never heard of a city called Nice. How do you "
 "pronounce it ? Do you pronounce it like the word Nice literally or Niece ? "
@@ -212,11 +212,11 @@ msgstr ""
 "отхвърлиха. Така че всъщност очаквах да се проваля и на това интервю. "
 "Всъщност не ме интересуваше. Просто исках да опитам късмета си."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:131
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:193
 msgid "Beach alley of Varna, Bulgaria, that I've frequently had a stroll"
 msgstr "Плажната алея на Варна, България, по която често съм се разхождал"
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:136
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:199
 msgid ""
 "A week pases and we are in the end of February, we get in a call. I "
 "expalined to her my situation, that I want to live abroad and that I'm also "
@@ -240,12 +240,12 @@ msgstr ""
 "осмелявах да говоря английски с друг човек, това беше нещо като катастрофа "
 "за мен."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:150
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:220
 msgid ""
 "After this meeting, <abbr title=\"Human resources\">Beatrice</abbr> was "
 "quite excited to meet me in person and she immediatly wanted me to move to "
 "the next interview's step to have an interview with the <a href=\"#\" data-"
-"mdb-tooltip-init title=\"aka my future manager\">Business manager</a>. By "
+"mdb-tooltip-init title=\"aka my future manager\" >Business manager</a >. By "
 "the way, every interview I had was scheduled weekly, meaning that I had "
 "enough time to prepare. If you are wondering how I was preparing, then I "
 "couldn't be able to answer you - because I don't realy remember."
@@ -258,20 +258,16 @@ msgstr ""
 "означаваше, че имах достатъчно време да се подготвя. Ако се чудите как се "
 "подготвях, тогава не мога да ви отговоря - защото всъщност не си спомням."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:162
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:237
 msgid ""
-"<strong>Advice:</strong> The most important advice I can give you (at least "
-"for IT related jobs), is that you have to be better at your presentation "
-"skills than your technical skills. Honestly that's how I'm able to find IT "
-"jobs. At the end of the day it doesn't really matter how much you know, it "
-"matters how you present yourself, so that you can convince the person that "
-"is interviewing you of what a great candidate you are and that you won't be "
-"bothered if they potentially reject your application. This skill is mainly a "
-"social skill. What that means is that for you to prepare for an interview - "
-"you just have to socialize and not sit in front of the screen 8 hours a day. "
-"It's a bit inlogical, I know, but in my case the DevOps position mainly "
-"revolves around people and processes, not purely writing code like a "
-"developer."
+"<strong><i class=\"fas fa-check\"></i>Advice:</strong> The most important "
+"advice I can give you (at least for IT related jobs), is that you have to be "
+"better at your presentation skills than your technical skills. Honestly "
+"that's how I'm able to find IT jobs. At the end of the day it doesn't really "
+"matter how much you know, it matters how you present yourself, so that you "
+"can convince the person that is interviewing you of what a great candidate "
+"you are and that you won't be bothered if they potentially reject your "
+"application."
 msgstr ""
 "<strong>Съвет:</strong> Най-важният съвет, който мога да ви дам (поне за "
 "работа, свързана с ИТ), е, че трябва да сте по-добри в уменията си за "
@@ -285,7 +281,17 @@ msgstr ""
 "позицията DevOps се върти главно около хора и процеси, а не само в писане на "
 "код като разработчик."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:173
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:249
+msgid ""
+"This skill is mainly a social skill. What that means is that for you to "
+"prepare for an interview - you just have to socialize and not sit in front "
+"of the screen 8 hours a day. It's a bit inlogical, I know, but in my case "
+"the DevOps position mainly revolves around people and processes, not purely "
+"writing code like a developer."
+msgstr ""
+"Това умение е предимно социално умение. Това означава, че за да се подготвите за интервю, просто трябва да общувате, а не да седите пред екрана по 8 часа на ден. Знам, че е малко нелогично, но в моя случай позицията DevOps се върти главно около хора и процеси, а не само върху писане на код като разработчик."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:262
 msgid ""
 "One week later and now I'm in the meeting with the business manager. She "
 "seems like a nice lady. We had a good conversation, nothing out of the "
@@ -295,15 +301,15 @@ msgid ""
 "something wrong, then that's it. Game over. I mean I have spent 3 weeks "
 "(including the tech interview) already to come to this point. It'll be pity "
 "if I failed on the very last step, which should naturally be my easiest "
-"interview, but I digress.\" >the technical interview.</a> Then the time "
+"interview, but I digress.\" >the technical interview.</a > Then the time "
 "comes. I have a meeting with a man, that is around my age. <a href=\"#\" "
-"data-mdb-tooltip-init title=\"That was obviously an advantage for me\">He "
-"didn't seem very experienced in conducting interviews.</a> Since I was "
+"data-mdb-tooltip-init title=\"That was obviously an advantage for me\" >He "
+"didn't seem very experienced in conducting interviews.</a > Since I was "
 "worried that this interview will end the same way as the previous ones, I "
 "started talking most of the time - about my previous projects, about what "
 "I've done, about the technologies. I was trying to flood the interviewer's "
 "head with too much information, <a href=\"#\" data-mdb-tooltip-init "
-"title=\"as I said, I had an advantage\">that he didn't even ask.</a> After "
+"title=\"as I said, I had an advantage\" >that he didn't even ask.</a > After "
 "bothering him for 1 hour, he finally gives up and told me after 2 minutes "
 "after that I'm accepted 🎉."
 msgstr ""
@@ -327,60 +333,277 @@ msgstr ""
 "продължение на 1 час, той най-накрая се отказа и ми каза след 2 минути след "
 "това съм приет 🎉."
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:186
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:296
 msgid ""
 "Finally, after <a href=\"#\" data-mdb-tooltip-init title=\"I'm exaggerating "
-"ofcourse. I didn't actually count\">50+ interviews</a> I finally got an "
-"offer, and on top of it it's in a different country. Exactly what I wanted! "
-"One thing that I didn't mention, is that the company is dealing with "
-"consulting, meaning that they work with clients. So I had one more interview "
-"to succeed to make it a home run. If that interview failed, they will still "
-"hire me nonetheless, but cmon, I'll be in a very good start if the interview "
-"with the client went the same way as this."
+"ofcourse. I didn't actually count\" >50+ interviews</a > I finally got an "
+"offer, and on top of it - it's in a different country. Exactly what I wanted!"
 msgstr ""
-"Най-накрая, след <a href=\"#\" data-mdb-tooltip-init title=\"Разбира се, "
-"преувеличавам. Всъщност не преброих\">50+ интервюта</a>, най-накрая получих "
-"оферта, и то в различна държава. Точно това, което исках! Едно нещо, което "
-"не споменах, е, че компанията се занимава с консултации, което означава, че "
-"работят с клиенти. Така че имах още едно интервю, за да успея и да го "
-"направя успешен. Дори това интервю да се провали, те все пак ще ме ме "
-"наемат, но хайде, ще съм в много добър старт, ако интервюто с клиента мине "
-"по същия начин."
+"Най-накрая, след <a href=\"#\" data-mdb-tooltip-init title=\"Преувеличавам "
+"разбира се. Всъщност не преброих\" >50+ интервюта</a>, най-накрая получих "
+"оферта, и на всичкото отгоре - тя е в различна държава. Точно това, което исках!"
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:206
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:322
 msgid ""
 "Me trying to smile after hearing the good news! That's why I'm not an actor"
 msgstr ""
 "Опитвам се да се усмихна, след като чух добрата новина! Затова не съм актьор"
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:215
-msgid "The final interview"
-msgstr "Последното интервю"
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:333
+msgid "The BIG move"
+msgstr "Големият ход"
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:218
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:338
 msgid ""
-"Now finally on the 21st of March 2025 I had a call with the manager and a "
-"technical person for the final interview. I was honestly scared and before "
-"that day late at the evening, I actually <a href=\"#\" data-mdb-tooltip-init "
-"title=\"Yes, I know, please don't make fun of me\">prayed</a>."
+"Now that the most important part is already handled (getting a job), I had "
+"several chores that I needed to take care of:"
 msgstr ""
-"Най-накрая, на 21 март 2025 г., се обадих на мениджъра и техническо лице за "
-"финалното интервю. Честно казано, бях уплашен и преди късно вечерта този "
-"ден, всъщност се <a href=\"#\" data-mdb-tooltip-init title=\"Да, знам, моля, "
-"не ми се подигравайте\">се помолих</a>."
+"Сега, след като най-важната част вече е приключила (намирането на работа), имах "
+"няколко задачи, за които трябваше да се погрижа:"
 
-#: src/apps/blogs/templates/pages/blogs/living_abroad.html:225
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:349
+msgid "Inform my landlord that I'll leave her flat"
+msgstr "Уведомете хазяина ми, че ще напусна апартамента ѝ"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:359
+msgid "Move my furniture somewhere"
+msgstr "Преместете мебелите ми някъде"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:368
+msgid "Prepare my luggage"
+msgstr "Подгответе багажа ми"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:377
+msgid "Find a flat in France"
+msgstr "Намерете апартамент във Франция"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:386
+msgid "Plan these activites in a timely manner"
+msgstr "Планирайте тези дейности своевременно"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:396
 msgid ""
-"Long story short, they liked me - at that time after the meeting I had a "
-"feeling in my stomach that they've already accepted me, because we finished "
-"later than expected and the tech guy kept asking me questions and was "
-"enjoying my <a href=\"#\" data-mdb-tooltip-init title=\"I guess..."
-"\">nerdiness</a>."
+"Since at the moment of the company informing me that I've been accepted "
+"against the starting date, that they're expecting me to come (1st of May), I "
+"actually had less than a month, meaning that I was in the mercy of my "
+"landlord to understand my situation and make an <a href=\"#\" data-mdb-"
+"tooltip-init title=\"These kinds of situation would never ever happen in "
+"western Europe. You can be only dreaming about such gesture. People there "
+"are quite strict about following rules\" >exception</a > for me."
 msgstr ""
-"Накратко, харесаха ме - по това време след срещата имах чувство в стомаха "
-"си, че вече са ме приели, защото приключихме по-късно от очакваното, а "
-"техникът продължаваше да ми задава въпроси и се наслаждаваше на моята <a "
-"href=\"#\" data-mdb-tooltip-init title=\"Предполагам...\">нердовост</a>."
+"Тъй като в момента, в който компанията ме информира, че съм приет "
+"срещу началната дата, че очакват да дойда (1 май), аз "
+"всъщност имах по-малко от месец, което означаваше, че бях на милостта на моя "
+"хазяин да разбере ситуацията ми и да направи <a href=\"#\" data-mdb-"
+"tooltip-init title=\"Подобни ситуации никога не биха се случили в "
+"Западна Европа. Можете само да мечтаете за такъв жест. Хората там "
+"са доста стриктни по отношение на спазването на правилата\" >изключение</a > за мен."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:413
+msgid ""
+"Alas, I was lucky enough that she was understandable and let me leave early "
+"(about 20-ish of August). So chore number <i class=\"fas fa-1 me-2 text-"
+"info\"></i> was completed!"
+msgstr ""
+"Уви, имах късмета тя да се отнесе разбирателно и да ме остави да си тръгна по-рано "
+"(около 20-ти август). Така че задача номер <i class=\"fas fa-1 me-2 text-"
+"info\"></i> беше изпълнена!"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:422
+msgid ""
+"<strong><i class=\"fas fa-check\"></i>Advice:</strong> If your home country "
+"is in Eastern Europe or some other place, where the rules are quite flexible "
+"and are not strictly followed by the book, then you'll for sure be surprised "
+"that in the Western side you'll have to follow the country's rules, where at "
+"the start you won't even know what the rules are, so that you can comply to "
+"them accordingly. But please, do not immediatly think that the new place "
+"sucks and that you should be soon packing your bags because it's so "
+"different. Different doesn't necessarily mean bad - it's a new experience, "
+"which will make you grow into a better person."
+msgstr ""
+"<strong><i class=\"fas fa-check\"></i>Съвет:</strong> Ако вашата страна "
+"е в Източна Европа или на друго място, където правилата са доста гъвкави "
+"и не се спазват стриктно от книгата, тогава със сигурност ще се изненадате, "
+"че в западната част ще трябва да спазвате правилата на страната, където в "
+"начало дори няма да знаете какви са правилата, за да можете да ги спазвате съответно. "
+"Но моля, не си мислете веднага, че новото място "
+"е ужасно и че скоро трябва да си стягате багажа, защото е толкова "
+"различно. Различно не означава непременно лошо - това е ново преживяване, "
+"което ще ви направи по-добър човек."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:438
+msgid ""
+"As for number <i class=\"fas fa-2 me-2 text-info\"></i>, the person I wanted "
+"to \"gift\" all of my stuff is my mother. You see, she is not in a good "
+"financial position and she's living paycheck to paycheck. I wanted to help "
+"her somehow... and what better way than to make it more convinient for her "
+"to make an omlette for example, or to be able to clean her house with a "
+"vacuum cleaner."
+msgstr ""
+"Що се отнася до номер <i class=\"fas fa-2 me-2 text-info\"></i>, човекът, на когото исках да \"подаря\" всичките си вещи, е майка ми. Виждате ли, тя не е в добро финансово "
+"положение и живее от заплата до заплата. Исках да ѝ помогна по някакъв начин... и какъв по-добър начин от това да ѝ улесня "
+"да прави омлет например или да може да почиства къщата си с "
+"прахосмукачка."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:449
+msgid ""
+"Since it was my first time hiring movers, I had no idea which one should I "
+"choose, that are reliable and won't decide to steal my stuff. Moreover, I "
+"also had to travel to meet my mother before departure. And in fact she lives "
+"quite far away - I had to take 2 trains from my home city to her place - in "
+"total that would be 10-11 hours in total just for pure traveling."
+msgstr ""
+"Тъй като за първи път наемах хамали, нямах представа кой да "
+"избера, който е надежден и няма да реши да ми открадне вещите. Освен това "
+"трябваше да пътувам, за да се срещна с майка си преди заминаването. Всъщност тя живее "
+"доста далеч - трябваше да взема 2 влака от родния си град до дома ѝ - общо "
+"това би било 10-11 часа само за пътуване."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:475
+msgid ""
+"A drive with the movers towards my mother's place. It had passed about 2-3 "
+"hours from our departure and we had about 6 more hours left to arrive"
+msgstr ""
+"Пътуване с хамалите към дома на майка ми. Бяха минали около 2-3 "
+"часа от тръгването ни и ни оставаха още около 6 часа до пристигането"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:481
+msgid ""
+"Luck was still on my side. The movers were very kind to me and decided to "
+"give me a ride towars my mother's place, which I was truly thankful to them. "
+"They even gave me a sandwich when we were on a break. They were a couple in "
+"their late 40s - early 50s. The wife was the navigator and the husband was "
+"the driver. They are a good team! If you're searching for movers in Varna, "
+"Bulgaria, then I cannot recommend you enough to use their service. <a "
+"href=\"#\" data-mdb-tooltip-init title=\"This is not an ad. They didn't pay "
+"me to write this.\" >You won't regret it!</a >"
+msgstr ""
+"Късметът все още беше на моя страна. Хамалите бяха много мили с мен и решиха да ме закарат до дома на майка ми, за което им бях истински благодарен. "
+"Дори ми дадоха сандвич, когато бяхме на почивка. Бяха двойка в края на 40-те - началото на 50-те си години. Съпругата беше навигатор, а съпругът беше шофьор. Те са добър екип! Ако търсите хамали във Варна, "
+"България, тогава не мога да ви препоръчам достатъчно, за да използвате услугите им. <a "
+"href=\"#\" data-mdb-tooltip-init title=\"Това не е реклама. Не ми платиха да напиша това.\" >Няма да съжалявате!</a >"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:503
+msgid ""
+"On number <i class=\"fas fa-3 me-2 text-info\"></i>, it was quite "
+"straightforward as you can imagine - I had 2 small luggages from my brother "
+"and somehow that was enough for me to put all of my clothes there."
+msgstr ""
+"На номер <i class=\"fas fa-3 me-2 text-info\"></i>, беше доста "
+"лесно, както можете да си представите - имах 2 малки куфара от брат ми "
+"и някак си това ми беше достатъчно, за да сложа всичките си дрехи там."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:515
+msgid ""
+"<strong><i class=\"fas fa-brain\"></i>Mental note:</strong> If you feel like "
+"you've become attached to certain items, then moving to another country is a "
+"great way to leave them and live with less. I've found during the move that "
+"I felt quite lost when I left my city and I felt guilty about leaving. I do "
+"not know why, it felt like I was making a foolish decision, that I'm "
+"throwing all of what I've built (<a href=\"#\" data-mdb-tooltip-init "
+"title=\"even though not many\" >connections</a >, career, risking my "
+"Master's degree) just because I was so bored and wanted to have a new "
+"experience. Now looking back at it, I've learned way more for 1 year than "
+"what I've learned from 18 years old till 25. It's surprising how much you "
+"can learn just in a relatively short amount of time. Leaving out of your "
+"comfort zone makes you vulnerable, for sure, but you'll become stronger "
+"(mentally) and just better overall."
+msgstr ""
+"<strong><i class=\"fas fa-brain\"></i>Забележка:</strong> Ако чувствате, че сте се привързали към определени неща, преместването в друга държава е чудесен начин да ги оставите и да живеете с по-малко. По време на преместването установих, че се чувствах доста изгубен, когато напуснах града си, и се чувствах виновен, че напускам. Не знам защо, чувствах се сякаш вземам глупаво решение, сякаш захвърлям всичко, което съм изградил (<a href=\"#\" data-mdb-tooltip-init "
+"title=\"въпреки че нямам много\" >връзки</a >, кариера, рискувам магистърската си степен), само защото ми беше толкова скучно и исках да имам ново преживяване. Сега, като се замисля, научих много повече за 1 година, отколкото съм научил от 18 до 25 години. Изненадващо е колко много... "
+"може да се научи само за сравнително кратко време. Излизането от зоната ви на комфорт ви прави уязвими, със сигурност, но ще станете по-силни "
+"(психически) и просто по-добри като цяло."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:535
+msgid ""
+"That is actually why, when I'm currently writing this, that I miss living in "
+"a foreign country, not necessarily missing France, but living somewhere "
+"elsewhere where it's not my home country - where it's not Bulgaria. I miss "
+"the experience of exploring the place, of having to understand the culture "
+"all over again, having the incredible difficulty understanding the locals of "
+"what the hell they're trying to tell me. It's not an obsticle, it's a new "
+"experience - and I miss it 🙁."
+msgstr ""
+"Всъщност затова, когато пиша това в момента, ми липсва животът в "
+"чужда страна, не непременно Франция, а животът някъде "
+"друго място, където не е моята родина - където не е България. Липсва ми "
+"преживяването да изследвам мястото, да се налага да разбирам културата "
+"отново, да изпитвам невероятната трудност да разбера местните "
+"какво, по дяволите, се опитват да ми кажат. Това не е пречка, това е ново "
+"преживяване - и ми липсва 🙁."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:551
+msgid ""
+"For the quest on completing number <i class=\"fas fa-4 me-2 text-info\"></"
+"i>, thankfully the company provided me an real estate agent, who on behalf "
+"of me searched an apartment for me. She is one of the nicest people I've "
+"met. She did her best in finding an apartment for me and was recording the "
+"apartments from inside in Whatsapp."
+msgstr ""
+"За задачата при завършване на номер <i class=\"fas fa-4 me-2 text-info\"></"
+"i>, за щастие компанията ми осигури агент по недвижими имоти, който от мое име "
+"ми търси апартамент. Тя е един от най-милите хора, които съм "
+"срещнал. Тя направи всичко възможно да ми намери апартамент и записваше "
+"апартаментите отвътре в Whatsapp."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:561
+msgid ""
+"Thankfully after just 2 weeks of searching, we found an apartment, that was "
+"just for me. When I saw it I imagined myself of living there (that's usually "
+"good hint that you've found the right apartment for you). One thing to keep "
+"in mind is that in Western Europe the rents are <a href=\"#\" data-mdb-"
+"tooltip-init title=\"Depending on where you'll live, ofcourse\" >quite high</"
+"a >, especially in the southern in France, but I was sorta expecting this."
+msgstr ""
+"За щастие, само след 2 седмици търсене, намерихме апартамент, който беше "
+"точно за мен. Когато го видях, си представих, че живея там (това обикновено е "
+"добър знак, че сте намерили правилния апартамент за вас). Едно нещо, което трябва да имате предвид е, "
+"че в Западна Европа наемите са <a href=\"#\" data-mdb-"
+"tooltip-init title=\"В зависимост от това къде ще живеете, разбира се\" >доста високи</"
+"a >, особено в южната част на Франция, но някак си очаквах това."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:577
+msgid ""
+"Just for a comparison - the rent I had in Varna was 200 euros vs the "
+"apartment which I'll be moving in southern France (Cagnes-sur-mer) was 875 "
+"euros per month. That is one of the lowest rents that I was able to find. I "
+"mean not only that, but it's way smaller - moving from 55 square meters to "
+"34 square meters. Ouch."
+msgstr ""
+"Само за сравнение - наемът, който имах във Варна, беше 200 евро, докато апартаментът, в който ще се преместя в Южна Франция (Кан сюр Мер), беше 875 "
+"евро на месец. Това е един от най-ниските наеми, които успях да намеря. Имам предвид не само това, но и е много по-малък - преместих се от 55 квадратни метра на "
+"34 квадратни метра. Ау."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:662
+msgid ""
+"And lastly for <i class=\"fas fa-5 me-2 text-info\"></i> the planning for "
+"dates was a bit random - it was my first time moving out and I didn't know "
+"what I was doing and if I'm making the right choice, but I must admit - I "
+"was enjoying the chaos I was in."
+msgstr ""
+"И накрая за <i class=\"fas fa-5 me-2 text-info\"></i> планирането на датите беше малко произволно - това беше първият ми път, когато се изнасях, и не знаех "
+"какво правя и дали правя правилния избор, но трябва да призная - "
+"наслаждавах се на хаоса, в който се намирах."
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:672
+msgid ""
+"It gives you a real independence and responsability to your own actions - if "
+"you screw up, then it's all on you and nobody will shout at you or <a "
+"href=\"#\" data-mdb-tooltip-init title=\"Talking from a real life experience "
+"here\" >belittle you.</a > Thankfully I managed to finish everything right "
+"on time and on 28th of April I hopped in a plane at 6:00 AM and after 2 "
+"hours I was in Nice!"
+msgstr ""
+"Това ти дава истинска независимост и отговорност за собствените ти действия - ако "
+"сбъркаш нещо, тогава всичко е твоя вина и никой няма да ти крещи или <a "
+"href=\"#\" data-mdb-tooltip-init title=\"Говоря от реален житейски опит "
+"тук\" >да те омаловажава.</a > За щастие успях да завърша всичко както трябва "
+"навреме и на 28 април се качих на самолет в 6:00 сутринта и след 2 "
+"часа бях в Ница!"
+
+#: src/apps/blogs/templates/pages/blogs/living_abroad.html:716
+msgid "Stay tuned for more updates and new content coming soon!"
+msgstr "Очаквайте още актуализации и ново съдържание скоро!"
 
 #: src/apps/resume/templates/pages/home/about.html:6
 msgid "About"
@@ -721,6 +944,53 @@ msgstr "Направено с"
 #: src/templates/base.html:235
 msgid "by Django"
 msgstr "от Джанго"
+
+#~ msgid ""
+#~ "Finally, after <a href=\"#\" data-mdb-tooltip-init title=\"I'm "
+#~ "exaggerating ofcourse. I didn't actually count\">50+ interviews</a> I "
+#~ "finally got an offer, and on top of it it's in a different country. "
+#~ "Exactly what I wanted! One thing that I didn't mention, is that the "
+#~ "company is dealing with consulting, meaning that they work with clients. "
+#~ "So I had one more interview to succeed to make it a home run. If that "
+#~ "interview failed, they will still hire me nonetheless, but cmon, I'll be "
+#~ "in a very good start if the interview with the client went the same way "
+#~ "as this."
+#~ msgstr ""
+#~ "Най-накрая, след <a href=\"#\" data-mdb-tooltip-init title=\"Разбира се, "
+#~ "преувеличавам. Всъщност не преброих\">50+ интервюта</a>, най-накрая "
+#~ "получих оферта, и то в различна държава. Точно това, което исках! Едно "
+#~ "нещо, което не споменах, е, че компанията се занимава с консултации, "
+#~ "което означава, че работят с клиенти. Така че имах още едно интервю, за "
+#~ "да успея и да го направя успешен. Дори това интервю да се провали, те все "
+#~ "пак ще ме ме наемат, но хайде, ще съм в много добър старт, ако интервюто "
+#~ "с клиента мине по същия начин."
+
+#~ msgid "The final interview"
+#~ msgstr "Последното интервю"
+
+#~ msgid ""
+#~ "Now finally on the 21st of March 2025 I had a call with the manager and a "
+#~ "technical person for the final interview. I was honestly scared and "
+#~ "before that day late at the evening, I actually <a href=\"#\" data-mdb-"
+#~ "tooltip-init title=\"Yes, I know, please don't make fun of me\">prayed</"
+#~ "a>."
+#~ msgstr ""
+#~ "Най-накрая, на 21 март 2025 г., се обадих на мениджъра и техническо лице "
+#~ "за финалното интервю. Честно казано, бях уплашен и преди късно вечерта "
+#~ "този ден, всъщност се <a href=\"#\" data-mdb-tooltip-init title=\"Да, "
+#~ "знам, моля, не ми се подигравайте\">се помолих</a>."
+
+#~ msgid ""
+#~ "Long story short, they liked me - at that time after the meeting I had a "
+#~ "feeling in my stomach that they've already accepted me, because we "
+#~ "finished later than expected and the tech guy kept asking me questions "
+#~ "and was enjoying my <a href=\"#\" data-mdb-tooltip-init title=\"I guess..."
+#~ "\">nerdiness</a>."
+#~ msgstr ""
+#~ "Накратко, харесаха ме - по това време след срещата имах чувство в стомаха "
+#~ "си, че вече са ме приели, защото приключихме по-късно от очакваното, а "
+#~ "техникът продължаваше да ми задава въпроси и се наслаждаваше на моята <a "
+#~ "href=\"#\" data-mdb-tooltip-init title=\"Предполагам...\">нердовост</a>."
 
 #~ msgid "Download my bio"
 #~ msgstr "Изтеглете моята биография"
