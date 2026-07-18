@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static compress django_bootstrap5 i18n %}
+{% load static compress i18n %}
 {% block extra_head %}
 {% compress css %}
 <link
@@ -36,13 +36,11 @@
     {% for blog in row.blog %}
     <div class="col-md-2 d-flex flex-column">
       <a href="{{ blog.url }}" class="text-decoration-none text-reset">
-        <div class="card h-70" id="theme-card">
+        <div class="card" id="theme-card">
           <img
             src="{% static 'images/blogs/'|add:blog.image_preview %}"
-            class="img-fluid mx-auto lazy spacing-30 rounded-circle"
+            class="img-fluid mx-auto card-img-top"
             alt="{{ blog.title }}"
-            width="150"
-            height="150"
           />
           <div class="card-body">
             <figure>
