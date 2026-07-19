@@ -1,240 +1,137 @@
 {% load static compress i18n %}
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-mdb-theme="{{ theme }}">
-  <head>
-    <title>Iliyan's portfolio page</title>
-    <link rel="browser icon" href="{% static 'favicon.ico' %}" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.min.css"
-      rel="stylesheet"
-      integrity="sha512-KZfH/Hybv9x3A8O7kpxw84PhCbHtcjKo8hB1TR/riHma0ZgyMrR3Ctij/bUHowTXBEpa9i7J3Teed0xasHxwfQ=="
-      crossorigin="anonymous"
-    />
-
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      rel="stylesheet"
-    />
-
-    <script
-      src="https://unpkg.com/htmx.org@2.0.4"
-      integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
-      crossorigin="anonymous"
-    ></script>
-
-    <script src="{% static 'scripts/toggle_theme.js' %}"></script>
-
-    {% compress css %}
-    <link
-      href="{% static 'style/default.scss' %}"
-      rel="stylesheet"
-      type="text/x-scss"
-    />
-    {% endcompress %}
-    {% block extra_head %}
-    {% endblock %}
-  </head>
-
-  <body>
-    <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.umd.min.js"
-      integrity="sha384-YzAp9mbtbROBzQd/GXua4zI0q9ZFctXLsebMBDVA0fvlsyHVP/1VOLlBwtFlThGn"
-      crossorigin="anonymous"
-    ></script>
-
-    <script
-      type="module"
-      src="{% static 'scripts/fetch_release.js' %}"
-    ></script>
-
-    <nav
-      class="navbar navbar-expand-lg fixed-top"
-      aria-label="toolbar for navigating through the entire website"
-    >
-        <button
-          type="button"
-          class="btn btn-lg light-glow move-to-right-by-20 btn-tertiary"
-          onclick="
-            window.open('https://github.com/IliyanKostov9/portfolio', '_blank')
-          "
-        >
-          <i class="fab fa-git-alt fa-lg"></i>
-          <p id="github-version" class="d-inline mb-0 fw-bold p-3">
-            {% translate "Source" %}
-          </p>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link"
-              aria-current="page"
-              href="/"
-              >
-                {% translate "Portfolio" %}</a>
-            </li>
-
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                aria-current="page"
-                href="/blogs/"
-                >{% translate "Blogs" %}</a
-              >
-            </li>
-          </ul>
-        </div>
-
-      <div class="d-flex align-items-center gap-2 move-to-left-by-20">
-        <form action="{% url 'set_language' %}" method="post">
-          {% csrf_token %}
-          <input type="hidden" name="next" value="{{ redirect_to }}" />
-
-          <div class="dropdown">
-            <button
-              id="lang-toggle"
-              name="next"
-              value="{{ redirect_to }}"
-              type="button"
-              class="btn btn-floating dropdown-toggle light-glow btn-tertiary"
-              data-mdb-dropdown-init
-              data-mdb-ripple-init
-              arial-expanded="false"
-            >
-              {% if language == "bg" %}
-              {% blocktranslate with lang=language %}
+    <head>
+        <title>Iliyan's portfolio page</title>
+        <link rel="browser icon" href="{% static 'favicon.ico' %}" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.min.css"
+              rel="stylesheet"
+              integrity="sha512-KZfH/Hybv9x3A8O7kpxw84PhCbHtcjKo8hB1TR/riHma0ZgyMrR3Ctij/bUHowTXBEpa9i7J3Teed0xasHxwfQ=="
+              crossorigin="anonymous" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+              rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+              rel="stylesheet" />
+        <script src="https://unpkg.com/htmx.org@2.0.4"
+                integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+                crossorigin="anonymous"></script>
+        <script src="{% static 'scripts/toggle_theme.js' %}"></script>
+        {% compress css %}
+            <link href="{% static 'style/default.scss' %}"
+                  rel="stylesheet"
+                  type="text/x-scss" />
+        {% endcompress %}
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body>
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.umd.min.js"
+                integrity="sha384-YzAp9mbtbROBzQd/GXua4zI0q9ZFctXLsebMBDVA0fvlsyHVP/1VOLlBwtFlThGn"
+                crossorigin="anonymous"></script>
+        <script type="module" src="{% static 'scripts/fetch_release.js' %}"></script>
+        <nav class="navbar navbar-expand-lg fixed-top"
+             aria-label="toolbar for navigating through the entire website">
+            <button type="button"
+                    class="btn btn-lg light-glow move-to-right-by-20 btn-tertiary"
+                    onclick=" window.open('https://github.com/IliyanKostov9/portfolio', '_blank') ">
+                <i class="fab fa-git-alt fa-lg"></i>
+                <p id="github-version" class="d-inline mb-0 fw-bold p-3">{% translate "Source" %}</p>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">{% translate "Portfolio" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/blogs/">{% translate "Blogs" %}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center gap-2 move-to-left-by-20">
+                <form action="{% url 'set_language' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ redirect_to }}" />
+                    <div class="dropdown">
+                        <button id="lang-toggle"
+                                name="next"
+                                value="{{ redirect_to }}"
+                                type="button"
+                                class="btn btn-floating dropdown-toggle light-glow btn-tertiary"
+                                data-mdb-dropdown-init
+                                data-mdb-ripple-init
+                                arial-expanded="false">
+                            {% if language == "bg" %}
+                                {% blocktranslate with lang=language %}
               <i class="flag flag-bulgaria"></i>
               {% endblocktranslate %}
-              {% elif language == "en" %}
-              {% blocktranslate with lang=language %}
+                            {% elif language == "en" %}
+                                {% blocktranslate with lang=language %}
               <i class="flag flag-united-kingdom"></i>
               {% endblocktranslate %}
-              {% elif language == "fr" %}
-              {% blocktranslate with lang=language %}
+                            {% elif language == "fr" %}
+                                {% blocktranslate with lang=language %}
               <i class="flag flag-france"></i>
               {% endblocktranslate %}
-              {% elif language == "ge" %}
-              {% blocktranslate with lang=language %}
+                            {% elif language == "ge" %}
+                                {% blocktranslate with lang=language %}
               <i class="flag flag-germany"></i>
               {% endblocktranslate %}
-              {% endif %}
-            </button>
-
-            <ul class="dropdown-menu" name="lang-toggle">
-              <li>
-                <button
-                  type="submit"
-                  name="language"
-                  value="en"
-                  class="dropdown-item"
-                >
-                  {% translate "English" %}
+                            {% endif %}
+                        </button>
+                        <ul class="dropdown-menu" name="lang-toggle">
+                            <li>
+                                <button type="submit" name="language" value="en" class="dropdown-item">{% translate "English" %}</button>
+                            </li>
+                            <li>
+                                <button type="submit" name="language" value="bg" class="dropdown-item">{% translate "Bulgarian" %}</button>
+                            </li>
+                            <li>
+                                <button type="submit" name="language" value="fr" class="dropdown-item">{% translate "French" %}</button>
+                            </li>
+                            <li>
+                                <button type="submit" name="language" value="ge" class="dropdown-item">{% translate "German" %}</button>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+                <button id="theme-toggle"
+                        type="button"
+                        class="btn btn-floating btn-lg light-glow btn-tertiary">
+                    <i class="fas fa-sun fa-lg theme-icon-sun"></i>
+                    <i class="fas fa-moon fa-lg theme-icon-moon"></i>
                 </button>
-              </li>
-
-              <li>
-                <button
-                  type="submit"
-                  name="language"
-                  value="bg"
-                  class="dropdown-item"
-                >
-                  {% translate "Bulgarian" %}
-                </button>
-              </li>
-              <li>
-                <button
-                  type="submit"
-                  name="language"
-                  value="fr"
-                  class="dropdown-item"
-                >
-                  {% translate "French" %}
-                </button>
-              </li>
-              <li>
-                <button
-                  type="submit"
-                  name="language"
-                  value="ge"
-                  class="dropdown-item"
-                >
-                  {% translate "German" %}
-                </button>
-              </li>
-            </ul>
-          </div>
-        </form>
-
-        <button
-          id="theme-toggle"
-          type="button"
-          class="btn btn-floating btn-lg light-glow btn-tertiary"
-        >
-          <i class="fas fa-sun fa-lg theme-icon-sun"></i>
-          <i class="fas fa-moon fa-lg theme-icon-moon"></i>
-        </button>
-      </div>
-    </nav>
-
-    <div class="add-space-on-top-70">
-      {% block content %}
-      {% endblock %}
-    </div>
-
-    <script src="{% static 'scripts/scroll.js' %}"></script>
-    <script type="module" src="{% static 'scripts/hover_over_text.js' %}"></script>
-    <script type="module" src="{% static 'scripts/domContextLoaded.js' %}"></script>
-    <script src="{% static 'scripts/lazyload.js' %}"></script>
-    <script src="{% static 'scripts/toast.js' %}"></script>
-    {% include "components/toast.html" %}
-
-    <footer class="text-center bg-body-tertiary">
-      <div class="container pt-4">
-        <section class="mb-4">
-          <button
-            class="btn btn-link btn-floating btn-lg m-1"
-            onclick="
-              window.open(
-                'https://www.linkedin.com/in/iliyan-kostov/',
-                '_blank',
-              )
-            "
-          >
-            <i class="fab fa-2x fa-linkedin"></i>
-          </button>
-          <button
-            class="btn btn-link btn-floating btn-lg m-1"
-            onclick="window.open('https://github.com/IliyanKostov9', '_blank')"
-          >
-            <i class="fab fa-2x fa-github"></i>
-          </button>
-          <button
-            class="btn btn-link btn-floating btn-lg m-1"
-            onclick="
-              window.open(
-                'https://www.hackerrank.com/profile/iliyan_kostov',
-                '_blank',
-              )
-            "
-          >
-            <i class="fab fa-2x fa-hackerrank"></i>
-          </button>
-        </section>
-      </div>
-
-      <div class="text-center p-3 footer-text">
-        {% translate "Made with" %}
-        <a class="text-body" href="https://www.djangoproject.com/">
-          ❤️ {% translate "by Django" %}</a
-        >
-      </div>
-    </footer>
-  </body>
+            </div>
+        </nav>
+        <div class="add-space-on-top-70">
+            {% block content %}{% endblock %}
+        </div>
+        <script src="{% static 'scripts/scroll.js' %}"></script>
+        <script type="module" src="{% static 'scripts/hover_over_text.js' %}"></script>
+        <script type="module" src="{% static 'scripts/domContextLoaded.js' %}"></script>
+        <script src="{% static 'scripts/lazyload.js' %}"></script>
+        <script src="{% static 'scripts/toast.js' %}"></script>
+        {% include "components/toast.html" %}
+        <footer class="text-center bg-body-tertiary">
+            <div class="container pt-4">
+                <section class="mb-4">
+                    <button class="btn btn-link btn-floating btn-lg m-1"
+                            onclick=" window.open( 'https://www.linkedin.com/in/iliyan-kostov/', '_blank', ) ">
+                        <i class="fab fa-2x fa-linkedin"></i>
+                    </button>
+                    <button class="btn btn-link btn-floating btn-lg m-1"
+                            onclick="window.open('https://github.com/IliyanKostov9', '_blank')">
+                        <i class="fab fa-2x fa-github"></i>
+                    </button>
+                    <button class="btn btn-link btn-floating btn-lg m-1"
+                            onclick=" window.open( 'https://www.hackerrank.com/profile/iliyan_kostov', '_blank', ) ">
+                        <i class="fab fa-2x fa-hackerrank"></i>
+                    </button>
+                </section>
+            </div>
+            <div class="text-center p-3 footer-text">
+                {% translate "Made with" %}
+                <a class="text-body" href="https://www.djangoproject.com/">❤️ {% translate "by Django" %}</a>
+            </div>
+        </footer>
+    </body>
 </html>
