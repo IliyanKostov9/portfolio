@@ -1,115 +1,77 @@
 {% load i18n %}
-
 <div class="row text-center justify-content-center">
-  <div class="col-md-7 lazy d-flex flex-column align-items-center">
-    <section id="ContactMe">
-      <h2 class="lazy">
-        <a href="#ContactMe">{% translate "Contact me" %}</a>
-      </h2>
-    </section>
-
-    <div class="card">
-      <div class="card-body">
-        <form
-          id="contactForm"
-          action="{% url 'home/contact-me' %}"
-          method="post"
-          class="form-width-50"
-        >
-          {% csrf_token %}
-
-          <div data-mdb-input-init class="form-outline mb-4">
-            <div class="input-group">
-              <input
-                id="name"
-                name="name"
-                type="text"
-                class="form-control"
-                required
-              />
-              <label class="form-label" for="name"
-                >{% translate "Name" %}</label
-              >
+    <div class="col-md-7 lazy d-flex flex-column align-items-center">
+        <section id="ContactMe">
+            <h2 class="lazy">
+                <a href="#ContactMe">{% translate "Contact me" %}</a>
+            </h2>
+        </section>
+        <div class="card">
+            <div class="card-body">
+                <form id="contactForm"
+                      action="{% url 'home/contact-me' %}"
+                      method="post"
+                      class="form-width-50">
+                    {% csrf_token %}
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input id="name" name="name" type="text" class="form-control" required />
+                            <label class="form-label" for="name">{% translate "Name" %}</label>
+                        </div>
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <div class="input-group">
+                            <input id="email" name="email" type="email" class="form-control" required />
+                            <label class="form-label" for="email">{% translate "Email address" %}</label>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <div class="input-group">
+                            <textarea class="form-control height-120"
+                                      id="message"
+                                      name="message"
+                                      maxlength="300"
+                                      rows="4"
+                                      required></textarea>
+                            <label class="form-label" for="message">{% translate "Message" %}</label>
+                        </div>
+                    </div>
+                    <button id="submitContactmeBtn"
+                            name="submitContactmeBtn"
+                            data-mdb-ripple-init
+                            type="submit"
+                            value="send_contact_me"
+                            class="btn btn-primary btn-block mb-1">
+                        <span id="spinnerSubmit"
+                              class="spinner-border spinner-border-sm display-none"
+                              aria-hidden="true"></span>
+                        <span class="visually-hidden">{% translate "Loading..." %}</span>
+                        {% translate "Send" %}
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <div class="d-flex align-items-center my-2">
+                        <hr class="flex-grow-1" />
+                        <span class="mx-2">{% translate "OR" %}</span>
+                        <hr class="flex-grow-1" />
+                    </div>
+                    <div class="form-outline mb-4">
+                        <button id="submitCVDownloadBtn"
+                                name="submitCVDownloadBtn"
+                                data-mdb-ripple-init
+                                type="submit"
+                                value="send_cv_download"
+                                class="btn btn-secondary btn-block mb-1">
+                            <span id="spinnerCVDownloadSubmit"
+                                  class="spinner-border spinner-border-sm display-none"
+                                  aria-hidden="true"></span>
+                            <span class="visually-hidden">{% translate "Loading..." %}</span>
+                            {% translate "Make a request to download my bio" %}
+                            <i class="fas fa-book-open-reader"></i>
+                        </button>
+                    </div>
+                </form>
             </div>
-          </div>
-
-          <div data-mdb-input-init class="form-outline mb-4">
-            <div class="input-group">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                class="form-control"
-                required
-              />
-              <label class="form-label" for="email"
-                >{% translate "Email address" %}</label
-              >
-            </div>
-          </div>
-
-          <div class="form-outline mb-4">
-            <div class="input-group">
-              <textarea
-                class="form-control height-120"
-                id="message"
-                name="message"
-                maxlength="300"
-                rows="4"
-                required
-              ></textarea>
-              <label class="form-label" for="message"
-                >{% translate "Message" %}</label
-              >
-            </div>
-          </div>
-
-          <button
-            id="submitContactmeBtn"
-            name="submitContactmeBtn"
-            data-mdb-ripple-init
-            type="submit"
-            value="send_contact_me"
-            class="btn btn-primary btn-block mb-1"
-          >
-            <span
-              id="spinnerSubmit"
-              class="spinner-border spinner-border-sm display-none"
-              aria-hidden="true"
-            ></span>
-            <span class="visually-hidden">{% translate "Loading..." %}</span>
-            {% translate "Send" %}
-            <i class="fas fa-paper-plane"></i>
-          </button>
-
-          <div class="d-flex align-items-center my-2">
-            <hr class="flex-grow-1" />
-            <span class="mx-2">{% translate "OR" %}</span>
-            <hr class="flex-grow-1" />
-          </div>
-
-          <div class="form-outline mb-4">
-            <button
-              id="submitCVDownloadBtn"
-              name="submitCVDownloadBtn"
-              data-mdb-ripple-init
-              type="submit"
-              value="send_cv_download"
-              class="btn btn-secondary btn-block mb-1"
-            >
-              <span
-                id="spinnerCVDownloadSubmit"
-                class="spinner-border spinner-border-sm display-none"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">{% translate "Loading..." %}</span>
-              {% translate "Make a request to download my bio" %}
-              <i class="fas fa-book-open-reader"></i>
-            </button>
-          </div>
-        </form>
-      </div>
+        </div>
     </div>
-  </div>
-  <p class="spacing-bot-150" />
+    <p class="spacing-bot-150" />
 </div>

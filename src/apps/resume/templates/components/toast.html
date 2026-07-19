@@ -1,24 +1,18 @@
-<div
-  class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3"
-  id="toasts"
-  hx-swap-oob="afterbegin"
->
-  {% for message in messages %}
-  <div
-    class="toast align-items-center border-0 {% if 'success' in message.tags %} bg-success {% elif 'error' in message.tags %} bg-danger {% elif 'warning' in message.tags %} bg-warning {% else %} bg-info {% endif %}"
-    role="alert"
-    aria-live="assertive"
-    aria-atomic="true"
-  >
-    <div class="d-flex">
-      <div class="toast-body">{{ message.message }}</div>
-      <button
-        type="button"
-        class="btn-close btn-close-white me-2 m-auto"
-        data-mdb-dismiss="toast"
-        aria-label="Close"
-      ></button>
-    </div>
-  </div>
-  {% endfor %}
+<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3"
+     id="toasts"
+     hx-swap-oob="afterbegin">
+    {% for message in messages %}
+        <div class="toast align-items-center border-0 {% if 'success' in message.tags %} bg-success {% elif 'error' in message.tags %} bg-danger {% elif 'warning' in message.tags %} bg-warning {% else %} bg-info {% endif %}"
+             role="alert"
+             aria-live="assertive"
+             aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">{{ message.message }}</div>
+                <button type="button"
+                        class="btn-close btn-close-white me-2 m-auto"
+                        data-mdb-dismiss="toast"
+                        aria-label="Close"></button>
+            </div>
+        </div>
+    {% endfor %}
 </div>
