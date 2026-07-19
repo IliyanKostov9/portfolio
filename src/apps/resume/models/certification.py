@@ -1,13 +1,16 @@
-from typing import Any
+from typing import Any, override
 
-from django.db.models import CharField, IntegerField
-from typing_extensions import override
+from django.db.models import CharField, ImageField, IntegerField
 
 from apps.resume.models.portfolio import Portfolio
 
 
 class Certification(Portfolio):
-    image: CharField = CharField("Image of the certificate", max_length=30)
+    image: ImageField = ImageField(
+        "Image of the certificate",
+        blank=True,
+        null=True,
+    )
     row: IntegerField = IntegerField("Row number of the certificate")
     date: CharField = CharField("Date of the certificate")
     name: CharField = CharField("Name of the certificate")

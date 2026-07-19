@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: GitGuardian scan
-        uses: GitGuardian/ggshield-action@da20be06cafe5e8633dc24744efe1efe8d30f06b
+        uses: GitGuardian/ggshield-action@2002482fb5990b486be5598ebcf48a8eba393fce
         env:
           GITHUB_PUSH_BEFORE_SHA: ${{ github.event.before }}
           GITHUB_PUSH_BASE_SHA: ${{ github.event.base }}
@@ -30,7 +30,7 @@ jobs:
 
       - name: Sonar scan
         id: sonarqube-quality-gate-check
-        uses: sonarsource/sonarqube-scan-action@713881670b6b3676cda39549040e2d88c70d582e
+        uses: sonarsource/sonarqube-scan-action@22918119ff8e1ca75a623e15c8296b6ea4fbe28f
 
       - name: "SonarQube Quality result"
         run: |

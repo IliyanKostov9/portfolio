@@ -1,7 +1,5 @@
 from dataclasses import dataclass
-from typing import Any
-
-from typing_extensions import override
+from typing import Any, override
 
 from apps.resume.data_class.portfolio import Portfolio
 
@@ -23,7 +21,7 @@ class WorkHistory(Portfolio):
     ge_description: str
 
     @classmethod
-    def from_yaml(cls, path: str) -> list["WorkHistory"]:
+    def from_yaml(cls, path: str) -> list[WorkHistory]:
         objects: Any = super().read_yaml(path)
 
         return [cls(**obj) for obj in objects]

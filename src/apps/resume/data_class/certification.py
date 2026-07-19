@@ -1,7 +1,5 @@
 from dataclasses import dataclass
-from typing import Any
-
-from typing_extensions import override
+from typing import Any, override
 
 from apps.resume.data_class.portfolio import Portfolio
 
@@ -16,7 +14,7 @@ class Certification(Portfolio):
     row: int
 
     @classmethod
-    def from_yaml(cls, path: str) -> list["Certification"]:
+    def from_yaml(cls, path: str) -> list[Certification]:
         objects: Any = super().read_yaml(path)
 
         return [cls(**obj) for obj in objects]
@@ -34,7 +32,7 @@ class Certification(Portfolio):
         for certification in certifications:
             certification_model.objects.create(
                 name=certification.name,
-                image=certification.image,
+                image="images/" + certification.image,
                 url=certification.url,
                 date=certification.date,
                 row=certification.row,

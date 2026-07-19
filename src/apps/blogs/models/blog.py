@@ -1,7 +1,13 @@
-from typing import Any
+from typing import Any, override
 
-from django.db.models import CASCADE, CharField, DateField, ForeignKey, IntegerField
-from typing_extensions import override
+from django.db.models import (
+    CASCADE,
+    CharField,
+    DateField,
+    ForeignKey,
+    ImageField,
+    IntegerField,
+)
 
 from apps.blogs.models.blog_category import BlogCategory
 from apps.blogs.models.portfolio import Portfolio
@@ -10,7 +16,9 @@ from apps.blogs.models.portfolio import Portfolio
 class Blog(Portfolio):
     title: CharField = CharField("Title of the blog", max_length=100)
     description: CharField = CharField("Short description of the blog")
-    image_preview: CharField = CharField("Image preview of the blog", max_length=30)
+    image_preview: ImageField = ImageField(
+        "Image preview of the blog", blank=False, null=False
+    )
     date: DateField = DateField("Date of the blog being posted", max_length=30)
     url: CharField = CharField(
         "Name of the page of the blog, where the user can navigate to"

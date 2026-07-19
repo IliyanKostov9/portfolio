@@ -68,21 +68,21 @@ resource "aws_iam_access_key" "current" {
 }
 
 resource "github_actions_secret" "aws_access_key_id" {
-  repository      = "portfolio"
-  secret_name     = format("PORTFOLIO_S3_%s_%s_ACCESS_KEY_ID", local.uppercase_name_without_dash, upper(var.env))
-  plaintext_value = aws_iam_access_key.current.id
+  repository  = "portfolio"
+  secret_name = format("PORTFOLIO_S3_%s_%s_ACCESS_KEY_ID", local.uppercase_name_without_dash, upper(var.env))
+  value       = aws_iam_access_key.current.id
 }
 
 resource "github_actions_secret" "aws_secret_access_key" {
-  repository      = "portfolio"
-  secret_name     = format("PORTFOLIO_S3_%s_%s_SECRET_ACCESS_KEY", local.uppercase_name_without_dash, upper(var.env))
-  plaintext_value = aws_iam_access_key.current.secret
+  repository  = "portfolio"
+  secret_name = format("PORTFOLIO_S3_%s_%s_SECRET_ACCESS_KEY", local.uppercase_name_without_dash, upper(var.env))
+  value       = aws_iam_access_key.current.secret
 }
 
 resource "github_actions_secret" "aws_bucket_name" {
-  repository      = "portfolio"
-  secret_name     = format("PORTFOLIO_S3_%s_%s_BUCKET", local.uppercase_name_without_dash, upper(var.env))
-  plaintext_value = aws_s3_bucket.current.id
+  repository  = "portfolio"
+  secret_name = format("PORTFOLIO_S3_%s_%s_BUCKET", local.uppercase_name_without_dash, upper(var.env))
+  value       = aws_s3_bucket.current.id
 }
 
 
@@ -112,6 +112,21 @@ data "aws_iam_policy_document" "additional" {
       effect    = statement.value.effect
       actions   = statement.value.actions
       resources = statement.value.resources
+      dynamic "principals" {
+        for_each = statement.value.principals != null ? [statement.value.principals] : []
+        content {
+          type        = principals.value.type
+          identifiers = principals.value.identifiers
+        }
+      }
+      dynamic "condition" {
+        for_each = statement.value.condition != null ? [statement.value.condition] : []
+        content {
+          test     = condition.value.test
+          variable = condition.value.variable
+          values   = condition.value.values
+        }
+      }
     }
   }
 }
