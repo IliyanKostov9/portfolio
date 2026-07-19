@@ -1,73 +1,50 @@
 {% extends "base.html" %}
 {% load static compress i18n %}
 {% block extra_head %}
-{% compress css %}
-<link
-  href="{% static 'style/home.scss' %}"
-  rel="stylesheet"
-  type="text/x-scss"
-/>
-
-{% endcompress %}
+    {% compress css %}
+        <link href="{% static 'style/home.scss' %}"
+              rel="stylesheet"
+              type="text/x-scss" />
+    {% endcompress %}
 {% endblock %}
 {% block content %}
-
-<div class="d-flex justify-content-center align-items-center initial-content">
-  <div class="bg-image hover-zoom rounded-circle overflow-hidden me-4" data-mdb-ripple-init data-mdb-ripple-centered="true">
-    <img
-      src="{% static 'images/profile.jpeg' %}"
-      class="profile-img img-fluid rounded-circle lazy"
-      alt="profile"
-    />
-  </div>
-
-  <div class="text-start">
-    <h5 class="mt-1 text-secondary lazy hover-target">{% translate "Hi" %},
-    </h5>
-    <h1 class="mt-1 text-primary display-1 lazy hover-target">
-      {% translate "I'm Iliyan" %}
-    </h1>
-    <p class="lead lazy hover-target">
-      <em>{% translate "I try to figure out how things work." %}</em>
-    </p>
-  </div>
-</div>
-
-<p class="about-me-spacing-bot" />
-
-<p class="lead text-center lazy hide-when-scrolling">
-  {% translate "Continue reading" %}
-</p>
-
-<div
-  class="d-flex justify-content-center align-items-center lazy hide-when-scrolling"
->
-  <a href="#About">
-    <i class="fas fa-arrow-down-long align-items-center"></i>
-  </a>
-</div>
-<hr class="hr hr-blurry hide-when-scrolling" />
-
-<div class="container text-center">
-  {% include 'home/about.html' %}
-  <p class="spacing-bot-200" />
-
-  {% include 'home/work_history.html' %}
-  <p class="spacing-bot-200" />
-
-  {% include 'home/education.html' %}
-  <p class="spacing-bot-200" />
-
-  {% include 'home/language_proficiencies.html' %}
-  <p class="spacing-bot-200" />
-
-  {% include 'home/certification.html' %}
-  <p class="spacing-bot-200" />
-
-  {% include 'home/projects.html' %}
-  <p class="spacing-bot-200" />
-
-  {% include 'home/contact_me.html' %}
-</div>
-
+    <div class="d-flex justify-content-center align-items-center initial-content">
+        <div class="bg-image hover-zoom rounded-circle overflow-hidden me-4"
+             data-mdb-ripple-init
+             data-mdb-ripple-centered="true">
+            <img src="{% static 'images/profile.jpeg' %}"
+                 class="profile-img img-fluid rounded-circle lazy"
+                 alt="profile" />
+        </div>
+        <div class="text-start">
+            <h5 class="mt-1 text-secondary lazy hover-target">{% translate "Hi" %},</h5>
+            <h1 class="mt-1 text-primary display-1 lazy hover-target">{% translate "I'm Iliyan" %}</h1>
+            <p class="lead lazy hover-target">
+                <em>{% translate "I try to figure out how things work." %}</em>
+            </p>
+        </div>
+    </div>
+    <p class="about-me-spacing-bot" />
+    <p class="lead text-center lazy hide-when-scrolling">{% translate "Continue reading" %}</p>
+    <div class="d-flex justify-content-center align-items-center lazy hide-when-scrolling">
+        <a href="#About">
+            <i class="fas fa-arrow-down-long align-items-center"></i>
+        </a>
+    </div>
+    <hr class="hr hr-blurry hide-when-scrolling" />
+    <div class="container text-center">
+        {% include 'home/about.html' %}
+        <p class="spacing-bot-200" />
+        {% include 'home/work_history.html' %}
+        <p class="spacing-bot-200" />
+        {% include 'home/education.html' %}
+        <p class="spacing-bot-200" />
+        {% include 'home/language_proficiencies.html' %}
+        <p class="spacing-bot-200" />
+        {% include 'home/certification.html' %}
+        <p class="spacing-bot-200" />
+        {% include 'home/projects.html' %}
+        <p class="spacing-bot-200" />
+        {% include 'home/contact_me.html' %}
+    </div>
 {% endblock %}
