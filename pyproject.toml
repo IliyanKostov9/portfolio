@@ -40,7 +40,7 @@ test = [
     "django-migration-linter>=6.0.0",
     "django-test-migrations>=1.5.0",
     "flake8>=7.3.0",
-    "moto>=5.1.22",
+    "moto>=5.2.2",
     "pylint>=4.0.6",
     # NOTE: Broken for 3.14
     # "pyre-check>=0.9.25",
