@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.core.handlers.wsgi import WSGIRequest
+from django.core.handlers.asgi import ASGIRequest
 from django.test import RequestFactory, TestCase
 from django.urls import reverse
 
@@ -16,7 +16,7 @@ class BlogsTestCase(TestCase):
         settings.SECRET_KEY = "dummy-key"
 
     def test_get(self):
-        response: WSGIRequest = self.client.get(
+        response: ASGIRequest = self.client.get(
             "/blogs/",
         )
 

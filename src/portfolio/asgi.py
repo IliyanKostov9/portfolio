@@ -7,15 +7,10 @@ For more information on this file, see
 https://docs.djangoproject.com/en/5.1/howto/deployment/asgi/
 """
 
-import os
+from portfolio.configure import configure
 
-from django.core.asgi import get_asgi_application
+configure()
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "portfolio.settings")
-
-if os.environ.get("PORTFOLIO_ENV") == "dev":
-    from dotenv import load_dotenv
-
-    load_dotenv()
+from configurations.asgi import get_asgi_application  # noqa: E402
 
 application = get_asgi_application()

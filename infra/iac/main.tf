@@ -41,3 +41,4 @@ import {
   to = module.ses_email_identity_one.aws_iam_user.current
   id = format("ses-user-%s", var.env)
 }
+
