@@ -1,11 +1,11 @@
-from django.test import TestCase
-from typing import Final
-import boto3
 import os
-from moto import mock_aws
-
+from typing import Final
 from unittest.mock import patch
-from django.core.handlers.wsgi import WSGIRequest
+
+import boto3
+from django.core.handlers.asgi import ASGIRequest
+from django.test import TestCase
+from moto import mock_aws
 
 BUCKET: Final[str] = "bucket123"
 
@@ -28,7 +28,7 @@ class VoiceTestCase(TestCase):
         client.create_bucket(Bucket=BUCKET)
 
     def test_post(self):
-        response: WSGIRequest = self.client.post(
+        response: ASGIRequest = self.client.post(
             "/home/voice/",
             data={
                 "text": "This is a test",
@@ -39,7 +39,7 @@ class VoiceTestCase(TestCase):
 
         self.assertEqual(response.status_code, 200)
 
-        response: WSGIRequest = self.client.post(
+        response: ASGIRequest = self.client.post(
             "/home/voice/",
             data={"no_text": "This should fail"},
             content_type="application/json",
