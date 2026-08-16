@@ -4,7 +4,7 @@ version = "2.5.0"
 description = "Dependency tree for Iliyan's portfolio web app"
 
 dependencies = [
-    "Django>=6.0.7",
+    "Django>=6.1",
     "mockito>=2.0.4",
     "setuptools>=83.0.0",
     "email-validator>=2.3.0",
@@ -14,7 +14,7 @@ dependencies = [
     "django-libsass>=0.9",
     "django-compressor>=4.6.0",
     "markdown>=3.10.3",
-    "uvicorn>=0.51.0",
+    "uvicorn>=0.52.1",
     "uvicorn-worker>=0.4.0",
     "gunicorn>=26.0.0",
     "typing-extensions>=4.16.0",
