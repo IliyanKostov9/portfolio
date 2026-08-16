@@ -42,9 +42,3 @@ import {
   id = format("ses-user-%s", var.env)
 }
 
-module "assets_storage" {
-  source = "./modules/aws/host_web_assets"
-  env    = var.env
-  name   = "assets"
-}
-
