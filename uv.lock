@@ -263,6 +263,18 @@ wheels = [
 ]
 
 [[package]]
+name = "django-configurations"
+version = "2.5.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c3/67/5fec7c64118209b20bde6b6f8a82300d9f4a56f7303293e2b31f9940e721/django-configurations-2.5.1.tar.gz", hash = "sha256:6e5083757e2bbdf9bb7850567536b96a93515f6b17503d74928ff628db2e0e94", size = 43225, upload-time = "2024-03-27T11:40:53.134Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6f/4e/1cc7fd6c0292d56e104f0c8c54ed71c35cafa06838d8f910b918589bf596/django_configurations-2.5.1-py3-none-any.whl", hash = "sha256:ceb84858da2dac846b15e715c2fd936cfc4c7917c074aff8d31700564093955e", size = 17357, upload-time = "2024-03-27T11:42:02.951Z" },
+]
+
+[[package]]
 name = "django-csp"
 version = "4.0"
 source = { registry = "https://pypi.org/simple" }
@@ -578,6 +590,7 @@ dependencies = [
     { name = "boto3" },
     { name = "django" },
     { name = "django-compressor" },
+    { name = "django-configurations" },
     { name = "django-csp" },
     { name = "django-libsass" },
     { name = "django-storages" },
@@ -619,6 +632,7 @@ requires-dist = [
     { name = "django", specifier = ">=6.0.6" },
     { name = "django", specifier = ">=6.1" },
     { name = "django-compressor", specifier = ">=4.6.0" },
+    { name = "django-configurations", specifier = ">=2.5.1" },
     { name = "django-csp", specifier = ">=4.0" },
     { name = "django-libsass", specifier = ">=0.9" },
     { name = "django-storages", specifier = ">=1.14.6" },
