@@ -4,7 +4,7 @@ version = "2.5.0"
 description = "Dependency tree for Iliyan's portfolio web app"
 
 dependencies = [
-    "Django>=6.0.7",
+    "Django>=6.1",
     "mockito>=2.0.4",
     "setuptools>=83.0.0",
     "email-validator>=2.3.0",
