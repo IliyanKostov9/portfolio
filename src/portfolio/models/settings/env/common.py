@@ -70,6 +70,7 @@ class Common:
         raise OSError("SECRET KEY is not set!")
 
     apps: list[str] = [
+        "apps.common.apps.CommonConfig",
         "apps.resume.apps.ResumeConfig",
         "apps.blogs.apps.BlogsConfig",
         "compressor",

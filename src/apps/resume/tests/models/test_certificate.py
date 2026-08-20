@@ -1,3 +1,4 @@
+import os
 from typing import Any
 
 from apps.resume.data_class.certification import (
@@ -22,7 +23,9 @@ class CertificationTestCase(Portfolio):
                 name=certification_dc.name
             )
 
-            self.assertEqual(certification_dc.image, certification.image)
+            self.assertEqual(
+                certification_dc.image, os.path.basename(certification.image)
+            )
             self.assertEqual(certification_dc.date, certification.date)
             self.assertEqual(certification_dc.url, certification.url)
             self.assertEqual(certification_dc.row, certification.row)
