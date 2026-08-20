@@ -42,7 +42,6 @@ import {
   id = format("ses-user-%s", var.env)
 }
 
-<<<<<<< HEAD
 module "assets_storage" {
   source                                = "./modules/aws/host_web_assets"
   env                                   = var.env
@@ -59,5 +58,3 @@ module "assets_storage" {
   }
 }
 
-=======
->>>>>>> a7a3609 (Chore/arrange configuration (#393))
