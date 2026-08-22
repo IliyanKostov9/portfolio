@@ -8,6 +8,7 @@ terraform {
 
 locals {
   uppercase_name_without_dash = upper(strcontains(var.name, "-") ? replace(var.name, "-", "_") : var.name)
+  bucket_name                 = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
 }
 
 data "aws_caller_identity" "current" {}
@@ -20,7 +21,7 @@ resource "aws_s3_bucket" "current" {
 }
 
 resource "aws_s3_bucket_public_access_block" "disable_public_access" {
-  bucket                  = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
+  bucket                  = local.bucket_name
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
@@ -81,7 +82,7 @@ data "aws_iam_policy_document" "bucket_combined" {
 }
 
 resource "aws_s3_bucket_policy" "set_deny_http_access" {
-  bucket = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
+  bucket = local.bucket_name
   policy = data.aws_iam_policy_document.bucket_combined.json
 }
 
