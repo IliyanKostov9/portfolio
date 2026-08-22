@@ -29,17 +29,11 @@ class Prod(Common, Configuration):
     COMPRESS_ROOT = STATIC_ROOT
     COMPRESS_OUTPUT_DIR = "CACHE"
 
-    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-    # NOTE: Maybe remove it from prod ?
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-            "LOCATION": "portfolio-cache",
-        }
-    }
     STORAGES = {
-        "default": {"BACKEND": "portfolio.storage_backends.s3.S3Storage"},
+        "default": {"BACKEND": "storages.backends.s3.S3Storage"},
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
     }
-    INSTALLED_APPS = Common.apps[: len(Common.apps) - 3]
 
-    print("Running in production. Now setting all prod options ON...")
+    INSTALLED_APPS = Common.apps[: len(Common.apps) - 3]
