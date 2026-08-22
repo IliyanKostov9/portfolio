@@ -76,11 +76,11 @@ data "aws_iam_policy_document" "additional_bucket" {
 }
 
 data "aws_iam_policy_document" "bucket_combined" {
-  source_policy_documents   = [data.aws_iam_policy_document.deny_https_access.json]
+  source_policy_documents   = [data.aws_iam_policy_document.deny_http_access.json]
   override_policy_documents = [data.aws_iam_policy_document.additional_bucket.json]
 }
 
-resource "aws_s3_bucket_policy" "deny_https_access" {
+resource "aws_s3_bucket_policy" "set_deny_http_access" {
   bucket = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
   policy = data.aws_iam_policy_document.bucket_combined.json
 }
