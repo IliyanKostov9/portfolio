@@ -1,7 +1,14 @@
-from typing import Any
+from typing import Any, override
 
-from django.db.models import CASCADE, CharField, DateField, ForeignKey, IntegerField
-from typing_extensions import override
+from django.db.models import (
+    CASCADE,
+    CharField,
+    DateField,
+    ForeignKey,
+    ImageField,
+    IntegerField,
+)
+from django.forms.models import model_to_dict
 
 from apps.blogs.models.blog_category import BlogCategory
 from apps.blogs.models.portfolio import Portfolio
@@ -10,7 +17,9 @@ from apps.blogs.models.portfolio import Portfolio
 class Blog(Portfolio):
     title: CharField = CharField("Title of the blog", max_length=100)
     description: CharField = CharField("Short description of the blog")
-    image_preview: CharField = CharField("Image preview of the blog", max_length=30)
+    image_preview: ImageField = ImageField(
+        "Image preview of the blog", blank=False, null=False
+    )
     date: DateField = DateField("Date of the blog being posted", max_length=30)
     url: CharField = CharField(
         "Name of the page of the blog, where the user can navigate to"
@@ -27,11 +36,11 @@ class Blog(Portfolio):
 
     @override
     def get_all(self) -> Any:
-        return list(Blog.objects.all().values())
+        return list(Blog.objects.all())
 
     @override
     def transform(self) -> Any:
-        blog_objs = self.get_all()
+        blog_objs = [model_to_dict(blog) for blog in self.get_all()]
 
         self.clean(blog_objs)
 

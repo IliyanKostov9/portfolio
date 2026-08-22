@@ -29,7 +29,11 @@ class Common:
     CSP_POLICY = {
         "DIRECTIVES": {
             "default-src": [SELF],
-            "media-src": [SELF, "blob:"],
+            "media-src": [
+                SELF,
+                "blob:",
+                os.environ.get("PORTFOLIO_CDN_ASSETS_URL"),
+            ],
             "connect-src": [SELF, "https://api.github.com"],
             "script-src": [
                 SELF,
@@ -56,7 +60,11 @@ class Common:
                 "https://www.youtube-nocookie.com",
             ],
             "font-src": ["https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
-            "img-src": [SELF, "https://mdbootstrap.com"],
+            "img-src": [
+                SELF,
+                "https://mdbootstrap.com",
+                os.environ.get("PORTFOLIO_CDN_ASSETS_URL"),
+            ],
             "frame-ancestors": [SELF],
             "form-action": [SELF],
             "report-uri": "/monitor/csp-report",
@@ -70,6 +78,7 @@ class Common:
         raise OSError("SECRET KEY is not set!")
 
     apps: list[str] = [
+        "apps.common.apps.CommonConfig",
         "apps.resume.apps.ResumeConfig",
         "apps.blogs.apps.BlogsConfig",
         "compressor",
@@ -202,3 +211,7 @@ class Common:
     # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
     DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+    AWS_S3_CUSTOM_DOMAIN = os.environ.get("PORTFOLIO_S3_ASSETS_PROD_BUCKET")
+    AWS_QUERYSTRING_AUTH = False
+    CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL")
+    MEDIA_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "") + "/"

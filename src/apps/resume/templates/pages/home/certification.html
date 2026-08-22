@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load i18n %}
 <div class="row text-center justify-content-center">
     <section id="Certificates">
         <h2 class="lazy">
@@ -10,7 +10,7 @@
             {% for cert in row.certificate %}
                 <div class="col-md-3 d-flex flex-column">
                     <div class="card h-100">
-                        <img src="{% static 'images/certificates/'|add:cert.image %}"
+                        <img src="{{ cert.image.url }}"
                              class="img-fluid mx-auto lazy spacing-30"
                              width="150"
                              height="150"

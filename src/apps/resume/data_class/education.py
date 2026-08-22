@@ -1,7 +1,5 @@
 from dataclasses import dataclass
-from typing import Any
-
-from typing_extensions import override
+from typing import Any, override
 
 from apps.resume.data_class.portfolio import Portfolio
 
@@ -41,7 +39,7 @@ class Education(Portfolio):
     gpa: str
 
     @classmethod
-    def from_yaml(cls, path: str) -> list["Education"]:
+    def from_yaml(cls, path: str) -> list[Education]:
         objects: Any = super().read_yaml(path)
 
         return [cls(**obj) for obj in objects]
@@ -62,7 +60,7 @@ class Education(Portfolio):
                     university_name=getattr(education, lang + "_university_name"),
                     description=getattr(education, lang + "_description"),
                     scroll_description=education.scroll_description,
-                    image=education.image,
+                    image="images/" + education.image,
                     href_tooltip=education.href_tooltip,
                     href_title=getattr(education, lang + "_href_title"),
                     date=education.date,

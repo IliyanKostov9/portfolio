@@ -38,10 +38,7 @@ class Prod(Common, Configuration):
         }
     }
     STORAGES = {
-        "default": {"BACKEND": "storages.backends.s3.S3Storage"},
-        "staticfiles": {
-            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-        },
+        "default": {"BACKEND": "portfolio.storage_backends.s3.S3Storage"},
     }
     INSTALLED_APPS = Common.apps[: len(Common.apps) - 3]
 

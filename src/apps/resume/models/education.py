@@ -1,9 +1,8 @@
-from typing import Any
+from typing import Any, override
 
-from django.db.models import CASCADE, BooleanField, CharField, ForeignKey
+from django.db.models import CASCADE, BooleanField, CharField, ForeignKey, ImageField
 from django.forms.models import model_to_dict
 from django.utils.translation import get_language
-from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
 from apps.resume.models.translation import Translation
@@ -17,7 +16,7 @@ class Education(Portfolio):
     scroll_description: BooleanField = BooleanField(
         "Whether or not the description should be scrollable or not", default=False
     )
-    image: CharField = CharField("Image of the education", max_length=30)
+    image: ImageField = ImageField("Image of the education", blank=False, null=False)
     href_tooltip: CharField = CharField("Href tooltip of the education", max_length=30)
     href_title: CharField = CharField("Href title of the education", max_length=200)
     date: CharField = CharField("Date of the education")

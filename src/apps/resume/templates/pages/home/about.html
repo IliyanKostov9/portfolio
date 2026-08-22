@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load cdn i18n %}
 <div class="row justify-content-center">
     <div class="col-md-6">
         <section id="About">
@@ -116,7 +116,7 @@
         <div class="carousel-inner rounded-5 shadow-4-strong">
             {% for page, pages_data in technologies.pages.items %}
                 <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <img src="{% static 'images/technologies_background.jpg' %}"
+                    <img src="{% cdn 'images/technologies_background.jpg' %}"
                          class="d-block w-100 img-fluid"
                          alt="Blue art background for technology stack" />
                     <div class="carousel-caption-bg carousel-caption d-none d-md-block mask d-flexbox p-2">

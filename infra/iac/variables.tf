@@ -15,6 +15,12 @@ variable "domain" {
   type        = string
 }
 
+variable "email_domain" {
+  description = "The Route53 email domain name"
+  type        = string
+}
+
+
 variable "zone_id" {
   description = "Zone id from Route53"
   type        = string
@@ -28,5 +34,10 @@ variable "ses_identity_email" {
 
 variable "github_token" {
   description = "Github token to authenticate"
+  type        = string
+}
+
+variable "cfn_assets_domain" {
+  description = "CFN Assets Domain"
   type        = string
 }

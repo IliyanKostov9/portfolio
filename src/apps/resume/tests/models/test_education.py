@@ -1,3 +1,4 @@
+import os
 from typing import Any
 
 from apps.resume.data_class.education import Education as EducationDataClass
@@ -30,7 +31,9 @@ class EducationTestCase(Portfolio):
                 self.assertEqual(
                     education_dc.scroll_description, education.scroll_description
                 )
-                self.assertEqual(education_dc.image, education.image)
+                self.assertEqual(
+                    education_dc.image, os.path.basename(str(education.image))
+                )
                 self.assertEqual(education_dc.href_tooltip, education.href_tooltip)
                 self.assertEqual(
                     getattr(education_dc, lang + "_href_title"), education.href_title
