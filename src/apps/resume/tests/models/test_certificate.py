@@ -24,7 +24,7 @@ class CertificationTestCase(Portfolio):
             )
 
             self.assertEqual(
-                certification_dc.image, os.path.basename(certification.image)
+                certification_dc.image, os.path.basename(str(certification.image))
             )
             self.assertEqual(certification_dc.date, certification.date)
             self.assertEqual(certification_dc.url, certification.url)

@@ -27,7 +27,7 @@ class ProjectTestCase(Portfolio):
                 self.assertEqual(
                     project_dc.scroll_description, project.scroll_description
                 )
-                self.assertEqual(project_dc.image, os.path.basename(project.image))
+                self.assertEqual(project_dc.image, os.path.basename(str(project.image)))
                 self.assertEqual(project_dc.date, project.date)
                 self.assertEqual(project_dc.row, project.row)
                 self.assertEqual(project_dc.repositories, project.repositories)
