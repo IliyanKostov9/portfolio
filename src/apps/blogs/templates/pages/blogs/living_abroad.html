@@ -563,12 +563,15 @@
             <hr class="hr hr-blurry" />
             <div class="d-flex align-items-start gap-3">
                 <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/H3qWXdWRyIQ"
-                            title="Landing in Nice"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                    </iframe>
+                    <!-- <iframe src="{% cdn 'videos/landing_in_nice.mp4' %}" -->
+                    <!--         title="Landing in Nice" -->
+                    <!--         referrerpolicy="strict-origin-when-cross-origin" -->
+                    <!--         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" -->
+                    <!--         allowfullscreen> -->
+                    <!-- </iframe> -->
+                    <video autoplay muted loop playsinline>
+                        <source src="{% cdn 'videos/landing_in_nice.mp4' %}" type="video/mp4">
+                    </video>
                 </div>
             </div>
             <p class="spacing-bot-20" />
