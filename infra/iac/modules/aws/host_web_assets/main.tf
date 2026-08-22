@@ -2,7 +2,6 @@ module "s3_assets" {
   source = "../file_storage"
   env    = var.env
   name   = format("%s-assets", var.bucket_assets_name)
-  enable_iam_user_creation = false
   iam_bucket_policy_additional_statements = [
     {
       sid       = "AllowCloudFrontServicePrincipalWrite"
