@@ -99,6 +99,9 @@ resource "aws_cloudfront_distribution" "distro" {
   }
   price_class = "PriceClass_200"
 
+  restrictions {
+  }
+
   tags = {
     Environment = var.env
   }
