@@ -99,13 +99,6 @@ resource "aws_cloudfront_distribution" "distro" {
   }
   price_class = "PriceClass_200"
 
-  restrictions {
-    geo_restriction {
-      restriction_type = "whitelist"
-      locations        = ["US", "CA", "GB", "DE"]
-    }
-  }
-
   tags = {
     Environment = var.env
   }
