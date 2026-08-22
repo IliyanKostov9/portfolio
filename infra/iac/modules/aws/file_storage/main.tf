@@ -8,6 +8,7 @@ terraform {
 
 locals {
   uppercase_name_without_dash = upper(strcontains(var.name, "-") ? replace(var.name, "-", "_") : var.name)
+  bucket_name                 = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
 }
 
 data "aws_caller_identity" "current" {}
@@ -20,7 +21,7 @@ resource "aws_s3_bucket" "current" {
 }
 
 resource "aws_s3_bucket_public_access_block" "disable_public_access" {
-  bucket                  = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
+  bucket                  = local.bucket_name
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
@@ -48,9 +49,41 @@ data "aws_iam_policy_document" "deny_http_access" {
   }
 }
 
-resource "aws_s3_bucket_policy" "deny_https_access" {
-  bucket = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
-  policy = data.aws_iam_policy_document.deny_http_access.json
+data "aws_iam_policy_document" "additional_bucket" {
+  dynamic "statement" {
+    for_each = var.iam_bucket_policy_additional_statements
+    content {
+      sid       = statement.value.sid
+      effect    = statement.value.effect
+      actions   = statement.value.actions
+      resources = statement.value.resources
+      dynamic "principals" {
+        for_each = statement.value.principals != null ? [statement.value.principals] : []
+        content {
+          type        = principals.value.type
+          identifiers = principals.value.identifiers
+        }
+      }
+      dynamic "condition" {
+        for_each = statement.value.condition != null ? [statement.value.condition] : []
+        content {
+          test     = condition.value.test
+          variable = condition.value.variable
+          values   = condition.value.values
+        }
+      }
+    }
+  }
+}
+
+data "aws_iam_policy_document" "bucket_combined" {
+  source_policy_documents   = [data.aws_iam_policy_document.deny_http_access.json]
+  override_policy_documents = [data.aws_iam_policy_document.additional_bucket.json]
+}
+
+resource "aws_s3_bucket_policy" "set_deny_http_access" {
+  bucket = local.bucket_name
+  policy = data.aws_iam_policy_document.bucket_combined.json
 }
 
 resource "aws_iam_user" "current" {
@@ -68,21 +101,21 @@ resource "aws_iam_access_key" "current" {
 }
 
 resource "github_actions_secret" "aws_access_key_id" {
-  repository      = "portfolio"
-  secret_name     = format("PORTFOLIO_S3_%s_%s_ACCESS_KEY_ID", local.uppercase_name_without_dash, upper(var.env))
-  plaintext_value = aws_iam_access_key.current.id
+  repository  = "portfolio"
+  secret_name = format("PORTFOLIO_S3_%s_%s_ACCESS_KEY_ID", local.uppercase_name_without_dash, upper(var.env))
+  value       = aws_iam_access_key.current.id
 }
 
 resource "github_actions_secret" "aws_secret_access_key" {
-  repository      = "portfolio"
-  secret_name     = format("PORTFOLIO_S3_%s_%s_SECRET_ACCESS_KEY", local.uppercase_name_without_dash, upper(var.env))
-  plaintext_value = aws_iam_access_key.current.secret
+  repository  = "portfolio"
+  secret_name = format("PORTFOLIO_S3_%s_%s_SECRET_ACCESS_KEY", local.uppercase_name_without_dash, upper(var.env))
+  value       = aws_iam_access_key.current.secret
 }
 
 resource "github_actions_secret" "aws_bucket_name" {
-  repository      = "portfolio"
-  secret_name     = format("PORTFOLIO_S3_%s_%s_BUCKET", local.uppercase_name_without_dash, upper(var.env))
-  plaintext_value = aws_s3_bucket.current.id
+  repository  = "portfolio"
+  secret_name = format("PORTFOLIO_S3_%s_%s_BUCKET", local.uppercase_name_without_dash, upper(var.env))
+  value       = aws_s3_bucket.current.id
 }
 
 
@@ -112,6 +145,21 @@ data "aws_iam_policy_document" "additional" {
       effect    = statement.value.effect
       actions   = statement.value.actions
       resources = statement.value.resources
+      dynamic "principals" {
+        for_each = statement.value.principals != null ? [statement.value.principals] : []
+        content {
+          type        = principals.value.type
+          identifiers = principals.value.identifiers
+        }
+      }
+      dynamic "condition" {
+        for_each = statement.value.condition != null ? [statement.value.condition] : []
+        content {
+          test     = condition.value.test
+          variable = condition.value.variable
+          values   = condition.value.values
+        }
+      }
     }
   }
 }

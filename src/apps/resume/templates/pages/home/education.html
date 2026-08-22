@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load i18n %}
 <div class="row text-center justify-content-center">
     <div class="col-md-7 lazy d-flex flex-column align-items-center">
         <section id="Education">
@@ -8,7 +8,7 @@
             <div class="card max-width-700">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{% static 'images/'|add:education.image %}"
+                        <img src="{{ education.image.url }}"
                              class="education-img img-fluid rounded-start me-4 lazy"
                              alt="{{ education.university_name }}"
                              width="550"

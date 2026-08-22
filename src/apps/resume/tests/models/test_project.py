@@ -1,3 +1,4 @@
+import os
 from typing import Any
 
 from apps.resume.data_class.project import Project as ProjectDataClass
@@ -26,7 +27,7 @@ class ProjectTestCase(Portfolio):
                 self.assertEqual(
                     project_dc.scroll_description, project.scroll_description
                 )
-                self.assertEqual(project_dc.image, project.image)
+                self.assertEqual(project_dc.image, os.path.basename(str(project.image)))
                 self.assertEqual(project_dc.date, project.date)
                 self.assertEqual(project_dc.row, project.row)
                 self.assertEqual(project_dc.repositories, project.repositories)

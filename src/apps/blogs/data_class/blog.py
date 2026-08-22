@@ -1,8 +1,6 @@
-from dataclasses import dataclass
 import datetime
-from typing import Any
-
-from typing_extensions import override
+from dataclasses import dataclass
+from typing import Any, override
 
 from apps.blogs.data_class.portfolio import Portfolio
 
@@ -19,7 +17,7 @@ class Blog(Portfolio):
     row: int
 
     @classmethod
-    def from_yaml(cls, path: str) -> list["Blog"]:
+    def from_yaml(cls, path: str) -> list[Blog]:
         objects: Any = super().read_yaml(path)
 
         return [cls(**obj) for obj in objects]
@@ -38,7 +36,7 @@ class Blog(Portfolio):
             blog_model.objects.create(
                 title=blog.title,
                 description=blog.description,
-                image_preview=blog.image_preview,
+                image_preview="images/blogs/" + blog.image_preview,
                 date=blog.date,
                 url=blog.url,
                 read_time_mins=blog.read_time_mins,

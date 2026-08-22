@@ -1,9 +1,8 @@
-from typing import Any
+from typing import Any, override
 
 import markdown
 from django.db.models import CASCADE, CharField, ForeignKey, JSONField
 from django.utils.translation import get_language
-from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
 from apps.resume.models.translation import Translation

@@ -21,8 +21,24 @@ module "s3_polly" {
 module "ses_email_identity_one" {
   source             = "./modules/aws/send_email"
   env                = var.env
-  domain             = var.domain
+  domain             = var.email_domain
   zone_id            = var.zone_id
   ses_identity_email = var.ses_identity_email
 }
 
+
+module "assets_storage" {
+  source                                = "./modules/aws/host_web_assets"
+  env                                   = var.env
+  region                                = var.region
+  cfn_domain                            = var.cfn_assets_domain
+  domain                                = var.domain
+  cloudfront_origin_access_control_name = format("portfolio-assets-%s", var.env)
+  bucket_assets_name                    = "portfolio-assets"
+  s3_origin_id                          = "portfolio-assets-origin"
+
+  providers = {
+    aws           = aws
+    aws.us_east_1 = aws.us_east_1
+  }
+}

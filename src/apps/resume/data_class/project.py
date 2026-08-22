@@ -1,7 +1,5 @@
 from dataclasses import dataclass
-from typing import Any
-
-from typing_extensions import override
+from typing import Any, override
 
 from apps.resume.data_class.portfolio import Portfolio
 
@@ -25,7 +23,7 @@ class Project(Portfolio):
     repositories: dict[str, str]
 
     @classmethod
-    def from_yaml(cls, path: str) -> list["Project"]:
+    def from_yaml(cls, path: str) -> list[Project]:
         defaults = {
             "scroll_description": False,
         }
@@ -47,7 +45,7 @@ class Project(Portfolio):
                     name=getattr(project, lang + "_name"),
                     description=getattr(project, lang + "_description"),
                     scroll_description=project.scroll_description,
-                    image=project.image,
+                    image="images/" + project.image,
                     date=project.date,
                     row=project.row,
                     repositories=project.repositories,

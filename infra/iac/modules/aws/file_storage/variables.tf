@@ -16,6 +16,35 @@ variable "iam_user_policy_additional_statements" {
     effect    = string
     actions   = list(string)
     resources = list(string)
+    principals = optional(object({
+      type        = string
+      identifiers = list(string)
+    }))
+    condition = optional(object({
+      test     = string
+      variable = string
+      values   = list(string)
+    }))
+  }))
+  default = []
+}
+
+variable "iam_bucket_policy_additional_statements" {
+  description = "Additional permissions for bucket iam policies"
+  type = list(object({
+    sid       = string
+    effect    = string
+    actions   = list(string)
+    resources = list(string)
+    principals = optional(object({
+      type        = string
+      identifiers = list(string)
+    }))
+    condition = optional(object({
+      test     = string
+      variable = string
+      values   = list(string)
+    }))
   }))
   default = []
 }

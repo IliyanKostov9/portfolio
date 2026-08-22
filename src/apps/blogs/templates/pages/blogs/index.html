@@ -27,7 +27,7 @@
                     <div class="col-md-2 d-flex flex-column">
                         <a href="{{ blog.url }}" class="text-decoration-none text-reset">
                             <div class="card" id="theme-card">
-                                <img src="{% static 'images/blogs/'|add:blog.image_preview %}"
+                                <img src="{{ blog.image_preview.url }}"
                                      class="img-fluid mx-auto card-img-top"
                                      alt="{{ blog.title }}" />
                                 <div class="card-body">
@@ -55,5 +55,5 @@
             </div>
             <p class="spacing-bot-50" />
         {% endfor %}
-    {% endblock %}
+{% endblock %}
 </div>
