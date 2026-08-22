@@ -102,6 +102,7 @@ resource "aws_cloudfront_distribution" "distro" {
   restrictions {
     geo_restriction {
       restriction_type = "none"
+      locations        = []
     }
   }
 
