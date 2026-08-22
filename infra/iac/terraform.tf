@@ -12,8 +12,8 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "tf-state-portfolio1-405466951648"
-    key    = "states/prod/terraform.tfstate"
+    bucket = "tf-state-aws-944850789927"
+    key    = "states/portfolio/prod/terraform.tfstate"
     region = "eu-west-1"
 
     dynamodb_table = "terraform-state-locks"
