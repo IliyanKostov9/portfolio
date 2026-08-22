@@ -12,7 +12,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "tf-state-portfolio1-405466951648"
+    bucket = "tf-state-aws-944850789927"
     key    = "states/prod/terraform.tfstate"
     region = "eu-west-1"
 
