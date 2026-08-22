@@ -62,6 +62,7 @@ class Common:
             "font-src": ["https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
             "img-src": [
                 SELF,
+                "blob:",
                 "https://mdbootstrap.com",
                 os.environ.get("PORTFOLIO_CDN_ASSETS_URL"),
             ],
@@ -211,7 +212,22 @@ class Common:
     # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
     DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-    AWS_S3_CUSTOM_DOMAIN = os.environ.get("PORTFOLIO_S3_ASSETS_PROD_BUCKET")
     AWS_QUERYSTRING_AUTH = False
-    CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL")
+    CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "")
+    AWS_S3_CUSTOM_DOMAIN = CDN_URL.split("//")[1]
     MEDIA_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "") + "/"
+
+    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+    STORAGES = {
+        "default": {"BACKEND": "storages.backends.s3.S3Storage"},
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
+    # NOTE: Maybe remove it from prod ?
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+            "LOCATION": "portfolio-cache",
+        }
+    }
