@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static i18n compress %}
+{% load static cdn i18n compress %}
 {% block extra_head %}
     {% compress css %}
         <link href="{% static 'style/blogs.scss' %}"
@@ -27,7 +27,7 @@
         <div class="col-md-10 text-center">
             <div class="bg-image hover-overlay hover-zoom hover-shadow ripple d-inline-block">
                 <img class="img-fluid shadow-2-strong hover-overlay rounded"
-                     src="{% static 'images/blogs/nice-ville.jpg' %}"
+                     src="{% cdn 'images/blogs/nice-ville.jpg' %}"
                      alt="Nice, France" />
                 <a href="#">
                     <div class="mask disco-color"></div>
@@ -151,7 +151,7 @@
                 <figure class="mb-2">
                     <div class="bg-image hover-zoom" data-mdb-ripple-init>
                         <img class="img-fluid shadow-2-strong hover-overlay rounded"
-                             src="{% static 'images/blogs/varna-beach.jpg' %}"
+                             src="{% cdn 'images/blogs/varna-beach.jpg' %}"
                              alt="Varna, Bulgaria" />
                     </div>
                     <figcaption class="text-center mt-1 blockquote-footer">
@@ -258,7 +258,7 @@
             <div class="d-flex align-items-start gap-3">
                 <figure class="mb-2">
                     <img class="img-fluid shadow-2-strong hover-overlay rounded max-width-50"
-                         src="{% static 'images/blogs/me_in_march_2025.jpg' %}"
+                         src="{% cdn 'images/blogs/me_in_march_2025.jpg' %}"
                          alt="Me in 2025" />
                     <figcaption class="text-center mt-1 blockquote-footer">
                         <small>{% translate "Me trying to smile after hearing the good news! That's why I'm not an actor" %}</small>
@@ -386,7 +386,7 @@
                 <figure class="mb-2">
                     <div class="bg-image hover-zoom" data-mdb-ripple-init>
                         <img class="img-fluid shadow-2-strong hover-overlay rounded"
-                             src="{% static 'images/blogs/driving-with-movers.jpg' %}"
+                             src="{% cdn 'images/blogs/driving-with-movers.jpg' %}"
                              alt="Varna, Bulgaria" />
                     </div>
                     <figcaption class="text-center mt-1 blockquote-footer">
@@ -488,30 +488,14 @@
                 <div class="col-6">
                     <div class="bg-image hover-zoom" data-mdb-ripple-init>
                         <img class="img-fluid shadow-2-strong hover-overlay rounded"
-                             src="{% static 'images/blogs/new_apartment_1.jpg' %}"
+                             src="{% cdn 'images/blogs/new_apartment_1.jpg' %}"
                              alt="Varna, Bulgaria" />
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="bg-image hover-zoom" data-mdb-ripple-init>
                         <img class="img-fluid shadow-2-strong hover-overlay rounded"
-                             src="{% static 'images/blogs/new_apartment_2.jpg' %}"
-                             alt="Varna, Bulgaria" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <div class="bg-image hover-zoom" data-mdb-ripple-init>
-                        <img class="img-fluid shadow-2-strong hover-overlay rounded"
-                             src="{% static 'images/blogs/new_apartment_3.jpg' %}"
-                             alt="Varna, Bulgaria" />
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="bg-image hover-zoom" data-mdb-ripple-init>
-                        <img class="img-fluid shadow-2-strong hover-overlay rounded"
-                             src="{% static 'images/blogs/new_apartment_4.jpg' %}"
+                             src="{% cdn 'images/blogs/new_apartment_2.jpg' %}"
                              alt="Varna, Bulgaria" />
                     </div>
                 </div>
@@ -520,14 +504,30 @@
                 <div class="col-6">
                     <div class="bg-image hover-zoom" data-mdb-ripple-init>
                         <img class="img-fluid shadow-2-strong hover-overlay rounded"
-                             src="{% static 'images/blogs/new_apartment_5.jpg' %}"
+                             src="{% cdn 'images/blogs/new_apartment_3.jpg' %}"
                              alt="Varna, Bulgaria" />
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="bg-image hover-zoom" data-mdb-ripple-init>
                         <img class="img-fluid shadow-2-strong hover-overlay rounded"
-                             src="{% static 'images/blogs/new_apartment_6.jpg' %}"
+                             src="{% cdn 'images/blogs/new_apartment_4.jpg' %}"
+                             alt="Varna, Bulgaria" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="bg-image hover-zoom" data-mdb-ripple-init>
+                        <img class="img-fluid shadow-2-strong hover-overlay rounded"
+                             src="{% cdn 'images/blogs/new_apartment_5.jpg' %}"
+                             alt="Varna, Bulgaria" />
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="bg-image hover-zoom" data-mdb-ripple-init>
+                        <img class="img-fluid shadow-2-strong hover-overlay rounded"
+                             src="{% cdn 'images/blogs/new_apartment_6.jpg' %}"
                              alt="Varna, Bulgaria" />
                     </div>
                 </div>
@@ -563,12 +563,10 @@
             <hr class="hr hr-blurry" />
             <div class="d-flex align-items-start gap-3">
                 <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/H3qWXdWRyIQ"
-                            title="Landing in Nice"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                    </iframe>
+                    <video controls playsinline preload="metadata">
+                        <source src="{% cdn 'videos/landing_in_nice.mp4' %}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
             <p class="spacing-bot-20" />
@@ -584,4 +582,4 @@
             </div>
             <p class="spacing-bot-50" />
         </div>
-    {% endblock %}
+{% endblock %}

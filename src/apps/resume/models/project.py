@@ -1,16 +1,16 @@
-from typing import Any
+from typing import Any, override
 
 from django.db.models import (
     CASCADE,
     BooleanField,
     CharField,
     ForeignKey,
+    ImageField,
     IntegerField,
     JSONField,
 )
 from django.forms.models import model_to_dict
 from django.utils.translation import get_language
-from typing_extensions import override
 
 from apps.resume.models.portfolio import Portfolio
 from apps.resume.models.translation import Translation
@@ -23,7 +23,7 @@ class Project(Portfolio):
         "Whether or not the description should be scrollable or not",
         default=False,
     )
-    image: CharField = CharField("Image of the project", max_length=30)
+    image: ImageField = ImageField("Image of the project", blank=False, null=False)
     date: CharField = CharField("Date of the project being worked on")
     row: IntegerField = IntegerField("Row number of the project")
     repositories: JSONField = JSONField("Repositories")

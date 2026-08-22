@@ -1,4 +1,4 @@
-{% load static i18n %}
+{% load i18n %}
 <div class="row text-center justify-content-center">
     <section id="Projects">
         <h2 class="lazy"><a href="#Projects">{% translate "Projects" %}</a></h2>
@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="row g-0 flex-grow-1">
                             <div class="col-md-4">
-                                <img src="{% static 'images/'|add:project.image %}"
+                                <img src="{{ project.image.url }}"
                                      class="project-img img-fluid rounded-start me-4 lazy"
                                      alt="{{ project.name }}" />
                             </div>
