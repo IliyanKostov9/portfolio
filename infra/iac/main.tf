@@ -4,17 +4,6 @@ module "s3_main_storage" {
   name   = "main"
 }
 
-import {
-  to = module.s3_main_storage.aws_s3_bucket.current
-  id = format("%s-%s-%s", "main", var.env, var.account_id)
-}
-
-import {
-  to = module.s3_main_storage.aws_iam_user.current
-  id = format("portfolio-user-%s-%s", "main", var.env)
-}
-
-
 module "s3_polly" {
   source = "./modules/aws/file_storage"
   env    = var.env
@@ -37,10 +26,6 @@ module "ses_email_identity_one" {
   ses_identity_email = var.ses_identity_email
 }
 
-import {
-  to = module.ses_email_identity_one.aws_iam_user.current
-  id = format("ses-user-%s", var.env)
-}
 
 module "assets_storage" {
   source                                = "./modules/aws/host_web_assets"
@@ -57,4 +42,3 @@ module "assets_storage" {
     aws.us_east_1 = aws.us_east_1
   }
 }
-
