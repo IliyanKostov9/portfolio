@@ -48,7 +48,7 @@ data "aws_iam_policy_document" "deny_http_access" {
   }
 }
 
-data "aws_bucket_policy_document" "additional" {
+data "aws_iam_policy_document" "additional_bucket" {
   dynamic "statement" {
     for_each = var.iam_bucket_policy_additional_statements
     content {
@@ -76,8 +76,8 @@ data "aws_bucket_policy_document" "additional" {
 }
 
 data "aws_iam_policy_document" "bucket_combined" {
-  source_policy_documents   = [data.aws_iam_policy_document.base.json]
-  override_policy_documents = [data.aws_bucket_policy_document.additional.json]
+  source_policy_documents   = [data.aws_iam_policy_document.deny_https_access.json]
+  override_policy_documents = [data.aws_iam_policy_document.additional_bucket.json]
 }
 
 resource "aws_s3_bucket_policy" "deny_https_access" {
