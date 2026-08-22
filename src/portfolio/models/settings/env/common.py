@@ -218,12 +218,6 @@ class Common:
     MEDIA_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "") + "/"
 
     STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
-    STORAGES = {
-        "default": {"BACKEND": "storages.backends.s3.S3Storage"},
-        "staticfiles": {
-            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-        },
-    }
     # NOTE: Maybe remove it from prod ?
     CACHES = {
         "default": {
@@ -231,3 +225,8 @@ class Common:
             "LOCATION": "portfolio-cache",
         }
     }
+
+    if os.environ.get("PORTFOLIO_ENV") == "prod":
+        print("Running in production. Now setting all prod options ON...")
+    elif os.environ.get("PORTFOLIO_ENV") == "dev":
+        print("Running in non production. Now setting all prod options OFF...")

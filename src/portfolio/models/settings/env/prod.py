@@ -29,4 +29,11 @@ class Prod(Common, Configuration):
     COMPRESS_ROOT = STATIC_ROOT
     COMPRESS_OUTPUT_DIR = "CACHE"
 
+    STORAGES = {
+        "default": {"BACKEND": "storages.backends.s3.S3Storage"},
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
+
     INSTALLED_APPS = Common.apps[: len(Common.apps) - 3]

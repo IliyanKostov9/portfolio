@@ -16,3 +16,10 @@ class Dev(Common, Configuration):
     COMPRESS_ROOT = Common.BASE_DIR / "static"
     STATIC_ROOT = "/var/www/localhost/static/"
     INSTALLED_APPS = Common.apps
+
+    STORAGES = {
+        "default": {"BACKEND": "storages.backends.s3.S3Storage"},
+        "staticfiles": {
+            "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        },
+    }
