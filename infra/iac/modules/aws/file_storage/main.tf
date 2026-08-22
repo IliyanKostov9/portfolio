@@ -48,9 +48,41 @@ data "aws_iam_policy_document" "deny_http_access" {
   }
 }
 
+data "aws_bucket_policy_document" "additional" {
+  dynamic "statement" {
+    for_each = var.iam_bucket_policy_additional_statements
+    content {
+      sid       = statement.value.sid
+      effect    = statement.value.effect
+      actions   = statement.value.actions
+      resources = statement.value.resources
+      dynamic "principals" {
+        for_each = statement.value.principals != null ? [statement.value.principals] : []
+        content {
+          type        = principals.value.type
+          identifiers = principals.value.identifiers
+        }
+      }
+      dynamic "condition" {
+        for_each = statement.value.condition != null ? [statement.value.condition] : []
+        content {
+          test     = condition.value.test
+          variable = condition.value.variable
+          values   = condition.value.values
+        }
+      }
+    }
+  }
+}
+
+data "aws_iam_policy_document" "bucket_combined" {
+  source_policy_documents   = [data.aws_iam_policy_document.base.json]
+  override_policy_documents = [data.aws_bucket_policy_document.additional.json]
+}
+
 resource "aws_s3_bucket_policy" "deny_https_access" {
   bucket = format("%s-%s-%s", var.name, var.env, data.aws_caller_identity.current.account_id)
-  policy = data.aws_iam_policy_document.deny_http_access.json
+  policy = data.aws_iam_policy_document.bucket_combined.json
 }
 
 resource "aws_iam_user" "current" {
