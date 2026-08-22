@@ -81,8 +81,8 @@ resource "aws_cloudfront_distribution" "distro" {
   aliases = [var.cfn_domain]
 
   default_cache_behavior {
-    allowed_methods  = ["GET"]
-    cached_methods   = ["GET"]
+    allowed_methods  = ["HEAD", "GET"]
+    cached_methods   = ["HEAD", "GET"]
     target_origin_id = var.s3_origin_id
 
     forwarded_values {
