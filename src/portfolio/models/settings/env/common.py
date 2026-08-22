@@ -213,9 +213,9 @@ class Common:
 
     DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
     AWS_QUERYSTRING_AUTH = False
-    CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "")
+    CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "http://example.com")
     AWS_S3_CUSTOM_DOMAIN = CDN_URL.split("//")[1]
-    MEDIA_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "") + "/"
+    MEDIA_URL = CDN_URL + "/"
 
     STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
     # NOTE: Maybe remove it from prod ?
