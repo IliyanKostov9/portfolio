@@ -29,7 +29,11 @@ class Common:
     CSP_POLICY = {
         "DIRECTIVES": {
             "default-src": [SELF],
-            "media-src": [SELF, "blob:"],
+            "media-src": [
+                SELF,
+                "blob:",
+                os.environ.get("PORTFOLIO_CDN_ASSETS_URL"),
+            ],
             "connect-src": [SELF, "https://api.github.com"],
             "script-src": [
                 SELF,
