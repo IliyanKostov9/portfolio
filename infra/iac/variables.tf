@@ -37,11 +37,6 @@ variable "github_token" {
   type        = string
 }
 
-variable "account_id" {
-  description = "AWS account id"
-  type        = string
-}
-
 variable "cfn_assets_domain" {
   description = "CFN Assets Domain"
   type        = string
