@@ -56,7 +56,11 @@ class Common:
                 "https://www.youtube-nocookie.com",
             ],
             "font-src": ["https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
-            "img-src": [SELF, "https://mdbootstrap.com"],
+            "img-src": [
+                SELF,
+                "https://mdbootstrap.com",
+                os.environ.get("PORTFOLIO_CDN_ASSETS_URL"),
+            ],
             "frame-ancestors": [SELF],
             "form-action": [SELF],
             "report-uri": "/monitor/csp-report",
@@ -206,3 +210,4 @@ class Common:
     AWS_S3_CUSTOM_DOMAIN = os.environ.get("PORTFOLIO_S3_ASSETS_PROD_BUCKET")
     AWS_QUERYSTRING_AUTH = False
     CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL")
+    MEDIA_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "") + "/"

@@ -8,6 +8,7 @@ from django.db.models import (
     ImageField,
     IntegerField,
 )
+from django.forms.models import model_to_dict
 
 from apps.blogs.models.blog_category import BlogCategory
 from apps.blogs.models.portfolio import Portfolio
@@ -35,11 +36,11 @@ class Blog(Portfolio):
 
     @override
     def get_all(self) -> Any:
-        return list(Blog.objects.all().values())
+        return list(Blog.objects.all())
 
     @override
     def transform(self) -> Any:
-        blog_objs = self.get_all()
+        blog_objs = [model_to_dict(blog) for blog in self.get_all()]
 
         self.clean(blog_objs)
 

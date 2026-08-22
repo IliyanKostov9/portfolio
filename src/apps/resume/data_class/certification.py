@@ -32,7 +32,7 @@ class Certification(Portfolio):
         for certification in certifications:
             certification_model.objects.create(
                 name=certification.name,
-                image="images/" + certification.image,
+                image="images/certificates/" + certification.image,
                 url=certification.url,
                 date=certification.date,
                 row=certification.row,
