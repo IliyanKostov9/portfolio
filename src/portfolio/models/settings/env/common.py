@@ -30,8 +30,8 @@ class Common:
         "compressor.finders.CompressorFinder",
     )
     AWS_QUERYSTRING_AUTH = False
-    CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "")
-    if CDN_URL == "" and not bool(
+    CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "https://example.com")
+    if CDN_URL == "https://example.com" and not bool(
         os.environ.get("PORTFOLIO_SKIP_CDN_URL_CHECK", False)
     ):
         raise OSError("CDN_URL should not be empty!")
