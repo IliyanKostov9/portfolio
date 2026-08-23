@@ -78,7 +78,7 @@ jobs:
       - name: Run tests
         env:
           PORTFOLIO_SKIP_SECRET_KEY_CHECK: true
-          PORTFOLIO_CDN_ASSETS_URL: ${{ secrets.PORTFOLIO_CDN_ASSETS_URL }}
+          PORTFOLIO_SKIP_CDN_URL_CHECK: true
         run: |
           . .venv/bin/activate
           make test

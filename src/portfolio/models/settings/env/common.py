@@ -31,7 +31,9 @@ class Common:
     )
     AWS_QUERYSTRING_AUTH = False
     CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "")
-    if CDN_URL == "":
+    if CDN_URL == "" and not bool(
+        os.environ.get("PORTFOLIO_SKIP_CDN_URL_CHECK", False)
+    ):
         raise OSError("CDN_URL should not be empty!")
     else:
         AWS_S3_CUSTOM_DOMAIN = CDN_URL.split("//")[1]
