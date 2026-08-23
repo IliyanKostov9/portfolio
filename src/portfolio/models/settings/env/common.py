@@ -8,7 +8,17 @@ from django.urls import reverse_lazy
 class Common:
     BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent.parent.parent
     ALLOWED_HOSTS = [os.environ.get("PORTFOLIO_HOST")]
+    ROOT_URLCONF: str = "portfolio.urls"
+    DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+    SECRET_KEY = os.environ.get("PORTFOLIO_SECRET_KEY")
+    if not SECRET_KEY and not bool(
+        os.environ.get("PORTFOLIO_SKIP_SECRET_KEY_CHECK", False)
+    ):
+        raise OSError("SECRET KEY is not set!")
+
     STATIC_URL = "/static/"
+    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
     STATICFILES_DIRS = [
         BASE_DIR / "static",
         f"{BASE_DIR}/apps/resume/static",
@@ -19,8 +29,81 @@ class Common:
         "django.contrib.staticfiles.finders.AppDirectoriesFinder",
         "compressor.finders.CompressorFinder",
     )
+    AWS_QUERYSTRING_AUTH = False
+    CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "")
+    if CDN_URL == "":
+        raise OSError("CDN_URL should not be empty!")
+    else:
+        AWS_S3_CUSTOM_DOMAIN = CDN_URL.split("//")[1]
+        MEDIA_URL = CDN_URL + "/"
 
     COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
+    # NOTE: Maybe remove it from prod ?
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+            "LOCATION": "portfolio-cache",
+        }
+    }
+    TEMPLATES = [
+        {
+            "BACKEND": "django.template.backends.django.DjangoTemplates",
+            "DIRS": [
+                f"{BASE_DIR}/apps/resume/templates/pages",
+                f"{BASE_DIR}/apps/resume/templates",
+                f"{BASE_DIR}/apps/blogs/templates/pages",
+                f"{BASE_DIR}/apps/blogs/templates",
+                BASE_DIR / "templates",
+            ],
+            "APP_DIRS": True,
+            "OPTIONS": {
+                "context_processors": [
+                    "django.template.context_processors.debug",
+                    "django.template.context_processors.request",
+                    "django.contrib.auth.context_processors.auth",
+                    "django.contrib.messages.context_processors.messages",
+                    "apps.resume.processors.cookie.change_theme",
+                ],
+            },
+        },
+    ]
+
+    sqlite3_engine = "django.db.backends.sqlite3"
+    DATABASE_ROUTERS = ["portfolio.routers.portfolio_router.PortfolioRouter"]
+    DATABASES = {
+        "default": {
+            "ENGINE": sqlite3_engine,
+            "NAME": BASE_DIR / "db.sqlite3",
+            "TEST": {
+                "NAME": BASE_DIR / "db.test.sqlite3",
+                "ENGINE": sqlite3_engine,
+            },
+        },
+        # TODO: Configure multiple database
+        # "portfolio": {
+        #     "NAME": "portfolio",
+        #     "ENGINE": "django.db.backends.postgresql",
+        #     "USER": os.environ.get("PORTFOLIO_POSTGRES_USER"),
+        #     "PASSWORD": os.environ.get("PORTFOLIO_POSTGRES_PASSWORD"),
+        #     "HOST": os.environ.get("PORTFOLIO_POSTGRES_HOST"),
+        #     "PORT": "5432",
+        #     "OPTIONS": {
+        #         "server_side_binding": True,
+        #     },
+        #     "TEST": {
+        #         "NAME": BASE_DIR / "db.test.sqlite3",
+        #         "ENGINE": sqlite3_engine,
+        #     },
+        # },
+    }
+
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    DEFAULT_FROM_EMAIL = os.environ.get("PORTFOLIO_FROM_EMAIL")
+    EMAIL_HOST = os.environ.get("PORTFOLIO_EMAIL_HOST")
+    EMAIL_HOST_USER = os.environ.get("PORTFOLIO_EMAIL_USER")
+    EMAIL_HOST_PASSWORD = os.environ.get("PORTFOLIO_EMAIL_PASSWORD")
 
     CSP_REPORT_URI = reverse_lazy("monitor/csp-report")
     CSP_REPORTS_EMAIL_ADMINS = True
@@ -72,12 +155,6 @@ class Common:
         },
     }
 
-    SECRET_KEY = os.environ.get("PORTFOLIO_SECRET_KEY")
-    if not SECRET_KEY and not bool(
-        os.environ.get("PORTFOLIO_SKIP_SECRET_KEY_CHECK", False)
-    ):
-        raise OSError("SECRET KEY is not set!")
-
     apps: list[str] = [
         "apps.common.apps.CommonConfig",
         "apps.resume.apps.ResumeConfig",
@@ -113,63 +190,6 @@ class Common:
         "csp.middleware.CSPMiddleware",
     ]
 
-    ROOT_URLCONF: str = "portfolio.urls"
-
-    TEMPLATES = [
-        {
-            "BACKEND": "django.template.backends.django.DjangoTemplates",
-            "DIRS": [
-                f"{BASE_DIR}/apps/resume/templates/pages",
-                f"{BASE_DIR}/apps/resume/templates",
-                f"{BASE_DIR}/apps/blogs/templates/pages",
-                f"{BASE_DIR}/apps/blogs/templates",
-                BASE_DIR / "templates",
-            ],
-            "APP_DIRS": True,
-            "OPTIONS": {
-                "context_processors": [
-                    "django.template.context_processors.debug",
-                    "django.template.context_processors.request",
-                    "django.contrib.auth.context_processors.auth",
-                    "django.contrib.messages.context_processors.messages",
-                    "apps.resume.processors.cookie.change_theme",
-                ],
-            },
-        },
-    ]
-
-    sqlite3_engine = "django.db.backends.sqlite3"
-
-    DATABASES = {
-        "default": {
-            "ENGINE": sqlite3_engine,
-            "NAME": BASE_DIR / "db.sqlite3",
-            "TEST": {
-                "NAME": BASE_DIR / "db.test.sqlite3",
-                "ENGINE": sqlite3_engine,
-            },
-        },
-        # "portfolio": {
-        #     "NAME": "portfolio",
-        #     "ENGINE": "django.db.backends.postgresql",
-        #     "USER": os.environ.get("PORTFOLIO_POSTGRES_USER"),
-        #     "PASSWORD": os.environ.get("PORTFOLIO_POSTGRES_PASSWORD"),
-        #     "HOST": os.environ.get("PORTFOLIO_POSTGRES_HOST"),
-        #     "PORT": "5432",
-        #     "OPTIONS": {
-        #         "server_side_binding": True,
-        #     },
-        #     "TEST": {
-        #         "NAME": BASE_DIR / "db.test.sqlite3",
-        #         "ENGINE": sqlite3_engine,
-        #     },
-        # },
-    }
-
-    DATABASE_ROUTERS = ["portfolio.routers.portfolio_router.PortfolioRouter"]
-
-    # Password validation
-    # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
     AUTH_PASSWORD_VALIDATORS = [
         {
             "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -185,11 +205,9 @@ class Common:
         },
     ]
 
-    # Internationalization
-    # https://docs.djangoproject.com/en/5.1/topics/i18n/
-
     LANGUAGE_CODE = "en-us"
-    TIME_ZONE = "Europe/Paris"
+    TIME_ZONE = "Europe/Sofia"
+    LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
     USE_I18N = True
     USE_TZ = True
     LANGUAGES = [
@@ -198,33 +216,6 @@ class Common:
         ("fr", "French"),
         ("ge", "German"),
     ]
-    LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
-
-    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
-    DEFAULT_FROM_EMAIL = os.environ.get("PORTFOLIO_FROM_EMAIL")
-    EMAIL_HOST = os.environ.get("PORTFOLIO_EMAIL_HOST")
-    EMAIL_HOST_USER = os.environ.get("PORTFOLIO_EMAIL_USER")
-    EMAIL_HOST_PASSWORD = os.environ.get("PORTFOLIO_EMAIL_PASSWORD")
-
-    # Default primary key field type
-    # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
-    DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-    AWS_QUERYSTRING_AUTH = False
-    CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "http://example.com")
-    AWS_S3_CUSTOM_DOMAIN = CDN_URL.split("//")[1]
-    MEDIA_URL = CDN_URL + "/"
-
-    STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
-    # NOTE: Maybe remove it from prod ?
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-            "LOCATION": "portfolio-cache",
-        }
-    }
 
     if os.environ.get("PORTFOLIO_ENV") == "prod":
         print("Running in production. Now setting all prod options ON...")

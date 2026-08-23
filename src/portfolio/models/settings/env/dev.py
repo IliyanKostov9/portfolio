@@ -5,6 +5,7 @@ from .common import Common
 
 class Dev(Common, Configuration):
     DEBUG = True
+    STATIC_ROOT = "/var/www/localhost/static/"
     COMPRESS_ENABLED = False
     COMPRESS_OFFLINE = False
     CACHES = {
@@ -12,11 +13,10 @@ class Dev(Common, Configuration):
             "BACKEND": "django.core.cache.backends.dummy.DummyCache",
         }
     }
+
     CONTENT_SECURITY_POLICY_REPORT_ONLY = Common.CSP_POLICY
     COMPRESS_ROOT = Common.BASE_DIR / "static"
-    STATIC_ROOT = "/var/www/localhost/static/"
     INSTALLED_APPS = Common.apps
-
     STORAGES = {
         "default": {"BACKEND": "storages.backends.s3.S3Storage"},
         "staticfiles": {
