@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
       day: "sunday"
       timezone: "Europe/Sofia"
     commit-message:
@@ -16,7 +16,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
       timezone: "Europe/Sofia"
     commit-message:
       prefix: "[pip] "
@@ -28,7 +28,7 @@ updates:
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
       day: "sunday"
       timezone: "Europe/Sofia"
     commit-message:
