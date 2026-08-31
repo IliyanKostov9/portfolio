@@ -40,6 +40,7 @@ COPY --chown=${DOCKER_USER}:${DOCKER_USER} src /app/src
 ENV PYTHONPATH=/app:/app/src/apps:/app/src
 ENV PORTFOLIO_ENV="prod"
 ENV PORTFOLIO_SKIP_SECRET_KEY_CHECK=true
+ENV PORTFOLIO_SKIP_CDN_URL_CHECK=true
 
 RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
 	/app/.venv/bin/python3 src/manage.py migrate --noinput && \
@@ -50,10 +51,11 @@ RUN mkdir -p /var/www/portfolio.ikostov.org/static && \
 EXPOSE 8000
 
 LABEL org.opencontainers.image.source="https://github.com/IliyanKostov9/portfolio" \
-	org.opencontainers.image.version="2.1.1-RELEASE" \
+	org.opencontainers.image.description="Iliyan's personal portfolio app" \
+	org.opencontainers.image.version="3.2.1-RELEASE" \
 	org.opencontainers.image.description="Portfolio app" \
 	org.opencontainers.image.authors="Iliyan Kostov" \
-	org.opencontainers.image.vendor="IliyanKostov" \
+	org.opencontainers.image.vendor="IliyanKostov9" \
 	org.opencontainers.image.licenses="GPL-3.0-only" \
 	env="prod"
 

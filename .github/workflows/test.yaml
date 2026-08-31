@@ -15,6 +15,8 @@ on:
 
 env:
   PYRE_SKIP: true
+  PORTFOLIO_SKIP_SECRET_KEY_CHECK: true
+  PORTFOLIO_SKIP_CDN_URL_CHECK: true
 
 jobs:
   checkout:
@@ -76,9 +78,6 @@ jobs:
           uv sync --group test
 
       - name: Run tests
-        env:
-          PORTFOLIO_SKIP_SECRET_KEY_CHECK: true
-          PORTFOLIO_CDN_ASSETS_URL: ${{ secrets.PORTFOLIO_CDN_ASSETS_URL }}
         run: |
           . .venv/bin/activate
           make test
@@ -187,15 +186,11 @@ jobs:
           key: venv-${{ runner.os }}-${{ github.run_id }}
 
       - name: Check if app is compliant for deployment
-        env:
-          PORTFOLIO_SKIP_SECRET_KEY_CHECK: true
         run: |
           . .venv/bin/activate
           make check
 
       - name: Check if the migrations are backwards compatible
-        env:
-          PORTFOLIO_SKIP_SECRET_KEY_CHECK: true
         run: |
           . .venv/bin/activate
           make migrate-check

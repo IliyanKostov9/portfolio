@@ -10,6 +10,7 @@ ADMIN: Final[str] = "Iliyan"
 
 class Prod(Common, Configuration):
     DEBUG = False
+    STATIC_ROOT = "/var/www/portfolio.ikostov.org/static/"
     CONTENT_SECURITY_POLICY = Common.CSP_POLICY
     ADMINS = [(ADMIN, os.environ.get("PORTFOLIO_TO_EMAIL"))]
     MANAGERS = [(ADMIN, os.environ.get("PORTFOLIO_TO_EMAIL"))]
@@ -23,9 +24,9 @@ class Prod(Common, Configuration):
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
     CONN_MAX_AGE = None
+
     COMPRESS_ENABLED = True
     COMPRESS_OFFLINE = True
-    STATIC_ROOT = "/var/www/portfolio.ikostov.org/static/"
     COMPRESS_ROOT = STATIC_ROOT
     COMPRESS_OUTPUT_DIR = "CACHE"
 
