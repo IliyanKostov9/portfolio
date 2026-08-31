@@ -30,6 +30,7 @@ class Common:
         "compressor.finders.CompressorFinder",
     )
     AWS_QUERYSTRING_AUTH = False
+
     CDN_URL = os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "https://example.com")
     if CDN_URL == "https://example.com" and not bool(
         os.environ.get("PORTFOLIO_SKIP_CDN_URL_CHECK", False)
@@ -117,7 +118,7 @@ class Common:
             "media-src": [
                 SELF,
                 "blob:",
-                os.environ.get("PORTFOLIO_CDN_ASSETS_URL"),
+                os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "https://example.com"),
             ],
             "connect-src": [SELF, "https://api.github.com"],
             "script-src": [
@@ -149,7 +150,7 @@ class Common:
                 SELF,
                 "blob:",
                 "https://mdbootstrap.com",
-                os.environ.get("PORTFOLIO_CDN_ASSETS_URL"),
+                os.environ.get("PORTFOLIO_CDN_ASSETS_URL", ""),
             ],
             "frame-ancestors": [SELF],
             "form-action": [SELF],
