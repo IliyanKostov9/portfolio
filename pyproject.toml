@@ -35,7 +35,7 @@ license = {text = "GPL"}
 
 [dependency-groups]
 dev = [
-    "python-dotenv>=1.2.2",
+    "python-dotenv>=1.2.3",
 ]
 test = [
     "black>=26.5.1",
