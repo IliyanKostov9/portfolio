@@ -118,7 +118,7 @@ class Common:
             "media-src": [
                 SELF,
                 "blob:",
-                os.environ.get("PORTFOLIO_CDN_ASSETS_URL", "https://example.com"),
+                os.environ.get("PORTFOLIO_CDN_ASSETS_URL", ""),
             ],
             "connect-src": [SELF, "https://api.github.com"],
             "script-src": [
