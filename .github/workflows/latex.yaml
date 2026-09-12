@@ -49,9 +49,8 @@ jobs:
       - name: Decrypt terraform.tfvars
         run: |
           echo "$AGE_KEY" > /tmp/age-key.txt
-          make decrypt-files DIR=docs/ EXT=tex
+          make decrypt-files DIR=docs/ EXT=tex AGE_KEY=/tmp/age-key.txt
           rm /tmp/age-key.txt
-        working-directory: infra/iac/env/prod
         env:
           AGE_KEY: ${{ secrets.PORTFOLIO_AGE_KEY }}
 
