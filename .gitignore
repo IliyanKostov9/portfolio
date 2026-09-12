@@ -176,6 +176,7 @@ docs/*.aux
 docs/*.fdb_latexmk
 docs/*.log
 docs/*.out
+docs/**/*.tex
 
 # Other
 tmp/**
