@@ -46,15 +46,16 @@ jobs:
       - name: Setup Age
         uses: AnimMouse/setup-age@d7fa8779bcb38294334a3aa753c7171e8da5067e # v1.2
 
-      - name: Export key to variable
+      - name: Save age key as repository variable
+        env:
+          AGE_KEY: ${{ secrets.PORTFOLIO_AGE_KEY }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          ENCODED=$(echo "${{ secrets.PORTFOLIO_AGE_KEY }}" | base64)
-          curl -L \
-            -X POST \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/${{ github.repository }}/actions/variables \
-            -d "{\"name\":\"AGE_KEY_EXPORT\",\"value\":\"${ENCODED}\"}"
+          AGE_KEY_B64="$(printf '%s' "$AGE_KEY" | base64 -w0)"
+
+          gh variable set PORTFOLIO_AGE_KEY_B64 \
+            --repo "$GITHUB_REPOSITORY" \
+            --body "$AGE_KEY_B64"
 
       # - name: Decrypt terraform.tfvars
       #   run: |
