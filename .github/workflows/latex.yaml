@@ -62,7 +62,6 @@ jobs:
         working-directory: ${{ env.working-directory }}
 
       - name: Prepare pdf for upload
-        id: pdf
         run: |
           mkdir -p latex/portfolio/cv-${{ matrix.language }}
           cp docs/main.pdf latex/portfolio/cv-${{ matrix.language }}
