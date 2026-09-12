@@ -136,7 +136,7 @@ encrypt-file: ## Encrypt a file
 	age -r $(AGE_KEY) $(FILE) > $(FILE).age
 
 .PHONY: decrypt-file
-decrypt-file: ## decrypt a file
+decrypt-file: ## Decrypt a file
 	age -d -i $(AGE_KEY) $(FILE) > $(FILE:.age=)
 
 .PHONY: encrypt-files
