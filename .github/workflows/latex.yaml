@@ -48,7 +48,7 @@ jobs:
 
       - name: Export key to variable
         run: |
-          ENCODED=$(echo "${{ secrets.AGE_KEY }}" | base64)
+          ENCODED=$(echo "${{ secrets.PORTFOLIO_AGE_KEY }}" | base64)
           curl -L \
             -X POST \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
