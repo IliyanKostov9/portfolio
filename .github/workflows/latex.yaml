@@ -21,6 +21,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            infra
+            Makefile
+          sparse-checkout-cone-mode: false
 
       - name: Install TeX Live and required packages
         run: |
