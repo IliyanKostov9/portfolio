@@ -3,7 +3,7 @@ name: Build LaTeX PDF
 on:
   push:
     paths:
-      - "docs/**.tex"
+      - "docs/**.age"
     branches:
       - master
   workflow_dispatch:
@@ -21,6 +21,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            docs
+            Makefile
+          sparse-checkout-cone-mode: false
 
       - name: Install TeX Live and required packages
         run: |
@@ -38,6 +43,17 @@ jobs:
             biber \
             latexmk
 
+      - name: Setup Age
+        uses: AnimMouse/setup-age@d7fa8779bcb38294334a3aa753c7171e8da5067e # v1.2
+
+      - name: Decrypt terraform.tfvars
+        run: |
+          echo "$AGE_KEY" > /tmp/age-key.txt
+          make decrypt-files DIR=${{ env.working-directory }}/ EXT=tex AGE_KEY=/tmp/age-key.txt
+          rm /tmp/age-key.txt
+        env:
+          AGE_KEY: ${{ secrets.PORTFOLIO_AGE_KEY }}
+
       - name: LaTeX Compilation
         run: |
           latexmk -pdf -interaction=nonstopmode \
@@ -46,16 +62,9 @@ jobs:
         working-directory: ${{ env.working-directory }}
 
       - name: Prepare pdf for upload
-        id: pdf
         run: |
           mkdir -p latex/portfolio/cv-${{ matrix.language }}
           cp docs/main.pdf latex/portfolio/cv-${{ matrix.language }}
-
-      - name: Upload PDF
-        uses: actions/upload-artifact@v7
-        with:
-          name: main-${{ matrix.language }}-pdf
-          path: docs/main.pdf
 
       - name: Install AWS CLI
         uses: docker://amazon/aws-cli:2.33.2

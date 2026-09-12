@@ -1,0 +1,3 @@
+creation_rules:
+  - path_regex: ^docs/.+\.tex$
+    age: age16dxn4nevrxhc8etm63a8juqssgjj09p6tw6e534nc6u892q2mg2s2mzsh9

@@ -5,6 +5,7 @@
 LATEX_LANG ?= en
 APP_PATH ?= ./infra/iac
 VAR_FILE_PATH ?= ./env/prod
+AGE_KEY = age1ncwdygxcdpjxe5ycr6w50myqp4cyjdq6l7c8dyxp5p626el4m3as89v6zj
 
 # ########################
 # TARGET
@@ -129,3 +130,23 @@ tf-destroy: ## Apply infa via Terraform
 		-no-color \
 		-auto-approve \
 		-input=false
+
+.PHONY: encrypt-file
+encrypt-file: ## Encrypt a file
+	age -r $(AGE_KEY) $(FILE) > $(FILE).age
+
+.PHONY: decrypt-file
+decrypt-file: ## Decrypt a file
+	age -d -i $(AGE_KEY) $(FILE) > $(FILE:.age=)
+
+.PHONY: encrypt-files
+encrypt-files: ## Encrypt a set of files, given a directory and an extension
+	for file in $$(find $(DIR) -name "*.$(EXT)"); do \
+		age -r $(AGE_KEY) $$file > $$file.age; \
+	done
+
+.PHONY: decrypt-files
+decrypt-files: ## Decrypt a set of files, given a directory and an extension
+	for file in $$(find $(DIR) -name "*.$(EXT).age"); do \
+		age -d -i $(AGE_KEY) $$file > $${file%.age}; \
+	done
