@@ -35,7 +35,7 @@ jobs:
             Makefile
             pyproject.toml
             uv.lock
-          sparse-checkout-cone-mode: false
+          sparse-checkout-cone-mode: true
 
       - name: Save repo to artifact
         uses: actions/upload-artifact@v7
