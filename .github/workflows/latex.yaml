@@ -17,8 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # language: ["en", "fr", "bg", "ge"]
-        language: ["en"]
+        language: ["en", "fr", "bg", "ge"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -28,61 +27,50 @@ jobs:
             Makefile
           sparse-checkout-cone-mode: false
 
-      # - name: Install TeX Live and required packages
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install -y \
-      #       texlive-xetex \
-      #       texlive-fonts-recommended \
-      #       texlive-latex-recommended \
-      #       texlive-lang-french \
-      #       texlive-lang-german \
-      #       texlive-lang-cyrillic \
-      #       texlive-latex-extra \
-      #       texlive-bibtex-extra \
-      #       texlive-fonts-extra \
-      #       biber \
-      #       latexmk
+      - name: Install TeX Live and required packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-latex-recommended \
+            texlive-lang-french \
+            texlive-lang-german \
+            texlive-lang-cyrillic \
+            texlive-latex-extra \
+            texlive-bibtex-extra \
+            texlive-fonts-extra \
+            biber \
+            latexmk
 
       - name: Setup Age
         uses: AnimMouse/setup-age@d7fa8779bcb38294334a3aa753c7171e8da5067e # v1.2
 
-      - name: Save age key as repository variable
+      - name: Decrypt terraform.tfvars
+        run: |
+          echo "$AGE_KEY" > /tmp/age-key.txt
+          make decrypt-files DIR=${{ env.working-directory }}/ EXT=tex AGE_KEY=/tmp/age-key.txt
+          rm /tmp/age-key.txt
         env:
           AGE_KEY: ${{ secrets.PORTFOLIO_AGE_KEY }}
-          GH_TOKEN: ${{ secrets.TEMP }}
+
+      - name: LaTeX Compilation
         run: |
-          AGE_KEY_B64="$(printf '%s' "$AGE_KEY" | base64 -w0)"
+          latexmk -pdf -interaction=nonstopmode \
+            -pdflatex="xelatex -interaction=nonstopmode '\def\lang{${{ matrix.language }}}\input{%S}'" \
+            main.tex
+        working-directory: ${{ env.working-directory }}
 
-          gh variable set PORTFOLIO_AGE_KEY_B64 \
-            --repo "$GITHUB_REPOSITORY" \
-            --body "$AGE_KEY_B64"
+      - name: Prepare pdf for upload
+        run: |
+          mkdir -p latex/portfolio/cv-${{ matrix.language }}
+          cp docs/main.pdf latex/portfolio/cv-${{ matrix.language }}
 
-      # - name: Decrypt terraform.tfvars
-      #   run: |
-      #     echo "$AGE_KEY" > /tmp/age-key.txt
-      #     make decrypt-files DIR=${{ env.working-directory }}/ EXT=tex AGE_KEY=/tmp/age-key.txt
-      #     rm /tmp/age-key.txt
-      #   env:
-      #     AGE_KEY: ${{ secrets.PORTFOLIO_AGE_KEY }}
-      #
-      # - name: LaTeX Compilation
-      #   run: |
-      #     latexmk -pdf -interaction=nonstopmode \
-      #       -pdflatex="xelatex -interaction=nonstopmode '\def\lang{${{ matrix.language }}}\input{%S}'" \
-      #       main.tex
-      #   working-directory: ${{ env.working-directory }}
-      #
-      # - name: Prepare pdf for upload
-      #   run: |
-      #     mkdir -p latex/portfolio/cv-${{ matrix.language }}
-      #     cp docs/main.pdf latex/portfolio/cv-${{ matrix.language }}
-      #
-      # - name: Install AWS CLI
-      #   uses: docker://amazon/aws-cli:2.33.2
-      #   with:
-      #     args: s3 sync latex s3://${{ secrets.PORTFOLIO_S3_MAIN_PROD_BUCKET }}
-      #   env:
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.PORTFOLIO_S3_MAIN_PROD_SECRET_ACCESS_KEY }}
-      #     AWS_BUCKET: ${{ secrets.PORTFOLIO_S3_MAIN_PROD_BUCKET }}
+      - name: Install AWS CLI
+        uses: docker://amazon/aws-cli:2.33.2
+        with:
+          args: s3 sync latex s3://${{ secrets.PORTFOLIO_S3_MAIN_PROD_BUCKET }}
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.PORTFOLIO_S3_MAIN_PROD_SECRET_ACCESS_KEY }}
+          AWS_BUCKET: ${{ secrets.PORTFOLIO_S3_MAIN_PROD_BUCKET }}
