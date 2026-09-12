@@ -50,7 +50,7 @@ jobs:
       - name: Save age key as repository variable
         env:
           AGE_KEY: ${{ secrets.PORTFOLIO_AGE_KEY }}
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.TEMP }}
         run: |
           AGE_KEY_B64="$(printf '%s' "$AGE_KEY" | base64 -w0)"
 
