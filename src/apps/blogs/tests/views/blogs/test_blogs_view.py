@@ -6,6 +6,7 @@ from django.urls import reverse
 from apps.blogs.models.blog import Blog
 from apps.blogs.models.blog_category import BlogCategory
 from apps.blogs.views.blogs.blogs_view import BlogsView
+from apps.common.models.translation import Translation
 
 
 class BlogsTestCase(TestCase):
@@ -35,6 +36,7 @@ class BlogsTestCase(TestCase):
                 read_time_mins=3,
                 row=1,
                 category=blog_category1,
+                language=Translation.objects.get(language="en"),
             ),
         ]
 
