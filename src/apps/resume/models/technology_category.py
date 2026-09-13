@@ -1,10 +1,8 @@
-from typing import Any
+from typing import Any, override
 
 from django.db.models import PROTECT, CharField, ForeignKey
-from typing_extensions import override
 
-from apps.resume.models.portfolio import Portfolio
-from apps.resume.models.translation import Translation
+from portfolio.models.portfolio import Portfolio
 
 
 class TechnologyCategory(Portfolio):
@@ -12,7 +10,7 @@ class TechnologyCategory(Portfolio):
         "Name of the technology category", max_length=50, primary_key=True
     )
     language: ForeignKey = ForeignKey(
-        Translation,
+        "common.Translation",
         verbose_name="Translated category name of the technology",
         on_delete=PROTECT,
         null=True,

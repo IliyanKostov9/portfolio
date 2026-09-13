@@ -1,7 +1,16 @@
 ---
-- title: Living abroad
-  description: |
+- en_title: Living abroad
+  bg_title: Живот в чужбина
+  fr_title: Vivre à l'étranger
+  ge_title: Im Ausland leben
+  en_description: |
     My personal experience when moving to live from Bulgaria to France (and some tips on how to prepare if you're planning to live abroad as well)
+  bg_description: |
+    Личният ми опит при преместването от България във Франция (и няколко съвета за подготовка, ако и вие планирате да живеете в чужбина)
+  fr_description: |
+    Mon expérience personnelle lors de mon déménagement de la Bulgarie vers la France (et quelques conseils pour se préparer si vous envisagez vous aussi de vivre à l'étranger)
+  ge_description: |
+    Meine persönlichen Erfahrungen beim Umzug von Bulgarien nach Frankreich (sowie einige Tipps zur Vorbereitung, falls auch Sie planen, im Ausland zu leben)
   image_preview: plane_in_sunlight.jpg
   date: "2026-04-25"
   url: "living-abroad"

@@ -4,8 +4,7 @@ import markdown
 from django.db.models import CASCADE, CharField, ForeignKey, JSONField
 from django.utils.translation import get_language
 
-from apps.resume.models.portfolio import Portfolio
-from apps.resume.models.translation import Translation
+from portfolio.models.portfolio import Portfolio
 
 
 class WorkHistory(Portfolio):
@@ -18,7 +17,7 @@ class WorkHistory(Portfolio):
     dates: JSONField = JSONField("Dates of work")
     description: CharField = CharField("Description of the work history")
     language: ForeignKey = ForeignKey(
-        Translation,
+        "common.Translation",
         verbose_name="Translated version of the work history info",
         on_delete=CASCADE,
     )

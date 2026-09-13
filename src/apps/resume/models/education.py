@@ -4,8 +4,7 @@ from django.db.models import CASCADE, BooleanField, CharField, ForeignKey, Image
 from django.forms.models import model_to_dict
 from django.utils.translation import get_language
 
-from apps.resume.models.portfolio import Portfolio
-from apps.resume.models.translation import Translation
+from portfolio.models.portfolio import Portfolio
 
 
 class Education(Portfolio):
@@ -23,7 +22,7 @@ class Education(Portfolio):
     gpa: CharField = CharField("GPA of the education")
 
     language: ForeignKey = ForeignKey(
-        Translation,
+        "common.Translation",
         verbose_name="Translated education info",
         on_delete=CASCADE,
     )

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Any, override
 
-from apps.resume.data_class.portfolio import Portfolio
+from portfolio.data_class.portfolio import Portfolio
 
 
 @dataclass(frozen=True)
@@ -22,7 +22,7 @@ class Certification(Portfolio):
     @override
     @staticmethod
     def table_create(apps):
-        certification_model = apps.get_model(Portfolio.app_name, "Certification")
+        certification_model = apps.get_model("resume", "Certification")
         certification_model.objects.all().delete()
 
         certifications: list[Certification] = Certification.from_yaml(

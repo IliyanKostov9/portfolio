@@ -12,8 +12,7 @@ from django.db.models import (
 from django.forms.models import model_to_dict
 from django.utils.translation import get_language
 
-from apps.resume.models.portfolio import Portfolio
-from apps.resume.models.translation import Translation
+from portfolio.models.portfolio import Portfolio
 
 
 class Project(Portfolio):
@@ -28,7 +27,7 @@ class Project(Portfolio):
     row: IntegerField = IntegerField("Row number of the project")
     repositories: JSONField = JSONField("Repositories")
     language: ForeignKey = ForeignKey(
-        Translation,
+        "common.Translation",
         verbose_name="Translated version of project info",
         on_delete=CASCADE,
     )

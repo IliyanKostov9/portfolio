@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 from typing import Any, override
 
-from apps.resume.data_class.portfolio import Portfolio
+from apps.common.data_class.translation import Translation
+from portfolio.data_class.portfolio import Portfolio
 
 
 @dataclass(frozen=True)
@@ -47,13 +48,13 @@ class Education(Portfolio):
     @override
     @staticmethod
     def table_create(apps):
-        education_model = apps.get_model(Portfolio.app_name, "Education")
-        translation_model = apps.get_model(Portfolio.app_name, "Translation")
+        education_model = apps.get_model("resume", "Education")
+        translation_model = apps.get_model("common", "Translation")
 
         education_model.objects.all().delete()
 
         for education in Education.from_yaml("education.yaml"):
-            for lang in Portfolio.languages:
+            for lang in Translation.languages:
                 education_model.objects.create(
                     degree=getattr(education, lang + "_degree"),
                     specialty=getattr(education, lang + "_specialty"),

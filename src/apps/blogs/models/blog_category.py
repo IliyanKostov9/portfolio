@@ -1,9 +1,8 @@
-from typing import Any
+from typing import Any, override
 
 from django.db.models import CharField
-from typing_extensions import override
 
-from apps.blogs.models.portfolio import Portfolio
+from portfolio.models.portfolio import Portfolio
 
 
 class BlogCategory(Portfolio):

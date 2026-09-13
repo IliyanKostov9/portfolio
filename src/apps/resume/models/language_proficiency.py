@@ -1,12 +1,10 @@
-from typing import Any, Final
+from typing import Any, Final, override
 
 from django.db.models import CASCADE, CharField, ForeignKey, IntegerField
 from django.forms.models import model_to_dict
 from django.utils.translation import get_language
-from typing_extensions import override
 
-from apps.resume.models.portfolio import Portfolio
-from apps.resume.models.translation import Translation
+from portfolio.models.portfolio import Portfolio
 from portfolio.monitor.log import logger
 
 LANGUAGE_LEVEL_PROFICIENCY: Final[dict[str, int]] = {
@@ -63,7 +61,7 @@ class LanguageProficiency(Portfolio):
     icon: CharField = CharField("Flag of the language", max_length=50)
     row: IntegerField = IntegerField("Row number of the language")
     language: ForeignKey = ForeignKey(
-        Translation,
+        "common.Translation",
         verbose_name="Translated language name",
         on_delete=CASCADE,
     )

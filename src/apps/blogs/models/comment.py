@@ -1,16 +1,10 @@
-from typing import Any
+from typing import Any, override
 
-from django.db.models import (
-    CASCADE,
-    CharField,
-    ForeignKey,
-    ManyToManyField,
-)
-from typing_extensions import override
+from django.db.models import CASCADE, CharField, ForeignKey, ManyToManyField
 
 from apps.blogs.models.blog import Blog
 from apps.blogs.models.user import User
-from apps.blogs.models.portfolio import Portfolio
+from portfolio.models.portfolio import Portfolio
 
 
 class Comment(Portfolio):

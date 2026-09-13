@@ -9,14 +9,13 @@ class Portfolio(models.Model):
     """
 
     def get_all(self) -> Any:
-        """Override"""
+        pass
 
     def transform(self) -> Any:
-        """Override"""
+        pass
 
     def clean(self) -> None:
-        """Override"""
+        pass
 
     class Meta:
         abstract: bool = True
-        app_label: str = "blogs"
