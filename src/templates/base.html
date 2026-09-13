@@ -1,9 +1,14 @@
-{% load static compress i18n %}
+{% load static compress i18n env %}
 <!DOCTYPE html>
 <html lang="en" data-mdb-theme="{{ theme }}">
     <head>
         <title>Iliyan's portfolio page</title>
         <link rel="browser icon" href="{% static 'favicon.ico' %}" />
+        {% env as env %}
+        {% if env == "prod" %}
+            <meta name="google-site-verification"
+                  content="4EXoVlqS5T-6QhmXxz4x_WeOapVguJL-GkPvGB6YrJI" />
+        {% endif %}
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.min.css"
               rel="stylesheet"
               integrity="sha512-KZfH/Hybv9x3A8O7kpxw84PhCbHtcjKo8hB1TR/riHma0ZgyMrR3Ctij/bUHowTXBEpa9i7J3Teed0xasHxwfQ=="
@@ -28,8 +33,7 @@
         {% block extra_head %}{% endblock %}
     </head>
     <body>
-        <script type="text/javascript"
-                src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.umd.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.1.0/mdb.umd.min.js"
                 integrity="sha384-YzAp9mbtbROBzQd/GXua4zI0q9ZFctXLsebMBDVA0fvlsyHVP/1VOLlBwtFlThGn"
                 crossorigin="anonymous"></script>
         <script type="module" src="{% static 'scripts/fetch_release.js' %}"></script>
@@ -84,16 +88,28 @@
                         </button>
                         <ul class="dropdown-menu" name="lang-toggle">
                             <li>
-                                <button type="submit" name="language" value="en" class="dropdown-item">{% translate "English" %}</button>
+                                <button type="submit"
+                                        name="language"
+                                        value="en"
+                                        class="dropdown-item">{% translate "English" %}</button>
                             </li>
                             <li>
-                                <button type="submit" name="language" value="bg" class="dropdown-item">{% translate "Bulgarian" %}</button>
+                                <button type="submit"
+                                        name="language"
+                                        value="bg"
+                                        class="dropdown-item">{% translate "Bulgarian" %}</button>
                             </li>
                             <li>
-                                <button type="submit" name="language" value="fr" class="dropdown-item">{% translate "French" %}</button>
+                                <button type="submit"
+                                        name="language"
+                                        value="fr"
+                                        class="dropdown-item">{% translate "French" %}</button>
                             </li>
                             <li>
-                                <button type="submit" name="language" value="ge" class="dropdown-item">{% translate "German" %}</button>
+                                <button type="submit"
+                                        name="language"
+                                        value="ge"
+                                        class="dropdown-item">{% translate "German" %}</button>
                             </li>
                         </ul>
                     </div>
