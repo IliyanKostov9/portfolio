@@ -71,11 +71,6 @@ schema-update: ## Update SQL schema & create an empty migration
 show-migrate: ## Perform SQL migration
 	python3 src/manage.py showmigrations
 
-
-.PHONY: generate-secretkey
-generate-secretkey: ## Generate a secret key
-	python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
-
 .PHONY: translate
 translate: ## Translate text into the 4 languages
 	django-admin makemessages -l en
