@@ -8,6 +8,8 @@ from django.urls import reverse_lazy
 class Common:
     BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent.parent.parent
     ALLOWED_HOSTS = [os.environ.get("PORTFOLIO_HOST")]
+    PORTFOLIO_ENV = os.environ.get("PORTFOLIO_ENV", "dev")  # NOTE: For Google analytics
+
     ROOT_URLCONF: str = "portfolio.urls"
     DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
