@@ -1,12 +1,11 @@
 from collections import defaultdict
-from typing import Any
+from typing import Any, override
 
 from django.db.models import PROTECT, CharField, ForeignKey, IntegerField
 from django.utils.translation import get_language
-from typing_extensions import override
 
-from apps.resume.models.portfolio import Portfolio
 from apps.resume.models.technology_category import TechnologyCategory
+from portfolio.models.portfolio import Portfolio
 
 
 class Technology(Portfolio):
@@ -40,9 +39,7 @@ class Technology(Portfolio):
             pages[page][category][row].append(item_data)
 
         def dictify(obj):
-            if isinstance(obj, defaultdict):
-                return {k: dictify(v) for k, v in obj.items()}
-            elif isinstance(obj, dict):
+            if isinstance(obj, defaultdict) or isinstance(obj, dict):
                 return {k: dictify(v) for k, v in obj.items()}
             return obj
 

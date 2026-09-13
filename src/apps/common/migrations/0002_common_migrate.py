@@ -7,7 +7,7 @@ from . import init, init_reverse
 
 class Migration(migrations.Migration):
     dependencies = [
-        ("blogs", "0001_initial"),
+        ("common", "0001_initial"),
     ]
 
     operations = [

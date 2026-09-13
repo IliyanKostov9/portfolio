@@ -1,9 +1,8 @@
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
-from typing_extensions import override
-
-from apps.resume.data_class.portfolio import Portfolio
+from apps.common.data_class.translation import Translation
+from portfolio.data_class.portfolio import Portfolio
 
 
 @dataclass(frozen=True)
@@ -18,7 +17,7 @@ class LanguageProficiency(Portfolio):
     row: int
 
     @classmethod
-    def from_yaml(cls, path: str) -> list["LanguageProficiency"]:
+    def from_yaml(cls, path: str) -> list[LanguageProficiency]:
         objects: Any = super().read_yaml(path)
 
         return [cls(**obj) for obj in objects]
@@ -26,13 +25,13 @@ class LanguageProficiency(Portfolio):
     @override
     @staticmethod
     def table_create(apps):
-        language_model = apps.get_model(Portfolio.app_name, "LanguageProficiency")
-        translation_model = apps.get_model(Portfolio.app_name, "Translation")
+        language_model = apps.get_model("resume", "LanguageProficiency")
+        translation_model = apps.get_model("common", "Translation")
 
         language_model.objects.all().delete()
 
         for language in LanguageProficiency.from_yaml("language_proficiency.yaml"):
-            for lang in Portfolio.languages:
+            for lang in Translation.languages:
                 language_model.objects.create(
                     name=getattr(language, lang + "_name"),
                     proficiency=language.proficiency,

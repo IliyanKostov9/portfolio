@@ -1,9 +1,7 @@
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, override
 
-from typing_extensions import override
-
-from apps.resume.data_class.portfolio import Portfolio
+from portfolio.data_class.portfolio import Portfolio
 
 
 @dataclass(frozen=True)
@@ -15,7 +13,7 @@ class Technology(Portfolio):
     row: int
 
     @classmethod
-    def from_yaml(cls, path: str) -> list["Technology"]:
+    def from_yaml(cls, path: str) -> list[Technology]:
         objects: Any = super().read_yaml(path)
 
         return [cls(**obj) for obj in objects]
@@ -23,10 +21,8 @@ class Technology(Portfolio):
     @override
     @staticmethod
     def table_create(apps):
-        technology_model = apps.get_model(Portfolio.app_name, "Technology")
-        technology_category_model = apps.get_model(
-            Portfolio.app_name, "TechnologyCategory"
-        )
+        technology_model = apps.get_model("resume", "Technology")
+        technology_category_model = apps.get_model("resume", "TechnologyCategory")
 
         technology_model.objects.all().delete()
 

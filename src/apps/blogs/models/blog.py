@@ -9,9 +9,10 @@ from django.db.models import (
     IntegerField,
 )
 from django.forms.models import model_to_dict
+from django.utils.translation import get_language
 
 from apps.blogs.models.blog_category import BlogCategory
-from apps.blogs.models.portfolio import Portfolio
+from portfolio.models.portfolio import Portfolio
 
 
 class Blog(Portfolio):
@@ -33,10 +34,15 @@ class Blog(Portfolio):
         verbose_name="Category of which blog it belongs to (life, technology, project, etc)",
         on_delete=CASCADE,
     )
+    language: ForeignKey = ForeignKey(
+        "common.Translation",
+        verbose_name="Translated version of the blog",
+        on_delete=CASCADE,
+    )
 
     @override
     def get_all(self) -> Any:
-        return list(Blog.objects.all())
+        return list(Blog.objects.filter(language=get_language()))
 
     @override
     def transform(self) -> Any:

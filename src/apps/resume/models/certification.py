@@ -3,7 +3,7 @@ from typing import Any, override
 from django.db.models import CharField, ImageField, IntegerField
 from django.forms.models import model_to_dict
 
-from apps.resume.models.portfolio import Portfolio
+from portfolio.models.portfolio import Portfolio
 
 
 class Certification(Portfolio):

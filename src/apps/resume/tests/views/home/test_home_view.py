@@ -3,12 +3,12 @@ from django.core.handlers.asgi import ASGIRequest
 from django.test import RequestFactory, TestCase
 from django.urls import reverse
 
+from apps.common.models.translation import Translation
 from apps.resume.models.certification import Certification
 from apps.resume.models.education import Education
 from apps.resume.models.project import Project
 from apps.resume.models.technology import Technology
 from apps.resume.models.technology_category import TechnologyCategory
-from apps.resume.models.translation import Translation
 from apps.resume.models.work_history import WorkHistory
 from apps.resume.views.home.home_view import HomeView
 

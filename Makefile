@@ -5,7 +5,6 @@
 LATEX_LANG ?= en
 APP_PATH ?= ./infra/iac
 VAR_FILE_PATH ?= ./env/prod
-AGE_KEY = age1ncwdygxcdpjxe5ycr6w50myqp4cyjdq6l7c8dyxp5p626el4m3as89v6zj
 
 # ########################
 # TARGET
@@ -42,16 +41,20 @@ sql-reset: ## Perform SQL reset
 	echo "Deleting database..."
 	rm -rf $(PWD)/src/db.sqlite3
 	echo "Deleting migrations..."
+	rm -rf $(PWD)/src/apps/common/migrations/00*.py
 	rm -rf $(PWD)/src/apps/resume/migrations/00*.py
 	rm -rf $(PWD)/src/apps/blogs/migrations/00*.py
 
 .PHONY: migrate
 migrate: ## Perform SQL migration
+	python3 src/manage.py migrate common
 	python3 src/manage.py migrate resume
 	python3 src/manage.py migrate blogs
 
 .PHONY: schema-update
 schema-update: ## Update SQL schema & create an empty migration
+	python3 src/manage.py makemigrations common
+	python3 src/manage.py makemigrations common --empty --name common_migrate
 	python3 src/manage.py makemigrations resume
 	python3 src/manage.py makemigrations resume --empty --name resume_migrate
 	python3 src/manage.py makemigrations blogs
@@ -67,11 +70,6 @@ schema-update: ## Update SQL schema & create an empty migration
 .PHONY: show-migrate
 show-migrate: ## Perform SQL migration
 	python3 src/manage.py showmigrations
-
-
-.PHONY: generate-secretkey
-generate-secretkey: ## Generate a secret key
-	python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 
 .PHONY: translate
 translate: ## Translate text into the 4 languages

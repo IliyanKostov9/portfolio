@@ -1,23 +1,22 @@
+import inspect
 import os
 from abc import ABC, abstractmethod
-from typing import Any, Final
+from typing import Any
 
 import yaml
 
 
 class Portfolio(ABC):
-    app_name: Final[str] = "blogs"
-
     @classmethod
-    def read_yaml(cls, path: str) -> Any:
+    def read_yaml(cls, file_name: str) -> Any:
         parent_dir: str = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), "..", "config")
+            os.path.join(os.path.dirname(inspect.getfile(cls)), "..", "config")
         )
 
-        if not path.endswith((".yaml", ".yml")):
+        if not file_name.endswith((".yaml", ".yml")):
             raise InterruptedError("File must end with yml or yaml!")
 
-        with open(os.path.join(parent_dir, path), "r") as file:
+        with open(os.path.join(parent_dir, file_name), "r") as file:
             return yaml.safe_load(file)
 
     @abstractmethod

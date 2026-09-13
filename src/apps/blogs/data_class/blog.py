@@ -2,13 +2,22 @@ import datetime
 from dataclasses import dataclass
 from typing import Any, override
 
-from apps.blogs.data_class.portfolio import Portfolio
+from apps.common.data_class.translation import Translation
+from portfolio.data_class.portfolio import Portfolio
 
 
 @dataclass(frozen=True)
 class Blog(Portfolio):
-    title: str
-    description: str
+    en_title: str
+    bg_title: str
+    fr_title: str
+    ge_title: str
+
+    en_description: str
+    bg_description: str
+    fr_description: str
+    ge_description: str
+
     image_preview: str
     date: datetime.date
     url: str
@@ -25,21 +34,22 @@ class Blog(Portfolio):
     @override
     @staticmethod
     def table_create(apps) -> None:
-        blog_model = apps.get_model(Portfolio.app_name, "Blog")
-        blog_category_model = apps.get_model(Portfolio.app_name, "BlogCategory")
+        blog_model = apps.get_model("blogs", "Blog")
+        blog_category_model = apps.get_model("blogs", "BlogCategory")
+        translation_model = apps.get_model("common", "Translation")
 
         blog_model.objects.all().delete()
 
-        blogs: list[Blog] = Blog.from_yaml("blog.yaml")
-
-        for blog in blogs:
-            blog_model.objects.create(
-                title=blog.title,
-                description=blog.description,
-                image_preview="images/blogs/" + blog.image_preview,
-                date=blog.date,
-                url=blog.url,
-                read_time_mins=blog.read_time_mins,
-                row=blog.row,
-                category=blog_category_model.objects.get(name=blog.category),
-            )
+        for blog in Blog.from_yaml("blog.yaml"):
+            for lang in Translation.languages:
+                blog_model.objects.create(
+                    title=getattr(blog, lang + "_title"),
+                    description=getattr(blog, lang + "_description"),
+                    image_preview="images/blogs/" + blog.image_preview,
+                    date=blog.date,
+                    url=blog.url,
+                    read_time_mins=blog.read_time_mins,
+                    row=blog.row,
+                    category=blog_category_model.objects.get(name=blog.category),
+                    language=translation_model.objects.get(language=lang),
+                )
