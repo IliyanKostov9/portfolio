@@ -2,11 +2,13 @@ import hashlib
 import os
 from pathlib import Path
 from typing import Any
-from portfolio.helpers.utils import check_if_env_vars_are_set
-import boto3
 
-from portfolio.models.aws.s3 import S3
+import boto3
+from django.conf import settings
 from django.utils.translation import get_language
+
+from portfolio.helpers.utils import check_if_env_vars_are_set
+from portfolio.models.aws.s3 import S3
 from portfolio.monitor.log import logger
 
 
@@ -35,7 +37,7 @@ class Polly:
             aws_secret_access_key=os.environ.get(
                 "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACCESS_KEY"
             ),
-            region_name="eu-west-1",
+            region_name=settings.AWS_ENV,
         )
 
         if get_language() in ["bg"]:
@@ -75,8 +77,7 @@ class Polly:
         )
 
         mp3_file: str = (
-            hashlib.sha256(f"{self.language_code}_{text}".encode("utf-8")).hexdigest()
-            + ".mp3"
+            hashlib.sha256(f"{self.language_code}_{text}".encode()).hexdigest() + ".mp3"
         )
 
         if s3.exists(mp3_file):

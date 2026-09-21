@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from typing import Final
 
 from csp.constants import SELF, UNSAFE_INLINE
 from django.urls import reverse_lazy
@@ -12,6 +13,7 @@ class Common:
 
     ROOT_URLCONF: str = "portfolio.urls"
     DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+    AWS_ENV: Final[str] = os.environ.get("AWS_REGION", "eu-west-1")
 
     SECRET_KEY = os.environ.get("PORTFOLIO_SECRET_KEY")
     if not SECRET_KEY and not bool(
