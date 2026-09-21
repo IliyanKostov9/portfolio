@@ -27,7 +27,6 @@ class Polly:
                 "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACCESS_KEY",
             ]
         )
-
         self.bucket = bucket
         self.client = boto3.client(
             "polly",
