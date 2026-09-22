@@ -64,11 +64,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1789152246,
-        "narHash": "sha256-8ESHEGygXS5lmDepm5cMbmVd8DjcwgwzsmjHc9ffY1c=",
+        "lastModified": 1789991752,
+        "narHash": "sha256-SiH+H00IutELZBg7BBNo6r5DU6E+DG7DjrbeX5+QLa0=",
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "6e323832a55097670dbd8eed04b1e63efc841dfa",
+        "rev": "1c57b5dea0d400af97053fdd1a536fca17378f73",
         "type": "github"
       },
       "original": {
@@ -368,11 +368,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1782141438,
-        "narHash": "sha256-a/jocK29wq3Q8lwKRrKkCtnkGxBYkKn41xEZIe02oyY=",
+        "lastModified": 1790027286,
+        "narHash": "sha256-4I80KYljHH9auRc4BlESFhbGiYYAm2AFu6OW47xmlEE=",
         "owner": "stackbuilders",
         "repo": "nixpkgs-terraform",
-        "rev": "8c3cbec3f28210391478acb808c3917d77c8a73b",
+        "rev": "3ff7a0ee26f897923017827434982ed025193e12",
         "type": "github"
       },
       "original": {
@@ -383,11 +383,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1789073787,
-        "narHash": "sha256-xfX/toC2QV707s06GbP4II/TxYF0fNQj7s5/LClNDKc=",
+        "lastModified": 1789960332,
+        "narHash": "sha256-MQ5my6vvo0z2iVQcKqrysutFWvsNw3/ynNxzjJon4yc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "aff8a0b28396750446e5537a96461bc4facdb287",
+        "rev": "35e212742ceab4ae1dcfbfd9039a39215c816e8e",
         "type": "github"
       },
       "original": {
