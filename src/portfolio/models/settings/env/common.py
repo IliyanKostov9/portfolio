@@ -15,6 +15,9 @@ class Common:
     DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
     AWS_ENV: Final[str] = os.environ.get("AWS_REGION", "eu-west-1")
 
+    # NOTE: Fix the blogs/ -> blogs redirect issue
+    APPEND_SLASH = True
+
     SECRET_KEY = os.environ.get("PORTFOLIO_SECRET_KEY")
     if not SECRET_KEY and not bool(
         os.environ.get("PORTFOLIO_SKIP_SECRET_KEY_CHECK", False)
