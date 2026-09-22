@@ -9,6 +9,9 @@ jobs:
   flake-checker:
     name: Flake ❄️ Checker ✅
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        cachix: ["iliyankostov9-portfolio-dev", "iliyankostov9-portfolio-infra"]
     steps:
       - uses: actions/checkout@v7
         with:
@@ -19,12 +22,19 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25
+
       - uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71
         with:
+          name: ${{ matrix.cachix }}
           extraPullNames: devenv
+
       - uses: DeterminateSystems/flake-checker-action@de924abd783455e8429c858962b9e43062d19da1
 
   lock-updater:
+    needs: flake-checker
+    strategy:
+      matrix:
+        cachix: ["iliyankostov9-portfolio-dev", "iliyankostov9-portfolio-infra"]
     permissions:
       contents: write
       pull-requests: write
@@ -41,9 +51,12 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25
+
       - uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71
         with:
+          name: ${{ matrix.cachix }}
           extraPullNames: devenv
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
 
       - uses: DeterminateSystems/update-flake-lock@834c491b2ece4de0bbd00d85214bb5e83b4da5c6
         with:
