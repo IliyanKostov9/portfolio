@@ -37,7 +37,7 @@
                 integrity="sha384-YzAp9mbtbROBzQd/GXua4zI0q9ZFctXLsebMBDVA0fvlsyHVP/1VOLlBwtFlThGn"
                 crossorigin="anonymous"></script>
         <script type="module" src="{% static 'scripts/fetch_release.js' %}"></script>
-        <nav class="navbar navbar-expand-lg fixed-top"
+        <nav class="navbar navbar-expand-lg fixed-top flex-nowrap gap-3"
              aria-label="toolbar for navigating through the entire website">
             <button type="button"
                     class="btn btn-lg light-glow move-to-right-by-20 btn-tertiary"
@@ -45,8 +45,8 @@
                 <i class="fab fa-git-alt fa-lg"></i>
                 <p id="github-version" class="d-inline mb-0 fw-bold p-3">{% translate "Source" %}</p>
             </button>
-            <div class="collapse navbar-collapse justify-content-center">
-                <ul class="navbar-nav">
+            <div class="navbar-nav-wrapper d-flex flex-grow-1 justify-content-center">
+                <ul class="navbar-nav flex-row gap-5">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/">{% translate "Portfolio" %}</a>
                     </li>
@@ -55,7 +55,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="d-flex align-items-center gap-2 move-to-left-by-20">
+            <div class="d-flex align-items-center gap-2 move-to-left-by-20 gap-3">
                 <form action="{% url 'set_language' %}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ redirect_to }}" />
