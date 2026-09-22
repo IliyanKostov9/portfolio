@@ -21,9 +21,3 @@ $spacer: 10px;
 .disco-color {
   background-color: hsla(195, 83%, 58%, 0.2);
 }
-
-.nav-gap-mobile {
-  @media (max-width: 991.98px) {
-    gap: 3rem;
-  }
-}
