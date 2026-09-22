@@ -1,11 +1,12 @@
 import os
 from pathlib import Path
 from typing import Any, Final
-import boto3
-from portfolio.monitor.log import logger
-from botocore.exceptions import ClientError
 
-REGION: Final[str] = "eu-west-1"
+import boto3
+from botocore.exceptions import ClientError
+from django.conf import settings
+
+from portfolio.monitor.log import logger
 
 
 class S3:
@@ -31,7 +32,7 @@ class S3:
             "s3",
             aws_access_key_id=access_key_id,
             aws_secret_access_key=secret_access_key,
-            region_name=REGION,
+            region_name=settings.AWS_ENV,
         )
 
     def download(self, key: str, get_raw_bytes: bool = False) -> bytes | None:

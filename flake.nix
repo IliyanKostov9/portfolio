@@ -41,32 +41,24 @@
           config.allowUnfree = true;
         };
 
-        devenv.shells.default = {
-          languages = {
-            python = {
-              enable = true;
-              version = "3.14.3";
-              uv = {
-                enable = true;
-                sync.enable = true;
-              };
-            };
-            terraform = {
-              enable = true;
-              lsp.enable = true;
-              version = "1.9.8";
-            };
+        devenv.shells.dev = {
+          cachix = {
+            pull = ["iliyankostov9-portfolio-dev"];
+            push = "iliyankostov9-portfolio-dev";
           };
 
-          packages = with pkgs; [
-            age
-            gettext # NOTE: Needed for django-admin compilemessages
-            (texlive.combine
-              {
-                inherit (texlive) scheme-full;
-              })
-            zathura # NOTE: pdf viewer for Latex
-          ];
+          languages.python = {
+            enable = true;
+            version = "3.14.3";
+            venv.enable = true;
+            uv = {
+              enable = true;
+              sync = {
+                enable = true;
+                groups = ["dev" "test"];
+              };
+            };
+          };
 
           git-hooks.hooks = {
             # Common
@@ -84,31 +76,46 @@
               enable = true;
               description = "Used to remove unused imports & vars";
             };
-
-            # NOTE: breakes ninja templates
-            prettier.enable = false;
-            latexindent.enable = true;
-          };
-
-          env = {
-            PORTFOLIO_ENV = "dev";
-            PORTFOLIO_HOST = "localhost";
-            PORTFOLIO_SECRET_KEY = "django-insecure-8uyy0d7vvcll=*i_@b4_8tm$ehr58-+=7)82s3q$uhxok^$bim";
           };
 
           enterShell = ''
             export PYTHONPATH="$(pwd)/src"
-
-            if ! [[ -d ".devenv/state/venv" ]]; then
-              uv venv
-              uv test --group test
-              source .devenv/state/venv/bin/activate
-            elif [[ -d "pyproject.toml" ]]; then
-              source .devenv/state/venv/bin/activate
-            else
-              source .devenv/state/venv/bin/activate
-            fi
           '';
+
+          enterTest = ''
+            set -e
+            python3 -Wa ./src/manage.py test portfolio.tests apps.resume.tests apps.blogs.tests -v 3
+            echo "Now checking migrations..."
+            python3 src/manage.py check --deploy
+            python3 src/manage.py lintmigrations
+          '';
+        };
+
+        devenv.shells.infra = {
+          cachix = {
+            pull = ["iliyankostov9-portfolio-infra"];
+            push = "iliyankostov9-portfolio-infra";
+          };
+
+          languages.terraform = {
+            enable = true;
+            lsp.enable = true;
+            version = "1.9.8";
+          };
+        };
+
+        devenv.shells.latex = {
+          packages = with pkgs; [
+            age
+            gettext # NOTE: Needed for django-admin compilemessages
+            (texlive.combine
+              {
+                inherit (texlive) scheme-full;
+              })
+            zathura # NOTE: pdf viewer for Latex
+          ];
+
+          git-hooks.hooks.latexindent.enable = true;
         };
       };
     };

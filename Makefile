@@ -14,27 +14,14 @@ VAR_FILE_PATH ?= ./env/prod
 help:  ## help target to show available commands with information
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) |  awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: all check clean test run
-all: check clean test run ## Perform check clean test run at the same time
+.PHONY: all clean test run
+all: clean test run ## Perform check clean test run at the same time
 
 run: ## Run Django app
 	python3 -m uvicorn src.portfolio.asgi:application --reload
 
-test: ## Test Django app
-	python3 -Wa ./src/manage.py test portfolio.tests -v 3
-	python3 -Wa ./src/manage.py test apps.resume.tests -v 3
-	python3 -Wa ./src/manage.py test apps.blogs.tests -v 3
-
 clean:
 	echo "clean"
-
-.PHONY: check
-check: ## Check the django templates
-	python3 src/manage.py check --deploy
-
-.PHONY: migrate-check
-migrate-check: ## Check if the migrations are compatible
-	  python3 src/manage.py lintmigrations
 
 .PHONY: sql-reset
 sql-reset: ## Perform SQL reset

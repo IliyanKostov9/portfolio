@@ -26,6 +26,8 @@ jobs:
         with:
           sparse-checkout: |
             infra
+            flake.nix
+            flake.lock
             Makefile
           sparse-checkout-cone-mode: false
 
@@ -40,19 +42,26 @@ jobs:
         env:
           AGE_KEY: ${{ secrets.PORTFOLIO_AGE_KEY }}
 
-      - name: Setup terraform
-        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e #v4
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24
+      - uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71
         with:
-          terraform_version: "1.9"
+          name: iliyankostov9-portfolio-infra
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+          extraPullNames: devenv
+      - name: Install devenv.sh
+        run: nix profile add nixpkgs#devenv
 
       - name: Initialize
+        shell: bash -c "nix develop --impure .#infra -c bash -- {0}"
         run: make tf-init
 
       - name: Validate
         if: success() || failure()
+        shell: bash -c "nix develop --impure .#infra -c bash -- {0}"
         run: make tf-validate
 
       - name: Plan
+        shell: bash -c "nix develop --impure .#infra -c bash -- {0}"
         run: make tf-plan
 
       - name: Upload
@@ -63,6 +72,8 @@ jobs:
             infra/
             Makefile
             .terraformignore
+            flake.nix
+            flake.lock
           retention-days: 1
 
   deploy:
@@ -77,13 +88,19 @@ jobs:
           name: build
           path: .
 
-      - name: Setup terraform
-        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e #v4
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24
+      - uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71
         with:
-          terraform_version: "1.9"
+          name: iliyankostov9-portfolio-infra
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+          extraPullNames: devenv
+      - name: Install devenv.sh
+        run: nix profile add nixpkgs#devenv
 
       - name: Initialize
+        shell: bash -c "nix develop --impure .#infra -c bash -- {0}"
         run: make tf-init
 
       - name: Apply
+        shell: bash -c "nix develop --impure .#infra -c bash -- {0}"
         run: make tf-apply
