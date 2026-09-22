@@ -197,3 +197,9 @@ nav.navbar {
   color: #0d6efd !important;
   text-decoration: underline;
 }
+
+.nav-gap-mobile {
+  @media (max-width: 991.98px) {
+    gap: 3rem;
+  }
+}
