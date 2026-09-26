@@ -15,14 +15,6 @@
   row: 1
   icon: "united-kingdom.svg"
 
-- en_name: German
-  bg_name: Немски
-  fr_name: Allemand
-  ge_name: Deutsch
-  proficiency: "Beginner"
-  row: 1
-  icon: "germany.svg"
-
 - en_name: French
   bg_name: Френски
   fr_name: Français
