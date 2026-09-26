@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n convert_list_to_bulletpoints %}
 <div class="row text-center justify-content-center">
     <div class="col-md-6 lazy">
         <section id="WorkHistory">
@@ -37,7 +37,7 @@
                             {% endfor %}
                         </figcaption>
                     </figure>
-                    <div class="text-start hover-target">{{ work_history.description|linebreaks }}</div>
+                    <div class="text-start hover-target">{{ work_history.description|convert_list_to_bulletpoints }}</div>
                 </div>
             {% endfor %}
         </div>
