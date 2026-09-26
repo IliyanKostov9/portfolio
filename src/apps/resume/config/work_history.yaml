@@ -9,13 +9,41 @@
   dates:
     - "Mid 06-2026 - Present"
   en_description: |
-    The company is about maintaining customer credit histories and scores used by lenders. It also sells fraud detection, risk assessment, and business decision-making tools to companies, and offers direct-to-consumer tools like credit monitoring.
+    My day to day responsibilities mainly revolve around the support of internal clients, in terms of maintaining their products in the cloud during day 2 phase (e.g. after the migration of their product from in-house to AWS).
+    In addition, what I've also provided as support is remidiating vulnerabilities, raised by Wiz. Depending of it's type (misconfiguration, container, tagging complience), I'm either actively resolving it or encouraging the clients to resolve them.
+    Lastly, tracking the costs (FinOps) of their accounts via Cloudability is also part of my responsability.
+
+    What I've achived during my time is as follows:
+      - integrated Jira & automated the Wiz vulnerability alerting by creating a central lambda function, that depending  on the type of vulnerability is either creating a Jira ticket on our board or informing the internal clients about the vulnerability
+      - documented the runbooks & internal's team domain knowledge
+      - defined best practices for software development (automated testing, linting, modular code structure, clean code methodology)
   bg_description: |
-    Компанията се занимава с поддържане на кредитните истории и рейтинги на клиентите, използвани от кредиторите. Тя също така продава инструменти за откриване на измами, оценка на риска и вземане на бизнес решения на компании, както и предлага инструменти за директно ползване от потребителите, като например мониторинг на кредити.
+    Ежедневните ми задължения са свързани основно с поддръжката на вътрешни клиенти по отношение на управлението на техните продукти в облака във фазата на експлоатация (т.нар. „Day 2“ – например след миграция на продукта от локална инфраструктура към AWS).
+    Освен това, осигурявам съдействие при отстраняването на уязвимости, идентифицирани от платформата Wiz. В зависимост от типа на проблема (неправилна конфигурация, проблеми с контейнери, несъответствие при етикетирането/tagging), или ги отстранявам лично, или насочвам клиентите как сами да ги разрешат.
+    Накрая, част от отговорностите ми включва и проследяване на разходите по клиентските акаунти (FinOps) чрез инструмента Cloudability.
+
+    Постигнатото от мен до момента включва:
+      - интегриране на Jira и автоматизиране на системата за известяване за уязвимости от Wiz чрез създаване на централна Lambda функция; тя, в зависимост от вида на уязвимостта, или създава тикет в Jira, или уведомява съответните вътрешни клиенти за проблема;
+      - документиране на работните процедури (runbooks) и натрупаните специализирани знания в екипа;
+      - дефиниране на добри практики за разработка на софтуер (автоматизирано тестване, linting, модулна структура на кода, методология за чист код).
   fr_description: |
-    L'entreprise se spécialise dans la gestion des historiques et des scores de crédit des clients utilisés par les organismes prêteurs. Elle propose également aux entreprises des outils de détection de fraude, d'évaluation des risques et d'aide à la décision, ainsi que des services de surveillance du crédit destinés directement aux consommateurs.
+    Mes responsabilités quotidiennes consistent principalement à accompagner les clients internes dans la maintenance de leurs produits dans le cloud durant la phase opérationnelle (dite « Day 2 »), par exemple après la migration de leurs solutions depuis une infrastructure sur site vers AWS.
+    Par ailleurs, j'assure la remédiation des vulnérabilités détectées par Wiz. Selon la nature du problème (mauvaise configuration, conteneur, non-conformité du taggage), je procède soit à une résolution directe, soit j'incite les clients à effectuer les corrections nécessaires.
+    Enfin, le suivi des coûts (FinOps) de leurs comptes via Cloudability fait également partie de mes attributions.
+
+    Voici les réalisations que j'ai accomplies durant cette période :
+      - intégration de Jira et automatisation des alertes de vulnérabilité Wiz via une fonction Lambda centralisée qui, selon le type de vulnérabilité, crée un ticket Jira sur notre tableau de bord ou informe directement les clients internes ;
+      - documentation des procédures opérationnelles (runbooks) et capitalisation des connaissances métier de l'équipe interne ;
+      - définition de bonnes pratiques de développement logiciel (tests automatisés, linting, structure de code modulaire, méthodologie Clean Code).
   ge_description: |
-    Das Unternehmen beschäftigt sich mit der Pflege von Kundenkredithistorien und -scores, die von Kreditgebern genutzt werden. Es verkauft außerdem Betrugserkennungs-, Risikobewertungs- und Geschäftsentscheidungstools an Unternehmen und bietet Direktkunden Tools wie Kreditüberwachung an.
+    Meine täglichen Aufgaben konzentrieren sich hauptsächlich auf die Unterstützung interner Kunden bei der Betreuung ihrer Produkte in der Cloud während der „Day-2-Phase“ (z. B. nach der Migration von einer On-Premise-Umgebung zu AWS).
+    Darüber hinaus kümmere ich mich um die Behebung von Sicherheitslücken, die von Wiz gemeldet werden. Je nach Art des Problems (Fehlkonfiguration, Container-Probleme, Nichteinhaltung von Tagging-Richtlinien) behebe ich diese entweder selbst oder veranlasse die Kunden dazu, die entsprechenden Korrekturen vorzunehmen.
+    Schließlich gehört auch die Überwachung der Kosten (FinOps) für die jeweiligen Accounts mittels Cloudability zu meinem Aufgabenbereich.
+
+    Folgende Ergebnisse habe ich in dieser Zeit erzielt:
+    - Integration von Jira und Automatisierung der Benachrichtigungen zu Wiz-Sicherheitslücken durch die Entwicklung einer zentralen Lambda-Funktion; diese erstellt je nach Art der Schwachstelle entweder ein Jira-Ticket auf unserem Board oder informiert die internen Kunden über das Problem.
+    - Dokumentation von Runbooks sowie des internen Fachwissens des Teams.
+    - Festlegung von Best Practices für die Softwareentwicklung (automatisierte Tests, Linting, modulare Codestruktur, Clean-Code-Methodik).
 
 - company_name: "Alten"
   company_name_label: "alten"
@@ -29,25 +57,62 @@
   en_description: |
     My first project is a software company, that provides global distribution service to airline companies. These distributions of data products are in the area of the travel industry.
 
-    The team I'm in is in the department of ticket reservation. The role I'm currently working is platform engineer and the objective is to maintain,
+    The team I was in is in the department of ticket reservation. The role I'm currently working is platform engineer and the objective is to maintain,
     operate and develop the data processing pipeline, that is responsible
-    for ingesting the raw data, that's sent by the global distribution system,
+    for ingesting the raw data, sent by the global distribution system,
     process it through multiple layers and finally send it to the customer via various transfer protocols - FTP or S3.
+
+    What I've achieved during my experience there, includes:
+      - migrated legacy Groovy scripts to an internal framework, called workflow, that handled the entire lifecycle of building, testing and publishing an app
+      - rewrote from a single Bash file feed delivery framework to a clean & modular Python set of scripts, that greately improved  the reliability and maintainability of the system
+      - refactored a Python script, that's responsible for compressing and sending customer data from raw to source S3 bucket, therefore opening the possibility to extend it's capabilities due to management's needs, as well as providing the ability to have better testing before making a new release
+      - greatily improved the internal documentation by modernizing it depending on our current needs of knowledge and removed outdated document pages
+      - led the migration of our internal repositories and dev's ones from Bitbucket to Github
+      - designed a high level design of how to do releases 'properly', therefore improving the process of rollback and gaining the confidence from CAB
   bg_description: |
-    Първият ми проект е софтуерна компания, която предоставя глобални дистрибуторски услуги на авиокомпании. Тези дистрибуции на продукти с данни са в областта на туристическата индустрия.
+    Първият ми проект е в софтуерна компания, предоставяща услуги за глобална дистрибуция на авиокомпании. Дейността е свързана с разпространението на информационни продукти в сферата на туризма.
 
-    Екипът, в който съм, е в отдела за резервации на билети. Ролята, която работя в момента, е платформен инженер, а целта е да поддържам, управлявам и развивам процес на обработка на данни, който е отговорен за приемането на суровите данни, изпратени от глобалната дистрибуторска система, обработката им през множество слоеве и накрая изпращането им до клиента чрез различни протоколи за трансфер - FTP или S3.
+    Екипът, в който работех, е част от отдела за резервация на билети. Заеманата от мен длъжност е „платформен инженер“ (platform engineer), а основната ми задача е поддръжката,
+    експлоатацията и развитието на конвейера за обработка на данни (data processing pipeline). Той отговаря
+    за приемането на суровите данни, изпращани от глобалната дистрибуционна система,
+    обработването им на няколко етапа и финалното им изпращане към клиента чрез различни протоколи за трансфер – FTP или S3.
+
+    Постиженията ми по време на работата по този проект включват:
+      - миграция на наследени (legacy) Groovy скриптове към вътрешна рамка (framework), наречена „workflow“, която управлява целия жизнен цикъл на изграждане, тестване и публикуване на приложение
+      - пренаписване на системата за доставка на данни (feed delivery framework) от един-единствен Bash скрипт към набор от чисти и модулни Python скриптове, което значително подобри надеждността и възможностите за поддръжка на системата
+      - рефакториране на Python скрипт, отговарящ за компресирането и прехвърлянето на клиентски данни от „raw“ към „source“ S3 bucket; това позволи разширяване на функционалността според нуждите на ръководството и осигури възможност за по-добро тестване преди пускането на нова версия (release)
+      - значително подобряване на вътрешната документация чрез модернизирането ѝ спрямо актуалните ни нужди от споделяне на знания и премахване на остарели страници
+      - ръководене на процеса по миграция на вътрешните хранилища (repositories) и тези на разработчиците от Bitbucket към GitHub
+      - изготвяне на концептуален дизайн за правилно извършване на софтуерни релийзи, което подобри процеса на връщане към предишна версия (rollback) и повиши доверието от страна на CAB (Change Advisory Board)
   fr_description: |
-    Mon premier projet est une entreprise de logiciels qui fournit des services de distribution mondiale aux compagnies aériennes. Ces services de distribution de produits de données concernent le secteur du voyage.
+    Mon premier projet concerne une société de logiciels fournissant des services de distribution mondiale aux compagnies aériennes dans le secteur du voyage.
 
-    L'équipe dont je fais partie travaille au sein du département de réservation de billets. Mon rôle actuel est celui d'ingénieur plateforme et mon objectif est de maintenir,
-    d'exploiter et de développer le pipeline de traitement des données, qui est responsable
-    de l'ingestion des données brutes envoyées par le système de distribution mondial,
-    de leur traitement à travers plusieurs couches et enfin de leur transmission au client via différents protocoles de transfert (FTP ou S3).
+    Au sein du département de réservation de billets, j'occupe le poste d'ingénieur plateforme. Mon rôle consiste à assurer la maintenance,
+    l'exploitation et le développement du pipeline de traitement de données. Ce pipeline est chargé
+    d'ingérer les données brutes provenant du système de distribution mondial,
+    de les traiter à travers plusieurs couches, puis de les transmettre au client via divers protocoles de transfert (FTP ou S3).
+
+    Parmi mes réalisations durant cette expérience, on peut citer :
+      - la migration de scripts Groovy hérités (legacy) vers un framework interne (« workflow ») gérant l'intégralité du cycle de vie : construction, test et publication d'une application ;
+      - la réécriture d'un framework de livraison de flux — initialement constitué d'un unique script Bash — en un ensemble de scripts Python propres et modulaires, améliorant considérablement la fiabilité et la maintenabilité du système ;
+      - le refactoring d'un script Python chargé de compresser et d'envoyer les données clients (du bucket S3 « brut » vers le bucket « source »), permettant ainsi d'étendre ses fonctionnalités selon les besoins de la direction et de mieux tester le code avant chaque nouvelle mise en production ;
+      - l'amélioration significative de la documentation interne par sa modernisation en fonction de nos besoins actuels en matière de connaissances, ainsi que la suppression des pages obsolètes ;
+      - le pilotage de la migration de nos dépôts internes et de ceux des développeurs de Bitbucket vers GitHub ;
+      - la conception d'une stratégie globale pour effectuer les mises en production « dans les règles de l'art », améliorant ainsi le processus de retour en arrière (rollback) et renforçant la confiance du comité de validation des changements (CAB).
   ge_description: |
-    Mein erstes Projekt ist ein Softwareunternehmen, das globalen Vertriebsservice für Fluggesellschaften anbietet. Diese Datenprodukte werden im Bereich der Reisebranche vertrieben.
+    Mein erstes Projekt war bei einem Softwareunternehmen, das globale Vertriebsdienste für Fluggesellschaften anbietet. Der Vertrieb dieser Datenprodukte ist in der Reisebranche angesiedelt.
 
-    Das Team, in dem ich arbeite, gehört zur Abteilung für Ticketreservierung. Meine aktuelle Position ist Plattformingenieur, und meine Aufgabe besteht darin, die Datenverarbeitungspipeline zu warten, zu betreiben und weiterzuentwickeln. Diese Pipeline ist verantwortlich für die Erfassung der Rohdaten, die vom globalen Vertriebssystem gesendet werden, deren Verarbeitung in mehreren Schritten und die anschließende Übermittlung an den Kunden über verschiedene Übertragungsprotokolle wie FTP oder S3.
+    Ich war Teil des Teams für Ticketreservierungen. In meiner Rolle als Platform Engineer bestand meine Aufgabe darin, die Datenverarbeitungs-Pipeline zu warten,
+    zu betreiben und weiterzuentwickeln. Diese Pipeline ist verantwortlich für die Aufnahme der vom globalen Vertriebssystem (GDS) gesendeten Rohdaten,
+    deren Verarbeitung über mehrere Ebenen hinweg sowie die abschließende Übermittlung an den Kunden mittels verschiedener Übertragungsprotokolle (FTP oder S3).
+
+    Zu meinen dortigen Erfolgen zählen:
+      - Migration von Legacy-Groovy-Skripten in ein internes Framework namens „Workflow“, das den gesamten Lebenszyklus – von der Erstellung über das Testen bis hin zur Veröffentlichung einer Anwendung – abdeckte
+      - Umstellung eines Frameworks zur Datenübermittlung (Feed Delivery) von einer einzelnen Bash-Datei auf eine saubere, modulare Sammlung von Python-Skripten, wodurch Zuverlässigkeit und Wartbarkeit des Systems erheblich verbessert wurden
+      - Refactoring eines Python-Skripts, das für die Komprimierung und Übertragung von Kundendaten vom „Raw“- in den „Source“-S3-Bucket zuständig ist; dies ermöglichte sowohl eine Erweiterung der Funktionen entsprechend den Anforderungen des Managements als auch bessere Testmöglichkeiten vor neuen Releases
+      - Signifikante Verbesserung der internen Dokumentation durch Modernisierung entsprechend dem aktuellen Wissensbedarf sowie Entfernung veralteter Dokumentationsseiten
+      - Leitung der Migration unserer internen Repositories sowie der Repositories der Entwickler von Bitbucket zu GitHub
+      - Erstellung eines übergeordneten Konzepts für eine „saubere“ Release-Durchführung, wodurch der Rollback-Prozess optimiert und das Vertrauen des Change Advisory Board (CAB) gestärkt wurde
 
 - company_name: "DXC Technology"
   company_name_label: "dxc-technology"
@@ -69,12 +134,9 @@
     The automation these processes was achieved through the use of AWS CDK Infrastructure as Code (IaaC).
 
     As part of my contributions to client services, I implemented the following solutions:
-
       - budget cost alerting on the entire platform with predifned % of exceeded budget to fire off email messages to the Business Owners
-
       - creating additional REST API endpoints for the Control Tower for specifying which newly created AWS accounts belong to which VPC.
         In there I also wrote the logic where a Lambda Function checks the type of account and based on which VPC template it belongs to - deploys the AWS CloudFormation StackSet to the appropriate account.
-
       - creating a High level design of data flow and replication for the entire Data platform
 
     My second project revolved around delivering valuable insights to enhance
@@ -104,13 +166,10 @@
     Автоматизацията на тези процеси беше постигната чрез използването на AWS CDK Infrastructure as Code (IaaC).
 
     Като част от моя принос към клиентските услуги, внедрих следните решения:
-
-    - известяване за бюджетни разходи на цялата платформа с предварително определен процент на превишен бюджет за изпращане на имейл съобщения до собствениците на бизнеса
-
-    - създаване на допълнителни REST API крайни точки за Control Tower за уточняване кои новосъздадени AWS акаунти принадлежат към кой VPC.
+      - известяване за бюджетни разходи на цялата платформа с предварително определен процент на превишен бюджет за изпращане на имейл съобщения до собствениците на бизнеса
+      - създаване на допълнителни REST API крайни точки за Control Tower за уточняване кои новосъздадени AWS акаунти принадлежат към кой VPC.
     Там също написах логиката, при която Lambda функция проверява типа на акаунта и въз основа на това към кой VPC шаблон принадлежи - внедрява AWS CloudFormation StackSet към съответния акаунт.
-
-    - създаване на дизайн на високо ниво на потока от данни и репликация за цялата платформа за данни
+      - създаване на дизайн на високо ниво на потока от данни и репликация за цялата платформа за данни
 
     Вторият ми проект се фокусира върху предоставянето на ценна информация за подобряване на пазаруването за клиентите и създаване на програми за лоялност за известна компания от магазини Whole Foods.
     Бях позициониран като Data Engineer на платформата Azure за осигуряване на целостта на данните и валидиране на данни на нивото „от суровина до източник до подготвен продукт“. За процесите на валидиране на данни разработихме рамка за автоматизация на тестове, изградена върху рамката pytest.
@@ -138,13 +197,10 @@
     L'automatisation de ces processus a été réalisée grâce à l'utilisation d'AWS CDK Infrastructure as Code (IaaC).
 
     Dans le cadre de mes contributions aux services clients, j'ai mis en œuvre les solutions suivantes :
-
-    - Alertes de dépassement de budget sur l'ensemble de la plateforme, avec un pourcentage prédéfini de dépassement de budget déclenchant l'envoi de courriels aux responsables métier.
-
-    - Création de points d'accès API REST supplémentaires pour Control Tower afin de spécifier à quel VPC appartiennent les comptes AWS nouvellement créés.
-    J'ai également développé la logique permettant à une fonction Lambda de vérifier le type de compte et, en fonction du modèle VPC auquel il appartient, de déployer le StackSet AWS CloudFormation sur le compte approprié.
-
-    - Création d'une architecture de haut niveau du flux et de la réplication des données pour l'ensemble de la plateforme de données.
+      - Alertes de dépassement de budget sur l'ensemble de la plateforme, avec un pourcentage prédéfini de dépassement de budget déclenchant l'envoi de courriels aux responsables métier.
+      - Création de points d'accès API REST supplémentaires pour Control Tower afin de spécifier à quel VPC appartiennent les comptes AWS nouvellement créés.
+      J'ai également développé la logique permettant à une fonction Lambda de vérifier le type de compte et, en fonction du modèle VPC auquel il appartient, de déployer le StackSet AWS CloudFormation sur le compte approprié.
+      - Création d'une architecture de haut niveau du flux et de la réplication des données pour l'ensemble de la plateforme de données.
 
     Mon deuxième projet consistait à fournir des informations précieuses pour améliorer
     l'expérience d'achat des clients et à mettre en place des programmes de fidélisation pour une chaîne de magasins Whole Foods renommée.
@@ -172,13 +228,10 @@
     Die Automatisierung dieser Prozesse wurde durch die Verwendung von AWS CDK Infrastructure as Code (IaaC) erreicht.
 
     Im Rahmen meiner Beiträge zu den Kundenservices habe ich folgende Lösungen implementiert:
-
-    - Budgetkostenwarnungen für die gesamte Plattform mit einem vordefinierten Prozentsatz der Budgetüberschreitung, um E-Mail-Benachrichtigungen an die Geschäftsinhaber zu senden
-
-    - Erstellung zusätzlicher REST-API-Endpunkte für den Control Tower, um festzulegen, welche neu erstellten AWS-Konten zu welcher VPC gehören.
-    Dabei habe ich auch die Logik entwickelt, mit der eine Lambda-Funktion den Kontotyp überprüft und basierend auf der zugehörigen VPC-Vorlage den AWS CloudFormation StackSet im entsprechenden Konto bereitstellt.
-
-    - Erstellung eines übergeordneten Designs des Datenflusses und der Datenreplikation für die gesamte Datenplattform
+      - Budgetkostenwarnungen für die gesamte Plattform mit einem vordefinierten Prozentsatz der Budgetüberschreitung, um E-Mail-Benachrichtigungen an die Geschäftsinhaber zu senden
+      - Erstellung zusätzlicher REST-API-Endpunkte für den Control Tower, um festzulegen, welche neu erstellten AWS-Konten zu welcher VPC gehören.
+      Dabei habe ich auch die Logik entwickelt, mit der eine Lambda-Funktion den Kontotyp überprüft und basierend auf der zugehörigen VPC-Vorlage den AWS CloudFormation StackSet im entsprechenden Konto bereitstellt.
+      - Erstellung eines übergeordneten Designs des Datenflusses und der Datenreplikation für die gesamte Datenplattform
 
     Mein zweites Projekt drehte sich um die Bereitstellung wertvoller Erkenntnisse zur Verbesserung
     des Einkaufserlebnisses für Kunden und die Einrichtung von Kundenbindungsprogrammen für ein renommiertes Unternehmen der Lebensmittelbranche (Whole Foods).
