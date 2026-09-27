@@ -49,52 +49,41 @@ def __convert_bulletpoints_to_html(
 
 
 def __convert_bulletpoints_to_html_numbers(
-    text,
+    text_str: str,
     outer_tag: str,
     inner_tag: str,
 ) -> str:
-    text_edited: list[str] = list(filter(None, text.split(" ")))
+    text = Text(text_str)
     tag = Tag(outer_tag, inner_tag)
-    for count, text_item in enumerate(text_edited):
-        if bool(re.match(r"^\d+\.", text_item)) and "\\" not in text_item:
-            text_edited[count] = tag.get_opened_tags()
 
-            try:
-                match = next(
-                    (
-                        i
-                        for i, t in enumerate(text_edited)
-                        if i > count and re.match(r"^\d+\.$", t)
-                    ),
-                    None,
-                )
-                if match is None:
-                    raise ValueError
-
-                next_dash_index: int = match - 1
-                text_edited[next_dash_index] = f"</{inner_tag}>"
-            except ValueError:
-                # NOTE: E.g if these are no next dashes left
-                if any("\n" in text_str for text_str in text_edited[count:]):
-                    index_in_newline: int = next(
-                        count + index
-                        for index, text_str in enumerate(text_edited[count:])
-                        if "\n" in text_str
-                    )
-                    token = text_edited[index_in_newline]
-                    nl_pos = token.index("\n")
-                    text_edited[index_in_newline] = (
-                        token[:nl_pos]
-                        + f"</{inner_tag}></{outer_tag}>"
-                        + token[nl_pos:]
-                    )
-
+    for count, text_item in enumerate(text.listed_text):
         if "\\" in text_item:
-            text_edited[count] = text_item.replace("\\", "")
+            text.set_element(count, text_item.replace("\\", ""))
 
-    text = " ".join(text_edited)
+        elif bool(re.match(r"^\d+\.", text_item)):
+            text.set_element(count, tag.get_opened_tags())
 
-    return text
+            match = next(
+                (
+                    i
+                    for i, t in enumerate(text.listed_text)
+                    if i > count and re.match(r"^\d+\.$", t)
+                ),
+                None,
+            )
+            if match is not None:
+                text.set_element(match - 1, tag.get_closed_inner_tag())
+            else:
+                if any("\n" in text_str for text_str in text.listed_text[count:]):
+                    index_by_newline = text.get_element_by_next_newline(count)
+
+                    text.set_element(
+                        index_by_newline,
+                        tag.get_closed_tags(text.listed_text[index_by_newline]),
+                    )
+
+    result: str = text.get_text()
+    return result
 
 
 class Tag:
@@ -122,6 +111,9 @@ class Tag:
         return (
             token[:nl_pos] + f"</{self.inner_tag}></{self.outer_tag}>" + token[nl_pos:]
         )
+
+    def get_closed_inner_tag(self) -> str:
+        return f"</{self.inner_tag}>"
 
 
 class Text:
