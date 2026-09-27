@@ -6,34 +6,52 @@ register = template.Library()
 
 @register.filter(name="convert_list_to_bulletpoints")
 def convert_list_to_bulletpoints(text: str) -> str:
+    text = __convert_bulletpoints_to_html(text, "-", "ul", "li")
 
-    text_edited: list[str] = list(filter(None, text.split("\n")))
+    text_edited = list(filter(None, text.split("\n")))
     for count, text_item in enumerate(text_edited):
         text_edited[count] = f"<p>{text_item}</p>"
 
-    text_edited = "".join(text_edited).split(" ")
-    if "-" in text_edited:
+    text = " ".join(text_edited)
+    return mark_safe(text)
+
+
+def __convert_bulletpoints_to_html(
+    text, symbol: str, outer_tag: str, inner_tag: str
+) -> str:
+    text_edited: list[str] = list(filter(None, text.split(" ")))
+    if symbol in text_edited:
         opened_ul: bool = False
         for count, text_item in enumerate(text_edited):
-            if text_item == "-":
+            if text_item == "-" and "\\" not in text_item:
                 if not opened_ul:
-                    text_edited[count] = "<ul><li>"
+                    text_edited[count] = f"<{outer_tag}><{inner_tag}>"
                     opened_ul = True
                 else:
-                    text_edited[count] = "<li>"
+                    text_edited[count] = f"<{inner_tag}>"
 
                 try:
-                    next_dash_index: int = text_edited.index("-", count) - 1
-                    print(next_dash_index, count)
-                    if next_dash_index - count >= 50:
-                        text_edited[next_dash_index] = "</li></ul>"
-                    else:
-                        text_edited[next_dash_index] = "</li>"
+                    next_dash_index: int = text_edited.index(symbol, count) - 1
+                    text_edited[next_dash_index] = f"</{inner_tag}>"
                 except ValueError:
                     # NOTE: E.g if these are no next dashes left
-                    text_edited[-1] = "</li></ul>"
+                    if any("\n" in text_str for text_str in text_edited[count:]):
+                        index_in_newline: int = next(
+                            count + index
+                            for index, text_str in enumerate(text_edited[count:])
+                            if "\n" in text_str
+                        )
+                        token = text_edited[index_in_newline]
+                        nl_pos = token.index("\n")
+                        text_edited[index_in_newline] = (
+                            token[:nl_pos]
+                            + f"</{inner_tag}></{outer_tag}>"
+                            + token[nl_pos:]
+                        )
+
+            if "\\" in text_item:
+                text_edited[count] = text_item.replace("\\", "")
 
         text = " ".join(text_edited)
-        print(text)
 
-    return mark_safe(text)
+    return text
