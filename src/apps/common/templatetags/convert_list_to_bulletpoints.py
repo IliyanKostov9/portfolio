@@ -20,44 +20,32 @@ def convert_list_to_bulletpoints(text: str) -> str:
 
 
 def __convert_bulletpoints_to_html(
-    text, symbol: str, outer_tag: str, inner_tag: str
+    text_str: str, symbol: str, outer_tag: str, inner_tag: str
 ) -> str:
-    text_edited: list[str] = list(filter(None, text.split(" ")))
-    if symbol in text_edited:
-        opened_ul: bool = False
-        for count, text_item in enumerate(text_edited):
-            if (text_item == symbol) and "\\" not in text_item:
-                if not opened_ul:
-                    text_edited[count] = f"<{outer_tag}><{inner_tag}>"
-                    opened_ul = True
-                else:
-                    text_edited[count] = f"<{inner_tag}>"
+    text = Text(text_str)
+    if symbol in text.listed_text:
+        tag = Tag(outer_tag, inner_tag)
 
-                try:
-                    next_dash_index: int = text_edited.index(symbol, count) - 1
-                    text_edited[next_dash_index] = f"</{inner_tag}>"
-                except ValueError:
-                    # NOTE: E.g if these are no next dashes left
-                    if any("\n" in text_str for text_str in text_edited[count:]):
-                        index_in_newline: int = next(
-                            count + index
-                            for index, text_str in enumerate(text_edited[count:])
-                            if "\n" in text_str
-                        )
-                        token = text_edited[index_in_newline]
-                        nl_pos = token.index("\n")
-                        text_edited[index_in_newline] = (
-                            token[:nl_pos]
-                            + f"</{inner_tag}></{outer_tag}>"
-                            + token[nl_pos:]
-                        )
-
+        for count, text_item in enumerate(text.listed_text):
             if "\\" in text_item:
-                text_edited[count] = text_item.replace("\\", "")
+                text.set_element(count, text_item.replace("\\", ""))
 
-        text = " ".join(text_edited)
+            elif text_item == symbol:
+                text.set_element(count, tag.get_opened_tags())
 
-    return text
+                if symbol in text.listed_text[count:]:
+                    text.set_element_by_symbol(symbol, count, f"</{inner_tag}>")
+                else:
+                    if any("\n" in text_str for text_str in text.listed_text[count:]):
+                        index_by_newline = text.get_element_by_next_newline(count)
+
+                        text.set_element(
+                            index_by_newline,
+                            tag.get_closed_tags(text.listed_text[index_by_newline]),
+                        )
+
+    result: str = text.get_text()
+    return result
 
 
 def __convert_bulletpoints_to_html_numbers(
@@ -66,14 +54,10 @@ def __convert_bulletpoints_to_html_numbers(
     inner_tag: str,
 ) -> str:
     text_edited: list[str] = list(filter(None, text.split(" ")))
-    opened_ul: bool = False
+    tag = Tag(outer_tag, inner_tag)
     for count, text_item in enumerate(text_edited):
         if bool(re.match(r"^\d+\.", text_item)) and "\\" not in text_item:
-            if not opened_ul:
-                text_edited[count] = f"<{outer_tag}><{inner_tag}>"
-                opened_ul = True
-            else:
-                text_edited[count] = f"<{inner_tag}>"
+            text_edited[count] = tag.get_opened_tags()
 
             try:
                 match = next(
@@ -111,3 +95,59 @@ def __convert_bulletpoints_to_html_numbers(
     text = " ".join(text_edited)
 
     return text
+
+
+class Tag:
+    outer_tag: str
+    inner_tag: str
+
+    is_outer_tag_opened: bool
+
+    def __init__(self, outer_tag: str, inner_tag: str) -> None:
+        self.outer_tag = outer_tag
+        self.inner_tag = inner_tag
+        self.is_outer_tag_opened = False
+
+    def get_opened_tags(self) -> str:
+        if not self.is_outer_tag_opened:
+            self.is_outer_tag_opened = True
+
+            return f"<{self.outer_tag}><{self.inner_tag}>"
+        else:
+            return f"<{self.inner_tag}>"
+
+    def get_closed_tags(self, token: str) -> str:
+        nl_pos = token.index("\n")
+
+        return (
+            token[:nl_pos] + f"</{self.inner_tag}></{self.outer_tag}>" + token[nl_pos:]
+        )
+
+
+class Text:
+    listed_text: list[str]
+
+    def __init__(self, text: str) -> None:
+        self.listed_text: list[str] = list(filter(None, text.split(" ")))
+
+    def set_element(self, index: int, value: str) -> None:
+        self.listed_text[index] = value
+
+    def set_element_by_symbol(self, symbol: str, index: int, value: str) -> None:
+
+        if symbol in self.listed_text[index:]:
+            index_by_symbol: int = self.listed_text.index(symbol, index) - 1
+
+            self.set_element(index_by_symbol, value)
+
+    def get_element_by_next_newline(self, count: int) -> int:
+        index_in_newline: int = next(
+            count + index
+            for index, text_str in enumerate(self.listed_text[count:])
+            if "\n" in text_str
+        )
+
+        return index_in_newline
+
+    def get_text(self) -> str:
+        return " ".join(self.listed_text)
