@@ -7,22 +7,21 @@ register = template.Library()
 
 
 @register.filter(name="convert_list_to_bulletpoints")
-def convert_list_to_bulletpoints(text: str) -> str:
-    text = __convert_bulletpoints_to_html(text, "-", "ul", "li")
-    text = __convert_bulletpoints_to_html_numbers(text, "ol", "li")
+def convert_list_to_bulletpoints(text_str: str) -> str:
+    text = Text(text_str)
+    __convert_bulletpoints_to_html(text, "-", "ul", "li")
+    __convert_bulletpoints_to_html_numbers(text, "ol", "li")
 
-    text_edited = list(filter(None, text.split("\n")))
-    for count, text_item in enumerate(text_edited):
-        text_edited[count] = f"<p>{text_item}</p>"
+    text = Text(text.get_text(), "\n")
+    for count, text_item in enumerate(text.listed_text):
+        text.set_element(count, f"<p>{text_item}</p>")
 
-    text = " ".join(text_edited)
-    return mark_safe(text)
+    return mark_safe(text.get_text())
 
 
 def __convert_bulletpoints_to_html(
-    text_str: str, symbol: str, outer_tag: str, inner_tag: str
-) -> str:
-    text = Text(text_str)
+    text: Text, symbol: str, outer_tag: str, inner_tag: str
+) -> None:
     if symbol in text.listed_text:
         tag = Tag(outer_tag, inner_tag)
 
@@ -44,16 +43,12 @@ def __convert_bulletpoints_to_html(
                             tag.get_closed_tags(text.listed_text[index_by_newline]),
                         )
 
-    result: str = text.get_text()
-    return result
-
 
 def __convert_bulletpoints_to_html_numbers(
-    text_str: str,
+    text: Text,
     outer_tag: str,
     inner_tag: str,
 ) -> str:
-    text = Text(text_str)
     tag = Tag(outer_tag, inner_tag)
 
     for count, text_item in enumerate(text.listed_text):
@@ -81,9 +76,6 @@ def __convert_bulletpoints_to_html_numbers(
                         index_by_newline,
                         tag.get_closed_tags(text.listed_text[index_by_newline]),
                     )
-
-    result: str = text.get_text()
-    return result
 
 
 class Tag:
@@ -119,8 +111,8 @@ class Tag:
 class Text:
     listed_text: list[str]
 
-    def __init__(self, text: str) -> None:
-        self.listed_text: list[str] = list(filter(None, text.split(" ")))
+    def __init__(self, text: str, split_type: str = " ") -> None:
+        self.listed_text: list[str] = list(filter(None, text.split(split_type)))
 
     def set_element(self, index: int, value: str) -> None:
         self.listed_text[index] = value
