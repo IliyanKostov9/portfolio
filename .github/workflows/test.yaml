@@ -37,7 +37,7 @@ jobs:
           sparse-checkout-cone-mode: true
 
       - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24
-      - uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71
+      - uses: cachix/cachix-action@38b082610b782e7e93e209c35fd730d399dee866
         with:
           name: iliyankostov9-portfolio-dev
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
@@ -85,7 +85,7 @@ jobs:
           fail-on-cache-miss: true
 
       - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24
-      - uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71
+      - uses: cachix/cachix-action@38b082610b782e7e93e209c35fd730d399dee866
         with:
           name: iliyankostov9-portfolio-dev
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
