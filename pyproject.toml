@@ -43,6 +43,6 @@ test = [
     "django-test-migrations>=1.6.0",
     "flake8>=7.3.0",
     "moto>=5.2.3",
-    "pylint>=4.0.7",
+    "pylint>=4.0.9",
     "setuptools-rust>=1.13.0",
 ]
