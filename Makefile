@@ -125,9 +125,9 @@ decrypt-file: ## Decrypt a file
 	age -d -i $(AGE_KEY) $(FILE) > $(FILE:.age=)
 
 .PHONY: encrypt-files
-encrypt-files: ## Encrypt a set of files, given a directory and an extension
+encrypt-files: ## Encrypt a set of files, given a directory and an extension. Make sure to provide the path of the public AGE_KEY
 	for file in $$(find $(DIR) -name "*.$(EXT)"); do \
-		age -r $(AGE_KEY) $$file > $$file.age; \
+		age -r $$(command cat $(AGE_KEY)) $$file > $$file.age; \
 	done
 
 .PHONY: decrypt-files
