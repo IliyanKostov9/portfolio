@@ -24,8 +24,8 @@ dependencies = [
     "loguru>=0.7.3",
     "loki-logger-handler>=1.1.2",
     "requests>=2.34.2",
-    "psycopg2-binary>=2.9.12",
     "boto3>=1.43.103",
+    "psycopg2-binary>=2.9.13",
     "django-storages>=1.14.6",
     "django-configurations>=2.5.1",
 ]
@@ -43,6 +43,6 @@ test = [
     "django-test-migrations>=1.6.0",
     "flake8>=7.3.0",
     "moto>=5.2.3",
-    "pylint>=4.0.7",
+    "pylint>=4.0.9",
     "setuptools-rust>=1.13.0",
 ]
