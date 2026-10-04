@@ -1,19 +1,17 @@
 import os
-from typing import Any, Final
 from io import BytesIO
-from django.http import (
-    HttpResponse,
-    HttpResponseForbidden,
-    HttpResponseServerError,
-)
+from typing import Any, Final
+
+from botocore.exceptions import ClientError
+from django.http import HttpResponse, HttpResponseForbidden, HttpResponseServerError
+from django.utils.translation import gettext as _
+from django.utils.translation import override
 from django.views import View
 
-from django.utils.translation import gettext as _, override
 from portfolio.helpers.email import Email
 from portfolio.helpers.security_manager import SecurityManager
-from portfolio.monitor.log import logger
 from portfolio.models.aws.s3 import S3
-from botocore.exceptions import ClientError
+from portfolio.monitor.log import logger
 
 
 class CVDownloadView(View):

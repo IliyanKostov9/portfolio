@@ -4,10 +4,10 @@ from typing import Any
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import redirect
+from django.utils.translation import get_language
 from django.utils.translation import gettext as _
 from django.views import View
 
-from django.utils.translation import get_language
 from apps.resume.forms.contact_me_form import ContactMe, ContactMeForm
 from portfolio.helpers.email import Email
 from portfolio.helpers.security_manager import SecurityManager
@@ -54,6 +54,12 @@ class ContactMeView(View):
                 url_no: str = (
                     f"{http_protocol}://{host}/home/cv-download/{token}/?choice=no&email={contact_me.email}&language={get_language()}"
                 )
+
+                if contact_me.email == os.environ.get("PORTFOLIO_TO_EMAIL"):
+                    self.LOG.success(
+                        f"Iliyan has requested to download his own CV with email: {contact_me.email}. Automatically accepting..."
+                    )
+                    return redirect(url_yes)
 
                 Email.send(
                     subject=_("Thanks for contacting Iliyan!"),
