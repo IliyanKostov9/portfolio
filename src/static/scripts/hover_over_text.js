@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   voiceBtns.forEach((voiceBtn) => {
     voiceBtn.addEventListener("click", () => {
+      voiceBtn.style.cursor = "wait";
+
       const text = voiceBtn.textContent;
       fetch("home/voice/", {
         method: "POST",
@@ -27,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((response) => response.blob())
         .then((blob) => {
           new Audio(URL.createObjectURL(blob)).play();
+          voiceBtn.style.cursor = "";
         });
     });
 
