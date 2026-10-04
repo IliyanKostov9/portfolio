@@ -24,8 +24,8 @@ dependencies = [
     "loguru>=0.7.3",
     "loki-logger-handler>=1.1.2",
     "requests>=2.34.2",
+    "boto3>=1.43.103",
     "psycopg2-binary>=2.9.13",
-    "boto3>=1.43.83",
     "django-storages>=1.14.6",
     "django-configurations>=2.5.1",
 ]
