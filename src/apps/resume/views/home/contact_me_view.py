@@ -44,22 +44,19 @@ class ContactMeView(View):
                     "https" if os.environ.get("SECURE_SSL_REDIRECT") else "http"
                 )
 
-                host: str = os.environ.get("PORTFOLIO_HOST")
+                host: str | None = os.environ.get("PORTFOLIO_HOST")
                 if host == "localhost":
                     host += ":8000"
 
-                url_yes: str = (
-                    f"{http_protocol}://{host}/home/cv-download/{token}/?choice=yes&email={contact_me.email}&language={get_language()}"
-                )
-                url_no: str = (
-                    f"{http_protocol}://{host}/home/cv-download/{token}/?choice=no&email={contact_me.email}&language={get_language()}"
+                url = lambda email, choice: (  # noqa: E731
+                    f"{http_protocol}://{host}/home/cv-download/{token}/?choice={choice}&email={email}&language={get_language()}"
                 )
 
                 if contact_me.email == os.environ.get("PORTFOLIO_TO_EMAIL"):
                     self.LOG.success(
                         f"Iliyan has requested to download his own CV with email: {contact_me.email}. Automatically accepting..."
                     )
-                    return redirect(url_yes)
+                    return redirect(url(os.environ.get("PORTFOLIO_TO_EMAIL"), "yes"))
 
                 Email.send(
                     subject=_("Thanks for contacting Iliyan!"),
@@ -72,7 +69,7 @@ class ContactMeView(View):
                 return self.__send_email_to_iliyan(
                     request,
                     f"{contact_me.email} has made a request to download your CV",
-                    f"Name: {contact_me.name}</br>Message: {contact_me.message}</br></br>Accept/Refuse: (<a href='{url_yes}'>Yes</a>/<a href='{url_no}'>No</a>)",
+                    f"Name: {contact_me.name}</br>Message: {contact_me.message}</br></br>Accept/Refuse: (<a href='{url(contact_me.email, 'yes')}'>Yes</a>/<a href='{url(contact_me.email, 'no')}'>No</a>)",
                     _(
                         "You have successfully sent a CV download request to Iliyan!\n Please wait for him to either accept/refuse your request.\n\nPlease make sure to look at your junk folder, that's where the email may end up in.\nWe'll make sure to update you regarding the status in your email box :)"
                     ),

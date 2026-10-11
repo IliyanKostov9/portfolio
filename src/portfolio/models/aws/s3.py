@@ -18,13 +18,13 @@ class S3:
 
     def __init__(
         self,
-        bucket: str,
+        bucket: str | None,
         access_key_id: str | None = None,
         secret_access_key: str | None = None,
     ) -> None:
-        if access_key_id is None or secret_access_key is None:
+        if bucket is None or access_key_id is None or secret_access_key is None:
             raise ValueError(
-                "Environment variable ACCESS_KEY_ID or SECRET_ACCESS_KEY are NOT SET!"
+                "Variables bucket or access_key_id or secret_access_key are NOT SET!"
             )
 
         self.bucket = bucket
