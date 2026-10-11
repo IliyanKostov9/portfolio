@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% load static compress i18n %}
+{% block title %}
+    blogs
+{% endblock %}
+{% block description %}
+    Blogs section to share all of my thoughts
+{% endblock %}
 {% block extra_head %}
     {% compress css %}
         <link href="{% static 'style/blogs.scss' %}"
