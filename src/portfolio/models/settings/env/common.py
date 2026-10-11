@@ -48,12 +48,15 @@ class Common:
         MEDIA_URL = CDN_URL + "/"
 
     COMPRESS_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"),)
-    # NOTE: Maybe remove it from prod ?
     CACHES = {
         "default": {
             "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
             "LOCATION": "portfolio-cache",
-        }
+        },
+        "tokens": {
+            "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+            "LOCATION": "token_cache_table",
+        },
     }
     TEMPLATES = [
         {

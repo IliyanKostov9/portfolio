@@ -3,7 +3,12 @@ from io import BytesIO
 from typing import Any, Final
 
 from botocore.exceptions import ClientError
-from django.http import HttpResponse, HttpResponseForbidden, HttpResponseServerError
+from django.http import (
+    HttpResponse,
+    HttpResponseBadRequest,
+    HttpResponseForbidden,
+    HttpResponseServerError,
+)
 from django.utils.translation import gettext as _
 from django.utils.translation import override
 from django.views import View
@@ -20,20 +25,29 @@ class CVDownloadView(View):
     def get(
         self, request: Any, token: str
     ) -> HttpResponse | HttpResponseForbidden | HttpResponseServerError:
+        VALID_CHOICE_VALUES: Final[list[str]] = ["yes", "no"]
+
+        user_email: str = request.GET.get("email")
+        user_language: str = request.GET.get("language", "en")
+        CV_S3_KEY_PATH: Final[str] = f"portfolio/cv-{user_language}/main.pdf"
+
+        is_user_iliyan: bool = SecurityManager.verify_token(
+            token, os.environ.get("PORTFOLIO_TO_EMAIL", "")
+        )
+
         s3 = S3(
             os.environ.get("PORTFOLIO_S3_MAIN_PROD_BUCKET"),
             os.environ.get("PORTFOLIO_S3_MAIN_PROD_ACCESS_KEY_ID"),
             os.environ.get("PORTFOLIO_S3_MAIN_PROD_SECRET_ACCESS_KEY"),
         )
 
-        is_user_iliyan: bool = SecurityManager.verify_token(token)
-        does_iliyan_want_to_share_his_cv: bool = (
-            True if request.GET.get("choice") == "yes" else False
-        )
-        user_email: str = request.GET.get("email")
+        if (choice := request.GET.get("choice")) not in VALID_CHOICE_VALUES:
+            self.LOG.error("Invalid 'choice' value received")
+            raise HttpResponseBadRequest(
+                f"Unknown choice value\n. Available values: {', '.join(VALID_CHOICE_VALUES)}"
+            )
 
-        user_language: str = request.GET.get("language", "en")
-        CV_S3_KEY_PATH: Final[str] = f"portfolio/cv-{user_language}/main.pdf"
+        does_iliyan_want_to_share_his_cv: bool = choice == "yes"
 
         if is_user_iliyan:
             try:
@@ -78,6 +92,8 @@ class CVDownloadView(View):
                     f"Email has been successfully send to: {os.environ.get('PORTFOLIO_TO_EMAIL')}!",
                     code=200,
                 )
+                SecurityManager.invalidate(token)
+
                 return HttpResponse(
                     "You have "
                     + ("sent" if does_iliyan_want_to_share_his_cv else "not sent")

@@ -11,7 +11,11 @@ class Dev(Common, Configuration):
     CACHES = {
         "default": {
             "BACKEND": "django.core.cache.backends.dummy.DummyCache",
-        }
+        },
+        "tokens": {
+            "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+            "LOCATION": "token_cache_table",
+        },
     }
 
     CONTENT_SECURITY_POLICY_REPORT_ONLY = Common.CSP_POLICY
