@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ["en", "fr", "bg", "ge"]
+        language: ["en", "fr", "bg", "de"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7

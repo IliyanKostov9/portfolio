@@ -1,8 +1,12 @@
+from django.conf import settings
 from django.core.handlers.asgi import ASGIRequest
 from django.test import TestCase
 
 
 class CSPReportTestCase(TestCase):
+    def setUp(self):
+        settings.SECRET_KEY = "dummy-key"
+
     def test_post(self):
         response: ASGIRequest = self.client.post(
             "/monitor/csp-report",

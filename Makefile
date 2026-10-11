@@ -20,6 +20,9 @@ all: clean test run ## Perform check clean test run at the same time
 run: ## Run Django app
 	python3 -m uvicorn src.portfolio.asgi:application --reload
 
+test:
+	devenv test
+
 clean:
 	echo "clean"
 

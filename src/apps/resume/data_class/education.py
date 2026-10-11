@@ -10,22 +10,22 @@ class Education(Portfolio):
     en_degree: str
     bg_degree: str
     fr_degree: str
-    ge_degree: str
+    de_degree: str
 
     en_specialty: str
     bg_specialty: str
     fr_specialty: str
-    ge_specialty: str
+    de_specialty: str
 
     en_university_name: str
     bg_university_name: str
     fr_university_name: str
-    ge_university_name: str
+    de_university_name: str
 
     en_description: str
     bg_description: str
     fr_description: str
-    ge_description: str
+    de_description: str
 
     scroll_description: bool
     image: str
@@ -34,7 +34,7 @@ class Education(Portfolio):
     en_href_title: str
     bg_href_title: str
     fr_href_title: str
-    ge_href_title: str
+    de_href_title: str
 
     date: str
     gpa: str

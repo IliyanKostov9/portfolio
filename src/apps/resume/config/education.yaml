@@ -2,15 +2,15 @@
 - en_degree: "Masters degree"
   bg_degree: "Магистърска степен"
   fr_degree: "Une maîtrise"
-  ge_degree: "Master-Abschluss"
+  de_degree: "Master-Abschluss"
   en_specialty: "Software engineering"
   bg_specialty: "Софтуерно инженерство"
   fr_specialty: "Génie logiciel"
-  ge_specialty: "Softwareentwicklung"
+  de_specialty: "Softwareentwicklung"
   en_university_name: "Technical university of Varna"
   bg_university_name: "Технически университет във Варна"
   fr_university_name: "Université technique de Varna"
-  ge_university_name: "Technische Universität Warna"
+  de_university_name: "Technische Universität Warna"
   en_description: |
     Graduates of the Master's Program "Software Engineering" can work
     as applied and system programmers, web designers and developers,
@@ -23,7 +23,7 @@
     Les diplômés du programme de master "Génie logiciel" peuvent travailler
     en tant que programmeurs d'applications et de systèmes, concepteurs et développeurs web,
     consultants en technologies logicielles, développeurs d'applications internet, et bien plus encore.
-  ge_description: |
+  de_description: |
     Absolventen des Masterstudiengangs "Software Engineering" können unter
     anderem als Anwendungs- und Systemprogrammierer, Webdesigner und -entwickler,
     Softwaretechnologieberater oder im Bereich Internetanwendungen tätig sein.
@@ -33,22 +33,22 @@
   en_href_title: "Thesis: Design and implementation of a system for doctoral students admission and training"
   bg_href_title: "Теза: Проектиране и внедряване на система за прием и обучение на докторанти"
   fr_href_title: "Ceci : Protection et prise en charge du système de soins et de prise en charge du médecin"
-  ge_href_title: "Text: Projekt und Prüfung des Systems zur Prüfung und Einsichtnahme bei Ärzten"
+  de_href_title: "Text: Projekt und Prüfung des Systems zur Prüfung und Einsichtnahme bei Ärzten"
   date: "10-2023 - 07-2025"
   gpa: "GPA: 6.00"
 
 - en_degree: "Bachelors degree"
   bg_degree: "Бакалавърска степен"
   fr_degree: "Licence"
-  ge_degree: "Bachelor-Abschluss"
+  de_degree: "Bachelor-Abschluss"
   en_specialty: "Computer and Internet technology"
   bg_specialty: "Компютърни и интернет технологии"
   fr_specialty: "Technologies informatiques et Internet"
-  ge_specialty: "Computer- und Internettechnologie"
+  de_specialty: "Computer- und Internettechnologie"
   en_university_name: "Technical university of Varna"
   bg_university_name: "Технически университет във Варна"
   fr_university_name: "Université technique de Varna"
-  ge_university_name: "Technische Universität Warna"
+  de_university_name: "Technische Universität Warna"
   en_description: |
     The Objects of the Professional Activity of the Engineer with the
     specialty "SIT" are the design, development and maintenance of
@@ -70,7 +70,7 @@
     l'élargissement du champ d'application des systèmes et réseaux informatiques et des
     technologies de l'information, l'application réussie des technologies modernes et en constante évolution pour
     internet et l'informatique distribuée et parallèle, ainsi que l'intelligence artificielle.
-  ge_description: |
+  de_description: |
     Die Aufgabenbereiche der beruflichen Tätigkeit des Ingenieurs mit der
     Spezialisierung „SIT“ umfassen den Entwurf, die Entwicklung und die Wartung von
     Software- und Internetsystemen und -anwendungen, die Erweiterung des
@@ -84,6 +84,6 @@
   en_href_title: "Thesis: AI-Driven Project management web app with ChatGPT 3.5"
   bg_href_title: "Теза: Уеб приложение за управление на проекти, управлявано от изкуствен интелект, с ChatGPT 3.5"
   fr_href_title: "Thèse : Application web de gestion de projet basée sur l'IA avec ChatGPT 3.5"
-  ge_href_title: "Masterarbeit: KI-gestützte Webanwendung für Projektmanagement mit ChatGPT 3.5"
+  de_href_title: "Masterarbeit: KI-gestützte Webanwendung für Projektmanagement mit ChatGPT 3.5"
   date: "09-2019 - 07-2023"
   gpa: "GPA: 6.00"

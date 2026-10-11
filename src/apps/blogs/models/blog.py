@@ -9,6 +9,7 @@ from django.db.models import (
     IntegerField,
 )
 from django.forms.models import model_to_dict
+from django.urls import reverse
 from django.utils.translation import get_language
 
 from apps.blogs.models.blog_category import BlogCategory
@@ -66,3 +67,6 @@ class Blog(Portfolio):
     def clean(self, blog_obj: list[Any]) -> None:
         for blog in blog_obj:
             blog.pop("id")
+
+    def get_absolute_url(self):
+        return reverse("blogs:blogs") + self.url

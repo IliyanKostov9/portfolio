@@ -1,14 +1,15 @@
 import os
-from typing import Final, List
-import boto3
 from pathlib import Path
-
-from django.utils.translation import override
+from typing import Final
 from unittest import TestCase
 from unittest.mock import patch
+
+import boto3
+from django.utils.translation import override
+from moto import mock_aws
+
 from portfolio.models.aws.polly import Polly
 from portfolio.models.aws.s3 import S3
-from moto import mock_aws
 
 
 @patch.dict(
@@ -27,15 +28,17 @@ class TestPolly(TestCase):
         client_bucket.create_bucket(Bucket=self.BUCKET)
 
     def test_envs(self) -> None:
-        with patch.dict(
-            os.environ,
-            {
-                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID": "",
-                "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACCESS_KEY": "",
-            },
+        with (
+            patch.dict(
+                os.environ,
+                {
+                    "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_ACCESS_KEY_ID": "",
+                    "PORTFOLIO_S3_TEXT_TO_SPEECH_PROD_SECRET_ACCESS_KEY": "",
+                },
+            ),
+            self.assertRaises(ValueError),
         ):
-            with self.assertRaises(ValueError):
-                Polly(self.BUCKET)
+            Polly(self.BUCKET)
 
         Polly(self.BUCKET)
 
@@ -43,7 +46,7 @@ class TestPolly(TestCase):
         polly = Polly(self.BUCKET)
         stream: bytes = polly.generate("This is a test")
 
-        matches: List[str] = [
+        matches: list[str] = [
             file
             for file in os.listdir(
                 str(Path(__file__).resolve().parents[5]) + "/" + S3.TMP_FILE
@@ -65,7 +68,7 @@ class TestPolly(TestCase):
                 "voice": "Lea",
                 "engine": "neural",
             },
-            "ge": {
+            "de": {
                 "language_code": "de-DE",
                 "voice": "Vicki",
                 "engine": "neural",
@@ -81,7 +84,7 @@ class TestPolly(TestCase):
                 "engine": "neural",
             },
         }
-        langs = ["en", "fr", "ge", "bg", "blablabla"]
+        langs = ["en", "fr", "de", "bg", "blablabla"]
 
         for lang in langs:
             with override(lang):

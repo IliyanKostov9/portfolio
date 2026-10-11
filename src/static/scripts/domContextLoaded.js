@@ -9,19 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const scrollspys = document.querySelectorAll("[data-mdb-scrollspy-init]");
   const dropdowns = document.querySelectorAll("[data-mdb-dropdown-init]");
   const ripples = document.querySelectorAll("[data-mdb-ripple-init]");
-
-  const contactForm = document.getElementById("contactForm");
   const card = document.getElementById("theme-card");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", function () {
-      const btn = document.getElementById("submitBtn");
-      const spinner = document.getElementById("spinnerSubmit");
-
-      btn.disabled = true;
-      spinner.style.display = "inline-block";
-    });
-  }
 
   collapse.forEach((collapse) => {
     new mdb.Collapse(collapse);

@@ -4,7 +4,7 @@ from portfolio.data_class.portfolio import Portfolio
 
 
 class Translation(Portfolio):
-    languages: Final[list[str]] = ["en", "bg", "fr", "ge"]
+    languages: Final[list[str]] = ["en", "bg", "fr", "de"]
 
     @override
     @staticmethod

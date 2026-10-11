@@ -13,13 +13,13 @@ class WorkHistory(Portfolio):
     en_specialty: int
     bg_specialty: int
     fr_specialty: int
-    ge_specialty: int
+    de_specialty: int
     dates: list[str]
 
     en_description: str
     bg_description: str
     fr_description: str
-    ge_description: str
+    de_description: str
 
     @classmethod
     def from_yaml(cls, path: str) -> list[WorkHistory]:

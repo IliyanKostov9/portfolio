@@ -109,14 +109,27 @@ class Common:
         #     },
         # },
     }
-
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
-    DEFAULT_FROM_EMAIL = os.environ.get("PORTFOLIO_FROM_EMAIL")
     EMAIL_HOST = os.environ.get("PORTFOLIO_EMAIL_HOST")
     EMAIL_HOST_USER = os.environ.get("PORTFOLIO_EMAIL_USER")
     EMAIL_HOST_PASSWORD = os.environ.get("PORTFOLIO_EMAIL_PASSWORD")
+
+    # NOTE: Uncomment when in Django 7.0
+    # MAILERS = {
+    #     "default": {
+    #         "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+    #         "OPTIONS": {
+    #             "host": os.environ.get("PORTFOLIO_EMAIL_HOST"),
+    #             "username": os.environ.get("PORTFOLIO_EMAIL_USER"),
+    #             "password": os.environ.get("PORTFOLIO_EMAIL_PASSWORD"),
+    #             "use_tls": True,
+    #         },
+    #     }
+    # }
+
+    DEFAULT_FROM_EMAIL = os.environ.get("PORTFOLIO_FROM_EMAIL")
 
     CSP_REPORT_URI = reverse_lazy("monitor/csp-report")
     CSP_REPORTS_EMAIL_ADMINS = True
@@ -179,6 +192,7 @@ class Common:
         "django.contrib.sessions",
         "django.contrib.messages",
         "django.contrib.staticfiles",
+        "django.contrib.sitemaps",
         # NOTE: Test
         "whitenoise.runserver_nostatic",
         "django_test_migrations.contrib.django_checks.AutoNames",
@@ -192,13 +206,13 @@ class Common:
         "django.middleware.common.BrokenLinkEmailsMiddleware",
         "django.middleware.security.SecurityMiddleware",
         "django.contrib.sessions.middleware.SessionMiddleware",
+        "django.middleware.locale.LocaleMiddleware",
         "django.middleware.common.CommonMiddleware",
         "django.middleware.csrf.CsrfViewMiddleware",
         "django.contrib.auth.middleware.AuthenticationMiddleware",
         "django.contrib.messages.middleware.MessageMiddleware",
         "django.middleware.clickjacking.XFrameOptionsMiddleware",
         "django.middleware.cache.FetchFromCacheMiddleware",  # INFO: Must be last
-        "django.middleware.locale.LocaleMiddleware",
         "whitenoise.middleware.WhiteNoiseMiddleware",
         "csp.middleware.CSPMiddleware",
     ]
@@ -218,7 +232,7 @@ class Common:
         },
     ]
 
-    LANGUAGE_CODE = "en-us"
+    LANGUAGE_CODE = "en"
     TIME_ZONE = "Europe/Sofia"
     LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
     USE_I18N = True
@@ -227,7 +241,7 @@ class Common:
         ("en", "English"),
         ("bg", "Bulgarian"),
         ("fr", "French"),
-        ("ge", "German"),
+        ("de", "German"),
     ]
 
     if os.environ.get("PORTFOLIO_ENV") == "prod":

@@ -119,4 +119,4 @@ class ContactMeView(View):
                 _("Error in sending your email message. Please try again next time :("),
             )
 
-        return redirect("home")
+        return redirect("resume:home")
