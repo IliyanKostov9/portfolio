@@ -130,7 +130,18 @@
         <script type="module" src="{% static 'scripts/domContextLoaded.js' %}"></script>
         <script src="{% static 'scripts/lazyload.js' %}"></script>
         <script src="{% static 'scripts/toast.js' %}"></script>
+        <script src="{% static 'scripts/progressbar.js' %}"></script>
         {% include "components/toast.html" %}
+        <div class="fixed-bottom">
+            <div class="progress" style="height: 10px;">
+                <div class="progress-bar progress-bar-animated"
+                     role="progressbar"
+                     id="progressBar"
+                     aria-valuenow="0"
+                     aria-valuemin="0"
+                     aria-valuemax="100"></div>
+            </div>
+        </div>
         <footer class="text-center bg-body-tertiary">
             <div class="container pt-4">
                 <section class="mb-4">
