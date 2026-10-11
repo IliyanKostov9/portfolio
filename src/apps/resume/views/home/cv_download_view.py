@@ -1,10 +1,14 @@
-import base64
 import os
 from io import BytesIO
 from typing import Any, Final
 
 from botocore.exceptions import ClientError
-from django.http import HttpResponse, HttpResponseForbidden, HttpResponseServerError
+from django.http import (
+    HttpResponse,
+    HttpResponseBadRequest,
+    HttpResponseForbidden,
+    HttpResponseServerError,
+)
 from django.utils.translation import gettext as _
 from django.utils.translation import override
 from django.views import View
@@ -37,21 +41,13 @@ class CVDownloadView(View):
             os.environ.get("PORTFOLIO_S3_MAIN_PROD_SECRET_ACCESS_KEY"),
         )
 
-        if (choice := str(request.GET.get("choice"))) not in VALID_CHOICE_VALUES:
-            # NOTE: Sanitize choice data in case of malicious attack
-            if choice.isalnum():
-                err_msg: str = (
-                    f"Unknown choice value: {choice}\n. Available values: {''.join(VALID_CHOICE_VALUES)}"
-                )
-            else:
-                err_msg: str = (
-                    f"Unknown choice value: {base64.b64decode(choice.encode('UTF-8'))}\n. Available values: {''.join(VALID_CHOICE_VALUES)}"
-                )
+        if (choice := request.GET.get("choice")) not in VALID_CHOICE_VALUES:
+            self.LOG.error("Invalid 'choice' value received")
+            raise HttpResponseBadRequest(
+                f"Unknown choice value\n. Available values: {', '.join(VALID_CHOICE_VALUES)}"
+            )
 
-            self.LOG.error(err_msg)
-            raise ValueError(err_msg)
-
-        does_iliyan_want_to_share_his_cv: bool = True if choice == "yes" else False
+        does_iliyan_want_to_share_his_cv: bool = choice == "yes"
 
         if is_user_iliyan:
             try:
