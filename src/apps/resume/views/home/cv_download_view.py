@@ -1,3 +1,4 @@
+import base64
 import os
 from io import BytesIO
 from typing import Any, Final
@@ -36,10 +37,17 @@ class CVDownloadView(View):
             os.environ.get("PORTFOLIO_S3_MAIN_PROD_SECRET_ACCESS_KEY"),
         )
 
-        if (choice := request.GET.get("choice")) not in VALID_CHOICE_VALUES:
-            err_msg: str = (
-                f"Unknown choice value: {choice}\n. Available values: {''.join(VALID_CHOICE_VALUES)}"
-            )
+        if (choice := str(request.GET.get("choice"))) not in VALID_CHOICE_VALUES:
+            # NOTE: Sanitize choice data in case of malicious attack
+            if choice.isalnum():
+                err_msg: str = (
+                    f"Unknown choice value: {choice}\n. Available values: {''.join(VALID_CHOICE_VALUES)}"
+                )
+            else:
+                err_msg: str = (
+                    f"Unknown choice value: {base64.b64decode(choice.encode('UTF-8'))}\n. Available values: {''.join(VALID_CHOICE_VALUES)}"
+                )
+
             self.LOG.error(err_msg)
             raise ValueError(err_msg)
 
