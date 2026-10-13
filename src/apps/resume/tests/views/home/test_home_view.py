@@ -22,7 +22,7 @@ class HomeViewTestCase(TestCase):
 
     def test_get(self):
         response: ASGIRequest = self.client.get(
-            "/",
+            "/en/",
         )
 
         self.request.technology_categories = [
