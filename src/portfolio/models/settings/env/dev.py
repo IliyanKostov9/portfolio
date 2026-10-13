@@ -4,7 +4,7 @@ from .common import Common
 
 
 class Dev(Common, Configuration):
-    DEBUG = False
+    DEBUG = True
     STATIC_ROOT = "/var/www/localhost/static/"
     COMPRESS_ENABLED = True
     COMPRESS_OFFLINE = False
