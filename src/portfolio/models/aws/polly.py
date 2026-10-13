@@ -49,7 +49,7 @@ class Polly:
                 self.language_code = "fr-FR"
                 self.voice = "Lea"
 
-            case "ge":
+            case "de":
                 self.language_code = "de-DE"
                 self.voice = "Vicki"
 

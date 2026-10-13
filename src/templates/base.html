@@ -2,7 +2,11 @@
 <!DOCTYPE html>
 <html lang="en" data-mdb-theme="{{ theme }}">
     <head>
-        <title>Iliyan's portfolio page</title>
+        <title>Iliyan's {% block title %}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <link rel="canonical" href="{{ request.build_absolute_url }}">
         <link rel="browser icon" href="{% static 'favicon.ico' %}" />
         {% env as env %}
         {% if env == "prod" %}
@@ -79,7 +83,7 @@
                                 {% blocktranslate with lang=language %}
               <i class="flag flag-france"></i>
               {% endblocktranslate %}
-                            {% elif language == "ge" %}
+                            {% elif language == "de" %}
                                 {% blocktranslate with lang=language %}
               <i class="flag flag-germany"></i>
               {% endblocktranslate %}
@@ -107,7 +111,7 @@
                             <li>
                                 <button type="submit"
                                         name="language"
-                                        value="ge"
+                                        value="de"
                                         class="dropdown-item">{% translate "German" %}</button>
                             </li>
                         </ul>

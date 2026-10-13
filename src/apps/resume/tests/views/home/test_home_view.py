@@ -15,7 +15,7 @@ from apps.resume.views.home.home_view import HomeView
 
 class HomeViewTestCase(TestCase):
     def setUp(self):
-        self.request = RequestFactory().get(reverse("home"))
+        self.request = RequestFactory().get(reverse("resume:home"))
         self.view = HomeView()
         self.view.setup(self.request)
         settings.SECRET_KEY = "dummy-key"

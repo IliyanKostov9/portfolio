@@ -11,12 +11,12 @@ class Blog(Portfolio):
     en_title: str
     bg_title: str
     fr_title: str
-    ge_title: str
+    de_title: str
 
     en_description: str
     bg_description: str
     fr_description: str
-    ge_description: str
+    de_description: str
 
     image_preview: str
     date: datetime.date

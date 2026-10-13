@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% load static cdn i18n compress %}
+{% block title %}
+    blog about living from abroad
+{% endblock %}
+{% block description %}
+    Sharing my personal thoughts about living from abroad (Bulgaria to France)
+{% endblock %}
 {% block extra_head %}
     {% compress css %}
         <link href="{% static 'style/blogs.scss' %}"
@@ -184,7 +190,9 @@
                     <abbr title="Human resources">Beatrice</abbr> was quite excited to meet me
                     in person and she immediatly wanted me to move to the next interview's
                     step to have an interview with the
-                    <a href="#" data-mdb-tooltip-init title="aka my future manager">Business manager</a>. By the way, every interview I had was scheduled weekly, meaning that I
+                    <a href="#"
+                       data-mdb-tooltip-init
+                       title="aka my future manager">Business manager</a>. By the way, every interview I had was scheduled weekly, meaning that I
                     had enough time to prepare. If you are wondering how I was preparing, then
                     I couldn't be able to answer you - because I don't realy remember.
                 {% endblocktranslate %}

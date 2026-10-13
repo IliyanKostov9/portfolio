@@ -9,7 +9,7 @@ from django_test_migrations.migrator import Migrator
 class Portfolio(TransactionTestCase):
     model: ProjectState
 
-    languages: Final[list[str]] = ["en", "bg", "fr", "ge"]
+    languages: Final[list[str]] = ["en", "bg", "fr", "de"]
 
     def setUp(self):
         with connection.constraint_checks_disabled():

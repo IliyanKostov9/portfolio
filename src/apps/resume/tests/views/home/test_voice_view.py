@@ -5,6 +5,7 @@ from unittest.mock import patch
 import boto3
 from django.core.handlers.asgi import ASGIRequest
 from django.test import TestCase
+from django.urls import reverse
 from moto import mock_aws
 
 BUCKET: Final[str] = "bucket123"
@@ -29,7 +30,7 @@ class VoiceTestCase(TestCase):
 
     def test_post(self):
         response: ASGIRequest = self.client.post(
-            "/home/voice/",
+            reverse("resume:home/voice"),
             data={
                 "text": "This is a test",
             },
@@ -40,7 +41,7 @@ class VoiceTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
         response: ASGIRequest = self.client.post(
-            "/home/voice/",
+            reverse("resume:home/voice"),
             data={"no_text": "This should fail"},
             content_type="application/json",
             follow=False,

@@ -11,14 +11,14 @@ from apps.common.models.translation import Translation
 
 class BlogsTestCase(TestCase):
     def setUp(self):
-        self.request = RequestFactory().get(reverse("blogs"))
+        self.request = RequestFactory().get(reverse("blogs:blogs"))
         self.view = BlogsView()
         self.view.setup(self.request)
         settings.SECRET_KEY = "dummy-key"
 
     def test_get(self):
         response: ASGIRequest = self.client.get(
-            "/blogs/",
+            reverse("blogs:blogs"),
         )
 
         self.request.blogs = [

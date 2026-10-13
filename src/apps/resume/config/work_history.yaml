@@ -5,7 +5,7 @@
   en_specialty: "Site reliability engineer"
   bg_specialty: "Инженер по надеждност на обекта"
   fr_specialty: "Ingénieur en fiabilité des sites"
-  ge_specialty: "Zuverlässigkeitsingenieur"
+  de_specialty: "Zuverlässigkeitsingenieur"
   dates:
     - "Mid 06-2026 - Present"
   en_description: |
@@ -35,7 +35,7 @@
       - intégration de Jira et automatisation des alertes de vulnérabilité Wiz via une fonction Lambda centralisée qui, selon le type de vulnérabilité, crée un ticket Jira sur notre tableau de bord ou informe directement les clients internes ;
       - documentation des procédures opérationnelles (runbooks) et capitalisation des connaissances métier de l'équipe interne ;
       - définition de bonnes pratiques de développement logiciel (tests automatisés, linting, structure de code modulaire, méthodologie Clean Code).
-  ge_description: |
+  de_description: |
     Meine täglichen Aufgaben konzentrieren sich hauptsächlich auf die Unterstützung interner Kunden bei der Betreuung ihrer Produkte in der Cloud während der „Day-2-Phase“ (z. B. nach der Migration von einer On-Premise-Umgebung zu AWS).
     Darüber hinaus kümmere ich mich um die Behebung von Sicherheitslücken, die von Wiz gemeldet werden. Je nach Art des Problems (Fehlkonfiguration, Container-Probleme, Nichteinhaltung von Tagging-Richtlinien) behebe ich diese entweder selbst oder veranlasse die Kunden dazu, die entsprechenden Korrekturen vorzunehmen.
     Schließlich gehört auch die Überwachung der Kosten (FinOps) für die jeweiligen Accounts mittels Cloudability zu meinem Aufgabenbereich.
@@ -51,7 +51,7 @@
   en_specialty: "DevOps Engineer"
   bg_specialty: "DevOps инженер"
   fr_specialty: "Ingénieur DevOps"
-  ge_specialty: "DevOps-Ingenieur"
+  de_specialty: "DevOps-Ingenieur"
   dates:
     - "Mid 05-2025 - 04-2026"
   en_description: |
@@ -97,7 +97,7 @@
       - l'amélioration significative de la documentation interne par sa modernisation en fonction de nos besoins actuels en matière de connaissances, ainsi que la suppression des pages obsolètes ;
       - le pilotage de la migration de nos dépôts internes et de ceux des développeurs de Bitbucket vers GitHub ;
       - la conception d'une stratégie globale pour effectuer les mises en production « dans les règles de l'art », améliorant ainsi le processus de retour en arrière (rollback) et renforçant la confiance du comité de validation des changements (CAB).
-  ge_description: |
+  de_description: |
     Mein erstes Projekt war bei einem Softwareunternehmen, das globale Vertriebsdienste für Fluggesellschaften anbietet. Der Vertrieb dieser Datenprodukte ist in der Reisebranche angesiedelt.
 
     Ich war Teil des Teams für Ticketreservierungen. In meiner Rolle als Platform Engineer bestand meine Aufgabe darin, die Datenverarbeitungs-Pipeline zu warten,
@@ -118,7 +118,7 @@
   en_specialty: "DevOps Engineer"
   bg_specialty: "DevOps инженер"
   fr_specialty: "Ingénieur DevOps"
-  ge_specialty: "DevOps-Ingenieur"
+  de_specialty: "DevOps-Ingenieur"
   dates:
     - "Mid 04-2023 - 05-2025"
     - "Junior 02-2022 - 04-2023"
@@ -204,7 +204,7 @@
 
     6. Une fois tous les tests exécutés, pytest crée un fichier de résultats d'exécution des tests (junitxml_report.xml), nécessaire aux outils de reporting pour visualiser les résultats.
     Nous proposons deux outils de reporting différents : l'API REST Zephyr Scale et Allure.
-  ge_description: |
+  de_description: |
     Mein erstes Projekt konzentrierte sich auf die Entwicklung von Fahrerassistenzsystemen (ADAS) für ein multinationales Automobilunternehmen.
     In diesem Projekt war ich als DevOps-Ingenieur im Bereich des AWS-Cloud-Infrastrukturmanagements tätig.
     Wir waren für die Wartung der gesamten Cloud-Plattform verantwortlich, einschließlich der Bereitstellung von
@@ -243,7 +243,7 @@
   en_specialty: "Software Engineer"
   bg_specialty: "Софтуерен инженер"
   fr_specialty: "Ingénieur logiciel"
-  ge_specialty: "Softwareentwickler"
+  de_specialty: "Softwareentwickler"
   dates:
     - "Internship 07-2021 - 12-2021"
   en_description: |
@@ -255,6 +255,6 @@
   fr_description: |
     Le stage consistait à assurer la maintenance d'un ancien système bancaire destiné à des clients des Balkans.
     Ce système était composé d'une application de bureau compatible avec Windows XP, écrite en langage de programmation CAVO (Visual Objects).
-  ge_description: |
+  de_description: |
     Das Praktikum umfasste die Wartung eines bestehenden Banksystems für Kunden auf dem Balkan.
     Das System bestand aus einer Desktop-Anwendung, die mit Windows XP kompatibel war und in der Programmiersprache CAVO (Visual Objects) geschrieben wurde.

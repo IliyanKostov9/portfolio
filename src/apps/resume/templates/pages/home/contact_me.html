@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-body">
                 <form id="contactForm"
-                      action="{% url 'home/contact-me' %}"
+                      action="{% url 'resume:home/contact-me' %}"
                       method="post"
                       class="form-width-50">
                     {% csrf_token %}
@@ -42,10 +42,6 @@
                             type="submit"
                             value="send_contact_me"
                             class="btn btn-primary btn-block mb-1">
-                        <span id="spinnerSubmit"
-                              class="spinner-border spinner-border-sm display-none"
-                              aria-hidden="true"></span>
-                        <span class="visually-hidden">{% translate "Loading..." %}</span>
                         {% translate "Send" %}
                         <i class="fas fa-paper-plane"></i>
                     </button>
@@ -61,10 +57,6 @@
                                 type="submit"
                                 value="send_cv_download"
                                 class="btn btn-secondary btn-block mb-1">
-                            <span id="spinnerCVDownloadSubmit"
-                                  class="spinner-border spinner-border-sm display-none"
-                                  aria-hidden="true"></span>
-                            <span class="visually-hidden">{% translate "Loading..." %}</span>
                             {% translate "Make a request to download my bio" %}
                             <i class="fas fa-book-open-reader"></i>
                         </button>

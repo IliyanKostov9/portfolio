@@ -10,12 +10,12 @@ class Project(Portfolio):
     en_name: str
     bg_name: str
     fr_name: str
-    ge_name: str
+    de_name: str
 
     en_description: str
     bg_description: str
     fr_description: str
-    ge_description: str
+    de_description: str
 
     scroll_description: bool
     image: str

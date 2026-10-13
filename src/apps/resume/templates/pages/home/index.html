@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% load static cdn compress i18n %}
+{% block title %}
+    portfolio
+{% endblock %}
+{% block description %}
+    Portfolio page to show off
+{% endblock %}
 {% block extra_head %}
     {% compress css %}
         <link href="{% static 'style/home.scss' %}"
@@ -33,18 +39,18 @@
     </div>
     <hr class="hr hr-blurry hide-when-scrolling" />
     <div class="container text-center">
-        {% include 'home/about.html' %}
+        {% include "home/about.html" %}
         <p class="spacing-bot-200" />
-        {% include 'home/work_history.html' %}
+        {% include "home/work_history.html" %}
         <p class="spacing-bot-200" />
-        {% include 'home/education.html' %}
+        {% include "home/education.html" %}
         <p class="spacing-bot-200" />
-        {% include 'home/language_proficiencies.html' %}
+        {% include "home/language_proficiencies.html" %}
         <p class="spacing-bot-200" />
-        {% include 'home/certification.html' %}
+        {% include "home/certification.html" %}
         <p class="spacing-bot-200" />
-        {% include 'home/projects.html' %}
+        {% include "home/projects.html" %}
         <p class="spacing-bot-200" />
-        {% include 'home/contact_me.html' %}
+        {% include "home/contact_me.html" %}
     </div>
 {% endblock %}

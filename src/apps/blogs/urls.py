@@ -1,11 +1,10 @@
 from django.urls import path
 
 from apps.blogs.views.blogs.blogs_view import BlogsView
-from apps.blogs.views.blogs.living_abroad import (
-    LivingAbroadView,
-)
-from apps.blogs.views.monitor.csp_report_view import CSPReportView
+from apps.blogs.views.blogs.living_abroad import LivingAbroadView
 from apps.blogs.views.home.voice_view import VoiceView
+
+app_name = "blogs"
 
 urlpatterns = [
     path("", BlogsView.as_view(), name="blogs"),
@@ -19,5 +18,4 @@ urlpatterns = [
         VoiceView.as_view(),
         name="home/voice",
     ),
-    path("monitor/csp-report", CSPReportView.as_view(), name="csp-report"),
 ]

@@ -10,7 +10,7 @@ class TechnologyCategory(Portfolio):
     en_name: str
     bg_name: str
     fr_name: str
-    ge_name: str
+    de_name: str
 
     @classmethod
     def from_yaml(cls, path: str) -> list[TechnologyCategory]:

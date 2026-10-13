@@ -10,7 +10,7 @@ class LanguageProficiency(Portfolio):
     en_name: str
     bg_name: str
     fr_name: str
-    ge_name: str
+    de_name: str
 
     proficiency: str
     icon: str

@@ -37,7 +37,7 @@ PROFICIENCY_TRANSLATIONS = {
         "Fluent": "Courant",
         "Native": "Indigène",
     },
-    "ge": {
+    "de": {
         "Beginner": "Anfänger",
         "Intermediate": "Dazwischenliegend",
         "Advanced": "Fortschrittlich",

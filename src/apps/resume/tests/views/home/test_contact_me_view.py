@@ -3,6 +3,7 @@ import os
 from django.conf import settings
 from django.core.handlers.asgi import ASGIRequest
 from django.test import TestCase
+from django.urls import reverse
 
 
 class ContactMeTestCase(TestCase):
@@ -19,7 +20,7 @@ class ContactMeTestCase(TestCase):
         # """
 
         response: ASGIRequest = self.client.post(
-            "/home/contact-me/",
+            reverse("resume:home/contact-me"),
             {
                 "name": "dummy",
                 "email": "dummy.dummy@mail.com",
@@ -35,10 +36,10 @@ class ContactMeTestCase(TestCase):
         #     hash(expected_headers),
         # )
         self.assertEqual(response.status_code, 200)
-        self.assertRedirects(response, "/")
+        self.assertRedirects(response, "/en/")
 
         response: ASGIRequest = self.client.post(
-            "/home/contact-me/",
+            reverse("resume:home/contact-me"),
             {
                 "name": "dummy",
                 "email": "This is invalid email",
