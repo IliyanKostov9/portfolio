@@ -38,7 +38,7 @@ dev = [
     "python-dotenv>=1.2.3",
 ]
 test = [
-    "black>=26.5.1",
+    "black>=26.10.1",
     "django-migration-linter>=6.0.0",
     "django-test-migrations>=1.6.0",
     "flake8>=7.4.1",
