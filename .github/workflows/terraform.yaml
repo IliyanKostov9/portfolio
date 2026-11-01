@@ -42,7 +42,7 @@ jobs:
         env:
           AGE_KEY: ${{ secrets.PORTFOLIO_AGE_KEY }}
 
-      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24
+      - uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b
       - uses: cachix/cachix-action@38b082610b782e7e93e209c35fd730d399dee866
         with:
           name: iliyankostov9-portfolio-infra
@@ -88,7 +88,7 @@ jobs:
           name: build
           path: .
 
-      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24
+      - uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b
       - uses: cachix/cachix-action@38b082610b782e7e93e209c35fd730d399dee866
         with:
           name: iliyankostov9-portfolio-infra
