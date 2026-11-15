@@ -34,7 +34,7 @@ jobs:
       - name: Setup Age
         uses: AnimMouse/setup-age@d7fa8779bcb38294334a3aa753c7171e8da5067e # v1.2
 
-      - name: Decrypt terraform.tfvars
+      - name: Decrypt Age *.tfvars files
         run: |
           echo "$AGE_KEY" > /tmp/age-key.txt
           make decrypt-file FILE=infra/iac/env/prod/terraform.tfvars.age AGE_KEY=/tmp/age-key.txt
