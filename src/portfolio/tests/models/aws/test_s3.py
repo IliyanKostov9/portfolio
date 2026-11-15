@@ -1,11 +1,13 @@
-from typing import Any, Final
-from pathlib import Path
-from unittest import TestCase
-import boto3
 import os
+from pathlib import Path
+from typing import Any, Final
+from unittest import TestCase
 from unittest.mock import patch
-from portfolio.models.aws.s3 import S3
+
+import boto3
 from moto import mock_aws
+
+from portfolio.models.aws.s3 import S3
 
 
 @patch.dict(
@@ -35,7 +37,7 @@ class TestS3(TestCase):
 
     def test_upload(self):
         s3 = S3(self.BUCKET, "123", "456")
-        key: str = s3.TMP_FILE + "/test.txt"
+        key: str = s3.LOCAL_TMP_DIR + "/test.txt"
 
         s3.upload(key, file=key)
 
@@ -50,7 +52,7 @@ class TestS3(TestCase):
 
     def test_download(self):
         s3 = S3(self.BUCKET, "123", "456")
-        key: str = s3.TMP_FILE + "/test.txt"
+        key: str = s3.LOCAL_TMP_DIR + "/test.txt"
 
         with self.assertRaises(ValueError):
             s3.download("oaeaoe")

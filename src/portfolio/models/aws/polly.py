@@ -1,7 +1,7 @@
 import hashlib
 import os
 from pathlib import Path
-from typing import Any
+from typing import Any, Final
 
 import boto3
 from django.conf import settings
@@ -78,18 +78,15 @@ class Polly:
         mp3_file: str = (
             hashlib.sha256(f"{self.language_code}_{text}".encode()).hexdigest() + ".mp3"
         )
+        local_mp3_file_path: Final[str] = s3.LOCAL_TMP_DIR + "/" + mp3_file
 
         if s3.exists(mp3_file):
             if not os.path.isfile(
-                str(Path(__file__).resolve().parents[4])
-                + "/"
-                + s3.TMP_FILE
-                + "/"
-                + mp3_file
+                str(Path(__file__).resolve().parents[4]) + "/" + local_mp3_file_path
             ):
                 s3.download(mp3_file)
 
-            with open(S3.TMP_FILE + "/" + mp3_file, "rb") as file:
+            with open(local_mp3_file_path, "rb") as file:
                 stream: bytes = file.read()
         else:
             stream: bytes = self.client.synthesize_speech(
@@ -101,10 +98,10 @@ class Polly:
                 VoiceId=self.voice,
             )["AudioStream"].read()
 
-            os.makedirs(S3.TMP_FILE, exist_ok=True)
-            with open(S3.TMP_FILE + "/" + mp3_file, "wb") as file:
+            os.makedirs(s3.LOCAL_TMP_DIR, exist_ok=True)
+            with open(local_mp3_file_path, "wb") as file:
                 file.write(stream)
-            s3.upload(mp3_file, file=S3.TMP_FILE + "/" + mp3_file)
+            s3.upload(mp3_file, file=local_mp3_file_path)
 
             self.LOG.success(
                 f"I have successfully converted text-to-speech for mp3 file: {mp3_file}",
