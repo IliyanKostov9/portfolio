@@ -49,7 +49,7 @@ class TestPolly(TestCase):
         matches: list[str] = [
             file
             for file in os.listdir(
-                str(Path(__file__).resolve().parents[5]) + "/" + S3.TMP_FILE
+                str(Path(__file__).resolve().parents[5]) + "/" + S3.LOCAL_TMP_DIR
             )
             if file.endswith("mp3")
         ]
